@@ -1,0 +1,22 @@
+{
+  "queriesAttempted": [
+    {
+      "pattern": "amenity=prayer_room + religion=muslim",
+      "rawResultCount": 0,
+      "newAfterDedup": 0
+    },
+    {
+      "pattern": "building=religious + religion=muslim",
+      "rawResultCount": 0,
+      "newAfterDedup": 0
+    },
+    {
+      "pattern": "historic=mosque",
+      "rawResultCount": 0,
+      "newAfterDedup": 0
+    }
+  ],
+  "totalNewUniqueObjects": 0,
+  "newObjects": [],
+  "expandedTotalCount": 588
+}

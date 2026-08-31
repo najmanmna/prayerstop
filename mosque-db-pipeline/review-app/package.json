@@ -1,0 +1,9 @@
+{
+  "name": "prayerstop-mosque-review-app",
+  "private": true,
+  "type": "module",
+  "description": "Standalone multi-user mosque review web app (Step 7B). Not part of the PrayerStop Expo app's package/build.",
+  "scripts": {
+    "test": "node --test tests/"
+  }
+}

@@ -1,0 +1,3642 @@
+[
+  {
+    "nsdiId": "21820",
+    "dmrcaRegistrationNo": "R/0318/AM/03",
+    "name": "NINTAVUR JUMMA MOSQUE",
+    "address": "NINTAVUR",
+    "city": "NINTAVUR",
+    "district": "Ampara",
+    "latitude": 7.347417618000065,
+    "longitude": 81.85275233800007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjithul Falah, Nintavur",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "20809",
+    "dmrcaRegistrationNo": "R/0664/AM/15",
+    "name": "PATTIYADIPITTY JUMMA MOSQUE",
+    "address": "AKKARAIPATTU",
+    "city": "AKKARAIPATTU",
+    "district": "Ampara",
+    "latitude": 7.230078886000058,
+    "longitude": 81.82001922700005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 78.6,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Jummah Mosque, Paddiyadipitti",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "21150",
+    "dmrcaRegistrationNo": "R/0778/AM/37",
+    "name": "PALAMUNAI JUMMA MOSQUE",
+    "address": "PALAMUNAI",
+    "city": "PALAMUNAI E.P",
+    "district": "Ampara",
+    "latitude": 7.270185391000041,
+    "longitude": 81.84744877300005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Thaha Al-Pusairi Jummah Mosque, Palamunai",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "17902",
+    "dmrcaRegistrationNo": "R/0922/AM/41",
+    "name": "NOORANIYA GRAND JUMMA MOSQUE",
+    "address": "VILLAGE 12, WARD NO.1,",
+    "city": "CENTRAL CAMP",
+    "district": "Ampara",
+    "latitude": 6.872843123000052,
+    "longitude": 81.83462812600004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al Nooraniya Mosque",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "20782",
+    "dmrcaRegistrationNo": "R/960/AM/44",
+    "name": "SAMATHANIYA MATHURASA THAKKIYA",
+    "address": "NATPITIMUNAI,",
+    "city": "KALMUNAI",
+    "district": "Ampara",
+    "latitude": 7.22711729100007,
+    "longitude": 81.82149761800008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 73.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "AL Mathrasathul Muhammathiya",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "22439",
+    "dmrcaRegistrationNo": "R/1036/AM/47",
+    "name": "AL - MASJIDUL NOORANIYA",
+    "address": "12TH COLONY,",
+    "city": "MANDUR",
+    "district": "Ampara",
+    "latitude": 7.430987456000025,
+    "longitude": 81.74688970800008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Nooraniya Grand Jummah Mosque",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "17928",
+    "dmrcaRegistrationNo": "R/1044/AM/50",
+    "name": "MEERA SAHIB ANDAVAR THAKKIYA",
+    "address": "SAMMANTHURAI",
+    "city": "SAMMANTHURAI",
+    "district": "Ampara",
+    "latitude": 6.875364128000058,
+    "longitude": 81.83483719300006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Meera Masjid Mosque",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "21479",
+    "dmrcaRegistrationNo": "R/1099/AM/63",
+    "name": "MASJIDUL FALAH",
+    "address": "POTTUVIL",
+    "city": "POTTUVIL",
+    "district": "Ampara",
+    "latitude": 7.301515066000036,
+    "longitude": 81.77379970700008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al-Falah Mosque, Nainakadu",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "21371",
+    "dmrcaRegistrationNo": "R/1206/AM/85",
+    "name": "MADRASATHUL FAKRIYA MOSQUE",
+    "address": "UNIT - 4,",
+    "city": "CENTRAL CAMP",
+    "district": "Ampara",
+    "latitude": 7.2908439110000245,
+    "longitude": 81.85883654500003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 82.1,
+    "runnerUpScore": 70.3,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "AL Madrasathul Ilahiyya",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "17967",
+    "dmrcaRegistrationNo": "R/1322/AM/94",
+    "name": "AL - MASJIDUL MUNEER",
+    "address": "HIDAYAPURAM,",
+    "city": "POTTUVIL",
+    "district": "Ampara",
+    "latitude": 6.878538936000041,
+    "longitude": 81.83902609100005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 92.3,
+    "runnerUpScore": 72.7,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Al Muneera Mosque",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "17890",
+    "dmrcaRegistrationNo": "R/1324/AM/96",
+    "name": "AL MASJIDUL NAJATH",
+    "address": "PAKIYAWATTE,",
+    "city": "POTTUVIL",
+    "district": "Ampara",
+    "latitude": 6.872077646000037,
+    "longitude": 81.82419949200005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Al Najath Jumma Mosque",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "21883",
+    "dmrcaRegistrationNo": "R/1993/AM/199",
+    "name": "AL MASJITHUL ILAHI",
+    "address": "SENGAMAM",
+    "city": "POTTUVIL",
+    "district": "Ampara",
+    "latitude": 7.356948665000061,
+    "longitude": 81.77941154900003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 90.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjithul Hilahi Mosque",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "21855",
+    "dmrcaRegistrationNo": "R/2622/AM/261",
+    "name": "MASJIDUL HAQ",
+    "address": "SAHIBU ROAD, KALMUNAI KUDI - 06",
+    "city": "KALMUNAI KUDI",
+    "district": "Ampara",
+    "latitude": 7.353236182000046,
+    "longitude": 81.85273661000008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjithul Haq Mosque",
+    "dmrcaSourcePdf": "ampara__ampara.pdf"
+  },
+  {
+    "nsdiId": "24824",
+    "dmrcaRegistrationNo": "R/0205/A/04",
+    "name": "KEKIRAWA JUMMA MOSQUE",
+    "address": "KEKIRAWA",
+    "city": "KEKIRAWA",
+    "district": "Anuradhapura",
+    "latitude": 8.036800037000035,
+    "longitude": 80.59897791000003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Jumma Mosque,kekirawa",
+    "dmrcaSourcePdf": "anuradhapura__ANURADHAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24893",
+    "dmrcaRegistrationNo": "R/218/A.05",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "MAIN STREET,",
+    "city": "MADAWACHCHIYA",
+    "district": "Anuradhapura",
+    "latitude": 8.064001511000072,
+    "longitude": 80.48509708200004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "anuradhapura__ANURADHAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25296",
+    "dmrcaRegistrationNo": "R/273/A.09",
+    "name": "MOHIDEEN MASJID",
+    "address": "RAMBATHWILA,",
+    "city": "KAHATAGASDIGILIYA",
+    "district": "Anuradhapura",
+    "latitude": 8.259276855000053,
+    "longitude": 80.20497298400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Masjid(Mosque)",
+    "dmrcaSourcePdf": "anuradhapura__ANURADHAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25297",
+    "dmrcaRegistrationNo": "R/310/A.12",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "ALAHAPERUMAGAMA,",
+    "city": "VIJITHAPURA",
+    "district": "Anuradhapura",
+    "latitude": 8.259276855000053,
+    "longitude": 80.20497298400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Masjid(Mosque)",
+    "dmrcaSourcePdf": "anuradhapura__ANURADHAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25301",
+    "dmrcaRegistrationNo": "R/312/A.13",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "NELUGOLLAKADA,",
+    "city": "RATMALGAHAWEWA",
+    "district": "Anuradhapura",
+    "latitude": 8.262626279000074,
+    "longitude": 80.20851689600005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Masjid(Mosque)",
+    "dmrcaSourcePdf": "anuradhapura__ANURADHAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25302",
+    "dmrcaRegistrationNo": "R/325/A.15",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "NACHCHADUWA,",
+    "city": "HIDOGAMA",
+    "district": "Anuradhapura",
+    "latitude": 8.262626279000074,
+    "longitude": 80.20851689600005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Masjid(Mosque)",
+    "dmrcaSourcePdf": "anuradhapura__ANURADHAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24677",
+    "dmrcaRegistrationNo": "R/1572/A.100",
+    "name": "MAJIDUL MUNAWARA",
+    "address": "KATUKELIYAWA",
+    "city": "GAMBIRIGASWEWA",
+    "district": "Anuradhapura",
+    "latitude": 7.975192722000031,
+    "longitude": 80.52884075600008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 71.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjidal Mur Mosque",
+    "dmrcaSourcePdf": "anuradhapura__ANURADHAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "17734",
+    "dmrcaRegistrationNo": "R/139/BD/33",
+    "name": "BOGAHAKUMBURA JUMMA MOSQUE",
+    "address": "BOGAHAKUMBURA",
+    "city": "BOGAHAKUMBURA",
+    "district": "Badulla",
+    "latitude": 6.860558956000034,
+    "longitude": 80.87506705400006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 91.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Bogakumbura Jumma Mosque",
+    "dmrcaSourcePdf": "badulla__BADULLA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "19557",
+    "dmrcaRegistrationNo": "R/1209/BD/46",
+    "name": "MUSLIM MOSQUE",
+    "address": "BLACKWOOD ESTATE,",
+    "city": "HAPUTALE",
+    "district": "Badulla",
+    "latitude": 7.020361014000059,
+    "longitude": 81.16364057300007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Albaduriya Muslim Mosque",
+    "dmrcaSourcePdf": "badulla__BADULLA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18688",
+    "dmrcaRegistrationNo": "R/43/C.09",
+    "name": "MASJIDUS SALAM JUMMA MOSQUE",
+    "address": "NO. 56MALIGAWATTE LANE",
+    "city": "COLOMBO - 10",
+    "district": "Colombo",
+    "latitude": 6.936953534000054,
+    "longitude": 79.87206236900005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidus Salam Jumma Masjid",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "19030",
+    "dmrcaRegistrationNo": "R/88/C.17",
+    "name": "MUTWAL JUMMA MOSQUE",
+    "address": "74, MUTUWELLA MAWATHA",
+    "city": "COLOMBO - 15",
+    "district": "Colombo",
+    "latitude": 6.962547162000021,
+    "longitude": 79.86400237600003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Mutwal Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18565",
+    "dmrcaRegistrationNo": "R/101/C.23",
+    "name": "MASJID MUHIYADEEN THAKKIYA",
+    "address": "67, DR. S.D. FERNANDO MAWATHA, MUTUWAL",
+    "city": "COLOMBO - 15",
+    "district": "Colombo",
+    "latitude": 6.930161960000021,
+    "longitude": 79.87105512100004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 77.8,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Muhiyadeen Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18691",
+    "dmrcaRegistrationNo": "R/142/C.26",
+    "name": "MEMON HANAFI MOSQUE",
+    "address": "45, 3RD CROSS STREET",
+    "city": "COLOMBO - 11",
+    "district": "Colombo",
+    "latitude": 6.937029720000055,
+    "longitude": 79.85274445900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 91.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Memon Hanufi Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18387",
+    "dmrcaRegistrationNo": "R/334/C.37",
+    "name": "DEWATAGAHA MOSQUE & SHRINE",
+    "address": "12, BAPIST CHAPEL ROAD, CINNAMON GARDEN",
+    "city": "COLOMBO - 07",
+    "district": "Colombo",
+    "latitude": 6.916247141000042,
+    "longitude": 79.86437932400008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 80.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Davatagaha Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18577",
+    "dmrcaRegistrationNo": "R/336/C.38",
+    "name": "KALANDAR SAHIB JUMMA MOSQUE",
+    "address": "191/26, ZAHIR CASSIM HAJIAR PLACE, 1ST DIVISION, MARADANA",
+    "city": "COLOMBO - 10",
+    "district": "Colombo",
+    "latitude": 6.930925007000042,
+    "longitude": 79.86261716500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 92.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Kalandharsahib Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18293",
+    "dmrcaRegistrationNo": "R/428/C.41",
+    "name": "HANWELLA JUMMA MOSQUE",
+    "address": "CROSS ROAD",
+    "city": "HANWELLA",
+    "district": "Colombo",
+    "latitude": 6.908157479000067,
+    "longitude": 80.08392096900008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 94.1,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Hangwella Jummah Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18828",
+    "dmrcaRegistrationNo": "R/744/C.63",
+    "name": "BAMBALAPITIYA MOHIDEEN JUMMA MOSQUE",
+    "address": "55, NEW BULLERS ROAD",
+    "city": "COLOMBO - 04",
+    "district": "Colombo",
+    "latitude": 6.946083798000075,
+    "longitude": 79.86072074400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18657",
+    "dmrcaRegistrationNo": "R/782/C.65",
+    "name": "MEERANIYA JUMMA MASJID",
+    "address": "263, MEERANIYA STREET",
+    "city": "COLOMBO - 12",
+    "district": "Colombo",
+    "latitude": 6.935341966000067,
+    "longitude": 79.88101264000005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 75.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mirania Jumma Masjid",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18873",
+    "dmrcaRegistrationNo": "R/987/C.94",
+    "name": "MASJIDUN NOOR JUMMA MOSQUE",
+    "address": "MEEPE GALAGEDERA",
+    "city": "PADUKKA",
+    "district": "Colombo",
+    "latitude": 6.949518811000075,
+    "longitude": 79.88134836700004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Madurazuthal Al Noor Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "19002",
+    "dmrcaRegistrationNo": "R/1071/C.114",
+    "name": "AL MASJIDUR RAHMANIYA MOSQUE",
+    "address": "80/82, NEWAHAM SQUARE",
+    "city": "COLOMBO - 13",
+    "district": "Colombo",
+    "latitude": 6.960171412000022,
+    "longitude": 79.86860372400008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 94.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidur Rahumaniya Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18910",
+    "dmrcaRegistrationNo": "R/1606/C.161",
+    "name": "MASJIDHUL FALAH JUMMA MOSQUE",
+    "address": "NO.475/145, SRIMA BANDARANAYAKE MAWATHA, STADIUMGAMA, GRANDPASS",
+    "city": "COLOMBO - 14",
+    "district": "Colombo",
+    "latitude": 6.95170041800003,
+    "longitude": 79.87194598000008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al Falah Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18539",
+    "dmrcaRegistrationNo": "R/1691/C.169",
+    "name": "MARADANA MOSQUE",
+    "address": "MARADANA ROAD, MARADANA",
+    "city": "COLOMBO - 10",
+    "district": "Colombo",
+    "latitude": 6.927698218000046,
+    "longitude": 79.86400188400006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Maradana Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18723",
+    "dmrcaRegistrationNo": "R/1784/C.170",
+    "name": "MASJIDUL DARUL SALAM",
+    "address": "NO.389/C, ZARAS GARDEN, MEGODA KOLONNAWA",
+    "city": "WELLAMPITIYA",
+    "district": "Colombo",
+    "latitude": 6.939202500000022,
+    "longitude": 79.87302059200005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidus Salam Jumma Masjid",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18259",
+    "dmrcaRegistrationNo": "R/1818/C.173",
+    "name": "NOORANIYA JUMMA MASJID",
+    "address": "163, MOSQUE LANE, NAWALA ROAD",
+    "city": "RAJAGIRIYA",
+    "district": "Colombo",
+    "latitude": 6.905148968000049,
+    "longitude": 79.90005999800007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 94.1,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Noorniya Jummah Masjid",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "19005",
+    "dmrcaRegistrationNo": "R/1823/C.174",
+    "name": "HIDAYATH MOSQUE",
+    "address": "25/5, DAM STREET",
+    "city": "COLOMBO - 12",
+    "district": "Colombo",
+    "latitude": 6.960736123000061,
+    "longitude": 79.87245006500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 71.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Hidyih Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18839",
+    "dmrcaRegistrationNo": "R/2006/C/18 7",
+    "name": "MASJIDH UMAR",
+    "address": "NO. 21/A, PRAGATHIMAWATHA , STACE ROAD",
+    "city": "COLOMBO 14",
+    "district": "Colombo",
+    "latitude": 6.9468823240000575,
+    "longitude": 79.87715262800003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Umar Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18855",
+    "dmrcaRegistrationNo": "R/2153/C/21 0",
+    "name": "MOHIDEEN MASJID",
+    "address": "27, MAHABUTHGAMUWA",
+    "city": "ANGODA",
+    "district": "Colombo",
+    "latitude": 6.9479056350000405,
+    "longitude": 79.87210224500006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18762",
+    "dmrcaRegistrationNo": "R/2503/C/23 7",
+    "name": "AL MAKAMUS SAIFUDEEN MOSQUE",
+    "address": "344,WOLFENDAL STREET,COLOMBO-13",
+    "city": "COLOMBO",
+    "district": "Colombo",
+    "latitude": 6.941654838000034,
+    "longitude": 79.85921174400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 94.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Makamus sarifuddeen Mosque",
+    "dmrcaSourcePdf": "colombo__COLOMBO-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18850",
+    "dmrcaRegistrationNo": "R/04/GM.01",
+    "name": "RAKSHAPANA JUMMA MOSQUE",
+    "address": "RAKSHAPANA",
+    "city": "MALWANA",
+    "district": "Gampaha",
+    "latitude": 6.947623043000021,
+    "longitude": 80.01214870300004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 77.8,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Raxapana Jumma Masjid",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28423",
+    "dmrcaRegistrationNo": "R/34/GM.02",
+    "name": "AL - MASJIDUL RAWLA JUMMA MOSQUE",
+    "address": "MOSQUE ROAD, KALAGEDIHENA",
+    "city": "THIHARIYA",
+    "district": "Gampaha",
+    "latitude": 7.118001681000067,
+    "longitude": 80.07779700300006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 90.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidur Rawlah Grand Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28064",
+    "dmrcaRegistrationNo": "R/96/GM.06",
+    "name": "NAMBULUWA JUMMA MOSQUE",
+    "address": "NAMBULUWA",
+    "city": "PASYALA",
+    "district": "Gampaha",
+    "latitude": 7.172043939000048,
+    "longitude": 80.13506175300006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Nambuluwa Grand Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "19201",
+    "dmrcaRegistrationNo": "R/496/GM.12",
+    "name": "MASJIDUN NOOR JUMMA MOSQUE",
+    "address": "UDUGODA",
+    "city": "RUGGAHAWELA",
+    "district": "Gampaha",
+    "latitude": 6.978315296000062,
+    "longitude": 79.94163027500008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor Jumma Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "19323",
+    "dmrcaRegistrationNo": "R/894/GM.21",
+    "name": "AKBAR TOWN JUMMA MASJID",
+    "address": "AKBAR TOWN",
+    "city": "WATTALA",
+    "district": "Gampaha",
+    "latitude": 6.990645290000032,
+    "longitude": 79.90930390700004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Akbar Town Jumma Masjid",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28312",
+    "dmrcaRegistrationNo": "R/945/GM.27",
+    "name": "MAGUNAMUL FALAH JUMMA MOSQUE",
+    "address": "15, CHILAW ROAD",
+    "city": "NEGOMBO",
+    "district": "Gampaha",
+    "latitude": 7.095965522000029,
+    "longitude": 80.10397334200007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Falah",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28164",
+    "dmrcaRegistrationNo": "R/1094/GM.34",
+    "name": "MASJIDUN NOOR JUMMA MOSQUE",
+    "address": "HAJEE FATHIMA GRADEN , MAKOLA",
+    "city": "KADAWATHA",
+    "district": "Gampaha",
+    "latitude": 7.1156463110000345,
+    "longitude": 80.14131463500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor Jummah Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28480",
+    "dmrcaRegistrationNo": "R/1097/GM.35",
+    "name": "MASJIDUN NOOR JUMMA MOSQUE",
+    "address": "HUNUPOLA",
+    "city": "ATTANAGALLA",
+    "district": "Gampaha",
+    "latitude": 7.1027208400000745,
+    "longitude": 80.10557777500003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28483",
+    "dmrcaRegistrationNo": "R/1379/GM.39",
+    "name": "MASJIDUN-UN-NOOR JUMMA MOSQUE",
+    "address": "KAHATOWITA",
+    "city": "VEYANGODA",
+    "district": "Gampaha",
+    "latitude": 7.093823884000074,
+    "longitude": 80.10939789300005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor Jumma Masjid",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "20724",
+    "dmrcaRegistrationNo": "R/2038/GM 66",
+    "name": "MASJIDUL HAIRATH",
+    "address": "123, ST. LAZARUS ROAD, PERIYAMULLA",
+    "city": "NEGOMBO",
+    "district": "Gampaha",
+    "latitude": 7.219892340000058,
+    "longitude": 79.85277911500003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Hairath Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "20227",
+    "dmrcaRegistrationNo": "R/2090/GM 74",
+    "name": "RADDOLUGAMA JUMMAH MOSQUE",
+    "address": "RADDOLUGAMA",
+    "city": "RADDOLUGAMA",
+    "district": "Gampaha",
+    "latitude": 7.142447634000064,
+    "longitude": 79.89760081500003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Raddolugama Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18922",
+    "dmrcaRegistrationNo": "R/2125/GM 76",
+    "name": "MASJIDUL MUBARAK & THAKKIYA",
+    "address": "YATIHENA ROAD",
+    "city": "MALWANA",
+    "district": "Gampaha",
+    "latitude": 6.952524813000025,
+    "longitude": 80.01383016500006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Al Mubarak Primary School",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28313",
+    "dmrcaRegistrationNo": "R/2241/GM/82",
+    "name": "MUHIYADEEN THAKKIYA",
+    "address": "300, DIPPITIGODA ROAD, HUNUPITIYA",
+    "city": "WATTALA",
+    "district": "Gampaha",
+    "latitude": 7.0976820440000665,
+    "longitude": 80.11205571200009,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 95.2,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Muhiyaddeen Jumma Masjid",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28481",
+    "dmrcaRegistrationNo": "R/2402/GM/89",
+    "name": "JAMIUTH THAWHEETH JUMMA MOSQUE",
+    "address": "1 4 6 , M A I N S T REET, KAHATOWITA",
+    "city": "KAHATOWITA",
+    "district": "Gampaha",
+    "latitude": 7.095710430000054,
+    "longitude": 80.11195151100003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 83.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Jamiut Tawheed Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18985",
+    "dmrcaRegistrationNo": "R/2423/GM 92",
+    "name": "MALWANA JUMMA MOSQUE",
+    "address": "KARABUGAS JUNCTION MALWANA",
+    "city": "MALWANA",
+    "district": "Gampaha",
+    "latitude": 6.959222505000071,
+    "longitude": 80.01622412700004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Malwana Jumma Masjid Mosque",
+    "dmrcaSourcePdf": "gampaha__GAMPAHA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "14736",
+    "dmrcaRegistrationNo": "R/1128/H/17",
+    "name": "MASJIDUN NOOR JUMMA MOSQUE",
+    "address": "CIPPIKULAM",
+    "city": "HAMBANTOTA",
+    "district": "Hambantota",
+    "latitude": 6.140826430000061,
+    "longitude": 81.12358633000008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjid Al Noor",
+    "dmrcaSourcePdf": "hambantota__HAMBANTOTA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26993",
+    "dmrcaRegistrationNo": "R/0567/J/12",
+    "name": "MANKUMPAN MOSQUE",
+    "address": "VELANAI",
+    "city": "JAFFNA",
+    "district": "Jaffna",
+    "latitude": 9.633517361000031,
+    "longitude": 79.92243272100006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Mankumpan Jumma Mosque",
+    "dmrcaSourcePdf": "jaffana__JAFFNA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16550",
+    "dmrcaRegistrationNo": "R/07/KL.02",
+    "name": "MAJLISUN NAKSHABANDIYA THAKKIYA",
+    "address": "NO.37, KURASANI MOULANA MAWATHA",
+    "city": "KALUTARA",
+    "district": "Kalutara",
+    "latitude": 6.701192253000045,
+    "longitude": 79.99664228200004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Nakshabandiya",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16025",
+    "dmrcaRegistrationNo": "R/18/KL.03",
+    "name": "MOHIYIDEEN HILUR GRAND JUMMA MOSQUE & SHRINE & MOHIDEEN PALLI",
+    "address": "52, MOSQUE STREET",
+    "city": "KALUTARA",
+    "district": "Kalutara",
+    "latitude": 6.576455794000026,
+    "longitude": 79.96593211900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Hilur Jummah",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15672",
+    "dmrcaRegistrationNo": "R/28/KL.05",
+    "name": "MASJIDUN NABAVI JUMMA MOSQUE",
+    "address": "MOSQUE ROAD",
+    "city": "KL/WELIPENNA",
+    "district": "Kalutara",
+    "latitude": 6.470517251000047,
+    "longitude": 80.10658861900004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Nabavi Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16050",
+    "dmrcaRegistrationNo": "R/149/KL.09",
+    "name": "KALUTARA BAZAAR MOSQUE",
+    "address": "DE SILVA STREET,",
+    "city": "KALUTARA SOUTH",
+    "district": "Kalutara",
+    "latitude": 6.5829789280000455,
+    "longitude": 79.96088121200006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 96.6,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Kalutara Bazar",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16770",
+    "dmrcaRegistrationNo": "R/159/KL.12",
+    "name": "JAMIUL KHAIRATH AMBALANDUWA JUMMA MOSQUE",
+    "address": "AMBALANDUWA",
+    "city": "PANADURA",
+    "district": "Kalutara",
+    "latitude": 6.737887324000042,
+    "longitude": 79.91764959900007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 83.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Al Musjid Jamiul Khairath,Ambalandoowa",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15750",
+    "dmrcaRegistrationNo": "R/172/KL.13",
+    "name": "MAGGONA JUMMA MOSQUE",
+    "address": "MAGGONA",
+    "city": "MAGGONA",
+    "district": "Kalutara",
+    "latitude": 6.498313013000029,
+    "longitude": 79.98395160800004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjid Mahamud Mosque Idiriligoda Maggona",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16829",
+    "dmrcaRegistrationNo": "R/261/KL.19",
+    "name": "HENAMULLA JISTHIYA MOSQUE",
+    "address": "105, GALLE ROAD, HENAMULLA",
+    "city": "PANADURA",
+    "district": "Kalutara",
+    "latitude": 6.748421978000067,
+    "longitude": 79.89666846700004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 78.3,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Ummy Henamulla",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16806",
+    "dmrcaRegistrationNo": "R/271/KL.20",
+    "name": "RAWLATHUL ASFIYA JUMMA MOSQUE",
+    "address": "PALLIMULLA",
+    "city": "PANADURA",
+    "district": "Kalutara",
+    "latitude": 6.742895476000058,
+    "longitude": 79.89969030400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 97.0,
+    "runnerUpScore": 81.2,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Rawlathul Asftiya Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16876",
+    "dmrcaRegistrationNo": "R/314/KL.22",
+    "name": "NAKSHABANDIYA THAKKIYA",
+    "address": "ATULUGAMA",
+    "city": "BANDARAGAMA",
+    "district": "Kalutara",
+    "latitude": 6.756396958000039,
+    "longitude": 79.90239694300004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Nakshabandiya Jumma Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16804",
+    "dmrcaRegistrationNo": "R/321/KL.24",
+    "name": "ROWLATHUL ATHKIYA THAKKIYA",
+    "address": "TOTAWATTE",
+    "city": "PANADURA",
+    "district": "Kalutara",
+    "latitude": 6.742747517000055,
+    "longitude": 79.91274952800006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 90.9,
+    "runnerUpScore": 82.4,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Rawathul Athkiya Jumma Masjid",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16003",
+    "dmrcaRegistrationNo": "R/468/KL.29",
+    "name": "KADIRIYA THAKKIYA ALIAS ALAVIA THAKKIYA",
+    "address": "MOOR STREET",
+    "city": "KALUTARA SOUTH",
+    "district": "Kalutara",
+    "latitude": 6.571760709000046,
+    "longitude": 79.96967265300003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 73.2,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Alaviyathul Qadiriya Thakkiya",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15683",
+    "dmrcaRegistrationNo": "R/540/KL.33",
+    "name": "KACHCHIMALAI SHRINE",
+    "address": "BERUWELA",
+    "city": "BERUWELA",
+    "district": "Kalutara",
+    "latitude": 6.473074736000058,
+    "longitude": 79.97639513700005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 72.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Ketchimala Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15638",
+    "dmrcaRegistrationNo": "R/642/KL.36",
+    "name": "MASJIDUR RAHUMAN",
+    "address": "182, ADIKARIGODA",
+    "city": "DHARGA TOWN",
+    "district": "Kalutara",
+    "latitude": 6.462115178000033,
+    "longitude": 79.98327907100008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 85.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjid Rahaman Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16027",
+    "dmrcaRegistrationNo": "R/807/KL.42",
+    "name": "BAITHUL MUBARAK BUKHARI THAKKIYA",
+    "address": "MALIGAWATTE, MALIGAHENA",
+    "city": "BERUWELA",
+    "district": "Kalutara",
+    "latitude": 6.577581781000049,
+    "longitude": 80.14738434400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mubarak Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15977",
+    "dmrcaRegistrationNo": "R/832/KL.43",
+    "name": "ZAVIATHUL FASIYATHUL SHATHULIYA",
+    "address": "41, ZAVIYA ROAD, KATUWA, HENAMULLA",
+    "city": "PANADURA",
+    "district": "Kalutara",
+    "latitude": 6.563233036000042,
+    "longitude": 79.96880248300005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 83.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al Masjidul Fasiyathush Shazuliyah",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16528",
+    "dmrcaRegistrationNo": "R/912/KL.46",
+    "name": "ATULUGAMUWA GRAND JUMMA MOSQUE",
+    "address": "ATULUGAMA",
+    "city": "ALUTHGAMA",
+    "district": "Kalutara",
+    "latitude": 6.695854913000062,
+    "longitude": 79.99714122200004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 90.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Atulugama Jummah",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16540",
+    "dmrcaRegistrationNo": "R/1066/KL.52",
+    "name": "MASJIDUN NOOR",
+    "address": "MUSLIM COLONY, SIR RAZEEK FAREEDPURAM WELIPENNA",
+    "city": "WELIPENNE",
+    "district": "Kalutara",
+    "latitude": 6.699310542000035,
+    "longitude": 79.99360509500008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15992",
+    "dmrcaRegistrationNo": "R/1002/KL53",
+    "name": "MAHAHEENATIYANGALA MOSQUE",
+    "address": "MAHAHEENATIYANGALA",
+    "city": "KALUTARA",
+    "district": "Kalutara",
+    "latitude": 6.569265445000042,
+    "longitude": 79.97315357500008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 87.5,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Heenatiyangala Jumma Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16822",
+    "dmrcaRegistrationNo": "R/1219/KL.62",
+    "name": "JISTHIYA THAKKIYA",
+    "address": "HAJA MAKAN MAWATHA, ATULUGAMA",
+    "city": "BANDARAGAMA",
+    "district": "Kalutara",
+    "latitude": 6.746812314000067,
+    "longitude": 79.90105288500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 93.3,
+    "runnerUpScore": 70.6,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Jisthia Mosque",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15997",
+    "dmrcaRegistrationNo": "R/1219/KL.64",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "MATHUGAMA ROAD,",
+    "city": "DHARGA TOWN",
+    "district": "Kalutara",
+    "latitude": 6.570365688000038,
+    "longitude": 79.96513764400004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 77.8,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Muhiyadeen Jumma Masjid",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16502",
+    "dmrcaRegistrationNo": "R/1861/KL/80",
+    "name": "JISTHIYA MOSQUE",
+    "address": "WATTALPOLA ROAD",
+    "city": "PANADURA",
+    "district": "Kalutara",
+    "latitude": 6.690953911000065,
+    "longitude": 79.99356598300005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 70.6,
+    "runnerUpScore": 93.3,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Chishtiya",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15991",
+    "dmrcaRegistrationNo": "R/2111/KL/85",
+    "name": "MASJIDUS SHUHADA",
+    "address": "32/4A, KALEEL PLACE,",
+    "city": "KALUTARA SOUTH",
+    "district": "Kalutara",
+    "latitude": 6.569001558000025,
+    "longitude": 79.97015705800004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjidul Shuhada",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16842",
+    "dmrcaRegistrationNo": "R/2240/KL/91",
+    "name": "MANBAUL NALEEMIYYA JUMMA MASJID",
+    "address": "20 SRI JINA MAWATHA, KESELWATTA",
+    "city": "PANADURA",
+    "district": "Kalutara",
+    "latitude": 6.751130402000058,
+    "longitude": 79.90638357400007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Manbaul",
+    "dmrcaSourcePdf": "kalutura__KALUTARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21869",
+    "dmrcaRegistrationNo": "R/14/K/01",
+    "name": "KATUGASTOTA MOHIDEEN JUMMA MOSQUE",
+    "address": "23, MADAWALA ROAD",
+    "city": "KATUGASTOTA",
+    "district": "Kandy",
+    "latitude": 7.355914959000074,
+    "longitude": 80.78965078900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "20985",
+    "dmrcaRegistrationNo": "R/73/K/11",
+    "name": "AL MADRASATHUL MANARUL HUDA THAKKIYA",
+    "address": "GAMPOLAWELA",
+    "city": "GAMPOLA",
+    "district": "Kandy",
+    "latitude": 7.252598614000021,
+    "longitude": 80.53018734000005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Huda Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21577",
+    "dmrcaRegistrationNo": "R/123/K/17",
+    "name": "YAHALATENNA JUMMA MOSQUE",
+    "address": "YAHALATENNA",
+    "city": "YAHALATENNA",
+    "district": "Kandy",
+    "latitude": 7.314719840000066,
+    "longitude": 80.57147430100008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Jumma Mosque Yahalatenna",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21627",
+    "dmrcaRegistrationNo": "R/163/K/21",
+    "name": "JAMALIYA MOSUQE",
+    "address": "DEHIDENIYA MADIGE",
+    "city": "HATARALIYADDA",
+    "district": "Kandy",
+    "latitude": 7.321673820000058,
+    "longitude": 80.45823053300006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Jamaliya Jumma Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21297",
+    "dmrcaRegistrationNo": "R/592/K.78",
+    "name": "KATUKELLE JUMMA MOSQUE",
+    "address": "396/16, PERADENIYA ROAD",
+    "city": "KANDY",
+    "district": "Kandy",
+    "latitude": 7.286011452000025,
+    "longitude": 80.62347414900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Katukelle Jumma Masjid",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "19693",
+    "dmrcaRegistrationNo": "R/348/K.108",
+    "name": "AMBATALELLA MUSLIM THAKKIYA",
+    "address": "PETHIYAGODA",
+    "city": "PETHIYAGODA",
+    "district": "Kandy",
+    "latitude": 7.044485362000046,
+    "longitude": 80.52798458900008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Jumma Muslim Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21474",
+    "dmrcaRegistrationNo": "R/1306/K.133",
+    "name": "MASJIDUL HIDAYA JUMMA MOSQUE",
+    "address": "GOOROOKOYA COLONY",
+    "city": "NAWALAPITIYA",
+    "district": "Kandy",
+    "latitude": 7.3020944490000375,
+    "longitude": 80.63314540800008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Hidaya Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21015",
+    "dmrcaRegistrationNo": "R/1841/K.173",
+    "name": "MASDUR RAHMAN",
+    "address": "MURUTAGAHAMULLA",
+    "city": "",
+    "district": "Kandy",
+    "latitude": 7.255496477000065,
+    "longitude": 80.53128255800004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 74.1,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masthu Ramalan Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22301",
+    "dmrcaRegistrationNo": "R/1924/K.184",
+    "name": "AL-MASJIDUL HAMEEDIE",
+    "address": "KATTAPPU, GALHINNA",
+    "city": "GALHINNA",
+    "district": "Kandy",
+    "latitude": 7.415821643000072,
+    "longitude": 80.56272523500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al-Masjidul Hameedie Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22323",
+    "dmrcaRegistrationNo": "R/2086/K/193",
+    "name": "MASJIDHUL HUDA JUMMAH MASJIDH",
+    "address": "KALUGAMUWA",
+    "city": "GELIOYA",
+    "district": "Kandy",
+    "latitude": 7.418056275000026,
+    "longitude": 80.56240556900008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 73.7,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al-Masjidh Smail Masque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22243",
+    "dmrcaRegistrationNo": "R/2273/K/226",
+    "name": "AL MASJIDUR RAHMANIYYA",
+    "address": "GODAHENA,",
+    "city": "DOLAPIHILLA",
+    "district": "Kandy",
+    "latitude": 7.408044163000056,
+    "longitude": 80.57410173900007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 94.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidur Rahmaniya Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21009",
+    "dmrcaRegistrationNo": "R/2539/K/295",
+    "name": "Masjidul Jabal Thakkiya",
+    "address": "97,Kohanga,Kadugannawa.",
+    "city": "Kadugannawa",
+    "district": "Kandy",
+    "latitude": 7.255110307000052,
+    "longitude": 80.52647950700003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 80.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Jabas Mosque",
+    "dmrcaSourcePdf": "kandy__KANDY-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "28075",
+    "dmrcaRegistrationNo": "R/0135/KD/12",
+    "name": "MASJID JAMIUL KHAIRATH JUMMA MOSQUE",
+    "address": "HIJRAGAMA",
+    "city": "HEMMATHAGAMA",
+    "district": "Kegalle",
+    "latitude": 7.151910651000037,
+    "longitude": 80.15474076400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 74.1,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Jabul Kairad Jumma Mosque",
+    "dmrcaSourcePdf": "kegalle__KEGALLE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18963",
+    "dmrcaRegistrationNo": "R/0161/KD/15",
+    "name": "THALDUWA JUMMA MOSQUE",
+    "address": "THALDUWA",
+    "city": "AWISSAWELLA",
+    "district": "Kegalle",
+    "latitude": 6.9567516390000605,
+    "longitude": 80.22037612500003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 93.3,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Talduwa Jumma Mosque",
+    "dmrcaSourcePdf": "kegalle__KEGALLE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "20818",
+    "dmrcaRegistrationNo": "R/0173/KD/17",
+    "name": "DARUSALAM",
+    "address": "KOTTABAGODA",
+    "city": "HINGULA",
+    "district": "Kegalle",
+    "latitude": 7.232490935000044,
+    "longitude": 80.47892938900003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Darusalam Jumma Mosque Kotabogoda",
+    "dmrcaSourcePdf": "kegalle__KEGALLE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "20999",
+    "dmrcaRegistrationNo": "R/0451/KD/33",
+    "name": "HINGULOYA MASJIDUL HUDA JUMMA MOSQUE",
+    "address": "HINGULOYA",
+    "city": "MAWANELLA",
+    "district": "Kegalle",
+    "latitude": 7.253793896000047,
+    "longitude": 80.45495997800003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Jumma Mosque Hinguloya",
+    "dmrcaSourcePdf": "kegalle__KEGALLE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "20786",
+    "dmrcaRegistrationNo": "R/0454/KD/35",
+    "name": "MASJIDUL HUDA JUMMA MOSQUE",
+    "address": "KOTEGODA",
+    "city": "HEMMATHAGAMA",
+    "district": "Kegalle",
+    "latitude": 7.2286221230000365,
+    "longitude": 80.45946800400003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Huda Mosque Maliyadda",
+    "dmrcaSourcePdf": "kegalle__KEGALLE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21091",
+    "dmrcaRegistrationNo": "R/1362/KD/78",
+    "name": "MASJIDUL HAKAM MOSQUE",
+    "address": "DANAGAMA",
+    "city": "MAWANELLA",
+    "district": "Kegalle",
+    "latitude": 7.264558022000074,
+    "longitude": 80.44241661600006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Hakam Jumma Mosque",
+    "dmrcaSourcePdf": "kegalle__KEGALLE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21105",
+    "dmrcaRegistrationNo": "R/2541/KD/119",
+    "name": "MASJIDUL RAHMAN JUMMA MOSQUE",
+    "address": "KALAGAHANA,",
+    "city": "DELGAHAGODA",
+    "district": "Kegalle",
+    "latitude": 7.265939613000057,
+    "longitude": 80.45145494200005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 80.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Alrahuman Mosque",
+    "dmrcaSourcePdf": "kegalle__KEGALLE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26737",
+    "dmrcaRegistrationNo": "R/0889/KN/02",
+    "name": "MASJIDUL ABDEEN JUMMA MOSQUE",
+    "address": "KANDY ROAD, KARADIPOKKU",
+    "city": "KILINOCHCHI",
+    "district": "Kilinochchi",
+    "latitude": 9.410787653000057,
+    "longitude": 80.40779967000003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 76.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjithul Abtheen Jumma",
+    "dmrcaSourcePdf": "killinochchi__KILINOCHCHI-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "27958",
+    "dmrcaRegistrationNo": "R/0925/KN/03",
+    "name": "MOHIDEEN MOSQUE",
+    "address": "NACHCHIKUDA, PALLAWARAYANKADU, VINAYAGAPURAM",
+    "city": "KILINOCHCHI",
+    "district": "Kilinochchi",
+    "latitude": 9.348841088000029,
+    "longitude": 80.41368753500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma",
+    "dmrcaSourcePdf": "killinochchi__KILINOCHCHI-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22544",
+    "dmrcaRegistrationNo": "R/003/KU 01",
+    "name": "JEMALIYA JUMMA MOSQUE",
+    "address": "NAPE",
+    "city": "MAWATHAGAMA",
+    "district": "Kurunegala",
+    "latitude": 7.447472056000038,
+    "longitude": 80.42790149900003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 87.5,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Jamaliya Jumma Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "23553",
+    "dmrcaRegistrationNo": "R/107/KU.10",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "IHALAKINIYAMA",
+    "city": "WEERAPOKUNA",
+    "district": "Kurunegala",
+    "latitude": 7.642654033000042,
+    "longitude": 80.48902179400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Masjeed Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "23583",
+    "dmrcaRegistrationNo": "R/123/KU.15",
+    "name": "MASJIDUL RAHUMANIYA",
+    "address": "MUMMANA",
+    "city": "DAMBADENIYA",
+    "district": "Kurunegala",
+    "latitude": 7.6512338650000515,
+    "longitude": 80.50282711000006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Matharasathul Rahumaniya Arabic School",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22206",
+    "dmrcaRegistrationNo": "R/224/KU.24",
+    "name": "AL MASJIDUL RAHMANIYA JUMMA MASJID",
+    "address": "MEDIGE, DEWUTULANGE",
+    "city": "IBBAGAMUWA",
+    "district": "Kurunegala",
+    "latitude": 7.402381695000031,
+    "longitude": 80.13031981100005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 70.6,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjin Rahmaniya Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "23044",
+    "dmrcaRegistrationNo": "R/322/KU.37",
+    "name": "MUSLIM THAKKIYA MASJID",
+    "address": "AMBANPOLA",
+    "city": "AMBANPOLA",
+    "district": "Kurunegala",
+    "latitude": 7.5297273660000315,
+    "longitude": 80.11511635100004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Muslim Palliya",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "21946",
+    "dmrcaRegistrationNo": "R/392/KU.47",
+    "name": "MASJIDUL KHAIRIYA JUMMA MOSQUE",
+    "address": "MAIN STREET",
+    "city": "DAMBADENIYA",
+    "district": "Kurunegala",
+    "latitude": 7.366168844000072,
+    "longitude": 80.14877329200004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 70.6,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjidul Higariyah Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22845",
+    "dmrcaRegistrationNo": "R/475/KU.56",
+    "name": "MASJIDUL JELLALULLAH",
+    "address": "SYAMBALAGASKOTUWA, KHATAGAHAMADA",
+    "city": "PAHAMUNA",
+    "district": "Kurunegala",
+    "latitude": 7.491532307000057,
+    "longitude": 80.19084549000007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 80.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjidhul Jallullah Jumma Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22882",
+    "dmrcaRegistrationNo": "R/850/KU.92",
+    "name": "DAMPITIYA THAKKIYA",
+    "address": "DAMPITIYA, GALAGEWATTE",
+    "city": "KATUPOTHA",
+    "district": "Kurunegala",
+    "latitude": 7.499625723000065,
+    "longitude": 80.16835417400006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Dampitiya Jummah Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "23448",
+    "dmrcaRegistrationNo": "R/1272/KU.120",
+    "name": "AL MASJIDU IRSHAD",
+    "address": "KIRIMETIYAWA",
+    "city": "KIRIMETIYAWA",
+    "district": "Kurunegala",
+    "latitude": 7.620525051000072,
+    "longitude": 80.16426399400007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 71.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masiidul Haira Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "23597",
+    "dmrcaRegistrationNo": "R/2043/KU 174",
+    "name": "MASJIDHUN NOOR",
+    "address": "BANDARAGALA, PARAGAHADENIYA",
+    "city": "KURUNEGALA",
+    "district": "Kurunegala",
+    "latitude": 7.655763197000056,
+    "longitude": 80.38165324100004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 83.3,
+    "runnerUpScore": 72.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjinnoor Mosque",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22535",
+    "dmrcaRegistrationNo": "R/2262/KU/192",
+    "name": "TOWN MASJITH",
+    "address": "SELLAMWATTE",
+    "city": "GALGAMUWA",
+    "district": "Kurunegala",
+    "latitude": 7.444690922000063,
+    "longitude": 80.21562526500009,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjith un nur",
+    "dmrcaSourcePdf": "kurunegala__KURUNEGALA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26410",
+    "dmrcaRegistrationNo": "R/0377/MN 14",
+    "name": "MEERA MOSQUE",
+    "address": "METTANVELI",
+    "city": "CHILAVATHURAI",
+    "district": "Mannar",
+    "latitude": 9.011941426000021,
+    "longitude": 79.87274603000003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 71.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Meeraniya Jumma Mosque",
+    "dmrcaSourcePdf": "mannar__MANNAR-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26413",
+    "dmrcaRegistrationNo": "R/0560/MN 24",
+    "name": "HUSSAINIYA MOSQUE",
+    "address": "KOSUKUWADY",
+    "city": "THARAPURAM",
+    "district": "Mannar",
+    "latitude": 9.014288616000044,
+    "longitude": 79.87272905000003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 82.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Husania Palli(Mosque)",
+    "dmrcaSourcePdf": "mannar__MANNAR-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26432",
+    "dmrcaRegistrationNo": "R/0759/MN 33",
+    "name": "KONDACHCHI MOHIDEEN MOSUQE",
+    "address": "KONDACHCHI",
+    "city": "CHILAVATHURAI",
+    "district": "Mannar",
+    "latitude": 9.033480317000055,
+    "longitude": 79.87994060000005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 88.9,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Grand Mosque",
+    "dmrcaSourcePdf": "mannar__MANNAR-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26354",
+    "dmrcaRegistrationNo": "R/0820/MN 36",
+    "name": "MOHIDEEN MOSQUE",
+    "address": "KAKKAYANKULAM",
+    "city": "IRANAI ILLUPPAIKULAM",
+    "district": "Mannar",
+    "latitude": 8.976573939000048,
+    "longitude": 79.91337903500005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen d Jummah Mosque",
+    "dmrcaSourcePdf": "mannar__MANNAR-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26368",
+    "dmrcaRegistrationNo": "R/0824/MN 40",
+    "name": "MOHIDEEN MOSQUE",
+    "address": "VEPPANKULAM",
+    "city": "P.P.POTKERNI",
+    "district": "Mannar",
+    "latitude": 8.983651007000049,
+    "longitude": 79.91146838400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 93.3,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohidee Jummah Mosque",
+    "dmrcaSourcePdf": "mannar__MANNAR-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26430",
+    "dmrcaRegistrationNo": "R/0826/MN 42",
+    "name": "MOHIDEEN MOSQUE",
+    "address": "PERIYA KARISAL",
+    "city": "PESALAI",
+    "district": "Mannar",
+    "latitude": 9.032851687000061,
+    "longitude": 79.88280943400008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 72.7,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohaidee Sinna Palli (mosque)",
+    "dmrcaSourcePdf": "mannar__MANNAR-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "26238",
+    "dmrcaRegistrationNo": "R/1510/MN 61",
+    "name": "MASJIDUL MUNAWWARAH",
+    "address": "MADEENA NAGAR",
+    "city": "IRANAI ILLUPPAIKULAM",
+    "district": "Mannar",
+    "latitude": 8.84983408000005,
+    "longitude": 80.37087624900005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 94.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjid Munawwara Mosque",
+    "dmrcaSourcePdf": "mannar__MANNAR-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22446",
+    "dmrcaRegistrationNo": "R/226/MT 09",
+    "name": "MASJIDUL HUDA",
+    "address": "42, KURUNEGALA ROAD",
+    "city": "GALEWELA",
+    "district": "Matale",
+    "latitude": 7.432920314000057,
+    "longitude": 80.61965423600003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 88.9,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Huda Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22315",
+    "dmrcaRegistrationNo": "R/420/MT 18",
+    "name": "MANABODA JUMMA MOSQUE",
+    "address": "MANABODA",
+    "city": "UKUWELA",
+    "district": "Matale",
+    "latitude": 7.416782244000046,
+    "longitude": 80.63819902700004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Manaboda Jumma Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22497",
+    "dmrcaRegistrationNo": "R/1138/MT 36",
+    "name": "AL - MASJIDUN NOOR JUMMA MOSOQUE",
+    "address": "6TH COLONY, KANDALAMA",
+    "city": "DAMBULLA",
+    "district": "Matale",
+    "latitude": 7.439834749000056,
+    "longitude": 80.62885106000004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24104",
+    "dmrcaRegistrationNo": "R/1327/MT 39",
+    "name": "AL MASJIDUL FALAH JUMMA MOSQUE",
+    "address": "NALLIYAKANATHTHA, AMBANA",
+    "city": "MATALE",
+    "district": "Matale",
+    "latitude": 7.7646735500000545,
+    "longitude": 80.58167786200005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": 80.0,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Al-Jamiul Falah Jumma Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22267",
+    "dmrcaRegistrationNo": "R/1364/MT 42",
+    "name": "MARUKONE THAKKIYA",
+    "address": "WATHEGAMA ROAD, MARUKONE",
+    "city": "UKUWELA",
+    "district": "Matale",
+    "latitude": 7.412012569000069,
+    "longitude": 80.64389141500004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 87.5,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Marukona Jumma Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24064",
+    "dmrcaRegistrationNo": "R/1516/MT 43",
+    "name": "MASJIDUL HUDA MOSQUE",
+    "address": "PARAWATHA, KALUDAWALA",
+    "city": "MATALE",
+    "district": "Matale",
+    "latitude": 7.7552856540000334,
+    "longitude": 80.56689042900007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 88.9,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Hudha Jumma Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24096",
+    "dmrcaRegistrationNo": "R/1683/MT 46",
+    "name": "AL MASJIDUN NOOR JUMMA MOSQUE",
+    "address": "KURUNEGALA ROAD,",
+    "city": "PADINGASKOTUWA",
+    "district": "Matale",
+    "latitude": 7.762965301000065,
+    "longitude": 80.60060167300009,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al-Masjidun Noor Jumma Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24145",
+    "dmrcaRegistrationNo": "R/1964/MT 50",
+    "name": "MASJIDUR RAHMA",
+    "address": "HINAGALLA ROAD, MAKULAGASWEWA",
+    "city": "DEWAHUWA",
+    "district": "Matale",
+    "latitude": 7.777090208000061,
+    "longitude": 80.55516349500004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 71.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Rahumania Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22253",
+    "dmrcaRegistrationNo": "R/2186/MT 55",
+    "name": "MADRASATHUL JABAL MASJID",
+    "address": "158/8, KALUDAWELA CIRCULAR ROAD",
+    "city": "MATALE",
+    "district": "Matale",
+    "latitude": 7.409739543000057,
+    "longitude": 80.64942645300005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 78.6,
+    "runnerUpScore": 75.7,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Madrasathul Hameed Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22506",
+    "dmrcaRegistrationNo": "R/2248/MT/61",
+    "name": "ABRAAR JUMMAH MASJID",
+    "address": "MOSQUE ROAD, WARAKANDA, WARAKAMURA",
+    "city": "UKUWELA",
+    "district": "Matale",
+    "latitude": 7.441447134000043,
+    "longitude": 80.62593296000006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": 72.7,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjidul Abraar Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "22290",
+    "dmrcaRegistrationNo": "R/2258/MT/63",
+    "name": "AL MASJIDUL RAHMANIYA",
+    "address": "PATTIWELA JUNCTION",
+    "city": "GALEWELA",
+    "district": "Matale",
+    "latitude": 7.414923556000076,
+    "longitude": 80.64344151100005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 94.7,
+    "runnerUpScore": 88.9,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjidul Rahumaniya Mosque",
+    "dmrcaSourcePdf": "matale__MATALE-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "14149",
+    "dmrcaRegistrationNo": "R/0275/MR/06",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "NEW STREET",
+    "city": "WELIGAMA",
+    "district": "Matara",
+    "latitude": 5.971547075000046,
+    "longitude": 80.69638432500005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 87.5,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Musdeen Mosque",
+    "dmrcaSourcePdf": "matara__MATARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "14694",
+    "dmrcaRegistrationNo": "R/0356/MR/11",
+    "name": "PORWAI MOHIDEEN MOSQUE",
+    "address": "GODAPITIYA",
+    "city": "AKURESSA",
+    "district": "Matara",
+    "latitude": 6.1237136480000345,
+    "longitude": 80.48443800100006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 84.8,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Porwai Muhiyaddeen Jummah Mosque",
+    "dmrcaSourcePdf": "matara__MATARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "14054",
+    "dmrcaRegistrationNo": "R/0404/MR/15",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "KANANGE ROAD, WELIPITIYA",
+    "city": "WELIGAMA",
+    "district": "Matara",
+    "latitude": 5.946284457000047,
+    "longitude": 80.55238879200004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 87.5,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohadeen Jumma Mosque",
+    "dmrcaSourcePdf": "matara__MATARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "14212",
+    "dmrcaRegistrationNo": "R/0488/MR/18",
+    "name": "HASSAN HUSSAIN MOSQUE",
+    "address": "MAIN STREET",
+    "city": "DENIYAYA",
+    "district": "Matara",
+    "latitude": 5.989142697000034,
+    "longitude": 80.44371525400004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 78.6,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Hasan Hsseiyan Mosque",
+    "dmrcaSourcePdf": "matara__MATARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "14237",
+    "dmrcaRegistrationNo": "R/0603/MR/25",
+    "name": "KOLEDANDA JUMMA MOSQUE",
+    "address": "WELIGAMA",
+    "city": "WELIGAMA",
+    "district": "Matara",
+    "latitude": 5.998168705000069,
+    "longitude": 80.44068522900005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Koledanda Mohadeen Mosque",
+    "dmrcaSourcePdf": "matara__MATARA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "18774",
+    "dmrcaRegistrationNo": "R/2135/N/36",
+    "name": "WATAWALA JUMMAH MOSQUE",
+    "address": "WATAWALA BAZAAR",
+    "city": "WATAWALA",
+    "district": "Nuwara Eliya",
+    "latitude": 6.943478152000068,
+    "longitude": 80.53906183700008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Watawala Jumma Mosque",
+    "dmrcaSourcePdf": "nuwara-eliya__NUWARA.pdf"
+  },
+  {
+    "nsdiId": "24695",
+    "dmrcaRegistrationNo": "R/253/PL.02",
+    "name": "MOHIDEEN MOSQUE",
+    "address": "MUSLIM COLONY, NORTH KADURUWELA",
+    "city": "KADURUWELA",
+    "district": "Polonnaruwa",
+    "latitude": 7.9814319870000645,
+    "longitude": 81.09588231600003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen jumma mosque",
+    "dmrcaSourcePdf": "polonnaruwa__POLONNARUWA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24770",
+    "dmrcaRegistrationNo": "R/703/PL.10",
+    "name": "MOHIDEEN MOSQUE",
+    "address": "PUDUR",
+    "city": "KALINGA-ELA",
+    "district": "Polonnaruwa",
+    "latitude": 8.018101354000066,
+    "longitude": 80.96067926500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "MOHIDEEN JUMMA MOSQUE",
+    "dmrcaSourcePdf": "polonnaruwa__POLONNARUWA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24992",
+    "dmrcaRegistrationNo": "R/863/PL.13",
+    "name": "PANGURANA MOSQUE",
+    "address": "SUNGAWILA",
+    "city": "POLONNARUWA",
+    "district": "Polonnaruwa",
+    "latitude": 8.112595512000041,
+    "longitude": 81.09038546900007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Pangurana Mosque",
+    "dmrcaSourcePdf": "polonnaruwa__POLONNARUWA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24628",
+    "dmrcaRegistrationNo": "R/09/P.01",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "PERUKKUWATTAN",
+    "city": "KOTTANTIVU",
+    "district": "Puttalam",
+    "latitude": 7.954342039000039,
+    "longitude": 79.80365529600004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Thakkiya Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25066",
+    "dmrcaRegistrationNo": "R/079/P.08",
+    "name": "MUHIYIDEEN JUMMA MOSQUE",
+    "address": "KANDAKULI",
+    "city": "PUTTALAM",
+    "district": "Puttalam",
+    "latitude": 8.143740430000037,
+    "longitude": 79.71839145900003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 80.0,
+    "runnerUpScore": 77.8,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mujahideen Jumma Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25150",
+    "dmrcaRegistrationNo": "R/130/P.12",
+    "name": "RAWTHER SAHIB MOSQUE",
+    "address": "VELLANKARAI",
+    "city": "PALLIVASALTHURAI",
+    "district": "Puttalam",
+    "latitude": 8.184542926000063,
+    "longitude": 79.72984372100007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 71.4,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Lahurthar Sahib Jumma Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "24630",
+    "dmrcaRegistrationNo": "R/213/P.23",
+    "name": "PATTANI SAHIB DHARGA MOSQUE",
+    "address": "PULUDIVAYAL",
+    "city": "PALAVI",
+    "district": "Puttalam",
+    "latitude": 7.954879378000044,
+    "longitude": 79.80831433300006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Pattani Sahib Jumma Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25100",
+    "dmrcaRegistrationNo": "R/907/P.75",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "SANGATTIKULAM",
+    "city": "ANAMADUWA",
+    "district": "Puttalam",
+    "latitude": 8.158826439000052,
+    "longitude": 79.72267809400006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25119",
+    "dmrcaRegistrationNo": "R/909/P.77",
+    "name": "MOHIDEEN THAKKIYA",
+    "address": "PULUDIVAYAL",
+    "city": "PALAVI",
+    "district": "Puttalam",
+    "latitude": 8.170055658000024,
+    "longitude": 79.72672779700008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen a Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25129",
+    "dmrcaRegistrationNo": "R/937/P.78",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "KARAITIVU",
+    "city": "PUTTALAM",
+    "district": "Puttalam",
+    "latitude": 8.172971498000038,
+    "longitude": 79.73681335900005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25132",
+    "dmrcaRegistrationNo": "R/1136/P.83",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "AMMATHODDAM",
+    "city": "PALLIVASALTHURAI",
+    "district": "Puttalam",
+    "latitude": 8.175513476000049,
+    "longitude": 79.72836262700008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Thakya Mohideen Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25143",
+    "dmrcaRegistrationNo": "R/1169/P.88",
+    "name": "MOHIDEEN MOSQUE",
+    "address": "4TH MILE POST, MANNAR ROAD",
+    "city": "VEPAMADU",
+    "district": "Puttalam",
+    "latitude": 8.182228389000045,
+    "longitude": 79.73778371600008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25207",
+    "dmrcaRegistrationNo": "R/1190/P.92",
+    "name": "MOHIDEEN KOTHUBA MOSQUE",
+    "address": "POTTUVIL",
+    "city": "PALAIVI",
+    "district": "Puttalam",
+    "latitude": 8.213187817000062,
+    "longitude": 79.71667560500003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25165",
+    "dmrcaRegistrationNo": "R/1911/P 173",
+    "name": "MASJIDUL KOOFA",
+    "address": "KOOFA NAGAR, AHATHTHIMURIPPU, MUSALI ROAD",
+    "city": "PALLIWASAL THURAI",
+    "district": "Puttalam",
+    "latitude": 8.19056437200004,
+    "longitude": 79.74109150900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 72.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Koobar Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25164",
+    "dmrcaRegistrationNo": "R/1912/P 174",
+    "name": "MASJIDUL MANNAR",
+    "address": "AL MINAR PURAM, SCHOOL ROAD",
+    "city": "THILLAYADI",
+    "district": "Puttalam",
+    "latitude": 8.190446094000038,
+    "longitude": 79.71609536900007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mannar Mosque",
+    "dmrcaSourcePdf": "puttalam__PUTTALAM-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16160",
+    "dmrcaRegistrationNo": "R/01/R/01",
+    "name": "DAFTER ZAILANI MOHIDEEN MOSQUE",
+    "address": "BALANGODA",
+    "city": "BALANGODA",
+    "district": "Ratnapura",
+    "latitude": 6.60908108600006,
+    "longitude": 80.62746846900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "ratnapura__RATNAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "17504",
+    "dmrcaRegistrationNo": "R/42/R/02",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "OPANAYAKE",
+    "city": "OPANAYAKE",
+    "district": "Ratnapura",
+    "latitude": 6.836674766000044,
+    "longitude": 80.27656145300006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Masjeed Mosque",
+    "dmrcaSourcePdf": "ratnapura__RATNAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "16366",
+    "dmrcaRegistrationNo": "R/370/R.11",
+    "name": "MASJIDUN NOOR",
+    "address": "MORAGALA",
+    "city": "EHELIYAGODA",
+    "district": "Ratnapura",
+    "latitude": 6.6580956440000705,
+    "longitude": 80.69934878400005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Noor Mosque",
+    "dmrcaSourcePdf": "ratnapura__RATNAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "15897",
+    "dmrcaRegistrationNo": "R/1331/R.23",
+    "name": "MADRASATHUL RAHUMANIYA THAKKIYA",
+    "address": "KETANDOLA",
+    "city": "RATNAPURA",
+    "district": "Ratnapura",
+    "latitude": 6.540113031000033,
+    "longitude": 80.58932652900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 87.8,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Madrasathul Fahmiya Mosque.",
+    "dmrcaSourcePdf": "ratnapura__RATNAPURA-DISTRICT.pdf"
+  },
+  {
+    "nsdiId": "25637",
+    "dmrcaRegistrationNo": "R/017/T/001",
+    "name": "MUHIYIDEEN JUMMA MOSQUE",
+    "address": "AKKARAICHENAI",
+    "city": "MUTUR - 01",
+    "district": "Trincomalee",
+    "latitude": 8.454246796000064,
+    "longitude": 81.26684893700008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 84.2,
+    "runnerUpScore": 84.2,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Muhaideen Jummah Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25681",
+    "dmrcaRegistrationNo": "R/112/T/004",
+    "name": "MUHIYIDEEN JUMMA MOSQUE",
+    "address": "NILAVELI - 01",
+    "city": "NILAVELI",
+    "district": "Trincomalee",
+    "latitude": 8.474977207000052,
+    "longitude": 81.08488603600006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 84.2,
+    "runnerUpScore": 84.2,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Muhaideen Jumma  Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25813",
+    "dmrcaRegistrationNo": "R/208/T/005",
+    "name": "PERIYAKADAI JUMMA MOSQUE",
+    "address": "22, COURT ROAD",
+    "city": "TRINCOMALEE",
+    "district": "Trincomalee",
+    "latitude": 8.56210807900004,
+    "longitude": 81.23959819100008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Periyakadai Jamma Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25744",
+    "dmrcaRegistrationNo": "R/0556/T/013",
+    "name": "RAHMANIYA GRAND JUMMA MOSQUE",
+    "address": "SINNA KINNIYA",
+    "city": "KINNIYA - 1",
+    "district": "Trincomalee",
+    "latitude": 8.505903861000036,
+    "longitude": 81.18673816600005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 94.7,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Rahumaniya Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25763",
+    "dmrcaRegistrationNo": "R/0655/T/023",
+    "name": "MASJIDUL MUNAWWARA JUMMA MOSQUE",
+    "address": "MAKKULUTHU,",
+    "city": "CHINA BAY",
+    "district": "Trincomalee",
+    "latitude": 8.520996905000061,
+    "longitude": 81.18652065700007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 94.1,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Munawara Jummah Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25661",
+    "dmrcaRegistrationNo": "R/0671/T/030",
+    "name": "MASJIDUL SALIHATH JUMMA MOSQUE",
+    "address": "SIRAJ NAGAR",
+    "city": "THAMPALAKAMA M",
+    "district": "Trincomalee",
+    "latitude": 8.461121676000062,
+    "longitude": 81.07639117900004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 87.5,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Salinath Grand Jumma Masjid",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25748",
+    "dmrcaRegistrationNo": "R/0676/T/033",
+    "name": "MALAY (JAWA) KOTHBA MOSQUE",
+    "address": "KINNIYA",
+    "city": "KINNIYA",
+    "district": "Trincomalee",
+    "latitude": 8.507041178000065,
+    "longitude": 81.17839536700006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Jawa jummah Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25729",
+    "dmrcaRegistrationNo": "R/0720/T/043",
+    "name": "AL HIJRA JUMMA MASJID",
+    "address": "7TH COLONY",
+    "city": "MULLIPOTHANA",
+    "district": "Trincomalee",
+    "latitude": 8.500773486000071,
+    "longitude": 81.18606430200003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 88.9,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Hijra Mosque Kinniya",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25605",
+    "dmrcaRegistrationNo": "R/0954/T/054",
+    "name": "BUHARY MOSQUE",
+    "address": "95TH MILE POST",
+    "city": "MULLIPOTANA",
+    "district": "Trincomalee",
+    "latitude": 8.439485886000057,
+    "longitude": 81.05086295100006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 83.3,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Buhari Jumma Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25724",
+    "dmrcaRegistrationNo": "R/1056/T/064",
+    "name": "MASJIDU-UN-NOOR JUMMA MOSQUE",
+    "address": "JINNAH NAGAR, LOVE LANE",
+    "city": "TRINCOMALEE",
+    "district": "Trincomalee",
+    "latitude": 8.497869994000041,
+    "longitude": 81.14992510900004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25768",
+    "dmrcaRegistrationNo": "R/1222/T/085",
+    "name": "AL MADRASTHUL SAHRIYA THAKKIYA",
+    "address": "CHINA BAY",
+    "city": "CHINA BAY",
+    "district": "Trincomalee",
+    "latitude": 8.528026389000047,
+    "longitude": 81.18808814600004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 89.5,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Mathrasathul Sahriya Jummah Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25733",
+    "dmrcaRegistrationNo": "R/1223/T/086",
+    "name": "KHAIRIYA THAKKIYA",
+    "address": "KHAIRIYA NAGAR",
+    "city": "MUTUR - 5",
+    "district": "Trincomalee",
+    "latitude": 8.50172966200006,
+    "longitude": 81.17979211000005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 76.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Khair Jummah Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25743",
+    "dmrcaRegistrationNo": "R/12234/T/08 7",
+    "name": "MASJIDUN NOOR JUMMA MOSQUE",
+    "address": "THAHA NAGAR",
+    "city": "MUTUR",
+    "district": "Trincomalee",
+    "latitude": 8.505716068000027,
+    "longitude": 81.18954165900004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Thakkiyathul Noor Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25762",
+    "dmrcaRegistrationNo": "R/1225/T/088",
+    "name": "MASJIDUS SHAFIYA JUMMA MOSQUE",
+    "address": "SHAFI NAGAR",
+    "city": "MUTUR",
+    "district": "Trincomalee",
+    "latitude": 8.520441022000057,
+    "longitude": 81.19397701200006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 76.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Rafiya Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25731",
+    "dmrcaRegistrationNo": "R/1240/T/094",
+    "name": "MASJIDUL FALAH JUMMAH MOSQUE",
+    "address": "TOPPUR",
+    "city": "TOPPUR",
+    "district": "Trincomalee",
+    "latitude": 8.501353666000057,
+    "longitude": 81.15962026200003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Falah Jummah Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25749",
+    "dmrcaRegistrationNo": "R/1396/T/108",
+    "name": "MASJIDUN NOOR",
+    "address": "JABAL NAGAR, 6TH MILEPOST",
+    "city": "MUTUR",
+    "district": "Trincomalee",
+    "latitude": 8.508485448000044,
+    "longitude": 81.19787132700003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidun Noor Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25738",
+    "dmrcaRegistrationNo": "R/1444/T/115",
+    "name": "MOHAMEDIYA THAKKIYA",
+    "address": "THAMPALAKAMAM",
+    "city": "THAMBALAKAMA M",
+    "district": "Trincomalee",
+    "latitude": 8.50407823300003,
+    "longitude": 81.16203007100006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 75.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Masjidul Ohmiya Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25760",
+    "dmrcaRegistrationNo": "R/1648/T/142",
+    "name": "MASJIDUL QUBAH",
+    "address": "HIJRA NAGAR, WELLAIMANAL",
+    "city": "CHINA BAY",
+    "district": "Trincomalee",
+    "latitude": 8.51805403700007,
+    "longitude": 81.18997459200006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 90.9,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Masjidul Qubbah Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25596",
+    "dmrcaRegistrationNo": "R/1902T/170",
+    "name": "MUHAIDEEN JUMMA MOSQUE",
+    "address": "95TH MILE POST",
+    "city": "MULLIPOTHANA",
+    "district": "Trincomalee",
+    "latitude": 8.432632014000035,
+    "longitude": 81.04879920100007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "medium",
+    "matchScore": 100.0,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Muhaideen Jumma Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25669",
+    "dmrcaRegistrationNo": "R/1913/T/171",
+    "name": "AL MASJIDUL BAITHUL HAMDU",
+    "address": "SIRAJ NAGAR",
+    "city": "THAMBALAKAMA M",
+    "district": "Trincomalee",
+    "latitude": 8.467303095000034,
+    "longitude": 81.07474925800005,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 96.3,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Al-Masjidul Baithul Hamudu Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25838",
+    "dmrcaRegistrationNo": "R/2152/T 199",
+    "name": "MASJIDUL MADEENA",
+    "address": "HOSPITAL ROAD",
+    "city": "T/MUTUR",
+    "district": "Trincomalee",
+    "latitude": 8.573356549000039,
+    "longitude": 81.23210566900008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 80.0,
+    "runnerUpScore": 75.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Muhadeen Jumma Masjid",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25735",
+    "dmrcaRegistrationNo": "R/2227/T/201",
+    "name": "AL AQSHA MASJIDH",
+    "address": "KALLADIVETTUVAN",
+    "city": "KINNIYA-05",
+    "district": "Trincomalee",
+    "latitude": 8.503210796000076,
+    "longitude": 81.18587220500007,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Aqsha Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25714",
+    "dmrcaRegistrationNo": "R/2637/T/227",
+    "name": "MASJIDUL HIRA",
+    "address": "JABBAR ROAD, ALIM NAGAR,MUTHUR - 02",
+    "city": "MUTHUR - 02",
+    "district": "Trincomalee",
+    "latitude": 8.493913166000027,
+    "longitude": 81.18589202900006,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Al Hira Mosque",
+    "dmrcaSourcePdf": "trincomalee__TRINCOMALEE.pdf"
+  },
+  {
+    "nsdiId": "25887",
+    "dmrcaRegistrationNo": "R/1351/V/16",
+    "name": "PUDUKUDIMUNAI MOHIDEEN MOSQUE",
+    "address": "SOODUVENTHAPULAVU",
+    "city": "VAVUNIYA",
+    "district": "Vavuniya",
+    "latitude": 8.605668477000052,
+    "longitude": 80.32978679900003,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mohideen Jumma Mosque",
+    "dmrcaSourcePdf": "vavuniya__VAVUNIYA-DISTRIC1.pdf"
+  },
+  {
+    "nsdiId": "26011",
+    "dmrcaRegistrationNo": "R/1565/V/22",
+    "name": "MASJIDUL HUDA JUMMA MOSQUE",
+    "address": "MOOR'S SALAMBAIKULAM EAST, POOVARASANKULAM",
+    "city": "VAVUNIYA",
+    "district": "Vavuniya",
+    "latitude": 8.732198486000073,
+    "longitude": 80.26001138100008,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "high",
+    "matchScore": 100.0,
+    "runnerUpScore": null,
+    "wasContestedNsdiPoint": false,
+    "nsdiName": "Ja-Mul Huda Mosque",
+    "dmrcaSourcePdf": "vavuniya__VAVUNIYA-DISTRIC1.pdf"
+  },
+  {
+    "nsdiId": "25999",
+    "dmrcaRegistrationNo": "R/1373/V/24",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "address": "ANAIVILUNTHAN",
+    "city": "SINNACHIPPIKULAM",
+    "district": "Vavuniya",
+    "latitude": 8.72480672000006,
+    "longitude": 80.43109505300004,
+    "sources": [
+      "nsdi",
+      "dmrca"
+    ],
+    "matchConfidence": "low",
+    "matchScore": 82.4,
+    "runnerUpScore": 100.0,
+    "wasContestedNsdiPoint": true,
+    "nsdiName": "Mahaideen Jummah Mosque",
+    "dmrcaSourcePdf": "vavuniya__VAVUNIYA-DISTRIC1.pdf"
+  }
+]

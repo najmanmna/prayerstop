@@ -1,0 +1,7288 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-24T15:47:11Z",
+    "timestamp_areas_base": "2026-08-23T16:30:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 84048511,
+  "lat": 6.0442760,
+  "lon": 80.2204785,
+  "tags": {
+    "amenity": "place_of_worship",
+    "created_by": "JOSM",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 666881113,
+  "lat": 6.8959689,
+  "lon": 79.8561026,
+  "tags": {
+    "addr:city": "Bambalapitiya",
+    "addr:street": "Bauddhaloka Mawatha",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "check_date": "2024-02-23",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 678259136,
+  "lat": 6.9245156,
+  "lon": 79.8530785,
+  "tags": {
+    "addr:city": "Colombo02",
+    "addr:street": "Kew Lane",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Akbar Jumma Mosque Slave Island",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 678612526,
+  "lat": 6.8372459,
+  "lon": 79.8695143,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 682084505,
+  "lat": 6.9305881,
+  "lon": 79.8761875,
+  "tags": {
+    "addr:country": "LK",
+    "amenity": "place_of_worship",
+    "name": "Jumma mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 873842127,
+  "lat": 6.9721688,
+  "lon": 80.7811686,
+  "tags": {
+    "addr:city": "Hawaeliya",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1172970583,
+  "lat": 8.5783611,
+  "lon": 81.2343787,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1176188761,
+  "lat": 7.1709520,
+  "lon": 80.5750237,
+  "tags": {
+    "addr:city": "Gampola",
+    "addr:street": "Peradeniya-Badulla-Chenkaladi Road",
+    "amenity": "place_of_worship",
+    "name": "Kahapitiya Jummah Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1179885691,
+  "lat": 6.9840664,
+  "lon": 81.0600251,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Zaviya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1181986209,
+  "lat": 8.3329379,
+  "lon": 80.4111250,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1261071452,
+  "lat": 6.8632611,
+  "lon": 79.8652910,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Dehiwala Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1269994680,
+  "lat": 7.2203351,
+  "lon": 79.8483862,
+  "tags": {
+    "addr:city": "Negombo",
+    "alt_name": "Fazal Mosque;Masjid Fazal;Fazl Masjid;Fazal Masjid",
+    "amenity": "place_of_worship",
+    "denomination": "ahmadiyya",
+    "name": "Masjid Fazl",
+    "name:en": "Fazl Mosque",
+    "name:ur": "مسجد فضل",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1378992432,
+  "lat": 6.9317200,
+  "lon": 79.8653657,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Panchikawatte Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1731515226,
+  "lat": 7.9075945,
+  "lon": 79.8224814,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1822758906,
+  "lat": 6.5704428,
+  "lon": 79.9651988,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Kalutara Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1827291214,
+  "lat": 6.4728698,
+  "lon": 79.9764489,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Ketchimale Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1830386963,
+  "lat": 6.8918527,
+  "lon": 80.5990674,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Hatton Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1830502789,
+  "lat": 7.1688567,
+  "lon": 80.5731707,
+  "tags": {
+    "addr:city": "Gampola",
+    "addr:street": "Zahira College Rd",
+    "amenity": "place_of_worship",
+    "name": "Jummah Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1838377733,
+  "lat": 6.8759528,
+  "lon": 79.8807906,
+  "tags": {
+    "addr:city": "Kirulapone",
+    "addr:street": "Kirulapana Masjid Road",
+    "amenity": "place_of_worship",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1838419598,
+  "lat": 6.8945884,
+  "lon": 79.8531736,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Borah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1874239020,
+  "lat": 6.8752604,
+  "lon": 81.8348979,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Meera Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 1977821333,
+  "lat": 7.4291604,
+  "lon": 80.2144719,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Narammala Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2021573962,
+  "lat": 6.9568840,
+  "lon": 80.2206144,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Talduwa Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2021573969,
+  "lat": 6.9535533,
+  "lon": 80.2123894,
+  "tags": {
+    "addr:city": "Avissawella",
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-31",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2146154675,
+  "lat": 6.8590269,
+  "lon": 80.2556293,
+  "tags": {
+    "addr:city": "Eheliyagoda",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Noor",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2196976199,
+  "lat": 7.2178688,
+  "lon": 79.8498862,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Negombo Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2361384543,
+  "lat": 7.1728017,
+  "lon": 80.4431159,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjidul Hairath",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2361395603,
+  "lat": 7.1746938,
+  "lon": 80.4512376,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Wilpola Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2406769219,
+  "lat": 6.9067504,
+  "lon": 79.8954762,
+  "tags": {
+    "addr:city": "Rajagiriya",
+    "addr:postcode": "10107",
+    "addr:street": "Nawala Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Nawala Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2410610901,
+  "lat": 8.7641698,
+  "lon": 80.4822867,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2507004946,
+  "lat": 7.0060670,
+  "lon": 79.8972043,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mobole Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2826701432,
+  "lat": 6.9404365,
+  "lon": 79.8608731,
+  "tags": {
+    "addr:country": "LK",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Masjid Muhiadeen Khadiriya Thakiya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2832934212,
+  "lat": 7.9347812,
+  "lon": 81.0293777,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2897255612,
+  "lat": 6.8903383,
+  "lon": 80.9240253,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 2908615490,
+  "lat": 6.9927886,
+  "lon": 81.0540052,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3085648468,
+  "lat": 6.9167522,
+  "lon": 79.8771325,
+  "tags": {
+    "addr:city": "Borella",
+    "amenity": "place_of_worship",
+    "check_date": "2024-08-09",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3168269406,
+  "lat": 7.4762545,
+  "lon": 80.3346309,
+  "tags": {
+    "addr:city": "Malkaduwa",
+    "amenity": "place_of_worship",
+    "name": "Mohideen Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3180227592,
+  "lat": 7.4904371,
+  "lon": 80.3649744,
+  "tags": {
+    "addr:city": "Kurunegala",
+    "amenity": "place_of_worship",
+    "name": "Malay Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3185981955,
+  "lat": 7.4996486,
+  "lon": 80.3398233,
+  "tags": {
+    "addr:city": "Aswedduma",
+    "amenity": "place_of_worship",
+    "name": "Aswedduma Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3301855619,
+  "lat": 6.9930661,
+  "lon": 81.0635935,
+  "tags": {
+    "addr:city": "Badulla",
+    "amenity": "place_of_worship",
+    "name": "Badulupitiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3301935961,
+  "lat": 7.0020310,
+  "lon": 81.0571849,
+  "tags": {
+    "addr:city": "Badulla",
+    "amenity": "place_of_worship",
+    "name": "Puwakgodamulla Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3303875614,
+  "lat": 7.2264389,
+  "lon": 81.8506119,
+  "tags": {
+    "addr:city": "Akkaraipattu",
+    "amenity": "place_of_worship",
+    "name": "Ahlus Sunnah Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3303875632,
+  "lat": 7.2270322,
+  "lon": 81.8529478,
+  "tags": {
+    "addr:city": "Akkaraipattu",
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Fatah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3313402904,
+  "lat": 7.2365340,
+  "lon": 81.8535903,
+  "tags": {
+    "addr:city": "Addalaichchenai",
+    "amenity": "place_of_worship",
+    "name": "Thaikkanagar Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3313557018,
+  "lat": 7.2490051,
+  "lon": 81.8551997,
+  "tags": {
+    "addr:city": "Addalaichchenai",
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-01",
+    "name": "Grand Mosque-Addalaichenai",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3314164003,
+  "lat": 7.2725336,
+  "lon": 81.8485486,
+  "tags": {
+    "addr:city": "Palamunai",
+    "amenity": "place_of_worship",
+    "name": "Grand Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3314164004,
+  "lat": 7.2695373,
+  "lon": 81.8512440,
+  "tags": {
+    "addr:city": "Palamunai",
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Rauff",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3314166644,
+  "lat": 7.2675421,
+  "lon": 81.8621781,
+  "tags": {
+    "addr:city": "Palamunai",
+    "amenity": "place_of_worship",
+    "name": "Riyazul Jannah Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3315847075,
+  "lat": 7.2756119,
+  "lon": 81.8489035,
+  "tags": {
+    "addr:city": "Palamunai",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Hidaya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3315847078,
+  "lat": 7.2695727,
+  "lon": 81.8585873,
+  "tags": {
+    "addr:city": "Palamunai",
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Thana Al Busairy",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3316015815,
+  "lat": 7.3277168,
+  "lon": 81.8472644,
+  "tags": {
+    "addr:city": "Arasady",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Huda",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3316015827,
+  "lat": 7.3478845,
+  "lon": 81.8464355,
+  "tags": {
+    "addr:city": "Nintavur",
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Mujahideen",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3316043325,
+  "lat": 7.3421108,
+  "lon": 81.8576025,
+  "tags": {
+    "addr:city": "Nintavur",
+    "amenity": "place_of_worship",
+    "name": "Firdus Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3316554397,
+  "lat": 7.3876281,
+  "lon": 81.8358252,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Falah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3316554401,
+  "lat": 7.3881781,
+  "lon": 81.8407548,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjid Saleheen",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3317976479,
+  "lat": 7.3916142,
+  "lon": 81.8365812,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjid E Safa",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3317976480,
+  "lat": 7.3909982,
+  "lon": 81.8355398,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Hilal",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3317976545,
+  "lat": 7.3940959,
+  "lon": 81.8344147,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Jumma Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318005289,
+  "lat": 7.3970477,
+  "lon": 81.8328028,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Kamaroon",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318025998,
+  "lat": 7.3907349,
+  "lon": 81.8421424,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jamiul Islah Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318026005,
+  "lat": 7.3914561,
+  "lon": 81.8427292,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjiduth Takwa",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318026006,
+  "lat": 7.3893426,
+  "lon": 81.8439102,
+  "tags": {
+    "addr:city": "Sainthamruthu",
+    "amenity": "place_of_worship",
+    "name": "Al Zareef Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318088825,
+  "lat": 7.3954456,
+  "lon": 81.8378531,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Hudha",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318094884,
+  "lat": 7.3964932,
+  "lon": 81.8417848,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Akbar",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318104270,
+  "lat": 7.3990373,
+  "lon": 81.8363551,
+  "tags": {
+    "addr:city": "Sainthamaruthu",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Fatah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318104275,
+  "lat": 7.3990373,
+  "lon": 81.8387744,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Zahira",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318104288,
+  "lat": 7.3999896,
+  "lon": 81.8412152,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Masjidur Rahman",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318109126,
+  "lat": 7.4043943,
+  "lon": 81.8312397,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Mohideen grand Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318394814,
+  "lat": 7.4048708,
+  "lon": 81.8410181,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Masjid Al Huda",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318412431,
+  "lat": 7.4077810,
+  "lon": 81.8335699,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Al Masjidul Mashoora",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3318412435,
+  "lat": 7.4119084,
+  "lon": 81.8390720,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Kadar karai palli",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3320184949,
+  "lat": 7.4081778,
+  "lon": 81.8315744,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Masjidul Kairath",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3320210423,
+  "lat": 7.4142133,
+  "lon": 81.8257277,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Town Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331316779,
+  "lat": 7.4176330,
+  "lon": 81.8123842,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Salam Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331326337,
+  "lat": 7.4145691,
+  "lon": 81.8091440,
+  "tags": {
+    "addr:city": "Kalmunai",
+    "amenity": "place_of_worship",
+    "name": "Natpitimunai Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331332247,
+  "lat": 7.4309231,
+  "lon": 81.8185148,
+  "tags": {
+    "addr:city": "Pandiruppu",
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Minan",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331351771,
+  "lat": 7.4342899,
+  "lon": 81.8112237,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Aslam",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331352112,
+  "lat": 7.4361194,
+  "lon": 81.8132731,
+  "tags": {
+    "addr:city": "Maruthamunai",
+    "amenity": "place_of_worship",
+    "name": "Masjid Un Noor",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331352123,
+  "lat": 7.4331164,
+  "lon": 81.8150003,
+  "tags": {
+    "addr:city": "Maruthamunai",
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Kabeer",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331352146,
+  "lat": 7.4342787,
+  "lon": 81.8178163,
+  "tags": {
+    "addr:city": "Maruthamunai",
+    "amenity": "place_of_worship",
+    "name": "Central Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3331472265,
+  "lat": 7.4392994,
+  "lon": 81.8201447,
+  "tags": {
+    "addr:city": "Maruthamunai",
+    "amenity": "place_of_worship",
+    "name": "Masjid Al Akbar",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3385743311,
+  "lat": 6.9762703,
+  "lon": 80.7657186,
+  "tags": {
+    "addr:city": "Nuwara Eliya",
+    "amenity": "place_of_worship",
+    "name": "Al Kabeer Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3401467574,
+  "lat": 6.8528759,
+  "lon": 79.8661352,
+  "tags": {
+    "addr:city": "Dehiwala",
+    "amenity": "place_of_worship",
+    "name": "Dehiwala Town Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3403161441,
+  "lat": 6.9485431,
+  "lon": 79.9107431,
+  "tags": {
+    "addr:city": "Wellampitiya",
+    "amenity": "place_of_worship",
+    "name": "Kohilawatte Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3541636944,
+  "lat": 9.6338175,
+  "lon": 79.9274359,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mankumban Darga",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3556543677,
+  "lat": 9.6754385,
+  "lon": 80.0048419,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Muhammathiya Jumma Majeeth",
+    "religion": "muslim",
+    "source": "http://www.panoramio.com/photo/52297948"
+  }
+},
+{
+  "type": "node",
+  "id": 3632296074,
+  "lat": 7.2778936,
+  "lon": 80.6338545,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3655126004,
+  "lat": 7.5768148,
+  "lon": 79.7932097,
+  "tags": {
+    "addr:city": "Chilaw",
+    "amenity": "place_of_worship",
+    "name": "Town Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3658423027,
+  "lat": 6.9217304,
+  "lon": 79.8585019,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2024-08-10",
+    "name": "Dawson Street Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3658423139,
+  "lat": 6.9260010,
+  "lon": 79.8493987,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2024-12-26",
+    "name": "Java Lane Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3658423938,
+  "lat": 6.9234746,
+  "lon": 79.8505449,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Tholappu Garden Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3692975147,
+  "lat": 7.9621580,
+  "lon": 79.8308253,
+  "tags": {
+    "addr:city": "Erukkalampiddy",
+    "amenity": "place_of_worship",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3693072133,
+  "lat": 7.9782479,
+  "lon": 79.8330053,
+  "tags": {
+    "addr:city": "Palavi",
+    "amenity": "place_of_worship",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3696397685,
+  "lat": 7.9990940,
+  "lon": 79.8373393,
+  "tags": {
+    "addr:city": "Puttalam",
+    "amenity": "place_of_worship",
+    "name": "Rathmalyaya Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3856182235,
+  "lat": 7.3697773,
+  "lon": 80.6152075,
+  "tags": {
+    "addr:street": "Grand Mosque Rd",
+    "amenity": "place_of_worship",
+    "name": "Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3874368634,
+  "lat": 7.3275368,
+  "lon": 80.6681100,
+  "tags": {
+    "addr:city": "Madawala",
+    "addr:street": "Katutasgota-Madawala-Bambarella Road",
+    "amenity": "place_of_worship",
+    "name": "Jamiul Khairath Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3932107211,
+  "lat": 8.7557848,
+  "lon": 80.3915019,
+  "tags": {
+    "amenity": "place_of_worship",
+    "image": "https://web.archive.org/web/20161031140707/http://www.panoramio.com/photo/127056135",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3954241629,
+  "lat": 6.9640541,
+  "lon": 79.8639189,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3954317061,
+  "lat": 6.9603119,
+  "lon": 79.8684423,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjidur Rahumaniya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3954317070,
+  "lat": 6.9611113,
+  "lon": 79.8700386,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Al Masidua Islahiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3954317211,
+  "lat": 6.9608189,
+  "lon": 79.8725569,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3958970329,
+  "lat": 9.4109172,
+  "lon": 80.4073988,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3992483615,
+  "lat": 7.2437388,
+  "lon": 81.7199202,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Iqram Palli",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3992483923,
+  "lat": 7.2435938,
+  "lon": 81.7256011,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3992505863,
+  "lat": 7.2409119,
+  "lon": 81.7151537,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Ameer Ali Puram Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3993955003,
+  "lat": 7.2271241,
+  "lon": 81.8215471,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3994056465,
+  "lat": 7.2237468,
+  "lon": 81.8302887,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Makkamadi Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3997576697,
+  "lat": 7.2216708,
+  "lon": 81.8495700,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Town Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 3998773378,
+  "lat": 7.2223312,
+  "lon": 81.8068891,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4000259334,
+  "lat": 7.2263090,
+  "lon": 81.8440605,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "New Mosque(Puduppalli)",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4000461230,
+  "lat": 7.2298158,
+  "lon": 81.8506290,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-01",
+    "name": "Markes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4000487667,
+  "lat": 7.2486758,
+  "lon": 81.7167010,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Huda Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4001242362,
+  "lat": 7.2230362,
+  "lon": 81.8427452,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4001242363,
+  "lat": 7.2219079,
+  "lon": 81.8411278,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4001242426,
+  "lat": 7.2277091,
+  "lon": 81.8219371,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4001242432,
+  "lat": 7.2264442,
+  "lon": 81.8292510,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4001299037,
+  "lat": 7.2522730,
+  "lon": 81.7089067,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4020224677,
+  "lat": 7.2008334,
+  "lon": 81.7185122,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4020226659,
+  "lat": 7.1580177,
+  "lon": 81.7222244,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Velamathu Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4039544165,
+  "lat": 7.3167553,
+  "lon": 80.7007062,
+  "tags": {
+    "addr:city": "Menikhinna",
+    "amenity": "place_of_worship",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4039761962,
+  "lat": 7.3308039,
+  "lon": 80.6703803,
+  "tags": {
+    "addr:city": "Madawala",
+    "addr:street": "Bangalagedara Road",
+    "amenity": "place_of_worship",
+    "name": "Akbar Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4039893213,
+  "lat": 7.3191641,
+  "lon": 80.6293819,
+  "tags": {
+    "addr:city": "Mawilmada",
+    "addr:street": "Old Matale Rd.",
+    "amenity": "place_of_worship",
+    "name": "Al Zamil Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4039893226,
+  "lat": 7.3202708,
+  "lon": 80.6304682,
+  "tags": {
+    "addr:city": "Katugasthota",
+    "addr:street": "P.B.A Weerakoon Mawatha",
+    "amenity": "place_of_worship",
+    "name": "Al Hamrah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4039893227,
+  "lat": 7.3219522,
+  "lon": 80.6305782,
+  "tags": {
+    "addr:city": "Katugasthota",
+    "addr:street": "P.B.A Weerakoon Mawatha",
+    "amenity": "place_of_worship",
+    "name": "Siyambalagastenna Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4045190944,
+  "lat": 6.5806458,
+  "lon": 80.5735652,
+  "tags": {
+    "addr:city": "Kahawatta",
+    "addr:street": "Pelmadulla - Embilipitiya - Nonagama Highway",
+    "amenity": "place_of_worship",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4071057076,
+  "lat": 7.6812145,
+  "lon": 81.7261358,
+  "tags": {
+    "addr:city": "Kattankudy",
+    "addr:housenumber": "14",
+    "addr:postcode": "30100",
+    "addr:street": "Methai Palli Road",
+    "amenity": "place_of_worship",
+    "name": "Meera Meththai Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4078326422,
+  "lat": 8.7089694,
+  "lon": 80.4334229,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4102115197,
+  "lat": 5.9738147,
+  "lon": 80.4275865,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Ladies Prayer Hall",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4233205610,
+  "lat": 6.9347378,
+  "lon": 79.8438484,
+  "tags": {
+    "addr:street": "Chatham Street",
+    "amenity": "place_of_worship",
+    "check_date": "2025-01-15",
+    "name": "Fort Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4310399691,
+  "lat": 6.9373729,
+  "lon": 79.8723039,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Jumma mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4310401289,
+  "lat": 6.9394256,
+  "lon": 79.8731360,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Masjidhul Salam",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4322769191,
+  "lat": 8.9769367,
+  "lon": 79.9165288,
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Kootte Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4333341729,
+  "lat": 7.1588949,
+  "lon": 79.9403573,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Nadun Uyana Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4333366510,
+  "lat": 7.1609011,
+  "lon": 79.9398644,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Munas Watta Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4333366512,
+  "lat": 7.1627926,
+  "lon": 79.9393375,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Takkiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4333556207,
+  "lat": 7.1657740,
+  "lon": 79.9352456,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Aluth Para Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4409366587,
+  "lat": 8.6139137,
+  "lon": 80.3283504,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjithuth Thakva",
+    "name:ta": "மஸ்ஜிதுத் தக்வா",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4411768306,
+  "lat": 8.6020036,
+  "lon": 80.3253616,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Macca Mosque",
+    "name:ta": "மக்கா மசூதி",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4411815685,
+  "lat": 8.5863266,
+  "lon": 80.3174381,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4414048679,
+  "lat": 8.6058213,
+  "lon": 80.3300782,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjidhur Rahman",
+    "name:ta": "மஜிதூர் ரஹ்மான்",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4683733221,
+  "lat": 7.2947120,
+  "lon": 80.6368078,
+  "tags": {
+    "addr:city": "Kandy",
+    "addr:street": "Kotugodella Veediya",
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4717807014,
+  "lat": 6.6505730,
+  "lon": 80.6991486,
+  "tags": {
+    "addr:street": "Balangoda Main street",
+    "amenity": "place_of_worship",
+    "name": "Town Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4718021293,
+  "lat": 6.6292281,
+  "lon": 80.7232913,
+  "tags": {
+    "addr:street": "weliyoya road",
+    "amenity": "place_of_worship",
+    "name:en": "Masjid Kirimetithenna",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4879900416,
+  "lat": 6.9052991,
+  "lon": 79.9001609,
+  "tags": {
+    "addr:city": "Rajagiriya",
+    "addr:postcode": "10107",
+    "addr:street": "N.J.V Cooray Road",
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-28",
+    "denomination": "sunni",
+    "name": "Nooraniya Jummah Masjid",
+    "name:ta": "நூரானிய ஜும்மா மஸ்ஜித்",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4883984421,
+  "lat": 6.8414523,
+  "lon": 79.9026742,
+  "tags": {
+    "addr:city": "Boralesgamuwa",
+    "addr:housenumber": "55",
+    "addr:postcode": "10290",
+    "addr:street": "Lake Road",
+    "amenity": "place_of_worship",
+    "name": "Masjid-Ul Jannah",
+    "name:en": "Boralesgamuwa mosque",
+    "opening_hours": "24/7",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 4924740553,
+  "lat": 7.0576799,
+  "lon": 80.5673483,
+  "tags": {
+    "addr:city": "Hapugastalawa",
+    "addr:postcode": "20668",
+    "addr:street": "Hurihela Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Masjidhul Hijra",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 5124783754,
+  "lat": 8.9723356,
+  "lon": 80.1507131,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 5190045621,
+  "lat": 7.2911897,
+  "lon": 80.6308957,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 5277505615,
+  "lat": 6.9906052,
+  "lon": 79.9092525,
+  "tags": {
+    "addr:city": "Wattala",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Akbar Town Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 5475026669,
+  "lat": 7.2684899,
+  "lon": 80.6216738,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Heerassagala Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 5623934581,
+  "lat": 7.2447433,
+  "lon": 80.4491027,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Keraminiya mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 5759107143,
+  "lat": 7.8941352,
+  "lon": 80.1128408,
+  "tags": {
+    "addr:city": "BANJUL",
+    "amenity": "place_of_worship",
+    "name": "MASJID",
+    "religion": "muslim",
+    "service_times": "Mo-Su"
+  }
+},
+{
+  "type": "node",
+  "id": 6259374923,
+  "lat": 7.7757880,
+  "lon": 81.6064401,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "JAMIUL AKBAR JUMMA MOSQUE",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615693730,
+  "lat": 6.7509179,
+  "lon": 79.9048131,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "gcjhdgh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615707665,
+  "lat": 6.7565937,
+  "lon": 79.9021862,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Nakshabandiya Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615719499,
+  "lat": 6.9728036,
+  "lon": 79.8756295,
+  "tags": {
+    "addr:city": "Colombo",
+    "addr:street": "St.Mary's Road",
+    "amenity": "place_of_worship",
+    "name": "Zavia Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615719500,
+  "lat": 6.9732322,
+  "lon": 79.8760825,
+  "tags": {
+    "addr:city": "Colombo",
+    "amenity": "place_of_worship",
+    "name": "Zaviyathul Khairiya Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615719519,
+  "lat": 6.9754875,
+  "lon": 79.8795510,
+  "tags": {
+    "addr:city": "Colombo",
+    "amenity": "place_of_worship",
+    "name": "MASJID UL BADRIYA",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615719992,
+  "lat": 6.9737568,
+  "lon": 79.8713901,
+  "tags": {
+    "addr:city": "Colombo",
+    "addr:street": "7th Lane",
+    "amenity": "place_of_worship",
+    "name": "Noor Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615720004,
+  "lat": 6.9768996,
+  "lon": 79.8745097,
+  "tags": {
+    "addr:city": "Colombo",
+    "amenity": "place_of_worship",
+    "name": "Al Masjidhul Ilahiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615733805,
+  "lat": 6.7526434,
+  "lon": 79.9055200,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Naleemiya Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6615733831,
+  "lat": 6.7498779,
+  "lon": 79.8987903,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Dheeniya masjid مسجد",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6625415892,
+  "lat": 7.3229411,
+  "lon": 80.6247637,
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "sufi",
+    "name": "Katugastota Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6853939872,
+  "lat": 7.5597476,
+  "lon": 80.4582269,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6860463507,
+  "lat": 8.2625950,
+  "lon": 80.2084749,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 6865491342,
+  "lat": 8.0317653,
+  "lon": 79.8275273,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 7085319508,
+  "lat": 7.0801783,
+  "lon": 80.6718110,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 7123737374,
+  "lat": 7.0562464,
+  "lon": 80.5712340,
+  "tags": {
+    "addr:street": "Hurihela Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Masjidhul Minhaj (Jumma Masjidh)",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 7123737376,
+  "lat": 7.0615053,
+  "lon": 80.5684293,
+  "tags": {
+    "addr:city": "hapugastalawa",
+    "addr:postcode": "20668",
+    "addr:street": "Downside Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "email": "haqqani888@gmail.com",
+    "name": "Masjidhul Noor (Jumma Masjidh);Al Hamidhiyyah Arabic College",
+    "phone": "0094542240314",
+    "religion": "muslim",
+    "service_times": "worship",
+    "website": "https://www.alhamidhiyyah.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 7177473922,
+  "lat": 7.2278355,
+  "lon": 80.1999357,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 7278952558,
+  "lat": 8.2374818,
+  "lon": 79.7656856,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 7278962302,
+  "lat": 8.1454245,
+  "lon": 79.7341164,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 7673629949,
+  "lat": 8.5790935,
+  "lon": 81.2329522,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 7675913722,
+  "lat": 8.5789849,
+  "lon": 81.2316149,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 8366816117,
+  "lat": 7.2066528,
+  "lon": 80.5865190,
+  "tags": {
+    "addr:city": "Muruthagahamula",
+    "addr:postcode": "20526",
+    "amenity": "place_of_worship",
+    "name": "Masjidur Rahman Jummah Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 8602578863,
+  "lat": 7.2863717,
+  "lon": 80.6602908,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 8625088935,
+  "lat": 7.7834604,
+  "lon": 81.6109491,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjithul Hutha",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9288146364,
+  "lat": 6.9372240,
+  "lon": 80.6616944,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9347781432,
+  "lat": 7.7990261,
+  "lon": 81.6002874,
+  "tags": {
+    "addr:street": "Abdul Rahman Road",
+    "amenity": "place_of_worship",
+    "name": "Abdul Rahuman Musjid",
+    "opening_hours": "24/7",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9399150943,
+  "lat": 7.9908498,
+  "lon": 80.2682363,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Galgamuwa Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9399192569,
+  "lat": 7.9982689,
+  "lon": 80.2720067,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Town Thakkiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9399883066,
+  "lat": 8.0041563,
+  "lon": 80.2538290,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jumma Masjid Palukandewa",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9400611596,
+  "lat": 7.9651777,
+  "lon": 80.3267916,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9770260038,
+  "lat": 6.9050732,
+  "lon": 80.9112730,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Welimada Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9771160436,
+  "lat": 8.0215127,
+  "lon": 80.5274960,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Kalawewa Jumma Grand Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9782008182,
+  "lat": 7.2608028,
+  "lon": 80.5404231,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9793119043,
+  "lat": 6.9083123,
+  "lon": 80.9123753,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Moragolla Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9861025576,
+  "lat": 8.0253284,
+  "lon": 80.5256895,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Thakiyya masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 9869533409,
+  "lat": 7.0136240,
+  "lon": 80.6676418,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjidhun Nooraniyyah Thaikkah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 10068712240,
+  "lat": 7.2482448,
+  "lon": 80.4464584,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "An-Noor mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 10559799888,
+  "lat": 6.8365930,
+  "lon": 80.2766302,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2026-01-10",
+    "name": "Baduwaththa Muhiyadeen Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 10578236564,
+  "lat": 7.2537994,
+  "lon": 80.4548603,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjidul Hudha jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 10660577419,
+  "lat": 7.2988950,
+  "lon": 81.8588629,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 10750150828,
+  "lat": 7.3241104,
+  "lon": 81.8545823,
+  "tags": {
+    "addr:city": "ADDAPALLAM",
+    "addr:street": "SAKATH VILLAGE ROAD",
+    "amenity": "place_of_worship",
+    "name": "40 MULAM AWLIYA SIYARAM",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 10881565178,
+  "lat": 7.0535075,
+  "lon": 80.5345629,
+  "tags": {
+    "addr:city": "Nawalapitiya",
+    "addr:postcode": "20650",
+    "addr:street": "Soysakelle road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Town Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11036785107,
+  "lat": 8.4396147,
+  "lon": 81.0507297,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Buhary Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11139094409,
+  "lat": 7.4725419,
+  "lon": 80.3798245,
+  "tags": {
+    "addr:city": "Kurunegala",
+    "addr:street": "theliyagonna",
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11140093875,
+  "lat": 7.2868693,
+  "lon": 81.8631765,
+  "tags": {
+    "addr:city": "Oluvil",
+    "addr:postcode": "32360",
+    "addr:street": "Ansari mosque road",
+    "amenity": "place_of_worship",
+    "name": "Ansari mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11140108112,
+  "lat": 7.2904596,
+  "lon": 81.8595631,
+  "tags": {
+    "addr:city": "Oluvil",
+    "addr:postcode": "32360",
+    "addr:street": "Light house street",
+    "amenity": "place_of_worship",
+    "name": "Jumma mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11140478779,
+  "lat": 7.2888874,
+  "lon": 81.8657638,
+  "tags": {
+    "addr:city": "Oluvil",
+    "addr:postcode": "32360",
+    "addr:street": "Light house road",
+    "amenity": "place_of_worship",
+    "name": "habbani mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11215809517,
+  "lat": 6.8682755,
+  "lon": 79.8590517,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2023-09-24",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11271020361,
+  "lat": 7.4224080,
+  "lon": 81.7595583,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11292430409,
+  "lat": 7.2494123,
+  "lon": 81.8600597,
+  "tags": {
+    "addr:street": "Beach Road",
+    "amenity": "place_of_worship",
+    "name": "Rahmaniya bath,jumma mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11292576361,
+  "lat": 6.4595704,
+  "lon": 79.9768614,
+  "tags": {
+    "addr:street": "Maradana Road",
+    "amenity": "place_of_worship",
+    "name": "Yaseer Arafath Jumma Masjid",
+    "religion": "muslim",
+    "service_times": "24 hours"
+  }
+},
+{
+  "type": "node",
+  "id": 11295469489,
+  "lat": 7.3505024,
+  "lon": 81.8477166,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Central masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11353709756,
+  "lat": 7.5081256,
+  "lon": 80.4065416,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11387730737,
+  "lat": 7.3974892,
+  "lon": 81.8415118,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "aljalal mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11387730742,
+  "lat": 7.3981985,
+  "lon": 81.8429093,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "hutha mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11397441612,
+  "lat": 7.3934250,
+  "lon": 81.8366454,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "fathima musjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11399629155,
+  "lat": 7.3896866,
+  "lon": 81.8380068,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "MASJITHUL HIDHAYA",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11399762523,
+  "lat": 7.4009455,
+  "lon": 81.8420438,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjithul Usvathul Hasana",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11399762528,
+  "lat": 7.4029768,
+  "lon": 81.8406010,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Nooraniya Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11406637199,
+  "lat": 7.3904331,
+  "lon": 81.8449674,
+  "tags": {
+    "addr:city": "Sainthamruthu",
+    "addr:street": "Beach Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Al Aqsha",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11435013308,
+  "lat": 6.9380869,
+  "lon": 79.8776951,
+  "tags": {
+    "addr:city": "Colombo",
+    "amenity": "place_of_worship",
+    "denomination": "ahmadiyya",
+    "name": "Ahmadiyya Community Centre",
+    "name:ur": "مسجد محمود",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11687246281,
+  "lat": 7.0637280,
+  "lon": 80.5460131,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mallanda Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 11693712643,
+  "lat": 7.9143107,
+  "lon": 81.5234420,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-05",
+    "name": "Jamie's Sabeel",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11693728552,
+  "lat": 7.9142896,
+  "lon": 81.5234404,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-05",
+    "internet_access": "no",
+    "name": "Jamius Sabeel",
+    "payment:cards": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11699344049,
+  "lat": 7.1640819,
+  "lon": 80.4596749,
+  "tags": {
+    "addr:housenumber": "5F75+JRW, Mawanella-Aranayake-Horawela Rd, Aranayake",
+    "addr:street": "Mawanella-Aranayaka-Horawala Road",
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-06",
+    "internet_access": "no",
+    "name": "Mawathagoda Jummah Mosque",
+    "payment:cards": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11699344058,
+  "lat": 7.1746997,
+  "lon": 80.4512367,
+  "tags": {
+    "addr:housenumber": "1b Wilpola-Dippitiya Rd, Dippitiya 71540",
+    "addr:street": "Wilpola - Dippitiya Road",
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-06",
+    "internet_access": "no",
+    "name": "Al manar jummah Masjith",
+    "payment:cards": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11699344068,
+  "lat": 7.1739939,
+  "lon": 80.4588572,
+  "tags": {
+    "addr:housenumber": "Dippitiya",
+    "addr:street": "Mawanella-Aranayaka-Horawala Road",
+    "amenity": "place_of_worship",
+    "check_date": "2024-03-07",
+    "internet_access": "no",
+    "name": "Dippitiya Town Mosque",
+    "payment:cards": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "religion": "muslim",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 12115472214,
+  "lat": 6.8602979,
+  "lon": 81.8339992,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12116424936,
+  "lat": 6.8323440,
+  "lon": 81.8240947,
+  "tags": {
+    "addr:city": "Ulla",
+    "addr:postcode": "32500",
+    "addr:street": "ISHRAQ SCHOOL ROAD",
+    "amenity": "place_of_worship",
+    "name": "Ishraq School Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12118350981,
+  "lat": 8.2713670,
+  "lon": 80.7110223,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12118351122,
+  "lat": 8.2937565,
+  "lon": 80.7125391,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12119661241,
+  "lat": 6.8643052,
+  "lon": 81.8360343,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Al Bahriya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12119663165,
+  "lat": 6.8295552,
+  "lon": 81.8265255,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Pasarichenai Bathriya  mosqe",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12119693025,
+  "lat": 6.8642395,
+  "lon": 81.8358713,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "BAHRIYA MOSQE BUILDING",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12119744216,
+  "lat": 6.8728707,
+  "lon": 81.8299937,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Town Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12134995942,
+  "lat": 7.2964132,
+  "lon": 80.5574120,
+  "tags": {
+    "addr:city": "Kandy",
+    "addr:housenumber": "74WH+HRM",
+    "addr:postcode": "20232",
+    "addr:street": "Dehianga Road",
+    "amenity": "place_of_worship",
+    "email": "rawahiyya@gmail.com",
+    "name": "Rawahiya Arabic collage",
+    "phone": "0814900180",
+    "religion": "muslim",
+    "website": "www.arrawahiya.com"
+  }
+},
+{
+  "type": "node",
+  "id": 12533892360,
+  "lat": 6.8312135,
+  "lon": 80.5723534,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12880219605,
+  "lat": 6.8566904,
+  "lon": 80.0930662,
+  "tags": {
+    "addr:city": "padukka",
+    "addr:postcode": "10500",
+    "addr:street": "Meepe-Ingiriya Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Masjidun Noor Jumma Mosque",
+    "religion": "muslim",
+    "service_times": "service_times=05:00, 12:30 (Jumu'ah on Friday), 16:00, 18:30, 20:00"
+  }
+},
+{
+  "type": "node",
+  "id": 12880914108,
+  "lat": 7.3152295,
+  "lon": 80.7858956,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Udispattuwa Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12947453476,
+  "lat": 7.6875743,
+  "lon": 81.7264568,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjidussunnah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12947463205,
+  "lat": 7.6568897,
+  "lon": 81.7301752,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjid ar Rasool",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12947466683,
+  "lat": 7.6625904,
+  "lon": 81.7268325,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12947468713,
+  "lat": 7.6563782,
+  "lon": 81.7265358,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjid Al Minan",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 12947469580,
+  "lat": 7.6585893,
+  "lon": 81.7256918,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Darussunnah Annabawiyya Thowheed Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 13003565063,
+  "lat": 8.3586867,
+  "lon": 80.5108615,
+  "tags": {
+    "addr:city": "Mihintale",
+    "addr:street": "Old Jaffna Road",
+    "amenity": "place_of_worship",
+    "name": "Mihintale Jumma Masjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 13339072325,
+  "lat": 8.2104715,
+  "lon": 79.7396533,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Grand Mosque Kurinchipity",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 13339072331,
+  "lat": 8.2130346,
+  "lon": 79.7169189,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Kandakuliya Grand Jummah Masjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 13575435498,
+  "lat": 7.3669569,
+  "lon": 80.6211600,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Azhariya jumma masid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 13779683829,
+  "lat": 8.4916722,
+  "lon": 81.1871461,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jalaliya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 13900767176,
+  "lat": 6.8889103,
+  "lon": 81.8191797,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 13987760290,
+  "lat": 8.3690500,
+  "lon": 81.0031498,
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14005746251,
+  "lat": 7.0547937,
+  "lon": 80.5318994,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14005796702,
+  "lat": 7.0492021,
+  "lon": 80.5308333,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Al Jamiyathul Islamiyyah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14005796704,
+  "lat": 7.0490917,
+  "lon": 80.5278878,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Masjid Al Noor",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14019887100,
+  "lat": 7.4679081,
+  "lon": 80.6242201,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Gongawela Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14019895824,
+  "lat": 7.4704536,
+  "lon": 80.6272137,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Raheemiya Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14019905896,
+  "lat": 7.1647099,
+  "lon": 80.5683651,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Town Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14020547897,
+  "lat": 7.1946988,
+  "lon": 80.1108855,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Al Masjidus Sook, Kal-Eliya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "node",
+  "id": 14076448707,
+  "lat": 7.5066228,
+  "lon": 79.9571659,
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "divurumpola masjidhul hudha jumma mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 136487388,
+  "center": {
+    "lat": 6.0246280,
+    "lon": 80.2186988
+  },
+  "tags": {
+    "addr:street": "Leyn Baan Street",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:colour": "#FFFFFF",
+    "building:levels": "3",
+    "denomination": "sunni",
+    "floor:material": "wood",
+    "height": "11.68",
+    "image": "https://photos.app.goo.gl/RpNoua6WrCdGJKKZ7",
+    "name": "Meeran Jumma Masjid",
+    "religion": "muslim",
+    "roof:colour": "#800000",
+    "roof:height": "3.16",
+    "roof:shape": "hipped"
+  }
+},
+{
+  "type": "way",
+  "id": 137089491,
+  "center": {
+    "lat": 6.0245318,
+    "lon": 80.2175508
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Zaviya Ummul Fuqarah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 137189159,
+  "center": {
+    "lat": 6.0248291,
+    "lon": 80.2182315
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "height": "6.82",
+    "image": "https://photos.app.goo.gl/CHDiUYE7RSJVGgcg8",
+    "name": "Jiffry Thaikka",
+    "religion": "muslim",
+    "roof:height": "1.03",
+    "roof:shape": "gabled"
+  }
+},
+{
+  "type": "way",
+  "id": 137292932,
+  "center": {
+    "lat": 6.0384394,
+    "lon": 80.2234987
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Muhiyaddeen Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 137293026,
+  "center": {
+    "lat": 6.0408725,
+    "lon": 80.2241144
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Nabaviyya Taikka",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 137826453,
+  "center": {
+    "lat": 6.0247811,
+    "lon": 80.2185314
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:levels": "3",
+    "name": "Zaviya Shazuliyyah",
+    "religion": "muslim",
+    "roof:colour": "#800000",
+    "roof:height": "1.14",
+    "roof:shape": "gabled"
+  }
+},
+{
+  "type": "way",
+  "id": 138623967,
+  "center": {
+    "lat": 6.0258687,
+    "lon": 80.2178471
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "building:levels": "2",
+    "name": "Aroosiyathul Qadiriyaa Taikka",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 147409283,
+  "center": {
+    "lat": 6.4388364,
+    "lon": 80.0041801
+  },
+  "tags": {
+    "addr:city": "Dharga Town",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Grand Mosque - Muhiyaddeen Jummah Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 220690846,
+  "center": {
+    "lat": 7.6848118,
+    "lon": 81.7203587
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:foundation_height": "1",
+    "building:levels": "1",
+    "building:material": "plaster",
+    "building:use": "place_of_worship",
+    "name": "Husainiya Mosque",
+    "religion": "muslim",
+    "roof:material": "zink",
+    "roof:shape": "gabled"
+  }
+},
+{
+  "type": "way",
+  "id": 220862852,
+  "center": {
+    "lat": 7.7126209,
+    "lon": 81.6991029
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:foundation_height": "3",
+    "building:levels": "4",
+    "building:material": "plaster",
+    "building:use": "place_of_worship",
+    "name": "Jamius Salam Jummah Masjith",
+    "religion": "muslim",
+    "roof:material": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 224062633,
+  "center": {
+    "lat": 6.9276513,
+    "lon": 79.8639983
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Maradana Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 231385046,
+  "center": {
+    "lat": 6.4632482,
+    "lon": 79.9760706
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Masjid ul Abrar",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 232884329,
+  "center": {
+    "lat": 6.4763252,
+    "lon": 79.9853543
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "fassiya jummah masjid Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 249373621,
+  "center": {
+    "lat": 7.2976487,
+    "lon": 80.8518772
+  },
+  "tags": {
+    "addr:street": "Hunnasgiriya",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jumma Mosque",
+    "religion": "muslim",
+    "service_times": "24 Hours"
+  }
+},
+{
+  "type": "way",
+  "id": 254095727,
+  "center": {
+    "lat": 7.3721737,
+    "lon": 81.8019513
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanturai-Veeramunai Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 254605448,
+  "center": {
+    "lat": 6.9893583,
+    "lon": 81.0599033
+  },
+  "tags": {
+    "addr:city": "Badulla",
+    "addr:city:ur": "بادولا",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Badulla Jumma Masjid",
+    "name:ur": "بادولا جمعہ مسجد",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286372639,
+  "center": {
+    "lat": 5.9455714,
+    "lon": 80.5492814
+  },
+  "tags": {
+    "addr:city": "Matara",
+    "addr:street": "Old Tangalle Road",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "building:colour": "white",
+    "building:levels": "1",
+    "image": "https://photos.app.goo.gl/eGgrfqszcgpZBjd56",
+    "name": "Matara Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286437941,
+  "center": {
+    "lat": 7.3699307,
+    "lon": 81.8123481
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32000",
+    "addr:street": "Ampara-Karavitu Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:levels": "1",
+    "denomination": "sunni",
+    "name": "Anvar Ismail Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286468134,
+  "center": {
+    "lat": 7.3670897,
+    "lon": 81.8054384
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32000",
+    "addr:street": "Sammanturai-Deeghavapi Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Thakkiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286468137,
+  "center": {
+    "lat": 7.3684666,
+    "lon": 81.8096608
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32000",
+    "addr:street": "Sammanturai-Deeghavapi Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Nagar - Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286468139,
+  "center": {
+    "lat": 7.3716162,
+    "lon": 81.8061115
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32000",
+    "addr:street": "Sammanturai-Deeghavapi Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Ummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286531030,
+  "center": {
+    "lat": 7.3571802,
+    "lon": 81.8026660
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanturai-Deeghavapi Road",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "name": "Masjithul Huda Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286531035,
+  "center": {
+    "lat": 7.3499030,
+    "lon": 81.8040053
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanturai-Deeghavapi Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Matherasathul Uswa",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286531036,
+  "center": {
+    "lat": 7.3511637,
+    "lon": 81.8029049
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanturai-Deeghavapi Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Jariya Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286531851,
+  "center": {
+    "lat": 6.1305916,
+    "lon": 81.1266057
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286534333,
+  "center": {
+    "lat": 7.3481848,
+    "lon": 81.7983333
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Band Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Bala",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286534335,
+  "center": {
+    "lat": 7.3499561,
+    "lon": 81.7970357
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286534337,
+  "center": {
+    "lat": 7.3487713,
+    "lon": 81.7917483
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Muneer",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286534339,
+  "center": {
+    "lat": 7.3524972,
+    "lon": 81.7916647
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Abrar Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286604100,
+  "center": {
+    "lat": 7.3608405,
+    "lon": 81.8064226
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Busra Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286604101,
+  "center": {
+    "lat": 7.3618007,
+    "lon": 81.8100307
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286610005,
+  "center": {
+    "lat": 7.3605134,
+    "lon": 81.7831999
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Ampara-Karavitu Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286610006,
+  "center": {
+    "lat": 7.3570486,
+    "lon": 81.7791683
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Ampara-Karavitu Road",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286788276,
+  "center": {
+    "lat": 7.3489440,
+    "lon": 81.7822387
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800658,
+  "center": {
+    "lat": 7.3576542,
+    "lon": 81.7877166
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Bund Road",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800659,
+  "center": {
+    "lat": 7.3599708,
+    "lon": 81.7948140
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Powse Mawathai",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "yalaliya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800666,
+  "center": {
+    "lat": 7.3672237,
+    "lon": 81.7952394
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Kayaruppalli Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800667,
+  "center": {
+    "lat": 7.3684084,
+    "lon": 81.7991568
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800679,
+  "center": {
+    "lat": 7.3728425,
+    "lon": 81.8018526
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanthurai-Veeramunai Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Thablikul Arabic College Sammanthurai",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800680,
+  "center": {
+    "lat": 7.3729022,
+    "lon": 81.8022773
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanthurai-Veeramunai Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Thablikul Arabic College Sammanthurai",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800681,
+  "center": {
+    "lat": 7.3728522,
+    "lon": 81.8025014
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanthurai-Veeramunai Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Thablikul Arabic College Sammanthurai",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286800686,
+  "center": {
+    "lat": 7.3726667,
+    "lon": 81.8052367
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanthurai-Veeramunai Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Arabic Matharasa",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286803631,
+  "center": {
+    "lat": 7.3653385,
+    "lon": 81.8012116
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Manar Thakkiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286803633,
+  "center": {
+    "lat": 7.3700130,
+    "lon": 81.8015519
+  },
+  "tags": {
+    "addr:city": "Sammanthurai-5",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Dharul Hasanath - Hiflu Matharasa",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286803634,
+  "center": {
+    "lat": 7.3704253,
+    "lon": 81.8015894
+  },
+  "tags": {
+    "addr:city": "Sammanthurai-5",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Sinnappalli Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286803636,
+  "center": {
+    "lat": 7.3558442,
+    "lon": 81.8082809
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Salam Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 286832025,
+  "center": {
+    "lat": 7.3497450,
+    "lon": 81.8040487
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Sammanturai-Deeghavapi Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Dharul Eeman Arabic College",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 287036859,
+  "center": {
+    "lat": 7.3643853,
+    "lon": 81.8068750
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Pirthaws Mosque Street",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Pirthouse Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 287067452,
+  "center": {
+    "lat": 7.3562163,
+    "lon": 81.7940615
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Al Arsath Street",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 287067456,
+  "center": {
+    "lat": 7.3559225,
+    "lon": 81.8000036
+  },
+  "tags": {
+    "addr:city": "Sammanthurai",
+    "addr:postcode": "32200",
+    "addr:street": "Amparai 8th Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Al Uswa Organization",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 287079524,
+  "center": {
+    "lat": 6.2825329,
+    "lon": 80.0406809
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "name": "Balapitiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 288472716,
+  "center": {
+    "lat": 7.3711258,
+    "lon": 81.8211089
+  },
+  "tags": {
+    "addr:city": "Mavedippalli",
+    "addr:street": "Ampara-Karavitu Road",
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Mavedippalli Marcase Palli",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 288472720,
+  "center": {
+    "lat": 7.3707105,
+    "lon": 81.8256329
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Mavedippalli Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 304522078,
+  "center": {
+    "lat": 7.3652330,
+    "lon": 81.7906158
+  },
+  "tags": {
+    "addr:street": "Ampara-Karavitu Road",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 304522107,
+  "center": {
+    "lat": 7.3654825,
+    "lon": 81.8118010
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 304660724,
+  "center": {
+    "lat": 7.3639013,
+    "lon": 81.7973886
+  },
+  "tags": {
+    "addr:street": "Amparai 9th Street",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Fathah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 304660736,
+  "center": {
+    "lat": 7.3572672,
+    "lon": 81.7991307
+  },
+  "tags": {
+    "addr:street": "Malkampitty 8th Street",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjithul Jabel Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 317144344,
+  "center": {
+    "lat": 8.5022841,
+    "lon": 81.1707355
+  },
+  "tags": {
+    "addr:city": "Kurinchakerny-1",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Kurinchakerny Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 317515510,
+  "center": {
+    "lat": 6.4163829,
+    "lon": 81.3355408
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 320361591,
+  "center": {
+    "lat": 6.4161426,
+    "lon": 81.3353329
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Khizar Thakkiya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 320935592,
+  "center": {
+    "lat": 7.3536454,
+    "lon": 81.8468424
+  },
+  "tags": {
+    "addr:city": "Nintavur",
+    "addr:postcode": "32340",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 343504815,
+  "center": {
+    "lat": 6.9562130,
+    "lon": 80.0190681
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Al-Masjidul Musthafaviyyah Thakkiya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 359485484,
+  "center": {
+    "lat": 8.7561419,
+    "lon": 80.5009125
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jummah Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 372840849,
+  "center": {
+    "lat": 8.7631933,
+    "lon": 80.4867944
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "leisure": "outdoor_seating",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 378444304,
+  "center": {
+    "lat": 7.1430054,
+    "lon": 79.8976192
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Raddolugama Jummah Palliya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 378808258,
+  "center": {
+    "lat": 8.7721706,
+    "lon": 80.5156521
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Majithul Jamiya Jamal Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 385375792,
+  "center": {
+    "lat": 6.6802762,
+    "lon": 80.4085121
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 385998218,
+  "center": {
+    "lat": 7.9257118,
+    "lon": 81.5272625
+  },
+  "tags": {
+    "addr:city": "Valaichchenai",
+    "addr:postcode": "30400",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjidus Salihath",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 386099592,
+  "center": {
+    "lat": 7.9229323,
+    "lon": 81.5271083
+  },
+  "tags": {
+    "addr:city": "Valaichchenai",
+    "addr:postcode": "30400",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 386099600,
+  "center": {
+    "lat": 7.9241486,
+    "lon": 81.5269635
+  },
+  "tags": {
+    "addr:city": "Valaichchenai",
+    "addr:postcode": "30400",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Aaysha Masjid, Valaichcenai",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 386102811,
+  "center": {
+    "lat": 7.9224264,
+    "lon": 81.5235684
+  },
+  "tags": {
+    "addr:city": "Valaichchenai",
+    "addr:postcode": "30400",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjidul Hairath",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 386203783,
+  "center": {
+    "lat": 7.9199063,
+    "lon": 81.5275084
+  },
+  "tags": {
+    "addr:city": "Valaichchenai",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Baduriya Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 386580028,
+  "center": {
+    "lat": 7.9178944,
+    "lon": 81.5216611
+  },
+  "tags": {
+    "addr:city": "Oddamavadi",
+    "addr:street": "Post Office road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Markaz Masjid",
+    "religion": "muslim",
+    "service_times": "08:00-17:00"
+  }
+},
+{
+  "type": "way",
+  "id": 386582948,
+  "center": {
+    "lat": 7.9148496,
+    "lon": 81.5259816
+  },
+  "tags": {
+    "addr:city": "Oddamavadi",
+    "addr:postcode": "40420",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Huda Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 388385261,
+  "center": {
+    "lat": 7.9062653,
+    "lon": 81.5250443
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Buhary Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 388710596,
+  "center": {
+    "lat": 7.9504720,
+    "lon": 81.5061467
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masthul akpar thaika mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 388710730,
+  "center": {
+    "lat": 7.9454870,
+    "lon": 81.5030574
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Masuthul Hanthu Jumma",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 390255882,
+  "center": {
+    "lat": 6.8770883,
+    "lon": 79.8601417
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "check_date": "2023-10-08",
+    "denomination": "sunni",
+    "name": "Wellawatte Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 392160940,
+  "center": {
+    "lat": 6.9625340,
+    "lon": 79.8640482
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Mutwal Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 397326809,
+  "center": {
+    "lat": 7.2262572,
+    "lon": 81.8385019
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 404000676,
+  "center": {
+    "lat": 8.5883466,
+    "lon": 80.8959512
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 404001988,
+  "center": {
+    "lat": 8.5604018,
+    "lon": 80.8193878
+  },
+  "tags": {
+    "addr:city": "horowpothana",
+    "addr:street": "Vavuniya-Horowpotana Road",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "kiwulakada jummah mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 404850699,
+  "center": {
+    "lat": 7.9129589,
+    "lon": 81.5205033
+  },
+  "tags": {
+    "addr:city": "Oddamavadi",
+    "addr:postcode": "30420",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Oddamavadi Mohideen Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 404852826,
+  "center": {
+    "lat": 7.6830851,
+    "lon": 81.7340516
+  },
+  "tags": {
+    "addr:city": "New Kattankudy",
+    "addr:street": "Beach Road",
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 405674992,
+  "center": {
+    "lat": 8.7187371,
+    "lon": 80.4386143
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 405979270,
+  "center": {
+    "lat": 8.4782955,
+    "lon": 81.1963956
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 411587450,
+  "center": {
+    "lat": 7.6860952,
+    "lon": 81.7392707
+  },
+  "tags": {
+    "addr:city": "New Kattankudy",
+    "addr:housenumber": "45",
+    "addr:postcode": "30100",
+    "addr:street": "Beach Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Al Manar Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 411916224,
+  "center": {
+    "lat": 7.9123370,
+    "lon": 81.5240152
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Aysha Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 411926275,
+  "center": {
+    "lat": 7.9069165,
+    "lon": 81.5197959
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Rilwan Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 414907012,
+  "center": {
+    "lat": 7.9031414,
+    "lon": 81.5196113
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "name": "Meera Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 419290856,
+  "center": {
+    "lat": 7.1784045,
+    "lon": 80.5008289
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Hemmathagama Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 419787419,
+  "center": {
+    "lat": 6.9476025,
+    "lon": 80.0121902
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Raxapana Jumma Mosque",
+    "name:ta": "ரக்ஸபான ஜும்மா மஸ்ஜித்",
+    "religion": "muslim",
+    "source": "Mapbox satellite"
+  }
+},
+{
+  "type": "way",
+  "id": 421157016,
+  "center": {
+    "lat": 7.1623289,
+    "lon": 79.9369150
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jumma Masjid Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 421285728,
+  "center": {
+    "lat": 7.7798896,
+    "lon": 81.6030214
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "description": "Markazul islamic hifl madrasa for boys",
+    "name": "Markazul islamic masjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 421303656,
+  "center": {
+    "lat": 8.7474052,
+    "lon": 80.4306682
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 421303815,
+  "center": {
+    "lat": 8.7521276,
+    "lon": 80.4339540
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 422090118,
+  "center": {
+    "lat": 5.9656292,
+    "lon": 80.4220058
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "image": "https://photos.app.goo.gl/JDhBSmHSBe9ymu5n8",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 423051295,
+  "center": {
+    "lat": 7.6834473,
+    "lon": 81.7368979
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Central College Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 427553448,
+  "center": {
+    "lat": 7.6841453,
+    "lon": 81.7410962
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Anver Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 430512871,
+  "center": {
+    "lat": 7.1680832,
+    "lon": 79.9478045
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 433807366,
+  "center": {
+    "lat": 7.2142897,
+    "lon": 79.8368997
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "image": "https://photos.app.goo.gl/JC15xEp5EgAAHLct7",
+    "name": "Kamachchode Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 434310303,
+  "center": {
+    "lat": 8.9787430,
+    "lon": 79.9162006
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Uppukulam Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 434316706,
+  "center": {
+    "lat": 6.8987543,
+    "lon": 79.8685906
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jawatte Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 437181880,
+  "center": {
+    "lat": 7.9985129,
+    "lon": 79.8399805
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 437181911,
+  "center": {
+    "lat": 7.9967682,
+    "lon": 79.8451904
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 439101658,
+  "center": {
+    "lat": 7.9107623,
+    "lon": 81.5249414
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Abrar Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 450305633,
+  "center": {
+    "lat": 7.6756697,
+    "lon": 81.7235370
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Kuba Jummah Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 450927535,
+  "center": {
+    "lat": 7.7724524,
+    "lon": 81.6040162
+  },
+  "tags": {
+    "addr:city": "Eravur",
+    "addr:postcode": "30300",
+    "addr:street": "Kathiyar Road",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Aatrankarai Mohaideen Jumma Mosque",
+    "opening_hours": "24/7",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 450938562,
+  "center": {
+    "lat": 7.7839166,
+    "lon": 81.6029042
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 451002522,
+  "center": {
+    "lat": 7.7852130,
+    "lon": 81.6094588
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 451027933,
+  "center": {
+    "lat": 7.7833322,
+    "lon": 81.6054764
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Markas Jumma Mosque",
+    "religion": "muslim",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 451822096,
+  "center": {
+    "lat": 7.6177146,
+    "lon": 81.5805496
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Irunooru Vill Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 452183693,
+  "center": {
+    "lat": 7.6601476,
+    "lon": 81.4872459
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 452400534,
+  "center": {
+    "lat": 7.7806357,
+    "lon": 81.6109196
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Suhadha Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 453893091,
+  "center": {
+    "lat": 7.9257437,
+    "lon": 81.2618692
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 453948578,
+  "center": {
+    "lat": 7.8986146,
+    "lon": 81.5214685
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Bathuriya Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 456751611,
+  "center": {
+    "lat": 7.9087455,
+    "lon": 81.5221609
+  },
+  "tags": {
+    "addr:city": "Oddamavadi-03",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjidul Hair",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 456883545,
+  "center": {
+    "lat": 7.9089723,
+    "lon": 81.5233459
+  },
+  "tags": {
+    "addr:city": "Oddamavadi-03",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Hassan Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 456886118,
+  "center": {
+    "lat": 7.9093709,
+    "lon": 81.5196523
+  },
+  "tags": {
+    "addr:city": "Oddamavadi-03",
+    "addr:postcode": "30420",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjidun Nahr",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 456889723,
+  "center": {
+    "lat": 7.9108106,
+    "lon": 81.5206340
+  },
+  "tags": {
+    "addr:city": "Oddmavadi-03",
+    "addr:postcode": "30420",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Irshad Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 456948700,
+  "center": {
+    "lat": 7.9047146,
+    "lon": 81.5246537
+  },
+  "tags": {
+    "addr:city": "Meeravodai",
+    "addr:postcode": "30420",
+    "addr:street": "MPCS Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Darus Salam Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 471377351,
+  "center": {
+    "lat": 7.6822125,
+    "lon": 81.7320104
+  },
+  "tags": {
+    "addr:city": "New Kattankudy",
+    "addr:street": "Public Ground Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Islamic Centre Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 477617366,
+  "center": {
+    "lat": 7.1716788,
+    "lon": 80.1258078
+  },
+  "tags": {
+    "addr:city": "Pasyala",
+    "addr:street": "Colombo - Kandy Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "ahmadiyya",
+    "name": "Baitul Basit Mosque",
+    "name:ur": "مسجد بیت الباسط",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 483927915,
+  "center": {
+    "lat": 7.7899202,
+    "lon": 81.6059408
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Kadiriya jumma mousq",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 483956310,
+  "center": {
+    "lat": 6.9066116,
+    "lon": 80.8439670
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 487601788,
+  "center": {
+    "lat": 7.9462028,
+    "lon": 81.3979006
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Pothanai Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 497169972,
+  "center": {
+    "lat": 5.9477121,
+    "lon": 80.5410598
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:colour": "white",
+    "name": "Meerah Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 500062303,
+  "center": {
+    "lat": 7.4904401,
+    "lon": 80.3648582
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Malay Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 509179019,
+  "center": {
+    "lat": 6.7680168,
+    "lon": 80.9615359
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 514045884,
+  "center": {
+    "lat": 6.9224273,
+    "lon": 79.8516106
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Wekanfa Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 514543399,
+  "center": {
+    "lat": 6.9307131,
+    "lon": 79.8761841
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jumma mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 514622901,
+  "center": {
+    "lat": 6.9204220,
+    "lon": 79.8524745
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "image": "https://photos.app.goo.gl/fnSv2E5TMa7MufEk8",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 528705064,
+  "center": {
+    "lat": 6.9051436,
+    "lon": 79.8752837
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Noor Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 533352957,
+  "center": {
+    "lat": 6.9205989,
+    "lon": 79.8495296
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Shahul Hameedhiya Jumma Musjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 533697340,
+  "center": {
+    "lat": 6.0353784,
+    "lon": 80.2314988
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 536698079,
+  "center": {
+    "lat": 6.0528998,
+    "lon": 80.1903449
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Piyadigama Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 536904313,
+  "center": {
+    "lat": 6.0358784,
+    "lon": 80.2200472
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 539254447,
+  "center": {
+    "lat": 6.8821634,
+    "lon": 81.7645876
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 540414652,
+  "center": {
+    "lat": 7.2860334,
+    "lon": 80.6235453
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Katukele Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 540739293,
+  "center": {
+    "lat": 8.5922106,
+    "lon": 81.2231168
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 541480815,
+  "center": {
+    "lat": 8.5963619,
+    "lon": 81.2174470
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masjith An Noor Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 543246639,
+  "center": {
+    "lat": 7.4897465,
+    "lon": 80.3639214
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 543750078,
+  "center": {
+    "lat": 6.0452741,
+    "lon": 80.2224573
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 550358263,
+  "center": {
+    "lat": 7.2915230,
+    "lon": 80.6361082
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Malay Military Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 558134308,
+  "center": {
+    "lat": 7.3043581,
+    "lon": 80.6334195
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jamiul Khairath Jummah Masjid Mahaiyawa",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 563237733,
+  "center": {
+    "lat": 6.0370565,
+    "lon": 80.2473046
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 563264106,
+  "center": {
+    "lat": 6.0520286,
+    "lon": 80.2385609
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Haliwala Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 565595750,
+  "center": {
+    "lat": 6.0676018,
+    "lon": 80.1837531
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Hilur Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 565655546,
+  "center": {
+    "lat": 6.0719611,
+    "lon": 80.1784345
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Ginthota Muhiyiddeen Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 565706027,
+  "center": {
+    "lat": 6.0666472,
+    "lon": 80.1805089
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Bawan-Thakkiya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 566860185,
+  "center": {
+    "lat": 6.0687965,
+    "lon": 80.2147383
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 566860189,
+  "center": {
+    "lat": 6.0701936,
+    "lon": 80.2145626
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Navinna Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 567184674,
+  "center": {
+    "lat": 6.9691402,
+    "lon": 81.0713928
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Rockhill Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 567648321,
+  "center": {
+    "lat": 6.0530066,
+    "lon": 80.1902382
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Piyadigama Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 569313488,
+  "center": {
+    "lat": 9.6685104,
+    "lon": 80.0100517
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jumma Mosque",
+    "name:ta": "ஜும்மாப் பள்ளிவாசல்",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 569579514,
+  "center": {
+    "lat": 9.6692935,
+    "lon": 80.0279278
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 571638260,
+  "center": {
+    "lat": 9.6736619,
+    "lon": 80.0038885
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Sivalai Palli mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 571638263,
+  "center": {
+    "lat": 9.6748523,
+    "lon": 80.0070307
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 571638268,
+  "center": {
+    "lat": 9.6754991,
+    "lon": 80.0048139
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jaffna Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 571864141,
+  "center": {
+    "lat": 9.6734803,
+    "lon": 80.0069408
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 572292227,
+  "center": {
+    "lat": 9.6763095,
+    "lon": 80.0082581
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Mohideen Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 574277749,
+  "center": {
+    "lat": 9.6762387,
+    "lon": 80.0052870
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Jaffna Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 575448053,
+  "center": {
+    "lat": 9.6815947,
+    "lon": 80.0045969
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Abubakkar Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 578109630,
+  "center": {
+    "lat": 6.8449532,
+    "lon": 79.8696447
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Zeyneb Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 588869420,
+  "center": {
+    "lat": 7.5497357,
+    "lon": 80.3704912
+  },
+  "tags": {
+    "addr:city": "Wellawa",
+    "addr:street": "Hadirawalana Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Hadirawala Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 592047925,
+  "center": {
+    "lat": 7.7472868,
+    "lon": 79.9771636
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 592061244,
+  "center": {
+    "lat": 7.7459850,
+    "lon": 79.7903574
+  },
+  "tags": {
+    "addr:city": "Udappuwa",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 592541521,
+  "center": {
+    "lat": 7.3564904,
+    "lon": 81.8509127
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjid Al Abrar",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 592630007,
+  "center": {
+    "lat": 7.2930588,
+    "lon": 81.8636437
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "check_date": "2024-02-13",
+    "name": "An-Noor Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 596865563,
+  "center": {
+    "lat": 7.4803338,
+    "lon": 79.8281798
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "image": "https://photos.app.goo.gl/sp35gbroWS7dTpCR6",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 597411027,
+  "center": {
+    "lat": 7.4764025,
+    "lon": 80.3816327
+  },
+  "tags": {
+    "addr:city": "Kurunegala",
+    "addr:postcode": "6666",
+    "addr:street": "Kurunegala - Kandy Road,THELIYAGONNA",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "THELIYAGONNA JUMMA MOSQUE",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 597840013,
+  "center": {
+    "lat": 7.5161919,
+    "lon": 79.9699785
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Erthungaha kotuwajumma masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 612508723,
+  "center": {
+    "lat": 8.7246463,
+    "lon": 80.4310983
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "capacity": "0",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 612508724,
+  "center": {
+    "lat": 8.7247888,
+    "lon": 80.4310926
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 617507360,
+  "center": {
+    "lat": 7.3652156,
+    "lon": 80.0624530
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jamiul Hairath Jummah Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 624645173,
+  "center": {
+    "lat": 7.9164646,
+    "lon": 81.5198699
+  },
+  "tags": {
+    "addr:city": "Oddamavadi",
+    "addr:postcode": "30420",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Bazar Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 625521670,
+  "center": {
+    "lat": 7.8993216,
+    "lon": 81.5260618
+  },
+  "tags": {
+    "addr:city": "Mancholai",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Hilriya Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 663773742,
+  "center": {
+    "lat": 8.8497080,
+    "lon": 80.3713039
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 685043382,
+  "center": {
+    "lat": 6.9404528,
+    "lon": 79.8589591
+  },
+  "tags": {
+    "addr:country": "LK",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "height": "10",
+    "name": "Grand Mosque",
+    "name:tr": "Ulu Camii",
+    "religion": "muslim",
+    "roof:shape": "flat"
+  }
+},
+{
+  "type": "way",
+  "id": 711133998,
+  "center": {
+    "lat": 8.5884807,
+    "lon": 81.2037185
+  },
+  "tags": {
+    "addr:city": "Anuradhapura Junction",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jumma Mosque",
+    "religion": "muslim",
+    "source": "Maxar-Premium"
+  }
+},
+{
+  "type": "way",
+  "id": 721537389,
+  "center": {
+    "lat": 7.6194216,
+    "lon": 80.2451652
+  },
+  "tags": {
+    "addr:city": "Wariyapola",
+    "addr:postcode": "60400",
+    "addr:street": "Chilaw Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 751454450,
+  "center": {
+    "lat": 8.9318236,
+    "lon": 80.9890750
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Masjid Ul-Falaah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 751760004,
+  "center": {
+    "lat": 8.9400186,
+    "lon": 80.9796458
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Masjidul Saddam",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 751967622,
+  "center": {
+    "lat": 8.4940092,
+    "lon": 81.1803744
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Ihshaniya Jummah Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 752309561,
+  "center": {
+    "lat": 8.9350662,
+    "lon": 80.9905981
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Al Hasanath Jummah Masjid.",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 752309575,
+  "center": {
+    "lat": 8.9317919,
+    "lon": 80.9889874
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Masjid Ul-Falaah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 752687139,
+  "center": {
+    "lat": 8.5027460,
+    "lon": 81.1807534
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Buhary Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 752696860,
+  "center": {
+    "lat": 8.4499172,
+    "lon": 81.0752364
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Thakkiya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 753824852,
+  "center": {
+    "lat": 8.6063533,
+    "lon": 80.9207217
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Rottawewa Thakkiya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 753860390,
+  "center": {
+    "lat": 8.5974543,
+    "lon": 80.9207254
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Masjidhul Hudha Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 754171257,
+  "center": {
+    "lat": 8.9414900,
+    "lon": 80.9868331
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Pulmoddai Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 754171258,
+  "center": {
+    "lat": 8.9416685,
+    "lon": 80.9865632
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Mohedeen Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 754176705,
+  "center": {
+    "lat": 8.9308191,
+    "lon": 80.9895934
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Al Msjidul Bareya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 754176707,
+  "center": {
+    "lat": 8.9352055,
+    "lon": 80.9877686
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "temple",
+    "name": "Al Masjidul Nooraniya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 754483105,
+  "center": {
+    "lat": 8.0081508,
+    "lon": 79.8377383
+  },
+  "tags": {
+    "addr:city": "Puttalam",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Muhaiyadeen Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 754640344,
+  "center": {
+    "lat": 8.5012048,
+    "lon": 81.1911602
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 755845822,
+  "center": {
+    "lat": 8.8568221,
+    "lon": 81.0690089
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Muhaidheen Jumuah Mosque / முஹைதீன் ஜுமு-ஆ மஸ்ஜித் / මුහෛදීන් ජූමු-ආ පල්ලිය",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 756157186,
+  "center": {
+    "lat": 8.4175990,
+    "lon": 81.1506799
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 757755330,
+  "center": {
+    "lat": 8.0041654,
+    "lon": 80.2538184
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 757778076,
+  "center": {
+    "lat": 7.9982763,
+    "lon": 80.2719814
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 760553785,
+  "center": {
+    "lat": 6.9217723,
+    "lon": 81.8146004
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Aauisha Masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 764756779,
+  "center": {
+    "lat": 6.8336727,
+    "lon": 81.8336439
+  },
+  "tags": {
+    "addr:city": "pottuvil 18",
+    "addr:postcode": "32500",
+    "addr:street": "Mayavadi Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "An Noor Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 766598675,
+  "center": {
+    "lat": 6.8465310,
+    "lon": 81.8303896
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Al-Aqsha masjeed",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 776095455,
+  "center": {
+    "lat": 6.8630098,
+    "lon": 81.8334772
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Pottuvil Muslim markas",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 776885573,
+  "center": {
+    "lat": 6.8763907,
+    "lon": 81.8315651
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2024-07-22",
+    "denomination": "sunni",
+    "name": "Grand Jummah Mosque Pottuvil",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 776985427,
+  "center": {
+    "lat": 6.8784815,
+    "lon": 81.8390779
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Al Muneera Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 778433605,
+  "center": {
+    "lat": 6.8724629,
+    "lon": 81.8406690
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masjithul Fathah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 778716968,
+  "center": {
+    "lat": 6.8691845,
+    "lon": 81.8379882
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "masjithul Muslimeen",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 779508584,
+  "center": {
+    "lat": 8.1294780,
+    "lon": 79.7055541
+  },
+  "tags": {
+    "alt_name": "Pattani Sahib Mosque",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "name": "Jammiuth Thaqwa Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 780727623,
+  "center": {
+    "lat": 7.3709717,
+    "lon": 81.8041303
+  },
+  "tags": {
+    "addr:city": "Sammanthurai-5",
+    "addr:postcode": "32000",
+    "addr:street": "Bazar 7th off Lane",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Ayza Mosque",
+    "religion": "muslim",
+    "service_times": "5 time per day"
+  }
+},
+{
+  "type": "way",
+  "id": 785477544,
+  "center": {
+    "lat": 7.2312783,
+    "lon": 81.8593461
+  },
+  "tags": {
+    "addr:city": "Addalachchenai",
+    "amenity": "place_of_worship",
+    "name": "Kathiriya Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 786395485,
+  "center": {
+    "lat": 7.2281733,
+    "lon": 81.8508264
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 787884596,
+  "center": {
+    "lat": 7.2128331,
+    "lon": 79.8393574
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "image": "https://photos.app.goo.gl/BtncK9izcHT3EWWE6",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 802978174,
+  "center": {
+    "lat": 7.2236345,
+    "lon": 81.8552517
+  },
+  "tags": {
+    "addr:city": "Akkaraipattu",
+    "amenity": "place_of_worship",
+    "name": "Masjid Ul Nooraniya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 808053806,
+  "center": {
+    "lat": 7.2208718,
+    "lon": 80.5881394
+  },
+  "tags": {
+    "addr:city": "Meewala Deniya",
+    "addr:postcode": "20000",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Al Hudha Jummah Masjid",
+    "religion": "muslim",
+    "service_times": "24h"
+  }
+},
+{
+  "type": "way",
+  "id": 810436715,
+  "center": {
+    "lat": 6.8868093,
+    "lon": 79.8548802
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 828385858,
+  "center": {
+    "lat": 7.4035439,
+    "lon": 81.2432951
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 893890386,
+  "center": {
+    "lat": 7.9908494,
+    "lon": 80.2682037
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 909120240,
+  "center": {
+    "lat": 7.9651850,
+    "lon": 80.3268145
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 928312621,
+  "center": {
+    "lat": 7.3365164,
+    "lon": 81.8501050
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1005597005,
+  "center": {
+    "lat": 7.1972837,
+    "lon": 80.6690923
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masjidul Akram - Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1034326710,
+  "center": {
+    "lat": 7.2954341,
+    "lon": 80.5615226
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masjidussulh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1034327063,
+  "center": {
+    "lat": 7.2960019,
+    "lon": 80.5561725
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Dehianga Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1035496154,
+  "center": {
+    "lat": 6.5703078,
+    "lon": 79.9674667
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Nakshabandiya masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1035510188,
+  "center": {
+    "lat": 7.2990085,
+    "lon": 80.5555887
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Nikakolla Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1039251924,
+  "center": {
+    "lat": 6.1236478,
+    "lon": 80.4843498
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "PORWAI JUMMAH MOSQUE",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1067628658,
+  "center": {
+    "lat": 7.2694675,
+    "lon": 81.8512535
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masjid Ul Rauff",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1077993924,
+  "center": {
+    "lat": 7.1725680,
+    "lon": 80.5062388
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jameul Hairath Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1078126798,
+  "center": {
+    "lat": 7.7091466,
+    "lon": 80.6533456
+  },
+  "tags": {
+    "addr:city": "Naula",
+    "addr:street": "Dambulla Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1081326697,
+  "center": {
+    "lat": 7.1741003,
+    "lon": 80.5000748
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Town Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1081976883,
+  "center": {
+    "lat": 7.2947236,
+    "lon": 80.5591730
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Ismathenna Old Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1086189921,
+  "center": {
+    "lat": 8.4394060,
+    "lon": 81.2606921
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1101870124,
+  "center": {
+    "lat": 7.4760395,
+    "lon": 80.6227187
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1101884922,
+  "center": {
+    "lat": 8.7644933,
+    "lon": 80.4822328
+  },
+  "tags": {
+    "addr:city": "Vavuniya",
+    "addr:postcode": "43000",
+    "addr:street": "Mannar road 2nd lane",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "description": "Mosque",
+    "name": "Pattanichoor Jumma Mosque",
+    "religion": "muslim",
+    "service_times": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 1101953581,
+  "center": {
+    "lat": 7.4729737,
+    "lon": 80.6240177
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1104012454,
+  "center": {
+    "lat": 7.0444340,
+    "lon": 80.5278752
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Selam Bridge Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1110168055,
+  "center": {
+    "lat": 6.8314638,
+    "lon": 80.9880426
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "jummah masjith mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1121637366,
+  "center": {
+    "lat": 7.0576910,
+    "lon": 80.5673263
+  },
+  "tags": {
+    "addr:city": "Hapugastalawa",
+    "addr:postcode": "20668",
+    "addr:street": "Hurihela Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Masjidhul Hijra",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1133078577,
+  "center": {
+    "lat": 6.9625912,
+    "lon": 80.9393186
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "kottagoda jummah masjith",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1136631054,
+  "center": {
+    "lat": 8.0362318,
+    "lon": 79.8420298
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "MASJIDHUL_FALAH",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1145080590,
+  "center": {
+    "lat": 7.4049462,
+    "lon": 80.6530126
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "masjidul Hudha Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1158315463,
+  "center": {
+    "lat": 6.4692595,
+    "lon": 79.9784919
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Hilriya Mosque Molliyamala",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1164421201,
+  "center": {
+    "lat": 8.8431467,
+    "lon": 79.9988010
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "RASOOL PUTHUVELI MASJID",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1167295611,
+  "center": {
+    "lat": 7.4118949,
+    "lon": 80.6438577
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "place_of_worship",
+    "name": "Masjidul Noor Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1167295615,
+  "center": {
+    "lat": 7.4184081,
+    "lon": 80.6421997
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "place_of_worship",
+    "name": "Maberiya Jummah Masjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1167319668,
+  "center": {
+    "lat": 7.4213023,
+    "lon": 80.6349901
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "name": "Ukuwela Town Masjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1169806104,
+  "center": {
+    "lat": 7.0516876,
+    "lon": 80.5319446
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masjid Yousuffiyah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1169813544,
+  "center": {
+    "lat": 7.0536744,
+    "lon": 80.5313677
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Zaviyyah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1169813551,
+  "center": {
+    "lat": 7.0546131,
+    "lon": 80.5321768
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Dharul Uloom Hashimiyyah",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1172643869,
+  "center": {
+    "lat": 8.4469553,
+    "lon": 81.2655005
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1183732924,
+  "center": {
+    "lat": 6.7450428,
+    "lon": 79.9136125
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:levels": "2",
+    "name": "Asjidul Ibraheem Zaviya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1185930088,
+  "center": {
+    "lat": 7.2209898,
+    "lon": 80.5680329
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1186241600,
+  "center": {
+    "lat": 6.5685253,
+    "lon": 79.9649660
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Darul Furqan Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1188583703,
+  "center": {
+    "lat": 8.4395922,
+    "lon": 81.0507284
+  },
+  "tags": {
+    "addr:street": "Kandy Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1188583766,
+  "center": {
+    "lat": 8.4361497,
+    "lon": 81.0464100
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Kuba Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1189118187,
+  "center": {
+    "lat": 6.5819060,
+    "lon": 80.1461141
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1193122037,
+  "center": {
+    "lat": 8.0362506,
+    "lon": 79.8377218
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "NOORMASJIDH_MOSQUE",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1197441154,
+  "center": {
+    "lat": 6.4990900,
+    "lon": 79.9802630
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1218994931,
+  "center": {
+    "lat": 7.3504761,
+    "lon": 81.8477301
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "central masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1228209129,
+  "center": {
+    "lat": 7.2139423,
+    "lon": 81.8603818
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1228999010,
+  "center": {
+    "lat": 7.3505684,
+    "lon": 81.8513376
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1228999011,
+  "center": {
+    "lat": 7.3505594,
+    "lon": 81.8514751
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1230251066,
+  "center": {
+    "lat": 7.2168494,
+    "lon": 81.8528179
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Mahlarathul Quadiriya, Hallaj Makkam",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1230251106,
+  "center": {
+    "lat": 7.2168618,
+    "lon": 81.8530612
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Mahlarathul Quadiriya, Hallaj Makkam",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1230251107,
+  "center": {
+    "lat": 7.2167597,
+    "lon": 81.8530287
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Mahlarathul Quadiriya, Hallaj Makkam",
+    "religion": "muslim",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1247676486,
+  "center": {
+    "lat": 7.4171875,
+    "lon": 80.4746334
+  },
+  "tags": {
+    "addr:city": "Paragahadeniya",
+    "addr:postcode": "60071",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jamiul Anwar Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1247685310,
+  "center": {
+    "lat": 7.4163396,
+    "lon": 80.4757223
+  },
+  "tags": {
+    "addr:city": "Paragahadeniya",
+    "addr:postcode": "60071",
+    "addr:street": "Kurunegala - Kandy Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jamiuth Thowheed Jummah Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1249849307,
+  "center": {
+    "lat": 7.4061903,
+    "lon": 81.7679748
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1264135236,
+  "center": {
+    "lat": 7.2365285,
+    "lon": 81.8535547
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Thaikkanagar Jumma Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1267880391,
+  "center": {
+    "lat": 7.2701699,
+    "lon": 81.8473670
+  },
+  "tags": {
+    "addr:city": "Palamunai",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Dhana Al Buzairy Jumma Masjid",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1267880395,
+  "center": {
+    "lat": 7.2770591,
+    "lon": 81.8507226
+  },
+  "tags": {
+    "addr:city": "Palamunai",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Masjidul Haima",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1286521532,
+  "center": {
+    "lat": 7.7993899,
+    "lon": 81.5815839
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "sunni",
+    "name": "Mosque, Eastern University",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1339502749,
+  "center": {
+    "lat": 8.5065393,
+    "lon": 81.1801145
+  },
+  "tags": {
+    "addr:city": "kinniya",
+    "addr:housenumber": "00",
+    "addr:postcode": "31100",
+    "addr:street": "Grand Mosque Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "sunni",
+    "name": "Grand Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1348668146,
+  "center": {
+    "lat": 6.9132479,
+    "lon": 79.8507813
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Jumma Mosque Kollupitiya",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1353587987,
+  "center": {
+    "lat": 7.2532989,
+    "lon": 81.8635652
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Beach Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1354641688,
+  "center": {
+    "lat": 7.2489799,
+    "lon": 81.8552408
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1413217299,
+  "center": {
+    "lat": 7.3018956,
+    "lon": 80.5561597
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Masjid-ul Hudha",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1415080810,
+  "center": {
+    "lat": 8.3586862,
+    "lon": 80.5108170
+  },
+  "tags": {
+    "addr:city": "Mihintale",
+    "addr:street": "Old Jaffna Road",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Mihintale Jummah Masjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1427288968,
+  "center": {
+    "lat": 6.8703674,
+    "lon": 81.8382265
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "denomination": "sunni",
+    "name": "Al Aksha Masjidh",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1453824997,
+  "center": {
+    "lat": 6.9857118,
+    "lon": 79.9090004
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "name": "Bangala Watta Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1461478391,
+  "center": {
+    "lat": 6.1186960,
+    "lon": 80.6715811
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "denomination": "muslim",
+    "mobile": "077 872 6591",
+    "name": "Jumma Mohideen Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1466879256,
+  "center": {
+    "lat": 6.9162075,
+    "lon": 79.8645367
+  },
+  "tags": {
+    "addr:city": "Colombo 07",
+    "addr:street": "Alexandra Place",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "image": "https://photos.app.goo.gl/1mXPppgdPLTMpoaG9",
+    "name": "Dawatagaha Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1472511234,
+  "center": {
+    "lat": 7.2616374,
+    "lon": 79.8424295
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "image": "https://photos.app.goo.gl/Aeghsew8TWyBBQy87",
+    "name": "Poruthota Mosque",
+    "name:en": "Mosque",
+    "religion": "muslim",
+    "url": "https://youtu.be/MTm6MN3LRaI"
+  }
+},
+{
+  "type": "way",
+  "id": 1480031445,
+  "center": {
+    "lat": 7.3669599,
+    "lon": 80.6211593
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1500648071,
+  "center": {
+    "lat": 7.2923188,
+    "lon": 81.8664481
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "beach aksha mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1506647096,
+  "center": {
+    "lat": 8.4916950,
+    "lon": 81.1871737
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Jalaliya Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1506647098,
+  "center": {
+    "lat": 8.4962675,
+    "lon": 81.1864889
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Senekaatu Palli",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "way",
+  "id": 1506647099,
+  "center": {
+    "lat": 8.5007954,
+    "lon": 81.1855666
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Hijra Mosque",
+    "religion": "muslim"
+  }
+},
+{
+  "type": "relation",
+  "id": 20279441,
+  "center": {
+    "lat": 6.9384328,
+    "lon": 79.8518944
+  },
+  "tags": {
+    "addr:city": "Colombo",
+    "addr:country": "LK",
+    "addr:street": "2nd Cross Street",
+    "amenity": "place_of_worship",
+    "building": "mosque",
+    "historic": "yes",
+    "image": "https://photos.app.goo.gl/uHAbsjFHxURsAWkv7",
+    "name": "Jami Ul Alfar Mosque",
+    "name:en": "Red Mosque",
+    "name:pl": "Czerwony Meczet",
+    "opening_hours": "Mo-Th, Sa, Su 10:30-12:00, 13:00-15:00, 16:15-17:30",
+    "religion": "muslim",
+    "tourism": "attraction",
+    "type": "multipolygon",
+    "url": "https://youtu.be/UbfYHmkWmxU?si=ZNk_ddRrpWPIvgm1&t=624",
+    "website": "http://www.redmasjid.com",
+    "wikidata": "Q2667449",
+    "wikimedia_commons": "Category:Jami Ul-Alfar Mosque",
+    "wikipedia": "en:Jami Ul-Alfar Mosque"
+  }
+}
+
+  ]
+}

@@ -1,0 +1,242 @@
+#!/usr/bin/env python3
+"""Step 7A data migration — generates one SQL file that imports
+master-dataset.json (3,685 mosque records) and review-log.jsonl (the real
+review history) into the Supabase schema (migrations/0001-0003).
+
+Run once against a real Supabase project via `psql "$DATABASE_URL" -f
+output/migrate_data.sql` (or pasted into the SQL editor) using a
+privileged/service-role connection — never through the reviewer-facing RPC
+surface (claim_review_task/complete_review_task are for live single-action
+calls with real auth context, not bulk historical replay).
+
+Field-value replay mirrors master/review-tool/server.py's
+rebuild_state_from_log() exactly: master-dataset.json is Step 6A's
+*original* snapshot (the review tool never writes back to it — only its
+append-only log does), so a record with real correct() edits needs those
+replayed on top before import, otherwise a "completed" mosque_records row
+would show its pre-review, since-corrected values.
+"""
+from __future__ import annotations
+
+import json
+import uuid
+from pathlib import Path
+
+PIPELINE_ROOT = Path(__file__).resolve().parent.parent.parent
+MASTER_DATASET_PATH = PIPELINE_ROOT / "master" / "output" / "master-dataset.json"
+REVIEW_LOG_PATH = PIPELINE_ROOT / "master" / "review-results" / "review-log.jsonl"
+REVIEW_DATA_PATH = PIPELINE_ROOT / "master" / "review-tool" / "data" / "review-data.json"
+OUT_DIR = Path(__file__).resolve().parent.parent / "output"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+OUT_PATH = OUT_DIR / "migrate_data.sql"
+
+# Fixed, deterministic identity for the person who did all local review work
+# via the Step 6B tool (see mosque-db-pipeline/master/review-results/ —
+# every existing log line has reviewer:"local", a single-user local session,
+# not a real Supabase-authenticated identity). Recorded as an admin because
+# they are the project owner. On a real Supabase project this exact row
+# would instead be created by them signing in through Supabase Auth and
+# then being promoted to admin — this fixed UUID exists only so the
+# imported review_decisions rows have a valid, meaningful reviewer_id
+# rather than a synthetic placeholder.
+MIGRATED_REVIEWER_ID = uuid.UUID("00000000-0000-4000-8000-000000000001")
+MIGRATED_REVIEWER_EMAIL = "najmanmna@gmail.com"
+MIGRATED_REVIEWER_NAME = "Ahamed Najman (migrated from local review tool)"
+
+FACILITY_FIELDS = ["women_prayer", "parking", "air_conditioning", "wudu", "jummah"]
+LOCAL_TO_SQL_FIELD = {
+    "name": "name",
+    "address": "address",
+    "district": "district",
+    "latitude": "latitude",
+    "longitude": "longitude",
+    "womenPrayer": "women_prayer",
+    "parking": "parking",
+    "airConditioning": "air_conditioning",
+    "wudu": "wudu",
+    "jummah": "jummah",
+}
+
+
+def sql_str(v) -> str:
+    if v is None:
+        return "NULL"
+    return "'" + str(v).replace("'", "''") + "'"
+
+
+def sql_bool(v) -> str:
+    if v is None:
+        return "NULL"
+    return "TRUE" if v else "FALSE"
+
+
+def sql_num(v) -> str:
+    return "NULL" if v is None else str(v)
+
+
+def sql_jsonb(v) -> str:
+    return "'" + json.dumps(v, ensure_ascii=False).replace("'", "''") + "'::jsonb"
+
+
+def sql_ts(v) -> str:
+    return "NULL" if v is None else sql_str(v)
+
+
+def deterministic_task_id(mosque_id: str) -> uuid.UUID:
+    return uuid.uuid5(uuid.NAMESPACE_URL, f"prayerstop-review-task:{mosque_id}")
+
+
+def main():
+    master = {r["id"]: r for r in json.loads(MASTER_DATASET_PATH.read_text(encoding="utf-8"))}
+    review_data = {r["id"]: r for r in json.loads(REVIEW_DATA_PATH.read_text(encoding="utf-8"))}
+
+    events = []
+    with open(REVIEW_LOG_PATH, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                events.append(json.loads(line))
+
+    # --- Replay: current effective field values + full decision history per record ---
+    replayed = {}  # recordId -> {field: value}
+    history = {}   # recordId -> list of events, in order
+    for event in events:
+        rec_id = event["recordId"]
+        history.setdefault(rec_id, []).append(event)
+        state = replayed.setdefault(rec_id, {})
+        for change in event.get("changes", []):
+            local_field = change["field"]
+            if local_field == "verificationStatus":
+                continue  # derived below, not a raw mosque_records column write
+            sql_field = LOCAL_TO_SQL_FIELD.get(local_field)
+            if sql_field:
+                state[sql_field] = change["newValue"]
+
+    completed_ids = {rid for rid, evs in history.items() if any(e["decision"] in ("verify", "correct") for e in evs)}
+
+    print(f"master-dataset.json records: {len(master)}")
+    print(f"review-data.json (needs_review) records: {len(review_data)}")
+    print(f"review-log.jsonl events: {len(events)}")
+    print(f"distinct records with review history: {len(history)}")
+    print(f"distinct records completed (verified/corrected): {len(completed_ids)}")
+
+    lines = []
+    lines.append("-- Auto-generated by scripts/migrate_to_supabase.py — see that file for the exact replay logic.")
+    lines.append("begin;")
+    lines.append("")
+
+    # --- reviewers: the one migrated identity ---
+    lines.append("-- Local-review-tool identity, migrated as an admin reviewer.")
+    lines.append(
+        f"insert into auth.users (id, email) values ({sql_str(MIGRATED_REVIEWER_ID)}, {sql_str(MIGRATED_REVIEWER_EMAIL)}) "
+        f"on conflict (id) do nothing;"
+    )
+    lines.append(
+        f"insert into public.reviewers (id, display_name, role) "
+        f"values ({sql_str(MIGRATED_REVIEWER_ID)}, {sql_str(MIGRATED_REVIEWER_NAME)}, 'admin') "
+        f"on conflict (id) do update set role = excluded.role;"
+    )
+    lines.append("")
+
+    # --- mosque_records: all 3,685, with replayed corrections applied ---
+    lines.append(f"-- mosque_records: {len(master)} rows from master-dataset.json, replay-corrected for the {len(completed_ids)} reviewed ones.")
+    for rec_id, rec in master.items():
+        state = replayed.get(rec_id, {})
+        name = state.get("name", rec["name"])
+        address = state.get("address", rec["address"])
+        district = state.get("district", rec["district"])
+        latitude = state.get("latitude", rec["latitude"])
+        longitude = state.get("longitude", rec["longitude"])
+        facility = {f: state.get(f, rec.get(_sql_to_local(f))) for f in FACILITY_FIELDS}
+
+        is_completed = rec_id in completed_ids
+        verification_status = "verified" if is_completed else rec["verificationStatus"]
+        verified_at = None
+        verified_by_sql = "NULL"
+        if is_completed:
+            last_complete = [e for e in history[rec_id] if e["decision"] in ("verify", "correct")][-1]
+            verified_at = last_complete["reviewedAt"]
+            verified_by_sql = sql_str(MIGRATED_REVIEWER_ID)
+
+        cols = (
+            "id, name, latitude, longitude, district, address, dmrca_registration_no, sources, "
+            "confidence, verification_status, verified_at, verified_by, "
+            "women_prayer, parking, air_conditioning, wudu, jummah, notes"
+        )
+        vals = ", ".join([
+            sql_str(rec_id),
+            sql_str(name),
+            sql_num(latitude),
+            sql_num(longitude),
+            sql_str(district),
+            sql_str(address),
+            sql_str(rec["dmrcaRegistrationNo"]),
+            sql_jsonb(rec["sources"]),
+            sql_str(rec["confidence"]),
+            sql_str(verification_status),
+            sql_ts(verified_at),
+            verified_by_sql,
+            sql_bool(facility["women_prayer"]),
+            sql_bool(facility["parking"]),
+            sql_bool(facility["air_conditioning"]),
+            sql_bool(facility["wudu"]),
+            sql_bool(facility["jummah"]),
+            sql_str(rec["notes"]),
+        ])
+        lines.append(f"insert into public.mosque_records ({cols}) values ({vals});")
+    lines.append("")
+
+    # --- review_tasks: one per needs_review record (518) ---
+    lines.append(f"-- review_tasks: {len(review_data)} rows — {len(completed_ids)} completed, the rest unclaimed and ready to be claimed by a real reviewer.")
+    task_id_by_mosque = {}
+    for rec_id, rec in review_data.items():
+        task_id = deterministic_task_id(rec_id)
+        task_id_by_mosque[rec_id] = task_id
+        is_completed = rec_id in completed_ids
+
+        if is_completed:
+            evs = history[rec_id]
+            first_claim_at = evs[0]["reviewedAt"]
+            last_complete_at = [e for e in evs if e["decision"] in ("verify", "correct")][-1]["reviewedAt"]
+            status, assigned, claimed_at, completed_at = "completed", sql_str(MIGRATED_REVIEWER_ID), sql_ts(first_claim_at), sql_ts(last_complete_at)
+        else:
+            status, assigned, claimed_at, completed_at = "unclaimed", "NULL", "NULL", "NULL"
+
+        tier = rec.get("tier")
+        cols = "id, mosque_id, status, priority_tier, assigned_reviewer_id, claimed_at, completed_at"
+        vals = ", ".join([sql_str(task_id), sql_str(rec_id), sql_str(status), sql_str(tier), assigned, claimed_at, completed_at])
+        lines.append(f"insert into public.review_tasks ({cols}) values ({vals});")
+    lines.append("")
+
+    # --- review_decisions: every real log line, verbatim, append-only ---
+    lines.append(f"-- review_decisions: {len(events)} rows — the complete, unmodified local review-log.jsonl history.")
+    for event in events:
+        rec_id = event["recordId"]
+        task_id = task_id_by_mosque.get(rec_id)
+        if task_id is None:
+            raise SystemExit(f"review-log.jsonl references {rec_id}, which is not in review-data.json's 518 needs_review records")
+        cols = "task_id, mosque_id, reviewer_id, decision, changes, candidate_decision, note, decided_at"
+        vals = ", ".join([
+            sql_str(task_id),
+            sql_str(rec_id),
+            sql_str(MIGRATED_REVIEWER_ID),
+            sql_str(event["decision"]),
+            sql_jsonb(event.get("changes", [])),
+            "NULL" if not event.get("candidateDecision") else sql_jsonb(event["candidateDecision"]),
+            sql_str(event.get("note")),
+            sql_str(event["reviewedAt"]),
+        ])
+        lines.append(f"insert into public.review_decisions ({cols}) values ({vals});")
+    lines.append("")
+    lines.append("commit;")
+
+    OUT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"\nWritten {len(lines)} SQL lines to {OUT_PATH}")
+
+
+def _sql_to_local(sql_field: str) -> str:
+    return {"women_prayer": "womenPrayer", "air_conditioning": "airConditioning"}.get(sql_field, sql_field)
+
+
+if __name__ == "__main__":
+    main()

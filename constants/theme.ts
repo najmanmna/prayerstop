@@ -5,26 +5,51 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+// A deep, grounded forest green inspired by the approved Home reference.
+// It is used with neutral surfaces and route-oriented UI to retain the feel
+// of a modern location utility.
+const tintColorLight = '#126B46';
+const tintColorDark = '#6BC69A';
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
+    text: '#14171A',
+    textSecondary: '#666E78',
+    textMuted: '#9BA2AC',
+    background: '#FBFCFB',
+    surface: '#F1F5F2',
+    surfaceElevated: '#FFFFFF',
+    accentSoft: '#E1F0E8',
+    border: '#E2E9E4',
     tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    icon: '#666E78',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    text: '#F4F5F7',
+    textSecondary: '#9AA1AC',
+    textMuted: '#666E78',
+    background: '#0D0F14',
+    surface: '#171A21',
+    surfaceElevated: '#1D212A',
+    accentSoft: '#173829',
+    border: '#272C36',
     tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    icon: '#9AA1AC',
   },
+};
+
+// Gradient for the abstract place-thumbnail visual — presentational only,
+// standing in for a real photo/map until Places integration lands.
+export const RouteGradient = {
+  light: ['#2C8A62', '#07563A'] as const,
+  dark: ['#4BAE81', '#0B422E'] as const,
+};
+
+// Feasibility palette — communicates reachability status, not brand identity.
+export const FeasibilityColors = {
+  comfortable: { background: '#E1F0E8', foreground: '#126B46' },
+  tight: { background: '#FCEEDB', foreground: '#C2760A' },
+  tooLate: { background: '#FBE8E7', foreground: '#C93A32' },
 };
 
 export const Fonts = Platform.select({

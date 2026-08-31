@@ -1,0 +1,17 @@
+# Files that must never be uploaded as part of a Cloudflare Pages deploy.
+# Used automatically by `wrangler pages deploy` (works like .gitignore, but
+# for the upload itself rather than git). The dashboard drag-and-drop direct
+# upload does NOT read this file — see CLOUDFLARE_DEPLOY.md for what to
+# manually leave out of a drag-and-drop/zip upload.
+
+config.js
+*.save
+.DS_Store
+.gitignore
+.assetsignore
+config.example.js
+package.json
+README.md
+CLOUDFLARE_DEPLOY.md
+tests/
+node_modules/

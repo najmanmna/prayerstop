@@ -1,0 +1,3320 @@
+[
+  {
+    "registrationNo": "R/2624/AM/263",
+    "name": "MASJIDUL HUNAFA MOSQUE",
+    "district": "Ampara",
+    "sourceAddress": "DR. CAREEM ROAD,NATPIDDIMUNAI-01",
+    "sourceCity": "NATPIDDIMUNAI-01",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Madarasa Road, Natpiddimunai,, 23/2, Kalmunai-Chavalakadai Road, Prince College, Kalmunai, Ampara District, Eastern Province, 31300, Sri Lanka",
+        "lat": 7.4180914,
+        "lon": 81.8122627,
+        "class": "amenity",
+        "type": "veterinary",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.5336842908324066e-05,
+        "osmType": "node",
+        "osmId": 4881208621,
+        "boundingbox": [
+          "7.4180414",
+          "7.4181414",
+          "81.8122127",
+          "81.8123127"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2218/AM/223",
+    "name": "MASJIDHUDH DHA'WA",
+    "district": "Ampara",
+    "sourceAddress": "LLOYDS HOTEL ROAD",
+    "sourceCity": "ADDALACHENAI-05",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/1744/AM/172",
+    "name": "MASJIDUL BAKIYATHIS SALIHATH",
+    "district": "Ampara",
+    "sourceAddress": "PERIYANEELAVANAI",
+    "sourceCity": "KALMUNAI",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Kalmunai, Ampara District, Eastern Province, 31300, Sri Lanka",
+        "lat": 7.4131557,
+        "lon": 81.8269327,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004533684290836,
+        "osmType": "node",
+        "osmId": 3318180364,
+        "boundingbox": [
+          "7.3731557",
+          "7.4531557",
+          "81.7869327",
+          "81.8669327"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1087/AM60",
+    "name": "AL - MASJIDUL NOOORANIYA",
+    "district": "Ampara",
+    "sourceAddress": "BEACH ROAD,",
+    "sourceCity": "AKKARAIPATTU",
+    "addressQuality": "low",
+    "queryStrategy": "structured",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Beach Road, Akkaraipattu, Ampara District, Eastern Province, 32400, Sri Lanka",
+        "lat": 7.2239205,
+        "lon": 81.8559817,
+        "class": "highway",
+        "type": "residential",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.05337333409628439,
+        "osmType": "way",
+        "osmId": 213409414,
+        "boundingbox": [
+          "7.2237405",
+          "7.2244234",
+          "81.8502993",
+          "81.8618353"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2629/A/121",
+    "name": "ATHA FOR SOCIAL & HUMANITARIAN SERVICE",
+    "district": "Anuradhapura",
+    "sourceAddress": "NO.80,BAMUNUGAMA, MURIYAKADAWALA",
+    "sourceCity": "MURIYAKADAWALA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "60 A-9 Road Labunoruwa Muriyakadawala Road, Anuradhapura Road, Thirappane, Anuradhapura District, North Central Province, Sri Lanka",
+        "lat": 8.1916354,
+        "lon": 80.5265988,
+        "class": "amenity",
+        "type": "post_office",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.0000762951049326e-05,
+        "osmType": "node",
+        "osmId": 4352724713,
+        "boundingbox": [
+          "8.1915854",
+          "8.1916854",
+          "80.5265488",
+          "80.5266488"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2630/A/122",
+    "name": "MASJIDUL MINHAJ JUMMAH MOSQUE",
+    "district": "Anuradhapura",
+    "sourceAddress": "MUSLIM COLONY, KARUWALAGASWEWA",
+    "sourceCity": "KARUWALAGASWEWA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Police Station - Karuwalagaswewa, Puttalam-Anuradhapura Road, Karuwalagaswewa, Puttalam District, North Western Province, Sri Lanka",
+        "lat": 8.0568934,
+        "lon": 79.9599401,
+        "class": "amenity",
+        "type": "police",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.63454642556957e-05,
+        "osmType": "node",
+        "osmId": 5403417424,
+        "boundingbox": [
+          "8.0568434",
+          "8.0569434",
+          "79.9598901",
+          "79.9599901"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/301/A.11",
+    "name": "GAMBIRIGASWEWA JUMMA MOSQUE",
+    "district": "Anuradhapura",
+    "sourceAddress": "A/GAMBIRIGASWEWA",
+    "sourceCity": "GAMBIRIGASWEWA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 3,
+    "results": [
+      {
+        "displayName": "NCP/A/A/NC/Aluthgama Daruslam Mu. Vidyalaya, C165, Aluthgama, Gambirigaswewa, Anuradhapura District, North Central Province, Sri Lanka",
+        "lat": 8.4657332,
+        "lon": 80.3627264,
+        "class": "amenity",
+        "type": "school",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 5.652780956736122e-05,
+        "osmType": "node",
+        "osmId": 8666485417,
+        "boundingbox": [
+          "8.4656832",
+          "8.4657832",
+          "80.3626764",
+          "80.3627764"
+        ]
+      },
+      {
+        "displayName": "NCP/A/A/NC/Gambingaswewa Manarul Ulum Mu. Vidyalaya, C165, Aluthgama, Gambirigaswewa, Anuradhapura District, North Central Province, Sri Lanka",
+        "lat": 8.4761434,
+        "lon": 80.3827572,
+        "class": "amenity",
+        "type": "school",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 5.652780956736122e-05,
+        "osmType": "node",
+        "osmId": 8666464416,
+        "boundingbox": [
+          "8.4760934",
+          "8.4761934",
+          "80.3827072",
+          "80.3828072"
+        ]
+      },
+      {
+        "displayName": "NCP/A/A/NC/Asirikggama Mu. Vidyalaya, C165, Aluthgama, Gambirigaswewa, Anuradhapura District, North Central Province, Sri Lanka",
+        "lat": 8.5048283,
+        "lon": 80.3664976,
+        "class": "amenity",
+        "type": "school",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 3.750133516437045e-05,
+        "osmType": "node",
+        "osmId": 8666923928,
+        "boundingbox": [
+          "8.5047783",
+          "8.5048783",
+          "80.3664476",
+          "80.3665476"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1689/A.103",
+    "name": "MASJITHUL NOOR JUMMA MOWQUE",
+    "district": "Anuradhapura",
+    "sourceAddress": "PAHALAGAMA",
+    "sourceCity": "KEKERAWA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/106/BD/7",
+    "name": "UDUWELA MUSLIM MOSQUE",
+    "district": "Badulla",
+    "sourceAddress": "PASSARA ROAD, 2ND MILE POST",
+    "sourceCity": "UDUWELA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Uduwela, Wathuliyadda, Kandy District, Central Province, 85129, Sri Lanka",
+        "lat": 7.2507528,
+        "lon": 80.6476119,
+        "class": "place",
+        "type": "hamlet",
+        "addresstype": "hamlet",
+        "placeRank": 20,
+        "importance": 0.1333928488593881,
+        "osmType": "node",
+        "osmId": 5108419682,
+        "boundingbox": [
+          "7.2307528",
+          "7.2707528",
+          "80.6276119",
+          "80.6676119"
+        ]
+      },
+      {
+        "displayName": "Uduwela, Mandaramnuwara, Nuwara Eliya District, Central Province, Sri Lanka",
+        "lat": 7.0474226,
+        "lon": 80.7744938,
+        "class": "place",
+        "type": "hamlet",
+        "addresstype": "hamlet",
+        "placeRank": 20,
+        "importance": 0.1333831471732662,
+        "osmType": "node",
+        "osmId": 5208879144,
+        "boundingbox": [
+          "7.0274226",
+          "7.0674226",
+          "80.7544938",
+          "80.7944938"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2117/BD 66",
+    "name": "MASJIDUN NOOR JUMMAH MOSQUE,",
+    "district": "Badulla",
+    "sourceAddress": "KOVIL PATHTHANA, AMBEWELA ROAD, RENDAPOLA,",
+    "sourceCity": "BORAGAS.",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 3,
+    "results": [
+      {
+        "displayName": "Boragas, Badulla District, Uva Province, 90364, Sri Lanka",
+        "lat": 6.9077762,
+        "lon": 80.8415049,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.1467164805065995,
+        "osmType": "node",
+        "osmId": 3782305848,
+        "boundingbox": [
+          "6.8877762",
+          "6.9277762",
+          "80.8215049",
+          "80.8615049"
+        ]
+      },
+      {
+        "displayName": "Boragas, Badulla District, Uva Province, 90364, Sri Lanka",
+        "lat": 6.9078759,
+        "lon": 80.8407873,
+        "class": "place",
+        "type": "hamlet",
+        "addresstype": "hamlet",
+        "placeRank": 20,
+        "importance": 0.1333831471732662,
+        "osmType": "node",
+        "osmId": 51226446,
+        "boundingbox": [
+          "6.8878759",
+          "6.9278759",
+          "80.8207873",
+          "80.8607873"
+        ]
+      },
+      {
+        "displayName": "Boragas, Nuwara Eliya-Badulla Road, Boragas, Badulla District, Uva Province, 90364, Sri Lanka",
+        "lat": 6.9078799,
+        "lon": 80.8411023,
+        "class": "highway",
+        "type": "bus_stop",
+        "addresstype": "highway",
+        "placeRank": 30,
+        "importance": 4.9813839932814793e-05,
+        "osmType": "node",
+        "osmId": 4793293598,
+        "boundingbox": [
+          "6.9078299",
+          "6.9079299",
+          "80.8410523",
+          "80.8411523"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/177/BD/10",
+    "name": "KINIGAMA HEELOYA JUMMA MOSQUE",
+    "district": "Badulla",
+    "sourceAddress": "KINIGAMA",
+    "sourceCity": "HEELOYA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Kinigama Forest Reserve, Hela Kithalella, Kithal Ella, Badulla District, Uva Province, Sri Lanka",
+        "lat": 6.851431,
+        "lon": 81.0380467,
+        "class": "landuse",
+        "type": "forest",
+        "addresstype": "forest",
+        "placeRank": 24,
+        "importance": 0.08004935454337374,
+        "osmType": "way",
+        "osmId": 386502839,
+        "boundingbox": [
+          "6.8448900",
+          "6.8581536",
+          "81.0320878",
+          "81.0436236"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2411/BD/85",
+    "name": "MASJIDL HUDHA",
+    "district": "Badulla",
+    "sourceAddress": "KUDUMIRISTHANNAI, GURUTHALAWA",
+    "sourceCity": "WELIMADA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Welimada, Badulla District, Uva Province, 90200, Sri Lanka",
+        "lat": 6.9058393,
+        "lon": 80.9098123,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.1600375013351644,
+        "osmType": "node",
+        "osmId": 3866573399,
+        "boundingbox": [
+          "6.8658393",
+          "6.9458393",
+          "80.8698123",
+          "80.9498123"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1549/BT/221",
+    "name": "ERAVUR JAMIUL AKBAR JUMMA MOSOQUE",
+    "district": "Batticaloa",
+    "sourceAddress": "309A, KATHIAR STREET,",
+    "sourceCity": "ERAVUR",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Eravur, Batticaloa District, Eastern Province, 30300, Sri Lanka",
+        "lat": 7.7757162,
+        "lon": 81.6048021,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16005241245136184,
+        "osmType": "node",
+        "osmId": 13594506483,
+        "boundingbox": [
+          "7.7357162",
+          "7.8157162",
+          "81.5648021",
+          "81.6448021"
+        ]
+      },
+      {
+        "displayName": "Eravur, Boundary Road, Chenkaladi, Batticaloa District, Eastern Province, 30300, Sri Lanka",
+        "lat": 7.7855975,
+        "lon": 81.6044408,
+        "class": "railway",
+        "type": "station",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 0.09078915819201436,
+        "osmType": "node",
+        "osmId": 1173695483,
+        "boundingbox": [
+          "7.7805975",
+          "7.7905975",
+          "81.5994408",
+          "81.6094408"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1478/BT/197",
+    "name": "MOHIDEEN MOSOQUE",
+    "district": "Batticaloa",
+    "sourceAddress": "PUNANAI ANIKADU, POTHANAI ROAD",
+    "sourceCity": "VALAICHENAI",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 3,
+    "results": [
+      {
+        "displayName": "Valaichenai Kailayapillayar Kovil, Kalkudah-Valaichchenai Road, Oddaimavadi, Valaichchenai, Batticaloa District, Eastern Province, 30400, Sri Lanka",
+        "lat": 7.9267594,
+        "lon": 81.5321369,
+        "class": "amenity",
+        "type": "place_of_worship",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.0000762951049326e-05,
+        "osmType": "node",
+        "osmId": 9774427830,
+        "boundingbox": [
+          "7.9267094",
+          "7.9268094",
+          "81.5320869",
+          "81.5321869"
+        ]
+      },
+      {
+        "displayName": "BT/Valaichenai Hindhu College, Kalkudah-Valaichchenai Road, Oddaimavadi, Valaichchenai, Batticaloa District, Eastern Province, 30400, Sri Lanka",
+        "lat": 7.9258907,
+        "lon": 81.5320216,
+        "class": "amenity",
+        "type": "language_school",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.0000762951049326e-05,
+        "osmType": "node",
+        "osmId": 9774427829,
+        "boundingbox": [
+          "7.9258407",
+          "7.9259407",
+          "81.5319716",
+          "81.5320716"
+        ]
+      },
+      {
+        "displayName": "Valaichenai Harbour, Kalkudah-Valaichchenai Road, Oddaimavadi, Valaichchenai, Batticaloa District, Eastern Province, 30400, Sri Lanka",
+        "lat": 7.9270792,
+        "lon": 81.5314575,
+        "class": "amenity",
+        "type": "post_office",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.0000762951049326e-05,
+        "osmType": "node",
+        "osmId": 4424860289,
+        "boundingbox": [
+          "7.9270292",
+          "7.9271292",
+          "81.5314075",
+          "81.5315075"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1915/BT/268",
+    "name": "MOHIDEEN THAKKIYA",
+    "district": "Batticaloa",
+    "sourceAddress": "BRAINTHURAICHCHENAI,",
+    "sourceCity": "VALAICHCHENAI",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Valaichchenai, Batticaloa District, Eastern Province, 40420, Sri Lanka",
+        "lat": 7.9090822,
+        "lon": 81.5331218,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004000076295108,
+        "osmType": "node",
+        "osmId": 1880414146,
+        "boundingbox": [
+          "7.8690822",
+          "7.9490822",
+          "81.4931218",
+          "81.5731218"
+        ]
+      },
+      {
+        "displayName": "Valaichchenai, Trincomalee Road, Oddaimavadi, Valaichchenai, Batticaloa District, Eastern Province, 40420, Sri Lanka",
+        "lat": 7.9102735,
+        "lon": 81.5318574,
+        "class": "railway",
+        "type": "station",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 0.09078915819201436,
+        "osmType": "node",
+        "osmId": 1173695522,
+        "boundingbox": [
+          "7.9052735",
+          "7.9152735",
+          "81.5268574",
+          "81.5368574"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2403/BT/298",
+    "name": "MASJIDUL NAJMIL ULOOM",
+    "district": "Batticaloa",
+    "sourceAddress": "NEW MARKET ROAD",
+    "sourceCity": "ERAVUR",
+    "addressQuality": "medium",
+    "queryStrategy": "structured",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "New Market Road, Eravur, Batticaloa District, Eastern Province, 30300, Sri Lanka",
+        "lat": 7.7780356,
+        "lon": 81.6033891,
+        "class": "highway",
+        "type": "residential",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.05338574578469517,
+        "osmType": "way",
+        "osmId": 421282224,
+        "boundingbox": [
+          "7.7778527",
+          "7.7782235",
+          "81.6024006",
+          "81.6043822"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2652/C/24 9",
+    "name": "BABAKER MOSQUE (Masjid Ar-Rahman)",
+    "district": "Colombo",
+    "sourceAddress": "14, GALVIHARA PLACE, DEHIWALA",
+    "sourceCity": "DEHIWALA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Dehiwala, Colombo District, Western Province, 10350, Sri Lanka",
+        "lat": 6.8512785,
+        "lon": 79.8659769,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.31827171020639217,
+        "osmType": "node",
+        "osmId": 134253719,
+        "boundingbox": [
+          "6.8112785",
+          "6.8912785",
+          "79.8259769",
+          "79.9059769"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/282/C.32",
+    "name": "EGODA UYANA JUMMA MOSQUE",
+    "district": "Colombo",
+    "sourceAddress": "EGODA UYANA, MODERA",
+    "sourceCity": "MORATUWA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Moratuwa, Colombo District, Western Province, 10400, Sri Lanka",
+        "lat": 6.7746821,
+        "lon": 79.8826095,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.18672349813076977,
+        "osmType": "node",
+        "osmId": 61557398,
+        "boundingbox": [
+          "6.6146821",
+          "6.9346821",
+          "79.7226095",
+          "80.0426095"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/971/C.89",
+    "name": "AZ - ZAVIATHUL FASSIYA",
+    "district": "Colombo",
+    "sourceAddress": "59, BANKSHALL STREET",
+    "sourceCity": "COLOMBO- 11",
+    "addressQuality": "low",
+    "queryStrategy": "structured",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Bankshall Street, L B Gate, Fort, St. Bastian, Colombo, Colombo District, Western Province, 00297, Sri Lanka",
+        "lat": 6.9380871,
+        "lon": 79.8506214,
+        "class": "highway",
+        "type": "residential",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.0534050164034485,
+        "osmType": "way",
+        "osmId": 10548323,
+        "boundingbox": [
+          "6.9376959",
+          "6.9386219",
+          "79.8496568",
+          "79.8515543"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1642/C.164",
+    "name": "MASJID AL - SALIHEEN",
+    "district": "Colombo",
+    "sourceAddress": "KODIGALAHENA, ARAKWATTE",
+    "sourceCity": "PADUKKA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Padukka, Colombo District, Western Province, 10500, Sri Lanka",
+        "lat": 6.8415384,
+        "lon": 80.0916472,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004150682841228,
+        "osmType": "node",
+        "osmId": 245519771,
+        "boundingbox": [
+          "6.8015384",
+          "6.8815384",
+          "80.0516472",
+          "80.1316472"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0771/G/28",
+    "name": "JIFFRY THAKKIYA",
+    "district": "Galle",
+    "sourceAddress": "65, CHURCH STREET, FORT",
+    "sourceCity": "GALLE",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Galle, Galle District, Southern Province, Sri Lanka",
+        "lat": 6.0328139,
+        "lon": 80.214955,
+        "class": "boundary",
+        "type": "administrative",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.50388006512615,
+        "osmType": "relation",
+        "osmId": 5345077,
+        "boundingbox": [
+          "6.0236163",
+          "6.0939686",
+          "80.1719297",
+          "80.2475684"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2182/G/60",
+    "name": "MASJID SALAM",
+    "district": "Galle",
+    "sourceAddress": "SRI DHARMARAMA ROAD, KATUGODA",
+    "sourceCity": "GALLE",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Galle, Galle District, Southern Province, Sri Lanka",
+        "lat": 6.0328139,
+        "lon": 80.214955,
+        "class": "boundary",
+        "type": "administrative",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.50388006512615,
+        "osmType": "relation",
+        "osmId": 5345077,
+        "boundingbox": [
+          "6.0236163",
+          "6.0939686",
+          "80.1719297",
+          "80.2475684"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0237/G/11",
+    "name": "HALIWELA JUMMA MOSQUE",
+    "district": "Galle",
+    "sourceAddress": "HALIWELA",
+    "sourceCity": "GALLE",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Galle, Galle District, Southern Province, Sri Lanka",
+        "lat": 6.0328139,
+        "lon": 80.214955,
+        "class": "boundary",
+        "type": "administrative",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.50388006512615,
+        "osmType": "relation",
+        "osmId": 5345077,
+        "boundingbox": [
+          "6.0236163",
+          "6.0939686",
+          "80.1719297",
+          "80.2475684"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0248/G/13",
+    "name": "AZZAVIATHUL MAKKIYATHUL FASSIYYATHUSH SHAAZULIYYA",
+    "district": "Galle",
+    "sourceAddress": "NAWINNA",
+    "sourceCity": "ULUWITIKE",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Uluwitike, Matara District, Southern Province, 87140, Sri Lanka",
+        "lat": 5.9914037,
+        "lon": 80.4664128,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.14670666742961772,
+        "osmType": "node",
+        "osmId": 3508004637,
+        "boundingbox": [
+          "5.9714037",
+          "6.0114037",
+          "80.4464128",
+          "80.4864128"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2041/GM 69",
+    "name": "MASJIDUL RAHUMANIYA",
+    "district": "Gampaha",
+    "sourceAddress": "04, 7TH LANE, MARK ROAD, ABEYSINGHEPURA, PERIYAMULLA",
+    "sourceCity": "NEGOMBO",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Negombo, Gampaha District, Western Province, 11500, Sri Lanka",
+        "lat": 7.2094282,
+        "lon": 79.833117,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.4383493422407134,
+        "osmType": "node",
+        "osmId": 2064194449,
+        "boundingbox": [
+          "7.0494282",
+          "7.3694282",
+          "79.6731170",
+          "79.9931170"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2416/GM/91",
+    "name": "JAMIUL HUDAH,",
+    "district": "Gampaha",
+    "sourceAddress": "K A L - E L I Y A",
+    "sourceCity": "KAL-ELIYA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Al Masjidus Sook, Kal-Eliya, Pasyala-Giriulla Road, Home Garden, Hirieala, Gampaha District, Western Province, 11150, Sri Lanka",
+        "lat": 7.1946988,
+        "lon": 80.1108855,
+        "class": "amenity",
+        "type": "place_of_worship",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.691157396806313e-05,
+        "osmType": "node",
+        "osmId": 14020547897,
+        "boundingbox": [
+          "7.1946488",
+          "7.1947488",
+          "80.1108355",
+          "80.1109355"
+        ]
+      },
+      {
+        "displayName": "Gambara Dewalaya-Kal Eliya, Galamuna Kajugama Road, Home garden, Welavilamulla, Gampaha District, Western Province, 11150, Sri Lanka",
+        "lat": 7.1963386,
+        "lon": 80.115859,
+        "class": "amenity",
+        "type": "place_of_worship",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.0000762951049326e-05,
+        "osmType": "way",
+        "osmId": 1507466389,
+        "boundingbox": [
+          "7.1962157",
+          "7.1964790",
+          "80.1156735",
+          "80.1160487"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2125/GM 76",
+    "name": "MASJIDUL MUBARAK & THAKKIYA",
+    "district": "Gampaha",
+    "sourceAddress": "YATIHENA ROAD",
+    "sourceCity": "MALWANA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Malwana, Gampaha District, Western Province, 11672, Sri Lanka",
+        "lat": 6.948103,
+        "lon": 80.0151852,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16005683146410313,
+        "osmType": "node",
+        "osmId": 6342777698,
+        "boundingbox": [
+          "6.9081030",
+          "6.9881030",
+          "79.9751852",
+          "80.0551852"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2550/GM/97",
+    "name": "MASJIDUL RAWLATHUL ASHARIYA",
+    "district": "Gampaha",
+    "sourceAddress": "MINHATH MAWATA,CINAMON GARDEN,THIHARIYA",
+    "sourceCity": "GALAGEDIHENA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/1582/H/18",
+    "name": "COLONY 8TH JUMMA MOSQUE",
+    "district": "Hambantota",
+    "sourceAddress": "COLONY 8TH, NEW TOWN",
+    "sourceCity": "WEERAWILA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Weerawila, Hambantota District, Southern Province, 82632, Sri Lanka",
+        "lat": 6.2574968,
+        "lon": 81.2281152,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004000076295108,
+        "osmType": "node",
+        "osmId": 51232378,
+        "boundingbox": [
+          "6.2174968",
+          "6.2974968",
+          "81.1881152",
+          "81.2681152"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2440/H/20",
+    "name": "AL- MASJIDUL FAIZA MOHAMED",
+    "district": "Hambantota",
+    "sourceAddress": "MULLEGODA , YAKGSMULLA, WEERAKETIYA",
+    "sourceCity": "WEERAKETIYA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Weeraketiya, Hambantota District, Southern Province, Sri Lanka",
+        "lat": 6.1484324,
+        "lon": 80.7632359,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004000076295108,
+        "osmType": "node",
+        "osmId": 610929933,
+        "boundingbox": [
+          "6.1084324",
+          "6.1884324",
+          "80.7232359",
+          "80.8032359"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0206/H/04",
+    "name": "OLD MOSQUE",
+    "district": "Hambantota",
+    "sourceAddress": "JAIL STREET",
+    "sourceCity": "HAMBANTOTA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Hambantota, Hambantota District, Southern Province, 82000, Sri Lanka",
+        "lat": 6.1249126,
+        "lon": 81.1242563,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.44228625660441245,
+        "osmType": "node",
+        "osmId": 247220841,
+        "boundingbox": [
+          "5.9649126",
+          "6.2849126",
+          "80.9642563",
+          "81.2842563"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1128/H/17",
+    "name": "MASJIDUN NOOR JUMMA MOSQUE",
+    "district": "Hambantota",
+    "sourceAddress": "CIPPIKULAM",
+    "sourceCity": "HAMBANTOTA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Hambantota, Hambantota District, Southern Province, 82000, Sri Lanka",
+        "lat": 6.1249126,
+        "lon": 81.1242563,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.44228625660441245,
+        "osmType": "node",
+        "osmId": 247220841,
+        "boundingbox": [
+          "5.9649126",
+          "6.2849126",
+          "80.9642563",
+          "81.2842563"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0045/J/02",
+    "name": "IDROOS MAKAM THAKKIYA",
+    "district": "Jaffna",
+    "sourceAddress": "25/4, IDROOS MAKAM ROAD",
+    "sourceCity": "JAFFNA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Jaffna, Jaffna District, Northern Province, 40000, Sri Lanka",
+        "lat": 9.665093,
+        "lon": 80.0093029,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.5181168357964844,
+        "osmType": "node",
+        "osmId": 2050947471,
+        "boundingbox": [
+          "9.5050930",
+          "9.8250930",
+          "79.8493029",
+          "80.1693029"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0440/J/06",
+    "name": "MOHIDEEN THAKKIYA",
+    "district": "Jaffna",
+    "sourceAddress": "KATHEE ABOOBACKER ROAD",
+    "sourceCity": "JAFFNA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Jaffna, Jaffna District, Northern Province, 40000, Sri Lanka",
+        "lat": 9.665093,
+        "lon": 80.0093029,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.5181168357964844,
+        "osmType": "node",
+        "osmId": 2050947471,
+        "boundingbox": [
+          "9.5050930",
+          "9.8250930",
+          "79.8493029",
+          "80.1693029"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0835/J/17",
+    "name": "MOHIDEEN HAMIDIYA MOSQUE",
+    "district": "Jaffna",
+    "sourceAddress": "MAIN STREET",
+    "sourceCity": "POINT PEDRO",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Point Pedro, Jaffna District, Northern Province, 40600, Sri Lanka",
+        "lat": 9.8241007,
+        "lon": 80.2361837,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004459525444417,
+        "osmType": "node",
+        "osmId": 803792646,
+        "boundingbox": [
+          "9.7841007",
+          "9.8641007",
+          "80.1961837",
+          "80.2761837"
+        ]
+      },
+      {
+        "displayName": "Point Pedro, Jaffna District, Northern Province, 40600, Sri Lanka",
+        "lat": 9.8280712,
+        "lon": 80.2354871,
+        "class": "natural",
+        "type": "cape",
+        "addresstype": "cape",
+        "placeRank": 22,
+        "importance": 0.10671126192111083,
+        "osmType": "node",
+        "osmId": 6412086887,
+        "boundingbox": [
+          "9.8280212",
+          "9.8281212",
+          "80.2354371",
+          "80.2355371"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0834/J/16",
+    "name": "MOHIDEEN ABDUL CADER ANDEVER MOSQUE",
+    "district": "Jaffna",
+    "sourceAddress": "KODIKAMAM",
+    "sourceCity": "JAFFNA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Kodikamam, Jaffna District, Northern Province, Sri Lanka",
+        "lat": 9.6801351,
+        "lon": 80.222333,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.13618373728802152,
+        "osmType": "node",
+        "osmId": 4440184795,
+        "boundingbox": [
+          "9.6401351",
+          "9.7201351",
+          "80.1823330",
+          "80.2623330"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2111/KL/85",
+    "name": "MASJIDUS SHUHADA",
+    "district": "Kalutara",
+    "sourceAddress": "32/4A, KALEEL PLACE,",
+    "sourceCity": "KALUTARA SOUTH",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Kalutara South, Station Road, Kalutara, Kalutara DS Division, Kalutara District, Western Province, 12000, Sri Lanka",
+        "lat": 6.5840691,
+        "lon": 79.9590253,
+        "class": "railway",
+        "type": "station",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 4.820401312271332e-05,
+        "osmType": "way",
+        "osmId": 1078869154,
+        "boundingbox": [
+          "6.5836684",
+          "6.5845440",
+          "79.9589041",
+          "79.9591204"
+        ]
+      },
+      {
+        "displayName": "Kalutara South, Good shed Road, Kalutara, Kalutara DS Division, Kalutara District, Western Province, 12000, Sri Lanka",
+        "lat": 6.5841229,
+        "lon": 79.958864,
+        "class": "railway",
+        "type": "stop",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 4.820401312271332e-05,
+        "osmType": "node",
+        "osmId": 12681291578,
+        "boundingbox": [
+          "6.5840729",
+          "6.5841729",
+          "79.9588140",
+          "79.9589140"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/488/KL.32",
+    "name": "THAJUL MAFAKIR ZAVIA",
+    "district": "Kalutara",
+    "sourceAddress": "NALEEM HAJIAR MAWATHA, CHINA FORT",
+    "sourceCity": "BERUWELA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Beruwala, Beruwala DS Division, Kalutara District, Western Province, 12070, Sri Lanka",
+        "lat": 6.4755855,
+        "lon": 79.9834066,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004820401312275,
+        "osmType": "node",
+        "osmId": 1827277942,
+        "boundingbox": [
+          "6.4355855",
+          "6.5155855",
+          "79.9434066",
+          "80.0234066"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/468/KL.29",
+    "name": "KADIRIYA THAKKIYA ALIAS ALAVIA THAKKIYA",
+    "district": "Kalutara",
+    "sourceAddress": "MOOR STREET",
+    "sourceCity": "KALUTARA SOUTH",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Kalutara South, Station Road, Kalutara, Kalutara DS Division, Kalutara District, Western Province, 12000, Sri Lanka",
+        "lat": 6.5840691,
+        "lon": 79.9590253,
+        "class": "railway",
+        "type": "station",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 4.820401312271332e-05,
+        "osmType": "way",
+        "osmId": 1078869154,
+        "boundingbox": [
+          "6.5836684",
+          "6.5845440",
+          "79.9589041",
+          "79.9591204"
+        ]
+      },
+      {
+        "displayName": "Kalutara South, Good shed Road, Kalutara, Kalutara DS Division, Kalutara District, Western Province, 12000, Sri Lanka",
+        "lat": 6.5841229,
+        "lon": 79.958864,
+        "class": "railway",
+        "type": "stop",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 4.820401312271332e-05,
+        "osmType": "node",
+        "osmId": 12681291578,
+        "boundingbox": [
+          "6.5840729",
+          "6.5841729",
+          "79.9588140",
+          "79.9589140"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1327/KL.68",
+    "name": "ZAVIATHUL FASIYYAHTUL SHAZULIYA",
+    "district": "Kalutara",
+    "sourceAddress": "BALACE PATH, MALIGAHENA",
+    "sourceCity": "BERUWELA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Beruwala, Beruwala DS Division, Kalutara District, Western Province, 12070, Sri Lanka",
+        "lat": 6.4755855,
+        "lon": 79.9834066,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004820401312275,
+        "osmType": "node",
+        "osmId": 1827277942,
+        "boundingbox": [
+          "6.4355855",
+          "6.5155855",
+          "79.9434066",
+          "80.0234066"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2337/K/260",
+    "name": "AL-MASJIDHUL MUKARRAM",
+    "district": "Kandy",
+    "sourceAddress": "186/6, KURUNDUGAHA ELA, UGGALA",
+    "sourceCity": "AKURANA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Akurana, Bamunupola, Kandy District, Central Province, 20850, Sri Lanka",
+        "lat": 7.36032,
+        "lon": 80.60062,
+        "class": "place",
+        "type": "suburb",
+        "addresstype": "suburb",
+        "placeRank": 19,
+        "importance": 0.1467261821927214,
+        "osmType": "node",
+        "osmId": 5084831532,
+        "boundingbox": [
+          "7.3403200",
+          "7.3803200",
+          "80.5806200",
+          "80.6206200"
+        ]
+      },
+      {
+        "displayName": "Akurana, Matale Road, Akurana, Konakalagala, Kandy District, Central Province, 20850, Sri Lanka",
+        "lat": 7.3648752,
+        "lon": 80.6172566,
+        "class": "highway",
+        "type": "bus_stop",
+        "addresstype": "highway",
+        "placeRank": 30,
+        "importance": 5.9515526054734375e-05,
+        "osmType": "node",
+        "osmId": 3856393379,
+        "boundingbox": [
+          "7.3648252",
+          "7.3649252",
+          "80.6172066",
+          "80.6173066"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2559/K/298",
+    "name": "MASJID AL FALAH",
+    "district": "Kandy",
+    "sourceAddress": "KUKUL WATTA ROAD,KURUNDUGOLLA,WERALLAGAMA",
+    "sourceCity": "WERALLAGAMA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/2334/K/258",
+    "name": "AL-MASJIDHUN NOORI (K.M.MAHALLA)",
+    "district": "Kandy",
+    "sourceAddress": "PALLIYAKOTUWA,",
+    "sourceCity": "BATUGODA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Batugoda Public Library, Poojapitiya Road, Kudugala, Poojapitiya, Kandy District, Central Province, 20850, Sri Lanka",
+        "lat": 7.3677519,
+        "lon": 80.5989285,
+        "class": "amenity",
+        "type": "library",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 5.9515526054734375e-05,
+        "osmType": "node",
+        "osmId": 5160654739,
+        "boundingbox": [
+          "7.3677019",
+          "7.3678019",
+          "80.5988785",
+          "80.5989785"
+        ]
+      },
+      {
+        "displayName": "Batugoda Govijana Kendraya, Poojapitiya Road, Kudugala, Poojapitiya, Kandy District, Central Province, 20850, Sri Lanka",
+        "lat": 7.3776674,
+        "lon": 80.5873553,
+        "class": "office",
+        "type": "government",
+        "addresstype": "office",
+        "placeRank": 30,
+        "importance": 5.9515526054734375e-05,
+        "osmType": "node",
+        "osmId": 5160643036,
+        "boundingbox": [
+          "7.3776174",
+          "7.3777174",
+          "80.5873053",
+          "80.5874053"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1817/K.170",
+    "name": "MASJIDUL AWWAD",
+    "district": "Kandy",
+    "sourceAddress": "HENDENIYA,",
+    "sourceCity": "PERADENIYA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Peradeniya, Eriyagama, Kandy District, Central Province, 20400, Sri Lanka",
+        "lat": 7.2642107,
+        "lon": 80.5930652,
+        "class": "place",
+        "type": "suburb",
+        "addresstype": "suburb",
+        "placeRank": 19,
+        "importance": 0.34499484463742425,
+        "osmType": "node",
+        "osmId": 264605806,
+        "boundingbox": [
+          "7.2442107",
+          "7.2842107",
+          "80.5730652",
+          "80.6130652"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2291/KD/100",
+    "name": "IQRA MASJID",
+    "district": "Kegalle",
+    "sourceAddress": "335,KANDY ROAD,BELIGAMMANA",
+    "sourceCity": "MAWANELLA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Mawanella, Kegalle District, Sabaragamuwa Province, 71500, Sri Lanka",
+        "lat": 7.2523524,
+        "lon": 80.4469352,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004613946746013,
+        "osmType": "node",
+        "osmId": 51237600,
+        "boundingbox": [
+          "7.2123524",
+          "7.2923524",
+          "80.4069352",
+          "80.4869352"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2472/KD/116",
+    "name": "MASJIDUL RAHMA",
+    "district": "Kegalle",
+    "sourceAddress": "KIRIGALA ROAD, MAWANELLA",
+    "sourceCity": "MAWANELLA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Mawanella, Kegalle District, Sabaragamuwa Province, 71500, Sri Lanka",
+        "lat": 7.2523524,
+        "lon": 80.4469352,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004613946746013,
+        "osmType": "node",
+        "osmId": 51237600,
+        "boundingbox": [
+          "7.2123524",
+          "7.2923524",
+          "80.4069352",
+          "80.4869352"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1806/KD/86",
+    "name": "MASJIDUL HIDAYA JUMMA MOSQUE",
+    "district": "Kegalle",
+    "sourceAddress": "ANGURUWELLA",
+    "sourceCity": "RUWANWELLA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Ruwanwella, Kegalle District, Sabaragamuwa Province, 71300, Sri Lanka",
+        "lat": 7.0458636,
+        "lon": 80.2537792,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004000076295108,
+        "osmType": "node",
+        "osmId": 1805745304,
+        "boundingbox": [
+          "7.0058636",
+          "7.0858636",
+          "80.2137792",
+          "80.2937792"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0479/KD/38",
+    "name": "WARAKAPOLA GRAND JUMMA MOSQUE",
+    "district": "Kegalle",
+    "sourceAddress": "MASJID MAWATHA",
+    "sourceCity": "WARAKAPOLA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Warakapola, Kegalle District, Sabaragamuwa Province, 71600, Sri Lanka",
+        "lat": 7.2249609,
+        "lon": 80.1965392,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.09078915819201436,
+        "osmType": "node",
+        "osmId": 1733768118,
+        "boundingbox": [
+          "7.1849609",
+          "7.2649609",
+          "80.1565392",
+          "80.2365392"
+        ]
+      },
+      {
+        "displayName": "Warakapola, Colombo-Kandy Road, Danowita, Kegalle District, Sabaragamuwa Province, 71600, Sri Lanka",
+        "lat": 7.2275079,
+        "lon": 80.1997162,
+        "class": "amenity",
+        "type": "police",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.6139467460090297e-05,
+        "osmType": "node",
+        "osmId": 1798382655,
+        "boundingbox": [
+          "7.2274579",
+          "7.2275579",
+          "80.1996662",
+          "80.1997662"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2467//KN/07",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "district": "Kilinochchi",
+    "sourceAddress": "NO123, SERVICE ROAD,KLINOCHI",
+    "sourceCity": "KILINOCHCHI",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Kilinochchi, Kilinochchi District, Northern Province, Sri Lanka",
+        "lat": 9.3840068,
+        "lon": 80.4087224,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.38154785896147225,
+        "osmType": "node",
+        "osmId": 634253347,
+        "boundingbox": [
+          "9.2240068",
+          "9.5440068",
+          "80.2487224",
+          "80.5687224"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2405/KN/06",
+    "name": "SALAM JUMMAH MOSQUE",
+    "district": "Kilinochchi",
+    "sourceAddress": "KACHCHERY ROAD, KLINOCHCHI",
+    "sourceCity": "KILINOCHCHI",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Kilinochchi, Kilinochchi District, Northern Province, Sri Lanka",
+        "lat": 9.3840068,
+        "lon": 80.4087224,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.38154785896147225,
+        "osmType": "node",
+        "osmId": 634253347,
+        "boundingbox": [
+          "9.2240068",
+          "9.5440068",
+          "80.2487224",
+          "80.5687224"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2487/KN/08",
+    "name": "MASJIDUL NOORANIYA",
+    "district": "Kilinochchi",
+    "sourceAddress": "THIRUNAGAR, KILINOCHCHI",
+    "sourceCity": "THIRUNAGAR",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Thirunagar, Kilinochchi District, Northern Province, Sri Lanka",
+        "lat": 9.415366,
+        "lon": 80.3939075,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.14671303044174863,
+        "osmType": "node",
+        "osmId": 4568632829,
+        "boundingbox": [
+          "9.3953660",
+          "9.4353660",
+          "80.3739075",
+          "80.4139075"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0563/KN/01",
+    "name": "SEGU SULTAN SIKKANDER DHARGA",
+    "district": "Kilinochchi",
+    "sourceAddress": "PALLIKUA",
+    "sourceCity": "POONAKERY",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/2532/KU/212",
+    "name": "AL FALAH NEW JUMMA MOSQUE",
+    "district": "Kurunegala",
+    "sourceAddress": "32,KATTAKADUWA,PAALUKADAWALA,GALGAMUWA.",
+    "sourceCity": "GALGAMUWA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 3,
+    "results": [
+      {
+        "displayName": "Galgamuwa, Kurunǣgala, North Western Province, 60700, Sri Lanka",
+        "lat": 7.9956682,
+        "lon": 80.2706117,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.13618373728802152,
+        "osmType": "node",
+        "osmId": 3578458836,
+        "boundingbox": [
+          "7.9556682",
+          "8.0356682",
+          "80.2306117",
+          "80.3106117"
+        ]
+      },
+      {
+        "displayName": "Galgamuwa, Anuradhapura Road, Diwulwewa, Kurunǣgala, North Western Province, 60700, Sri Lanka",
+        "lat": 8.0021361,
+        "lon": 80.2715284,
+        "class": "railway",
+        "type": "station",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 3.750133516437045e-05,
+        "osmType": "way",
+        "osmId": 758034305,
+        "boundingbox": [
+          "8.0018229",
+          "8.0025102",
+          "80.2715034",
+          "80.2715921"
+        ]
+      },
+      {
+        "displayName": "Galgamuwa, Anuradhapura Road, Diwulwewa, Kurunǣgala, North Western Province, 60700, Sri Lanka",
+        "lat": 8.0021595,
+        "lon": 80.2714939,
+        "class": "railway",
+        "type": "stop",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 3.750133516437045e-05,
+        "osmType": "node",
+        "osmId": 12641109759,
+        "boundingbox": [
+          "8.0021095",
+          "8.0022095",
+          "80.2714439",
+          "80.2715439"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1547/KU.136",
+    "name": "MASJIDUL AKBAR JUMMA MOSQUE",
+    "district": "Kurunegala",
+    "sourceAddress": "KU/MADIGE, ANUKKANA",
+    "sourceCity": "SUNANDAPURA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/849/KU.91",
+    "name": "MASJIDUL FALAH JUMMA MOSQUE",
+    "district": "Kurunegala",
+    "sourceAddress": "ARAKKIYALA, MADALASSA",
+    "sourceCity": "KEKUNUGOLLA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/1575/KU.137",
+    "name": "AL MASJIDUL HUDHA",
+    "district": "Kurunegala",
+    "sourceAddress": "METIWEWA",
+    "sourceCity": "KEKUNUGOLLA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/2576/MN/68",
+    "name": "MASJIDUL HUDHA JUMMA MOSQUE",
+    "district": "Mannar",
+    "sourceAddress": "4TH MILE POST,VEPPANKULAM",
+    "sourceCity": "VEPPANKULAM",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Mn/Veppankulam GMMS, Murunkan-Silavathurai Road, Silwatturai, Mannar District, Northern Province, Sri Lanka",
+        "lat": 8.7868283,
+        "lon": 80.0030547,
+        "class": "amenity",
+        "type": "school",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 9.99999999995449e-06,
+        "osmType": "node",
+        "osmId": 4806414911,
+        "boundingbox": [
+          "8.7867783",
+          "8.7868783",
+          "80.0030047",
+          "80.0031047"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2627/MN/69",
+    "name": "UMARIBNIL KATHTHAB JM",
+    "district": "Mannar",
+    "sourceAddress": "PICHCHA VANIFA, NEDUNKULAM, P.P.POTKERNY, MURUNKAN",
+    "sourceCity": "MURUNKAN",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Murunkan, Mannar District, Northern Province, Sri Lanka",
+        "lat": 8.8326402,
+        "lon": 80.0323925,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.14670416800183103,
+        "osmType": "node",
+        "osmId": 4726394764,
+        "boundingbox": [
+          "8.8126402",
+          "8.8526402",
+          "80.0123925",
+          "80.0523925"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0209/MN 07",
+    "name": "PERIYAKADAI JUMMA MOSQUE",
+    "district": "Mannar",
+    "sourceAddress": "GRAND BAZAAR",
+    "sourceCity": "MANNAR",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Mannar, Mannar District, Northern Province, Sri Lanka",
+        "lat": 8.9812896,
+        "lon": 79.9043942,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.4093142170089203,
+        "osmType": "node",
+        "osmId": 1886592110,
+        "boundingbox": [
+          "8.8212896",
+          "9.1412896",
+          "79.7443942",
+          "80.0643942"
+        ]
+      },
+      {
+        "displayName": "Mannar Island, Mannar District, Northern Province, Sri Lanka",
+        "lat": 9.0346189,
+        "lon": 79.8421109,
+        "class": "place",
+        "type": "island",
+        "addresstype": "island",
+        "placeRank": 17,
+        "importance": 0.32316133360556143,
+        "osmType": "relation",
+        "osmId": 16310486,
+        "boundingbox": [
+          "8.9613989",
+          "9.1077895",
+          "79.6560285",
+          "79.9280664"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0527/MN 22",
+    "name": "MUHIYIDEEN MOSQUE",
+    "district": "Mannar",
+    "sourceAddress": "ADAMBAN BAZAR",
+    "sourceCity": "ADAMBAN",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/2112/MT 52",
+    "name": "MASJIDHUL KUBA",
+    "district": "Matale",
+    "sourceAddress": "119B, MOSQUE ROAD, DIKKIRIYA, KALUDAWELA",
+    "sourceCity": "MATALE",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Matale, Matale District, Central Province, Sri Lanka",
+        "lat": 7.4720453,
+        "lon": 80.6234307,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.4094405247320548,
+        "osmType": "node",
+        "osmId": 258049423,
+        "boundingbox": [
+          "7.3120453",
+          "7.6320453",
+          "80.4634307",
+          "80.7834307"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2248/MT/61",
+    "name": "ABRAAR JUMMAH MASJID",
+    "district": "Matale",
+    "sourceAddress": "MOSQUE ROAD, WARAKANDA, WARAKAMURA",
+    "sourceCity": "UKUWELA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Ukuwela, Matale District, Central Province, 21300, Sri Lanka",
+        "lat": 7.4212501,
+        "lon": 80.6331832,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16005951552605477,
+        "osmType": "node",
+        "osmId": 1175899378,
+        "boundingbox": [
+          "7.3812501",
+          "7.4612501",
+          "80.5931832",
+          "80.6731832"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/138/MT 04",
+    "name": "KOTTAGODA JUMMA MOSQUE",
+    "district": "Matale",
+    "sourceAddress": "PALAPATHUWELA",
+    "sourceCity": "MATALE",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Matale, Matale District, Central Province, Sri Lanka",
+        "lat": 7.4720453,
+        "lon": 80.6234307,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.4094405247320548,
+        "osmType": "node",
+        "osmId": 258049423,
+        "boundingbox": [
+          "7.3120453",
+          "7.6320453",
+          "80.4634307",
+          "80.7834307"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1772/MT 49",
+    "name": "MOHIDEEN ABDUL CADER THAKKIYA",
+    "district": "Matale",
+    "sourceAddress": "60, RATTOTA ROAD",
+    "sourceCity": "MATALE",
+    "addressQuality": "low",
+    "queryStrategy": "structured",
+    "error": null,
+    "resultCount": 3,
+    "results": [
+      {
+        "displayName": "Rattota-Gammaduwa Road, Opalgalla Group-Pussela, Gammaduwa, Matale District, Central Province, Sri Lanka",
+        "lat": 7.5653371,
+        "lon": 80.6852803,
+        "class": "highway",
+        "type": "primary",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.05338138475623709,
+        "osmType": "way",
+        "osmId": 508704569,
+        "boundingbox": [
+          "7.5465636",
+          "7.5721571",
+          "80.6749496",
+          "80.7006159"
+        ]
+      },
+      {
+        "displayName": "Matale-Rattota Road, Aluwihare, Mandandawela, Matale District, Central Province, 21070, Sri Lanka",
+        "lat": 7.4864616,
+        "lon": 80.628695,
+        "class": "highway",
+        "type": "primary",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.05338138475623709,
+        "osmType": "way",
+        "osmId": 160710988,
+        "boundingbox": [
+          "7.4809229",
+          "7.4896148",
+          "80.6234027",
+          "80.6357735"
+        ]
+      },
+      {
+        "displayName": "Rattota-Gammaduwa Road, Palle-Aswedduma, Hunukete, Matale District, Central Province, 21400, Sri Lanka",
+        "lat": 7.5361707,
+        "lon": 80.6754216,
+        "class": "highway",
+        "type": "primary",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.05338138475623709,
+        "osmType": "way",
+        "osmId": 527001759,
+        "boundingbox": [
+          "7.5250093",
+          "7.5465636",
+          "80.6728785",
+          "80.6772925"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2267/MR/47",
+    "name": "MASJIDUL SALAM",
+    "district": "Matara",
+    "sourceAddress": "75 VAJIRAGNANA MAWATHA, GALBOKKA",
+    "sourceCity": "WELIGAMA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Weligama, Matara District, Southern Province, Sri Lanka",
+        "lat": 5.9751305,
+        "lon": 80.429139,
+        "class": "boundary",
+        "type": "administrative",
+        "addresstype": "town",
+        "placeRank": 16,
+        "importance": 0.3415289282979405,
+        "osmType": "relation",
+        "osmId": 5840987,
+        "boundingbox": [
+          "5.9691025",
+          "5.9816131",
+          "80.4228691",
+          "80.4359830"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0404/MR/15",
+    "name": "MOHIDEEN JUMMA MOSQUE",
+    "district": "Matara",
+    "sourceAddress": "KANANGE ROAD, WELIPITIYA",
+    "sourceCity": "WELIGAMA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Weligama, Matara District, Southern Province, Sri Lanka",
+        "lat": 5.9751305,
+        "lon": 80.429139,
+        "class": "boundary",
+        "type": "administrative",
+        "addresstype": "town",
+        "placeRank": 16,
+        "importance": 0.3415289282979405,
+        "osmType": "relation",
+        "osmId": 5840987,
+        "boundingbox": [
+          "5.9691025",
+          "5.9816131",
+          "80.4228691",
+          "80.4359830"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1151/MR/33",
+    "name": "HILUR THAKKIYA",
+    "district": "Matara",
+    "sourceAddress": "NEW STREET",
+    "sourceCity": "WELIGAMA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Weligama, Matara District, Southern Province, Sri Lanka",
+        "lat": 5.9751305,
+        "lon": 80.429139,
+        "class": "boundary",
+        "type": "administrative",
+        "addresstype": "town",
+        "placeRank": 16,
+        "importance": 0.3415289282979405,
+        "osmType": "relation",
+        "osmId": 5840987,
+        "boundingbox": [
+          "5.9691025",
+          "5.9816131",
+          "80.4228691",
+          "80.4359830"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1871/MR/42",
+    "name": "AL MASJIDUN NOOR",
+    "district": "Matara",
+    "sourceAddress": "WELIPITIYA",
+    "sourceCity": "WELIGAMA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Weligama, Matara District, Southern Province, Sri Lanka",
+        "lat": 5.9751305,
+        "lon": 80.429139,
+        "class": "boundary",
+        "type": "administrative",
+        "addresstype": "town",
+        "placeRank": 16,
+        "importance": 0.3415289282979405,
+        "osmType": "relation",
+        "osmId": 5840987,
+        "boundingbox": [
+          "5.9691025",
+          "5.9816131",
+          "80.4228691",
+          "80.4359830"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2493/MG/23",
+    "name": "MASJIDUL HAIRATH",
+    "district": "Moneragala",
+    "sourceAddress": "10TH, MAILE POST, MEDAGAMA, BIBILE",
+    "sourceCity": "BIBILE",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Bibile, Monaragala District, Uva Province, 09500, Sri Lanka",
+        "lat": 7.1600897,
+        "lon": 81.2254141,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.1600375013351644,
+        "osmType": "node",
+        "osmId": 1979375865,
+        "boundingbox": [
+          "7.1200897",
+          "7.2000897",
+          "81.1854141",
+          "81.2654141"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1747/MG/16",
+    "name": "MASJIDUN NOOR THAKKIYA",
+    "district": "Moneragala",
+    "sourceAddress": "RANDENIYA, MAIN STREET",
+    "sourceCity": "WELLAWAYA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Wellawaya, Monaragala District, Uva Province, 91200, Sri Lanka",
+        "lat": 6.7317804,
+        "lon": 81.1018359,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.16004000076295108,
+        "osmType": "node",
+        "osmId": 1739426106,
+        "boundingbox": [
+          "6.6917804",
+          "6.7717804",
+          "81.0618359",
+          "81.1418359"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1082/MG/10",
+    "name": "ALUPOTHA ZIYARATH",
+    "district": "Moneragala",
+    "sourceAddress": "ALUPOTHA",
+    "sourceCity": "BADALKUMBURA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Alupotha Muslim Maha Vidyalaya, Passara-Moneragala Road, Madukotan Arawa Junction, Pussellawa, Badalkumbura, Monaragala District, Uva Province, Sri Lanka",
+        "lat": 6.8966311,
+        "lon": 81.2090307,
+        "class": "amenity",
+        "type": "school",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 4.079880979624655e-05,
+        "osmType": "way",
+        "osmId": 503850983,
+        "boundingbox": [
+          "6.8958934",
+          "6.8974219",
+          "81.2086093",
+          "81.2094811"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2485/MG/22",
+    "name": "AL- MISBAH JUMMAH MASJID",
+    "district": "Moneragala",
+    "sourceAddress": "GODIGAMUWA, KOTABOWA",
+    "sourceCity": "MEDAGAMA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Medagama, Monaragala District, Uva Province, Sri Lanka",
+        "lat": 7.0345143,
+        "lon": 81.2759979,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.1600375013351644,
+        "osmType": "node",
+        "osmId": 4561226329,
+        "boundingbox": [
+          "6.9945143",
+          "7.0745143",
+          "81.2359979",
+          "81.3159979"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0293/MU/03",
+    "name": "MASJIDUL NOORANIYA",
+    "district": "Mullaitivu",
+    "sourceAddress": "THANNEEROOTTU EAST, NEERAVIPPIDDI",
+    "sourceCity": "MULLIYAMALAI",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/0693/MU/04",
+    "name": "PACKEER SAIBO VOLIULLA SHRINE",
+    "district": "Mullaitivu",
+    "sourceAddress": "THANEEROOTTU EAST,",
+    "sourceCity": "NEERAVIPPIDDI",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/0183/MU/01",
+    "name": "GRAND MOSQUE",
+    "district": "Mullaitivu",
+    "sourceAddress": "THANNEEROOTTU, MULLIYAWALAI",
+    "sourceCity": "MULLAITIVU",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Mullaitivu, Mullaitivu District, Northern Province, 42600, Sri Lanka",
+        "lat": 9.2698532,
+        "lon": 80.8145347,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.3817407619997487,
+        "osmType": "node",
+        "osmId": 633759246,
+        "boundingbox": [
+          "9.1098532",
+          "9.4298532",
+          "80.6545347",
+          "80.9745347"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0248/MU/02",
+    "name": "MAHUBOOB SUBUHANI MOSQUE",
+    "district": "Mullaitivu",
+    "sourceAddress": "MAIN STREET",
+    "sourceCity": "MULLAITIVU",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Mullaitivu, Mullaitivu District, Northern Province, 42600, Sri Lanka",
+        "lat": 9.2698532,
+        "lon": 80.8145347,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.3817407619997487,
+        "osmType": "node",
+        "osmId": 633759246,
+        "boundingbox": [
+          "9.1098532",
+          "9.4298532",
+          "80.6545347",
+          "80.9745347"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2450/N/46",
+    "name": "AL- AQSA JUMMAH MASJID",
+    "district": "Nuwara Eliya",
+    "sourceAddress": "59/3. LOWER DONSIDE, MALLANDA, NAWALAPITYA",
+    "sourceCity": "NUWARA-ELIYA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Nuwara Eliya, Nuwara Eliya District, Central Province, 10000, Sri Lanka",
+        "lat": 6.9739741,
+        "lon": 80.7669855,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.44635990349034044,
+        "osmType": "node",
+        "osmId": 44240758,
+        "boundingbox": [
+          "6.8139741",
+          "7.1339741",
+          "80.6069855",
+          "80.9269855"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2349/N/43",
+    "name": "JAMIUL AZHAR JUMMA MOSQUE",
+    "district": "Nuwara Eliya",
+    "sourceAddress": "HOLBROOK, HOLBROOK BAZAAR",
+    "sourceCity": "AGRAPATANA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/ /N/16",
+    "name": "RAMBODA MOSQUE (No Mosque)",
+    "district": "Nuwara Eliya",
+    "sourceAddress": "RAMBODA",
+    "sourceCity": "RAMBODA",
+    "addressQuality": "low",
+    "queryStrategy": "structured",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Ramboda-Sangilipalama Road, Sangilipalama, Ramboda, Nuwara Eliya District, Central Province, 20838, Sri Lanka",
+        "lat": 7.0584675,
+        "lon": 80.6936185,
+        "class": "highway",
+        "type": "primary",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.05338314717326616,
+        "osmType": "way",
+        "osmId": 678335767,
+        "boundingbox": [
+          "7.0564622",
+          "7.0596884",
+          "80.6888512",
+          "80.6976772"
+        ]
+      },
+      {
+        "displayName": "Road to Ramboda Lower Falls, then walk through hotel, Malhewa, Ramboda, Nuwara Eliya District, Central Province, 20838, Sri Lanka",
+        "lat": 7.0560314,
+        "lon": 80.698449,
+        "class": "highway",
+        "type": "service",
+        "addresstype": "road",
+        "placeRank": 27,
+        "importance": 0.04004981383993285,
+        "osmType": "way",
+        "osmId": 1347717243,
+        "boundingbox": [
+          "7.0557987",
+          "7.0561479",
+          "80.6981423",
+          "80.6988720"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2554/N/45",
+    "name": "BAITHUL MUKARRAM MASJID",
+    "district": "Nuwara Eliya",
+    "sourceAddress": "B/242/01,GAMPOLA ROAD",
+    "sourceCity": "HAPUGASTALAWA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Hapugastalawa, Nuwara Eliya District, Central Province, 20668, Sri Lanka",
+        "lat": 7.0556488,
+        "lon": 80.572708,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.14670831998168912,
+        "osmType": "node",
+        "osmId": 1834947923,
+        "boundingbox": [
+          "7.0356488",
+          "7.0756488",
+          "80.5527080",
+          "80.5927080"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/926/PL.17",
+    "name": "KUTHUBU MOHIDEEN MOSQUE",
+    "district": "Polonnaruwa",
+    "sourceAddress": "B.O.P. 314, AL HILAL PURA",
+    "sourceCity": "THAMBALAI",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/253/PL.02",
+    "name": "MOHIDEEN MOSQUE",
+    "district": "Polonnaruwa",
+    "sourceAddress": "MUSLIM COLONY, NORTH KADURUWELA",
+    "sourceCity": "KADURUWELA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Muslim Colony Road, Kaduruwela, Polonnaruwa District, North Central Province, 51000, Sri Lanka",
+        "lat": 7.9371769,
+        "lon": 81.0349949,
+        "class": "highway",
+        "type": "tertiary",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.053385237659266005,
+        "osmType": "way",
+        "osmId": 108181106,
+        "boundingbox": [
+          "7.9323010",
+          "7.9399700",
+          "81.0317364",
+          "81.0406822"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/865/PL.15",
+    "name": "MOHIDEEN MOSQUE",
+    "district": "Polonnaruwa",
+    "sourceAddress": "THAMBALA",
+    "sourceCity": "POLONNARUWA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Thambala Wewa, Polonnaruwa, Polonnaruwa District, North Central Province, Sri Lanka",
+        "lat": 7.9771699,
+        "lon": 80.9501619,
+        "class": "natural",
+        "type": "water",
+        "addresstype": "water",
+        "placeRank": 22,
+        "importance": 0.10671857099259935,
+        "osmType": "way",
+        "osmId": 108178325,
+        "boundingbox": [
+          "7.9739435",
+          "7.9802733",
+          "80.9471037",
+          "80.9525781"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/504/PL.08",
+    "name": "GALLELLA JUMMA MOSQUE",
+    "district": "Polonnaruwa",
+    "sourceAddress": "GALLELLA",
+    "sourceCity": "POLONNARUWA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_full",
+    "error": null,
+    "resultCount": 3,
+    "results": [
+      {
+        "displayName": "Gallella, Polonnaruwa District, North Central Province, Sri Lanka",
+        "lat": 7.9065783,
+        "lon": 81.0572947,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.14671857099259933,
+        "osmType": "node",
+        "osmId": 2822294981,
+        "boundingbox": [
+          "7.8865783",
+          "7.9265783",
+          "81.0372947",
+          "81.0772947"
+        ]
+      },
+      {
+        "displayName": "Gallella, Polonnaruwa-Batticaloa Road, Kusumama, Polonnaruwa District, North Central Province, Sri Lanka",
+        "lat": 7.9053038,
+        "lon": 81.0631516,
+        "class": "railway",
+        "type": "halt",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 5.1904325932662204e-05,
+        "osmType": "node",
+        "osmId": 4075186466,
+        "boundingbox": [
+          "7.9052538",
+          "7.9053538",
+          "81.0631016",
+          "81.0632016"
+        ]
+      },
+      {
+        "displayName": "Gallella, Polonnaruwa-Batticaloa Road, Kusumama, Polonnaruwa District, North Central Province, Sri Lanka",
+        "lat": 7.9053233,
+        "lon": 81.063147,
+        "class": "railway",
+        "type": "stop",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 5.1904325932662204e-05,
+        "osmType": "node",
+        "osmId": 12649614933,
+        "boundingbox": [
+          "7.9052733",
+          "7.9053733",
+          "81.0630970",
+          "81.0631970"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1914/P 175",
+    "name": "AN NOOR JUMMA MOSQUE",
+    "district": "Puttalam",
+    "sourceAddress": "12 ACRESS, MANINGALA, DHUNGANNAWA",
+    "sourceCity": "NATTANDIYA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Nattandiya, Puttalam District, North Western Province, 61210, Sri Lanka",
+        "lat": 7.4121862,
+        "lon": 79.8643448,
+        "class": "place",
+        "type": "town",
+        "addresstype": "town",
+        "placeRank": 18,
+        "importance": 0.1600375013351644,
+        "osmType": "node",
+        "osmId": 1848019758,
+        "boundingbox": [
+          "7.3721862",
+          "7.4521862",
+          "79.8243448",
+          "79.9043448"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1835/P.150",
+    "name": "MASJIDUL MUHAJIREEN MOSUE",
+    "district": "Puttalam",
+    "sourceAddress": "JINNAH PURAM, ALANKUDA",
+    "sourceCity": "ETALAI",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Etalai-Talawila Road, Puttalam, Puttalam District, North Western Province, Sri Lanka",
+        "lat": 8.1004983,
+        "lon": 79.7188791,
+        "class": "highway",
+        "type": "primary",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.053379678797589036,
+        "osmType": "way",
+        "osmId": 199108171,
+        "boundingbox": [
+          "8.0915308",
+          "8.1140993",
+          "79.7071918",
+          "79.7312955"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/030/P.03",
+    "name": "JUMMA MOSQUE & THAKKIYA MOSQUE",
+    "district": "Puttalam",
+    "sourceAddress": "IHALA KOTTARAMULLA",
+    "sourceCity": "IHALA KOTTARAMULLA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/663/P.62",
+    "name": "SIKKANDAR PALLIVASAL",
+    "district": "Puttalam",
+    "sourceAddress": "ALANKUDA",
+    "sourceCity": "ETALAI",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Etalai-Talawila Road, Puttalam, Puttalam District, North Western Province, Sri Lanka",
+        "lat": 8.1004983,
+        "lon": 79.7188791,
+        "class": "highway",
+        "type": "primary",
+        "addresstype": "road",
+        "placeRank": 26,
+        "importance": 0.053379678797589036,
+        "osmType": "way",
+        "osmId": 199108171,
+        "boundingbox": [
+          "8.0915308",
+          "8.1140993",
+          "79.7071918",
+          "79.7312955"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2047/R/43",
+    "name": "AL-MASJIDUL AZEEZIYYA",
+    "district": "Ratnapura",
+    "sourceAddress": "28, RATHNA JOTHI MAWATHA, GODIGAMUWA",
+    "sourceCity": "RATNAPURA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Ratnapura, Ratnapura District, Sabaragamuwa Province, 70000, Sri Lanka",
+        "lat": 6.6803691,
+        "lon": 80.4022975,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.1867163447013046,
+        "osmType": "node",
+        "osmId": 637897018,
+        "boundingbox": [
+          "6.5203691",
+          "6.8403691",
+          "80.2422975",
+          "80.5622975"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2060/R/47",
+    "name": "NAGOOR MEERAN JUMMAH MOSQUE",
+    "district": "Ratnapura",
+    "sourceAddress": "HAPUGASTENNA ESTATE, WEWALAKETIYA, GALLELLA",
+    "sourceCity": "RATNAPURA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Ratnapura, Ratnapura District, Sabaragamuwa Province, 70000, Sri Lanka",
+        "lat": 6.6803691,
+        "lon": 80.4022975,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.1867163447013046,
+        "osmType": "node",
+        "osmId": 637897018,
+        "boundingbox": [
+          "6.5203691",
+          "6.8403691",
+          "80.2422975",
+          "80.5622975"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1462/R.27",
+    "name": "AL MASJIDUL KHAIRIYA",
+    "district": "Ratnapura",
+    "sourceAddress": "HUNUWELA",
+    "sourceCity": "OPENAYAKE",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/2081/R/52",
+    "name": "MASJIDUL AQSHA",
+    "district": "Ratnapura",
+    "sourceAddress": "SINNA PARAWATTE, RAKWANA",
+    "sourceCity": "RATNAPURA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Ratnapura, Ratnapura District, Sabaragamuwa Province, 70000, Sri Lanka",
+        "lat": 6.6803691,
+        "lon": 80.4022975,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.1867163447013046,
+        "osmType": "node",
+        "osmId": 637897018,
+        "boundingbox": [
+          "6.5203691",
+          "6.8403691",
+          "80.2422975",
+          "80.5622975"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/0954/T/054",
+    "name": "BUHARY MOSQUE",
+    "district": "Trincomalee",
+    "sourceAddress": "95TH MILE POST",
+    "sourceCity": "MULLIPOTANA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 3,
+    "results": [
+      {
+        "displayName": "Mullipotana, Trincomalee District, Eastern Province, 31312, Sri Lanka",
+        "lat": 8.4551016,
+        "lon": 81.0632666,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.14670416800183103,
+        "osmType": "node",
+        "osmId": 6673633237,
+        "boundingbox": [
+          "8.4351016",
+          "8.4751016",
+          "81.0432666",
+          "81.0832666"
+        ]
+      },
+      {
+        "displayName": "Mullipotana, Mullipotana-Soorangal Road, Mullipotana, Trincomalee District, Eastern Province, 31312, Sri Lanka",
+        "lat": 8.4450987,
+        "lon": 81.0617559,
+        "class": "railway",
+        "type": "stop",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 3.750133516437045e-05,
+        "osmType": "node",
+        "osmId": 12645697965,
+        "boundingbox": [
+          "8.4450487",
+          "8.4451487",
+          "81.0617059",
+          "81.0618059"
+        ]
+      },
+      {
+        "displayName": "Mullipotana, Mullipotana-Soorangal Road, Mullipotana, Trincomalee District, Eastern Province, 31312, Sri Lanka",
+        "lat": 8.4450308,
+        "lon": 81.0618736,
+        "class": "railway",
+        "type": "station",
+        "addresstype": "railway",
+        "placeRank": 30,
+        "importance": 3.750133516437045e-05,
+        "osmType": "node",
+        "osmId": 1728263442,
+        "boundingbox": [
+          "8.4400308",
+          "8.4500308",
+          "81.0568736",
+          "81.0668736"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2536/T/221",
+    "name": "Al HASANATH JUMMA MOSQUE",
+    "district": "Trincomalee",
+    "sourceAddress": "TSUNAMI RESETTLEMENT VILLAGE,NADOOTHU,KINNIYA",
+    "sourceCity": "KINNIYA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Kinniya, Trincomalee District, Eastern Province, 31100, Sri Lanka",
+        "lat": 8.5016494,
+        "lon": 81.1912179,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.1467238078889143,
+        "osmType": "node",
+        "osmId": 1242724515,
+        "boundingbox": [
+          "8.4816494",
+          "8.5216494",
+          "81.1712179",
+          "81.2112179"
+        ]
+      },
+      {
+        "displayName": "Kinniya, Trincomalee-Batticaloa Road, Tamaraivillu, Trincomalee District, Eastern Province, 31100, Sri Lanka",
+        "lat": 8.5007635,
+        "lon": 81.1919815,
+        "class": "amenity",
+        "type": "bus_station",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 5.714122224760841e-05,
+        "osmType": "way",
+        "osmId": 1172642004,
+        "boundingbox": [
+          "8.5006370",
+          "8.5008900",
+          "81.1919268",
+          "81.1920362"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1534/T/126",
+    "name": "THAKKIYATHUL KAMALLIYA",
+    "district": "Trincomalee",
+    "sourceAddress": "ARAIACRE, KAKKAMUNAI",
+    "sourceCity": "KINNIYA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Kinniya, Trincomalee District, Eastern Province, 31100, Sri Lanka",
+        "lat": 8.5016494,
+        "lon": 81.1912179,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.1467238078889143,
+        "osmType": "node",
+        "osmId": 1242724515,
+        "boundingbox": [
+          "8.4816494",
+          "8.5216494",
+          "81.1712179",
+          "81.2112179"
+        ]
+      },
+      {
+        "displayName": "Kinniya, Trincomalee-Batticaloa Road, Tamaraivillu, Trincomalee District, Eastern Province, 31100, Sri Lanka",
+        "lat": 8.5007635,
+        "lon": 81.1919815,
+        "class": "amenity",
+        "type": "bus_station",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 5.714122224760841e-05,
+        "osmType": "way",
+        "osmId": 1172642004,
+        "boundingbox": [
+          "8.5006370",
+          "8.5008900",
+          "81.1919268",
+          "81.1920362"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1301/T/101",
+    "name": "NOORUL MASJID JAMIA",
+    "district": "Trincomalee",
+    "sourceAddress": "NEDUNTIVU",
+    "sourceCity": "KINNIYA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 2,
+    "results": [
+      {
+        "displayName": "Kinniya, Trincomalee District, Eastern Province, 31100, Sri Lanka",
+        "lat": 8.5016494,
+        "lon": 81.1912179,
+        "class": "place",
+        "type": "village",
+        "addresstype": "village",
+        "placeRank": 19,
+        "importance": 0.1467238078889143,
+        "osmType": "node",
+        "osmId": 1242724515,
+        "boundingbox": [
+          "8.4816494",
+          "8.5216494",
+          "81.1712179",
+          "81.2112179"
+        ]
+      },
+      {
+        "displayName": "Kinniya, Trincomalee-Batticaloa Road, Tamaraivillu, Trincomalee District, Eastern Province, 31100, Sri Lanka",
+        "lat": 8.5007635,
+        "lon": 81.1919815,
+        "class": "amenity",
+        "type": "bus_station",
+        "addresstype": "amenity",
+        "placeRank": 30,
+        "importance": 5.714122224760841e-05,
+        "osmType": "way",
+        "osmId": 1172642004,
+        "boundingbox": [
+          "8.5006370",
+          "8.5008900",
+          "81.1919268",
+          "81.1920362"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2272/V/30",
+    "name": "AL MASJIDHUL AQSA",
+    "district": "Vavuniya",
+    "sourceAddress": "NO-21 4TH LANE VEPPANKULAM",
+    "sourceCity": "VAVUNIYA",
+    "addressQuality": "high",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Vavuniya, Vavuniya District, Northern Province, 43000, Sri Lanka",
+        "lat": 8.7593517,
+        "lon": 80.5000778,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.18671483253223464,
+        "osmType": "node",
+        "osmId": 634182147,
+        "boundingbox": [
+          "8.5993517",
+          "8.9193517",
+          "80.3400778",
+          "80.6600778"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/2519/V/33",
+    "name": "MASJIDUL AQSA",
+    "district": "Vavuniya",
+    "sourceAddress": "NEW SALAMBAIKULAM,VAVUNIYA",
+    "sourceCity": "VAVUNIYA",
+    "addressQuality": "medium",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Vavuniya, Vavuniya District, Northern Province, 43000, Sri Lanka",
+        "lat": 8.7593517,
+        "lon": 80.5000778,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.18671483253223464,
+        "osmType": "node",
+        "osmId": 634182147,
+        "boundingbox": [
+          "8.5993517",
+          "8.9193517",
+          "80.3400778",
+          "80.6600778"
+        ]
+      }
+    ]
+  },
+  {
+    "registrationNo": "R/1367/V/17",
+    "name": "MASJIDUL RAHMANIYA",
+    "district": "Vavuniya",
+    "sourceAddress": "MASJIDUL RAHMANIYA",
+    "sourceCity": "ODDISUDDAN",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_only",
+    "error": null,
+    "resultCount": 0,
+    "results": []
+  },
+  {
+    "registrationNo": "R/0530/V.06",
+    "name": "MUHIYIDEEN MOSQUE",
+    "district": "Vavuniya",
+    "sourceAddress": "SOODUWENTHAPULAWU",
+    "sourceCity": "VAVUNIYA",
+    "addressQuality": "low",
+    "queryStrategy": "freeform_city_district",
+    "error": null,
+    "resultCount": 1,
+    "results": [
+      {
+        "displayName": "Vavuniya, Vavuniya District, Northern Province, 43000, Sri Lanka",
+        "lat": 8.7593517,
+        "lon": 80.5000778,
+        "class": "place",
+        "type": "city",
+        "addresstype": "city",
+        "placeRank": 16,
+        "importance": 0.18671483253223464,
+        "osmType": "node",
+        "osmId": 634182147,
+        "boundingbox": [
+          "8.5993517",
+          "8.9193517",
+          "80.3400778",
+          "80.6600778"
+        ]
+      }
+    ]
+  }
+]

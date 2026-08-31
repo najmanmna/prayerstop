@@ -1,0 +1,252 @@
+{
+  "Ampara": {
+    "nsdiPoints": 74,
+    "nsdiUsableNames": 21,
+    "osmHigh": 23,
+    "osmMedium": 10,
+    "dmrcaHighMedium": 5,
+    "tripleCorroborated": 3,
+    "usableVerifiedIdentity": 31,
+    "usableVerifiedIdentityPct": 41.9
+  },
+  "Anuradhapura": {
+    "nsdiPoints": 62,
+    "nsdiUsableNames": 15,
+    "osmHigh": 2,
+    "osmMedium": 1,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 1,
+    "usableVerifiedIdentity": 3,
+    "usableVerifiedIdentityPct": 4.8
+  },
+  "Badulla": {
+    "nsdiPoints": 20,
+    "nsdiUsableNames": 4,
+    "osmHigh": 4,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 2,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 5,
+    "usableVerifiedIdentityPct": 25.0
+  },
+  "Batticaloa": {
+    "nsdiPoints": 41,
+    "nsdiUsableNames": 2,
+    "osmHigh": 11,
+    "osmMedium": 4,
+    "dmrcaHighMedium": 0,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 14,
+    "usableVerifiedIdentityPct": 34.1
+  },
+  "Colombo": {
+    "nsdiPoints": 57,
+    "nsdiUsableNames": 32,
+    "osmHigh": 24,
+    "osmMedium": 2,
+    "dmrcaHighMedium": 6,
+    "tripleCorroborated": 8,
+    "usableVerifiedIdentity": 29,
+    "usableVerifiedIdentityPct": 50.9
+  },
+  "Galle": {
+    "nsdiPoints": 18,
+    "nsdiUsableNames": 3,
+    "osmHigh": 6,
+    "osmMedium": 3,
+    "dmrcaHighMedium": 0,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 5,
+    "usableVerifiedIdentityPct": 27.8
+  },
+  "Gampaha": {
+    "nsdiPoints": 42,
+    "nsdiUsableNames": 24,
+    "osmHigh": 9,
+    "osmMedium": 1,
+    "dmrcaHighMedium": 6,
+    "tripleCorroborated": 3,
+    "usableVerifiedIdentity": 14,
+    "usableVerifiedIdentityPct": 33.3
+  },
+  "Hambantota": {
+    "nsdiPoints": 8,
+    "nsdiUsableNames": 2,
+    "osmHigh": 0,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 1,
+    "usableVerifiedIdentityPct": 12.5
+  },
+  "Jaffna": {
+    "nsdiPoints": 8,
+    "nsdiUsableNames": 2,
+    "osmHigh": 2,
+    "osmMedium": 2,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 5,
+    "usableVerifiedIdentityPct": 62.5
+  },
+  "Kalutara": {
+    "nsdiPoints": 69,
+    "nsdiUsableNames": 41,
+    "osmHigh": 8,
+    "osmMedium": 3,
+    "dmrcaHighMedium": 12,
+    "tripleCorroborated": 3,
+    "usableVerifiedIdentity": 20,
+    "usableVerifiedIdentityPct": 29.0
+  },
+  "Kandy": {
+    "nsdiPoints": 107,
+    "nsdiUsableNames": 24,
+    "osmHigh": 11,
+    "osmMedium": 6,
+    "dmrcaHighMedium": 7,
+    "tripleCorroborated": 1,
+    "usableVerifiedIdentity": 18,
+    "usableVerifiedIdentityPct": 16.8
+  },
+  "Kegalle": {
+    "nsdiPoints": 50,
+    "nsdiUsableNames": 18,
+    "osmHigh": 5,
+    "osmMedium": 2,
+    "dmrcaHighMedium": 4,
+    "tripleCorroborated": 1,
+    "usableVerifiedIdentity": 10,
+    "usableVerifiedIdentityPct": 20.0
+  },
+  "Kilinochchi": {
+    "nsdiPoints": 4,
+    "nsdiUsableNames": 2,
+    "osmHigh": 1,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 0,
+    "tripleCorroborated": 1,
+    "usableVerifiedIdentity": 1,
+    "usableVerifiedIdentityPct": 25.0
+  },
+  "Kurunegala": {
+    "nsdiPoints": 70,
+    "nsdiUsableNames": 17,
+    "osmHigh": 3,
+    "osmMedium": 3,
+    "dmrcaHighMedium": 3,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 7,
+    "usableVerifiedIdentityPct": 10.0
+  },
+  "Mannar": {
+    "nsdiPoints": 27,
+    "nsdiUsableNames": 10,
+    "osmHigh": 4,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 0,
+    "tripleCorroborated": 1,
+    "usableVerifiedIdentity": 3,
+    "usableVerifiedIdentityPct": 11.1
+  },
+  "Matale": {
+    "nsdiPoints": 48,
+    "nsdiUsableNames": 21,
+    "osmHigh": 5,
+    "osmMedium": 2,
+    "dmrcaHighMedium": 5,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 10,
+    "usableVerifiedIdentityPct": 20.8
+  },
+  "Matara": {
+    "nsdiPoints": 20,
+    "nsdiUsableNames": 10,
+    "osmHigh": 1,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 1,
+    "usableVerifiedIdentity": 2,
+    "usableVerifiedIdentityPct": 10.0
+  },
+  "Moneragala": {
+    "nsdiPoints": 11,
+    "nsdiUsableNames": 0,
+    "osmHigh": 0,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 0,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 0,
+    "usableVerifiedIdentityPct": 0.0
+  },
+  "Mullaitivu": {
+    "nsdiPoints": 0,
+    "nsdiUsableNames": 0,
+    "osmHigh": 0,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 0,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 0,
+    "usableVerifiedIdentityPct": 0.0
+  },
+  "Nuwara Eliya": {
+    "nsdiPoints": 21,
+    "nsdiUsableNames": 4,
+    "osmHigh": 5,
+    "osmMedium": 2,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 6,
+    "usableVerifiedIdentityPct": 28.6
+  },
+  "Polonnaruwa": {
+    "nsdiPoints": 12,
+    "nsdiUsableNames": 6,
+    "osmHigh": 0,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 1,
+    "usableVerifiedIdentityPct": 8.3
+  },
+  "Puttalam": {
+    "nsdiPoints": 92,
+    "nsdiUsableNames": 20,
+    "osmHigh": 7,
+    "osmMedium": 3,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 9,
+    "usableVerifiedIdentityPct": 9.8
+  },
+  "Ratnapura": {
+    "nsdiPoints": 23,
+    "nsdiUsableNames": 9,
+    "osmHigh": 3,
+    "osmMedium": 0,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 3,
+    "usableVerifiedIdentityPct": 13.0
+  },
+  "Trincomalee": {
+    "nsdiPoints": 61,
+    "nsdiUsableNames": 32,
+    "osmHigh": 5,
+    "osmMedium": 4,
+    "dmrcaHighMedium": 8,
+    "tripleCorroborated": 1,
+    "usableVerifiedIdentity": 13,
+    "usableVerifiedIdentityPct": 21.3
+  },
+  "Vavuniya": {
+    "nsdiPoints": 24,
+    "nsdiUsableNames": 11,
+    "osmHigh": 5,
+    "osmMedium": 3,
+    "dmrcaHighMedium": 1,
+    "tripleCorroborated": 0,
+    "usableVerifiedIdentity": 9,
+    "usableVerifiedIdentityPct": 37.5
+  }
+}
