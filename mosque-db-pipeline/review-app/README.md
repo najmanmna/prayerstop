@@ -49,7 +49,9 @@ second permission system to even live.
   type) *and* `skip_review_task()` in sequence, so the reviewer isn't left
   holding a task they've already decided isn't reviewable — **Skip** calls
   `skip_review_task()` alone. All four ultimately call only the four
-  Step 7A/7B database functions — never a direct table write.
+  Step 7A/7B database functions — never a direct table write. A skipped task
+  is available to another reviewer but is not immediately returned to the
+  reviewer who skipped it; an invalid task is excluded from future claims.
 - **Never exposes another reviewer.** Every query the app makes is scoped
   to the signed-in user's own id (`data.js`'s `getMyActiveTask`/
   `getMyCompletedCount`), and that's enforced twice over: the client code
@@ -120,7 +122,7 @@ netlify deploy --dir=mosque-db-pipeline/review-app --prod
 ```
 
 Before deploying, in your Supabase project's dashboard:
-1. Run `supabase/migrations/0001-0005` in order (`supabase db push`, or
+1. Run `supabase/migrations/0001-0006` in order (`supabase db push`, or
    paste each into the SQL editor).
 2. Run `supabase/local-test-harness/0001_wire_auth_trigger.sql`'s one
    `create trigger on_auth_user_created ...` line once, manually.
