@@ -33,8 +33,11 @@ async function api(path, options) {
 
 async function loadAll() {
   const data = await api("/api/records");
-  records = data.records; // already server-sorted by queuePosition
   stateMap = data.state;
+  records = data.records.filter(record => {
+    const state = stateMap[record.id];
+    return !state?.skipped && !state?.invalidFlag;
+  }); // already server-sorted by queuePosition
   currentIndex = 0;
   renderSidebar();
   renderProgress();
@@ -385,9 +388,10 @@ async function doCorrect() {
 
 async function doSkip() {
   await submitReview("skip", {});
+  removeCurrentFromQueue();
   await refreshProgressAndSidebar();
   renderSidebar();
-  goNext();
+  renderCurrent();
 }
 
 async function doInvalid() {
@@ -398,9 +402,15 @@ async function doInvalid() {
     if (!proceed) return;
   }
   await submitReview("invalid", {});
+  removeCurrentFromQueue();
   await refreshProgressAndSidebar();
   renderSidebar();
-  goNext();
+  renderCurrent();
+}
+
+function removeCurrentFromQueue() {
+  records.splice(currentIndex, 1);
+  if (currentIndex >= records.length) currentIndex = Math.max(records.length - 1, 0);
 }
 
 async function rejectCandidate(recordId, sourceType, sourceId) {
