@@ -15,10 +15,13 @@ let currentTask = null; // the claimed review_tasks row, or null
 let currentMosque = null; // the mosque_records row for currentTask
 let completedCount = 0;
 let isAdmin = false;
-let viewMode = 'task'; // 'task' | 'admin' | 'admin-edit' — admin* only ever reachable when isAdmin is true
+let viewMode = 'task'; // 'task' | 'admin' | 'admin-edit' | 'duplicates' — admin* only reachable when isAdmin is true
 let adminData = null; // { reviewers, tasks, mosques } — fetched on demand, not on every load
 let expandedReviewerId = null; // which reviewer's reviewed-list is open in the admin overview
 let adminEditTarget = null; // { task, mosque } — the completed task an admin is currently correcting
+let currentDuplicateCandidate = null; // the duplicate_candidates row being decided
+let duplicateCandidateMosques = null; // { survivor, redundant } mosque_records for it
+let duplicatesRemaining = 0;
 let banner = null; // { kind: 'info'|'warn'|'error', message, retry?: fn }
 // Preserved across re-renders of the auth form (e.g. after a failed
 // sign-in shows an error banner) — without this, rebuilding the form's
@@ -56,6 +59,8 @@ async function init() {
       adminData = null;
       expandedReviewerId = null;
       adminEditTarget = null;
+      currentDuplicateCandidate = null;
+      duplicateCandidateMosques = null;
       render();
       return;
     }
@@ -124,13 +129,16 @@ function render() {
     renderAuthScreen();
     return;
   }
+  const inDuplicates = viewMode === 'duplicates';
   topbarRightEl.innerHTML = `
     <span class="progress-pill">${completedCount} reviewed</span>
+    <button class="btn btn-correct" id="duplicates-toggle-btn">${inDuplicates ? '← Back' : 'Duplicates'}</button>
     ${isAdmin ? `<button class="btn btn-correct" id="admin-toggle-btn">${viewMode === 'admin' ? '← Back' : 'Admin'}</button>` : ''}
     <span class="reviewer-name">${escapeHtml(session.user.email)}</span>
     <button class="btn btn-skip" id="logout-btn">Log out</button>
   `;
   document.getElementById('logout-btn').onclick = doLogout;
+  document.getElementById('duplicates-toggle-btn').onclick = () => (inDuplicates ? exitDuplicatesView() : enterDuplicatesView());
   if (isAdmin) {
     document.getElementById('admin-toggle-btn').onclick = () => (viewMode === 'admin' ? exitAdminView() : enterAdminView());
   }
@@ -141,6 +149,10 @@ function render() {
   }
   if (viewMode === 'admin-edit') {
     renderAdminEditScreen();
+    return;
+  }
+  if (viewMode === 'duplicates') {
+    renderDuplicatesScreen();
     return;
   }
 
@@ -544,6 +556,146 @@ function reviewTipsHtml() {
   `;
 }
 
+const CHECK_TYPE_LABELS = {
+  cross_source: { label: 'Cross-source match', note: 'Confirming merges the two records — the other side has never been reviewed, so nothing else changes.' },
+  intra_reviewed: {
+    label: 'Both already reviewed',
+    note: 'Both sides were independently reviewed already. Confirming merges them and keeps the other side’s full review history intact (marked as merged, never deleted).',
+  },
+  unclaimed_vs_verified: {
+    label: 'Matches a pending task',
+    note: 'The other side is still an unclaimed task nobody has reviewed yet. Confirming retires that task — nobody will be asked to review it separately.',
+  },
+};
+
+async function enterDuplicatesView() {
+  viewMode = 'duplicates';
+  currentDuplicateCandidate = null;
+  duplicateCandidateMosques = null;
+  clearBanner();
+  await loadNextDuplicateCandidate();
+}
+
+function exitDuplicatesView() {
+  viewMode = 'task';
+  currentDuplicateCandidate = null;
+  duplicateCandidateMosques = null;
+  clearBanner();
+  render();
+}
+
+async function loadNextDuplicateCandidate() {
+  try {
+    const [candidate, remaining] = await Promise.all([review.getNextDuplicateCandidate(), review.getPendingDuplicateCount()]);
+    duplicatesRemaining = remaining;
+    if (!candidate) {
+      currentDuplicateCandidate = null;
+      duplicateCandidateMosques = null;
+      render();
+      return;
+    }
+    const [survivor, redundant] = await Promise.all([
+      review.getMosque(candidate.survivor_mosque_id),
+      review.getMosque(candidate.redundant_mosque_id),
+    ]);
+    currentDuplicateCandidate = candidate;
+    duplicateCandidateMosques = { survivor, redundant };
+    clearBanner();
+  } catch (err) {
+    setBanner('error', err.message, loadNextDuplicateCandidate);
+  }
+  render();
+}
+
+function renderDuplicatesScreen() {
+  if (!currentDuplicateCandidate) {
+    appEl.innerHTML = `
+      ${bannerHtml()}
+      <div class="queue-empty">
+        <h2>No duplicate candidates left 🎉</h2>
+        <p>Either everything's been decided, or none were queued yet.</p>
+        <div class="action-bar" style="justify-content:center; margin-top:16px;">
+          <button class="btn btn-verify" id="refresh-duplicates-btn">Check again</button>
+        </div>
+      </div>
+    `;
+    wireBanner();
+    document.getElementById('refresh-duplicates-btn').onclick = loadNextDuplicateCandidate;
+    return;
+  }
+
+  const cand = currentDuplicateCandidate;
+  const { survivor, redundant } = duplicateCandidateMosques;
+  const meta = CHECK_TYPE_LABELS[cand.check_type] ?? { label: cand.check_type, note: '' };
+
+  const renderSide = (m, roleLabel) => `
+    <div class="dup-side">
+      <div class="dup-side-role">${roleLabel}</div>
+      <div class="dup-side-name">${escapeHtml(m.name || '(unnamed)')}</div>
+      <div class="task-meta">${escapeHtml(m.id)}</div>
+      <div class="dup-field"><label>District</label><span>${escapeHtml(m.district || '—')}</span></div>
+      <div class="dup-field"><label>Address</label><span>${escapeHtml(m.address || '—')}</span></div>
+      <div class="dup-field"><label>Coordinates</label><span>${m.latitude != null ? `${fmtCoord(m.latitude)}, ${fmtCoord(m.longitude)}` : '—'}</span></div>
+      <div class="dup-field"><label>Sources</label><span>${(m.sources || []).map((s) => s.type).join(', ') || '—'}</span></div>
+    </div>
+  `;
+
+  appEl.innerHTML = `
+    ${bannerHtml()}
+    <div class="task-title">Duplicate check — ${duplicatesRemaining} remaining</div>
+    <div class="task-meta">${meta.label} · match score ${cand.match_score}${cand.distance_m != null ? ` · ${formatDistance(cand.distance_m)} apart` : ''}</div>
+
+    <div class="card">
+      <div class="dup-compare">
+        ${renderSide(survivor, 'Stays (survivor)')}
+        ${renderSide(redundant, 'Proposed duplicate')}
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="task-meta" style="margin-bottom:0;">${escapeHtml(meta.note)}</p>
+    </div>
+
+    <div class="card">
+      <h3>Note (optional)</h3>
+      <textarea class="note-input" id="duplicate-note" placeholder="Anything worth recording about this decision…"></textarea>
+    </div>
+
+    <div class="action-bar">
+      <button class="btn btn-verify btn-big" id="confirm-duplicate-btn" ${busy ? 'disabled' : ''}>✅ Same mosque — link it</button>
+      <button class="btn btn-reject" id="reject-duplicate-btn" ${busy ? 'disabled' : ''}>❌ Different mosque</button>
+    </div>
+  `;
+
+  wireBanner();
+  document.getElementById('confirm-duplicate-btn').onclick = () => doDuplicateDecide('confirmed');
+  document.getElementById('reject-duplicate-btn').onclick = () => doDuplicateDecide('rejected');
+}
+
+async function doDuplicateDecide(decision) {
+  if (busy) return;
+  const note = document.getElementById('duplicate-note').value.trim() || null;
+  busy = true;
+  render();
+  try {
+    await review.decideDuplicateCandidate(currentDuplicateCandidate.id, decision, note);
+    busy = false;
+    await loadNextDuplicateCandidate();
+  } catch (err) {
+    busy = false;
+    if (err.code === '28000') {
+      session = null;
+    } else if (err.code === 'P0002') {
+      setBanner('warn', err.message);
+      await loadNextDuplicateCandidate();
+      return;
+    } else {
+      setBanner('error', err.message);
+    }
+  }
+  render();
+}
+
 function sourceRow(src) {
   let idCell = escapeHtml(src.id);
   if (src.type === 'osm' && src.osmLink) idCell = `<a href="${src.osmLink}" target="_blank">${escapeHtml(src.id)} ↗</a>`;
@@ -750,6 +902,8 @@ async function doLogout() {
   adminData = null;
   expandedReviewerId = null;
   adminEditTarget = null;
+  currentDuplicateCandidate = null;
+  duplicateCandidateMosques = null;
   authFieldValues = { email: '', password: '', name: '' };
   render();
 }

@@ -43,3 +43,8 @@ app-example
 # generated native folders
 /ios
 /android
+
+# mosque-db-pipeline: regenerable live-DB snapshots (each script documents
+# the exact psql export command in its own header) — not meant to be a
+# permanent record, would just go stale as reviews continue.
+mosque-db-pipeline/scripts/live_*.tsv

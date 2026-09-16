@@ -153,6 +153,36 @@ export function createReviewClient(supabase) {
       return data;
     },
 
+    // ------------------------------------------------ duplicate candidates
+    // Open to any registered reviewer (not admin-gated) — same philosophy
+    // as claim_review_task: a single confirm/reject click has nothing an
+    // admin-only restriction would meaningfully protect against, and
+    // spreading this across the team clears it faster.
+    async getNextDuplicateCandidate() {
+      const { data, error } = await supabase.rpc('claim_next_duplicate_candidate');
+      if (error) throw toFriendlyError(error);
+      return data ?? null;
+    },
+
+    async getPendingDuplicateCount() {
+      const { count, error } = await supabase
+        .from('duplicate_candidates')
+        .select('*', { count: 'exact', head: true })
+        .eq('status', 'pending');
+      if (error) throw toFriendlyError(error);
+      return count ?? 0;
+    },
+
+    async decideDuplicateCandidate(candidateId, decision, note) {
+      const { data, error } = await supabase.rpc('decide_duplicate_candidate', {
+        p_id: candidateId,
+        p_decision: decision,
+        p_note: note ?? null,
+      });
+      if (error) throw toFriendlyError(error);
+      return data;
+    },
+
     // --------------------------------------------------------- the queue
     /** Returns the claimed task, or null if the queue is currently empty (not an error). */
     async claimNext() {

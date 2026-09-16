@@ -1,0 +1,211 @@
+[
+  {
+    "unclaimedTaskId": "3bd60655-c762-5bc0-8385-cbf0aa7500fd",
+    "unclaimedMosqueId": "nsdi-20999",
+    "unclaimedName": "HINGULOYA MASJIDUL HUDA JUMMA MOSQUE",
+    "verifiedMosqueId": "osm-node-10578236564",
+    "verifiedName": "Masjidul Hudha jumma Mosque",
+    "district": "Kegalle",
+    "distanceM": 5.1,
+    "nameScore": 42.1,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "50f4e6d8-0c5e-5132-af9c-a182caee5c8d",
+    "unclaimedMosqueId": "nsdi-22326",
+    "unclaimedName": "Masjidul Akbar Jumma Mosque",
+    "verifiedMosqueId": "osm-way-1167295615",
+    "verifiedName": "Maberiya Jummah Masjidh",
+    "district": "Matale",
+    "distanceM": 7.1,
+    "nameScore": 28.6,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "f3e75a75-4a89-5e80-895d-da311d0bf8e4",
+    "unclaimedMosqueId": "osm-node-10068712240",
+    "unclaimedName": "An-Noor mosque",
+    "verifiedMosqueId": "nsdi-20946",
+    "verifiedName": "Masjidh Al-Noor Jum'aah Masjidh - Kiringadeniya",
+    "district": "",
+    "distanceM": 7.7,
+    "nameScore": 72.7,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "7edf171a-77f2-5eae-b826-d5dbb498d01d",
+    "unclaimedMosqueId": "nsdi-25605",
+    "unclaimedName": "Buhari Jumma Mosque",
+    "verifiedMosqueId": "dmrca-R-0954-T-054",
+    "verifiedName": "BUHARY MOSQUE",
+    "district": "Trincomalee",
+    "distanceM": 9.4,
+    "nameScore": 83.3,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "b47e12a4-4127-5d32-9bf9-3355f65f3543",
+    "unclaimedMosqueId": "nsdi-24064",
+    "unclaimedName": "Masjidul Hudha Jumma Mosque",
+    "verifiedMosqueId": "dmrca-R-226-MT-09",
+    "verifiedName": "MASJIDUL HUDA",
+    "district": "Matale",
+    "distanceM": 11.3,
+    "nameScore": 88.9,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "be5bc007-8253-5b71-8d3e-8959ad3e0e09",
+    "unclaimedMosqueId": "nsdi-19693",
+    "unclaimedName": "AMBATALELLA MUSLIM THAKKIYA",
+    "verifiedMosqueId": "osm-way-1104012454",
+    "verifiedName": "Selam Bridge Jumma Masjid",
+    "district": "Kandy",
+    "distanceM": 16.4,
+    "nameScore": 40.0,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "262916cf-4753-5414-87f0-644c1226740e",
+    "unclaimedMosqueId": "nsdi-25302",
+    "unclaimedName": "Mohideen Jumma Masjid(Mosque)",
+    "verifiedMosqueId": "nsdi-25301",
+    "verifiedName": "Nochchiyagama Grand Mosque",
+    "district": "Anuradhapura",
+    "distanceM": 23.7,
+    "nameScore": 28.6,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "c67ae8ff-e973-5893-90da-ddd1d3f07721",
+    "unclaimedMosqueId": "osm-way-1035496154",
+    "unclaimedName": "Nakshabandiya masjid",
+    "verifiedMosqueId": "nsdi-15996",
+    "verifiedName": "Naqshabandiya Thakkiya Mosque",
+    "district": "",
+    "distanceM": 24.1,
+    "nameScore": 92.3,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "8e0ca7cf-20ef-5107-a739-fcb5f3e896c5",
+    "unclaimedMosqueId": "nsdi-22206",
+    "unclaimedName": "Masjin Rahmaniya Mosque",
+    "verifiedMosqueId": "dmrca-R-123-KU-15",
+    "verifiedName": "Mummana Jumma Mosque",
+    "district": "Kurunegala",
+    "distanceM": 32.8,
+    "nameScore": 43.5,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "350e63ea-2ba3-5dc3-aee8-267c7634abbf",
+    "unclaimedMosqueId": "nsdi-21946",
+    "unclaimedName": "Masjidul Higariyah Mosque",
+    "verifiedMosqueId": "dmrca-R-392-KU-47",
+    "verifiedName": "MASJIDUL KHAIRIYA JUMMA MOSQUE",
+    "district": "Kurunegala",
+    "distanceM": 34.3,
+    "nameScore": 70.6,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "b8c37ed3-0dfc-5295-b697-ba25b4baf310",
+    "unclaimedMosqueId": "nsdi-24628",
+    "unclaimedName": "Mohideen Thakkiya Mosque",
+    "verifiedMosqueId": "dmrca-R-909-P-77",
+    "verifiedName": "MOHIDEEN THAKKIYA",
+    "district": "Puttalam",
+    "distanceM": 72.2,
+    "nameScore": 100.0,
+    "tier": "high"
+  },
+  {
+    "unclaimedTaskId": "8cf57c71-7123-5ae0-ab7f-9bb9d40da21f",
+    "unclaimedMosqueId": "nsdi-25296",
+    "unclaimedName": "Mohideen Jumma Masjid(Mosque)",
+    "verifiedMosqueId": "nsdi-25297",
+    "verifiedName": "Masjidul Thaqwa",
+    "district": "Anuradhapura",
+    "distanceM": 56.1,
+    "nameScore": 14.3,
+    "tier": "medium"
+  },
+  {
+    "unclaimedTaskId": "9bf19ef6-ff47-577a-8228-08f6f9c24d60",
+    "unclaimedMosqueId": "nsdi-25207",
+    "unclaimedName": "Mohideen Jumma Mosque",
+    "verifiedMosqueId": "osm-node-13339072331",
+    "verifiedName": "Kandakuliya Grand Jummah Masjidh",
+    "district": "Puttalam",
+    "distanceM": 58.5,
+    "nameScore": 22.2,
+    "tier": "medium"
+  },
+  {
+    "unclaimedTaskId": "7686f5cb-aeae-55d0-9079-b6355bf1e35e",
+    "unclaimedMosqueId": "nsdi-16770",
+    "unclaimedName": "Al Musjid Jamiul Khairath,Ambalandoowa",
+    "verifiedMosqueId": "dmrca-R-159-KL-12",
+    "verifiedName": "JAMIUL KHAIRATH AMBALANDUWA JUMMA MOSQUE",
+    "district": "Kalutara",
+    "distanceM": 62.4,
+    "nameScore": 83.9,
+    "tier": "medium"
+  },
+  {
+    "unclaimedTaskId": "7bc54ee0-346b-5284-814e-8309d0b9cc0d",
+    "unclaimedMosqueId": "nsdi-18850",
+    "unclaimedName": "Raxapana Jumma Mosque",
+    "verifiedMosqueId": "dmrca-R-04-GM-01",
+    "verifiedName": "RAKSHAPANA JUMMA MOSQUE",
+    "district": "Gampaha",
+    "distanceM": 69.1,
+    "nameScore": 77.8,
+    "tier": "medium"
+  },
+  {
+    "unclaimedTaskId": "5141d78e-8135-5f5f-bd43-3dd14d0f54a7",
+    "unclaimedMosqueId": "osm-way-1167295611",
+    "unclaimedName": "Masjidul Noor Jummah Mosque",
+    "verifiedMosqueId": "nsdi-22267",
+    "verifiedName": "MARUKONE THAKKIYA",
+    "district": "",
+    "distanceM": 85.7,
+    "nameScore": 16.7,
+    "tier": "medium"
+  },
+  {
+    "unclaimedTaskId": "23c014be-25c2-584d-a89b-6b491097ed45",
+    "unclaimedMosqueId": "nsdi-21371",
+    "unclaimedName": "AL Madrasathul Ilahiyya",
+    "verifiedMosqueId": "nsdi-21364",
+    "verifiedName": "Grand Jumm'a Masjith Oluvil",
+    "district": "Ampara",
+    "distanceM": 99.9,
+    "nameScore": 43.9,
+    "tier": "medium"
+  },
+  {
+    "unclaimedTaskId": "abd6efe3-7b70-588a-ac78-be4891b69c7b",
+    "unclaimedMosqueId": "nsdi-14061",
+    "unclaimedName": "Sindar Shake Madar Mosque",
+    "verifiedMosqueId": "osm-way-497169972",
+    "verifiedName": "Matara Meera Jummah Masjid",
+    "district": "Matara",
+    "distanceM": 133.1,
+    "nameScore": 46.7,
+    "tier": "medium"
+  },
+  {
+    "unclaimedTaskId": "8184fee2-7994-5844-ab6d-333c46706ae9",
+    "unclaimedMosqueId": "nsdi-25143",
+    "unclaimedName": "Mohideen Jumma Mosque",
+    "verifiedMosqueId": "dmrca-R-1136-P-83",
+    "verifiedName": "MOHIDEEN JUMMA MOSQUE",
+    "district": "Puttalam",
+    "distanceM": 151.7,
+    "nameScore": 100.0,
+    "tier": "medium"
+  }
+]

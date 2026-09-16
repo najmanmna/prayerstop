@@ -189,6 +189,42 @@ describe('createReviewClient — admin correction of an already-completed task',
   });
 });
 
+describe('createReviewClient — duplicate candidates', () => {
+  test('getNextDuplicateCandidate calls claim_next_duplicate_candidate with no args, returns null when empty', async () => {
+    const supabase = createMockSupabase({ rpcImpl: () => ({ data: null, error: null }) });
+    const client = createReviewClient(supabase);
+    const result = await client.getNextDuplicateCandidate();
+    assert.equal(result, null);
+    assert.equal(supabase._calls.rpc[0].fnName, 'claim_next_duplicate_candidate');
+  });
+
+  test('getPendingDuplicateCount filters to status=pending and returns 0 not null', async () => {
+    const supabase = createMockSupabase({ fromImpl: () => ({ count: null, error: null }) });
+    const client = createReviewClient(supabase);
+    const n = await client.getPendingDuplicateCount();
+    assert.equal(n, 0);
+    const call = supabase._calls.from[0];
+    assert.equal(call.table, 'duplicate_candidates');
+    assert.deepEqual(call.filters, [['status', 'pending']]);
+  });
+
+  test('decideDuplicateCandidate sends id + decision + note to decide_duplicate_candidate', async () => {
+    const supabase = createMockSupabase({ rpcImpl: () => ({ data: { id: 'c1', status: 'confirmed' }, error: null }) });
+    const client = createReviewClient(supabase);
+    await client.decideDuplicateCandidate('c1', 'confirmed', 'same building');
+
+    const call = supabase._calls.rpc[0];
+    assert.equal(call.fnName, 'decide_duplicate_candidate');
+    assert.deepEqual(call.params, { p_id: 'c1', p_decision: 'confirmed', p_note: 'same building' });
+  });
+
+  test('decideDuplicateCandidate propagates a friendly error when already decided', async () => {
+    const supabase = createMockSupabase({ rpcImpl: () => ({ data: null, error: postgrestError('P0002', 'already decided by someone else') }) });
+    const client = createReviewClient(supabase);
+    await assert.rejects(() => client.decideDuplicateCandidate('c1', 'confirmed', null), /claimed or completed by someone else/i);
+  });
+});
+
 describe('createReviewClient — claiming', () => {
   test('claimNext calls the claim_next_review_task RPC with no task id (server picks it)', async () => {
     const supabase = createMockSupabase({

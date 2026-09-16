@@ -19,6 +19,9 @@ psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0002_rls_policies.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0003_functions.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0004_claim_next_task.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0005_admin_correct_task.sql
+psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0006_skip_queue_exclusions.sql
+psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0007_duplicate_candidates.sql
+psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0008_fix_duplicate_candidates_fk.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f local-test-harness/0001_wire_auth_trigger.sql
 psql -d "$DB" -c "grant authenticated to $(whoami); grant anon to $(whoami); grant service_role to $(whoami);" -q
 
@@ -76,6 +79,7 @@ if ! bash tests/07_claim_next_concurrency.sh; then
 fi
 
 run_sql_test "Test 08: admin_correct_mosque_task() (Step 7D)" tests/08_admin_correct_task.sql
+run_sql_test "Test 09: duplicate_candidates confirm/reject (Step 7F)" tests/09_duplicate_candidates.sql
 
 echo ""
 if [ "$FAILED" -eq 0 ]; then

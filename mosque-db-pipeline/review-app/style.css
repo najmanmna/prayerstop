@@ -196,6 +196,18 @@ body {
   .task-sidebar { width: 100%; position: static; }
 }
 
+/* ---- duplicate candidates ---- */
+.dup-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.dup-side { border: 1.5px solid var(--border); border-radius: 8px; padding: 12px; }
+.dup-side-role { font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text-muted); font-weight: 700; margin-bottom: 4px; }
+.dup-side-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.dup-field { display: flex; gap: 6px; font-size: 12.5px; margin-top: 6px; }
+.dup-field label { color: var(--text-muted); flex-shrink: 0; width: 82px; }
+.dup-field span { color: var(--text); }
+@media (max-width: 600px) {
+  .dup-compare { grid-template-columns: 1fr; }
+}
+
 /* ---- admin overview ---- */
 .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 14px; }
 .stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); }
