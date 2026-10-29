@@ -19,7 +19,9 @@ import {
 import { loadReminderSettings, saveReminderSettings } from '@/lib/notifications/reminder-settings-storage';
 import { syncPrayerNotifications } from '@/lib/notifications/sync-prayer-notifications';
 import { DEFAULT_PRAYER_REMINDER_SETTINGS, type PrayerReminderSettings } from '@/lib/notifications/types';
-import { acjuPrayerTimeRepository, DEFAULT_ZONE_ID } from '@/lib/prayer-times/acju-repository';
+import { acjuPrayerTimeRepository } from '@/lib/prayer-times/acju-repository';
+
+import { usePrayerZone } from './prayer-zone';
 
 // Safety-net resync for a session left open (foregrounded, never
 // backgrounded) across a schedule/date change — foreground-resume and
@@ -60,7 +62,8 @@ const PrayerNotificationsContext = createContext<PrayerNotificationsValue | null
  * `NearbyPlacesSessionProvider`, so scheduling survives navigation and isn't
  * tied to the Settings screen being on screen.
  *
- * Resyncs on: initial load, any settings change, the app returning to the
+ * Reminders use the user's ACJU zone (`usePrayerZone`). Resyncs on: initial
+ * load, any settings change, the zone changing, the app returning to the
  * foreground (which also re-checks permission, in case it was changed in OS
  * Settings), and a periodic safety-net interval. Never on a per-second tick —
  * `computeDesiredPrayerNotifications` schedules a couple of days ahead
@@ -75,6 +78,10 @@ export function PrayerNotificationsProvider({ children }: { children: ReactNode 
   settingsRef.current = settings;
   const permissionRef = useRef(permissionStatus);
   permissionRef.current = permissionStatus;
+  const zone = usePrayerZone();
+  const zoneId = zone.status === 'ok' ? zone.zoneId : null;
+  const zoneIdRef = useRef(zoneId);
+  zoneIdRef.current = zoneId;
 
   useEffect(() => {
     let cancelled = false;
@@ -99,15 +106,22 @@ export function PrayerNotificationsProvider({ children }: { children: ReactNode 
     const effectiveSettings: PrayerReminderSettings =
       permissionRef.current === 'granted' ? settingsRef.current : { ...settingsRef.current, enabled: false };
 
+    // Zone not known yet (still locating, no location, or outside Sri
+    // Lanka): leave whatever is already scheduled untouched rather than
+    // cancelling reminders the user still wants, or scheduling another
+    // zone's times. The next sync after the zone resolves catches up.
+    const currentZoneId = zoneIdRef.current;
+    if (!currentZoneId) return;
+
     await ensureAndroidReminderChannel();
-    const desired = computeDesiredPrayerNotifications(acjuPrayerTimeRepository, DEFAULT_ZONE_ID, new Date(), effectiveSettings);
+    const desired = computeDesiredPrayerNotifications(acjuPrayerTimeRepository, currentZoneId, new Date(), effectiveSettings);
     await syncPrayerNotifications(expoPrayerNotificationScheduler, desired, PRAYER_NOTIFICATION_PREFIX);
   }, []);
 
   useEffect(() => {
     if (!isLoaded) return;
     runSync();
-  }, [isLoaded, settings, permissionStatus, exactAlarmAvailable, runSync]);
+  }, [isLoaded, settings, permissionStatus, exactAlarmAvailable, zoneId, runSync]);
 
   useEffect(() => {
     if (!isLoaded) return;

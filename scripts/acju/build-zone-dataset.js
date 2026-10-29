@@ -15,25 +15,63 @@ const path = require('path');
 const SOURCE_DIR = path.resolve(__dirname, '../../assets/images/prayer-times-acju-pdfs');
 const OUTPUT_DIR = path.resolve(__dirname, '../../data/acju');
 
+/** Extracted JSON files in SOURCE_DIR and its zone-N/ subfolders. */
+function listExtractedFiles(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return listExtractedFiles(full);
+    return entry.name.endsWith('.json') ? [full] : [];
+  });
+}
+
+/**
+ * The zone comes from the official file name ("06-KURUNEGALA-DISTRICT-9-Sep.pdf"
+ * -> "06"), NOT from the "Zone: NN" label printed inside the PDF: ACJU's own
+ * Kurunegala PDFs for Sep and Nov 2026 print "Zone: 05" (verified: their
+ * heading says KURUNEGALA DISTRICT and their times differ from Zone 05's on
+ * almost every day). A mismatch is recorded on the dataset, never trusted.
+ */
+function zoneFromFileName(file) {
+  const match = /^(\d{2})-/.exec(path.basename(file));
+  if (!match) throw new Error(`Cannot read a zone number from file name: ${file}`);
+  return match[1];
+}
+
 function main() {
-  const files = fs.readdirSync(SOURCE_DIR).filter((file) => file.endsWith('.json'));
+  const files = listExtractedFiles(SOURCE_DIR);
   if (files.length === 0) {
     throw new Error(`No extracted JSON files found in ${SOURCE_DIR}.`);
   }
 
   const byZone = new Map();
   for (const file of files) {
-    const parsed = JSON.parse(fs.readFileSync(path.join(SOURCE_DIR, file), 'utf8'));
-    const zone = parsed.source.zone;
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const zone = zoneFromFileName(file);
     if (!byZone.has(zone)) {
       byZone.set(zone, {
         zone,
         regions: parsed.source.regions,
         country: parsed.source.country,
+        notes: [],
         days: [],
       });
     }
-    byZone.get(zone).days.push(...parsed.days);
+    const dataset = byZone.get(zone);
+    // Compared with whitespace removed: PDF text extraction sometimes drops
+    // spaces ("RATNAPURADISTRICT"), which isn't a different region.
+    const squash = (regions) => JSON.stringify(regions.map((region) => region.replace(/\s+/g, '')));
+    if (squash(parsed.source.regions) !== squash(dataset.regions)) {
+      throw new Error(
+        `Zone ${zone}: ${path.basename(file)} covers ${JSON.stringify(parsed.source.regions)}, ` +
+          `but other months cover ${JSON.stringify(dataset.regions)}. Check the file is in the right zone.`
+      );
+    }
+    if (parsed.source.zone !== zone) {
+      dataset.notes.push(
+        `${parsed.source.month} ${parsed.source.year}: PDF prints "Zone: ${parsed.source.zone}"; zone taken from the file name (${zone}).`
+      );
+    }
+    dataset.days.push(...parsed.days);
   }
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -64,6 +102,7 @@ function main() {
       throw new Error(`Zone ${zone}: date gap(s) found — ${gaps.join(', ')}. Add the missing month's PDF before building this dataset.`);
     }
 
+    if (dataset.notes.length === 0) delete dataset.notes;
     const outPath = path.join(OUTPUT_DIR, `zone-${zone}.json`);
     fs.writeFileSync(outPath, JSON.stringify(dataset, null, 2) + '\n');
     console.log(

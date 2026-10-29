@@ -1,6 +1,8 @@
 import zone01 from '@/data/acju/zone-01.json';
 
-import { acjuPrayerTimeRepository, DEFAULT_ZONE_ID } from '../acju-repository';
+import { acjuPrayerTimeRepository } from '../acju-repository';
+
+const ZONE_01 = '01';
 import { getPrayerEngineState } from '../prayer-engine';
 import type { DailyPrayerTimes } from '../types';
 
@@ -24,7 +26,7 @@ function dayByDate(isoDate: string): DailyPrayerTimes {
 describe('getPrayerEngineState against the real Zone 01 dataset', () => {
   it('identifies a normal midday Dhuhr window on 2026-08-15', () => {
     const day = dayByDate('2026-08-15');
-    const result = getPrayerEngineState(acjuPrayerTimeRepository, DEFAULT_ZONE_ID, slInstant('2026-08-15', 13, 0));
+    const result = getPrayerEngineState(acjuPrayerTimeRepository, ZONE_01, slInstant('2026-08-15', 13, 0));
     expect(result.status).toBe('ok');
     if (result.status !== 'ok') return;
     expect(result.state.active).toEqual({ name: 'Dhuhr', startTime: day.dhuhr, endTime: day.asr, hasStarted: true });
@@ -39,7 +41,7 @@ describe('getPrayerEngineState against the real Zone 01 dataset', () => {
     const hours = Math.floor(midpointSeconds / 3600);
     const minutes = Math.floor((midpointSeconds % 3600) / 60);
 
-    const result = getPrayerEngineState(acjuPrayerTimeRepository, DEFAULT_ZONE_ID, slInstant('2026-08-15', hours, minutes));
+    const result = getPrayerEngineState(acjuPrayerTimeRepository, ZONE_01, slInstant('2026-08-15', hours, minutes));
     expect(result.status).toBe('ok');
     if (result.status !== 'ok') return;
     expect(result.state.active).toEqual({ name: 'Fajr', startTime: day.fajr, endTime: day.sunrise, hasStarted: true });
@@ -52,7 +54,7 @@ describe('getPrayerEngineState against the real Zone 01 dataset', () => {
 
     const result = getPrayerEngineState(
       acjuPrayerTimeRepository,
-      DEFAULT_ZONE_ID,
+      ZONE_01,
       slInstant('2026-08-15', sunHours, sunMinutes, 0)
     );
     expect(result.status).toBe('ok');
@@ -77,7 +79,7 @@ describe('getPrayerEngineState against the real Zone 01 dataset', () => {
       const firstDay = dayByDate(firstDayIso);
 
       // Late in the evening of the last day of the month, after Isha.
-      const result = getPrayerEngineState(acjuPrayerTimeRepository, DEFAULT_ZONE_ID, slInstant(lastDayIso, 23, 30));
+      const result = getPrayerEngineState(acjuPrayerTimeRepository, ZONE_01, slInstant(lastDayIso, 23, 30));
       expect(result.status).toBe('ok');
       if (result.status !== 'ok') return;
 
@@ -104,7 +106,7 @@ describe('getPrayerEngineState against the real Zone 01 dataset', () => {
       const lastDay = dayByDate(lastDayIso);
       const firstDay = dayByDate(firstDayIso);
 
-      const result = getPrayerEngineState(acjuPrayerTimeRepository, DEFAULT_ZONE_ID, slInstant(firstDayIso, 0, 30));
+      const result = getPrayerEngineState(acjuPrayerTimeRepository, ZONE_01, slInstant(firstDayIso, 0, 30));
       expect(result.status).toBe('ok');
       if (result.status !== 'ok') return;
 
@@ -116,7 +118,7 @@ describe('getPrayerEngineState against the real Zone 01 dataset', () => {
   );
 
   it('reports unavailable after 2026-12-31\'s Isha, since 2027 is outside the dataset', () => {
-    const result = getPrayerEngineState(acjuPrayerTimeRepository, DEFAULT_ZONE_ID, slInstant('2026-12-31', 23, 0));
+    const result = getPrayerEngineState(acjuPrayerTimeRepository, ZONE_01, slInstant('2026-12-31', 23, 0));
     expect(result.status).toBe('unavailable');
   });
 });

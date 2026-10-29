@@ -5,7 +5,14 @@
 import { AppState, Text } from 'react-native';
 import TestRenderer, { act } from 'react-test-renderer';
 
+import { usePrayerZone } from '../prayer-zone';
 import { usePrayerTimes, type PrayerTimesHookState } from '../use-prayer-times';
+
+// The zone normally comes from PrayerZoneProvider (device location); the
+// ticking tests below use real Zone 01 (Colombo) ACJU data.
+const COLOMBO_ZONE = { status: 'ok', zoneId: '01', district: 'Colombo', basis: 'current-location' } as const;
+jest.mock('../prayer-zone', () => ({ usePrayerZone: jest.fn() }));
+const mockedUsePrayerZone = usePrayerZone as jest.Mock;
 
 function Probe({ onValue }: { onValue: (value: PrayerTimesHookState) => void }) {
   const value = usePrayerTimes();
@@ -23,6 +30,7 @@ let renderer: TestRenderer.ReactTestRenderer | undefined;
 
 describe('usePrayerTimes', () => {
   beforeEach(() => {
+    mockedUsePrayerZone.mockReturnValue(COLOMBO_ZONE);
     jest.useFakeTimers();
     addEventListenerSpy = jest.spyOn(AppState, 'addEventListener').mockReturnValue({ remove: jest.fn() } as never);
   });
@@ -34,6 +42,43 @@ describe('usePrayerTimes', () => {
     renderer = undefined;
     addEventListenerSpy.mockRestore();
     jest.useRealTimers();
+  });
+
+  it('uses the resolved zone\'s own timetable (Kandy is Zone 07, not Colombo\'s Zone 01)', () => {
+    jest.setSystemTime(new Date('2026-11-01T06:30:00.000Z')); // 12:00 Sri Lanka time
+    let colombo: PrayerTimesHookState | undefined;
+    let kandy: PrayerTimesHookState | undefined;
+
+    act(() => {
+      renderer = TestRenderer.create(<Probe onValue={(v) => (colombo = v)} />);
+    });
+    act(() => {
+      renderer?.unmount();
+    });
+    mockedUsePrayerZone.mockReturnValue({ status: 'ok', zoneId: '07', district: 'Kandy', basis: 'current-location' });
+    act(() => {
+      renderer = TestRenderer.create(<Probe onValue={(v) => (kandy = v)} />);
+    });
+
+    const fajr = (state: PrayerTimesHookState | undefined) =>
+      state?.status === 'ready' ? state.schedule.find((entry) => entry.name === 'Fajr')?.time : undefined;
+    expect(fajr(colombo)).toBe('04:40'); // ACJU Zone 01, 1 Nov 2026
+    expect(fajr(kandy)).not.toBe(fajr(colombo));
+  });
+
+  it.each([
+    [{ status: 'resolving' }, /Finding your location/],
+    [{ status: 'needs-location' }, /Allow location access/],
+    [{ status: 'outside' }, /Sri Lanka only/],
+  ])('shows no prayer times — never a default zone — when the zone is %j', (zone, reason) => {
+    mockedUsePrayerZone.mockReturnValue(zone);
+    let latest: PrayerTimesHookState | undefined;
+
+    act(() => {
+      renderer = TestRenderer.create(<Probe onValue={(v) => (latest = v)} />);
+    });
+
+    expect(latest).toEqual({ status: 'unavailable', reason: expect.stringMatching(reason) });
   });
 
   it('ticks every second while mounted, visibly decrementing the live NOW countdown', () => {

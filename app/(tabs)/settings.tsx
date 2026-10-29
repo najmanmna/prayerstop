@@ -8,6 +8,9 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { usePrayerNotifications } from '@/hooks/prayer-notifications';
+import { usePrayerZone } from '@/hooks/prayer-zone';
+import { ACJU_ZONE_REGIONS } from '@/lib/prayer-times/acju-repository';
+import { prayerZoneUnavailableReason } from '@/lib/prayer-times/prayer-zones';
 
 /**
  * Deliberately minimal for now — no user accounts (see the "no complex
@@ -15,11 +18,24 @@ import { usePrayerNotifications } from '@/hooks/prayer-notifications';
  * one real preference so far; exists as a real tab per Phase 6, not a
  * placeholder route.
  */
+/** "KANDY DISTRICT", "NUWARA ELIYA DISTRICT" → "Kandy, Nuwara Eliya" (ACJU prints region names in capitals). */
+function formatZoneRegions(regions: string[]): string {
+  return regions
+    .map((region) =>
+      region
+        .replace(/\s*DISTRICT\b/i, '')
+        .toLowerCase()
+        .replace(/\b[a-z]/g, (letter) => letter.toUpperCase())
+    )
+    .join(', ');
+}
+
 export default function SettingsScreen() {
   const theme = Colors[useColorScheme() ?? 'light'];
   const version = Constants.expoConfig?.version ?? '—';
   const notifications = usePrayerNotifications();
   const remindersOn = notifications.settings.enabled;
+  const zone = usePrayerZone();
 
   return (
     <ThemedView style={styles.flex}>
@@ -32,6 +48,26 @@ export default function SettingsScreen() {
               <ThemedText style={{ color: theme.textSecondary }}>App version</ThemedText>
               <ThemedText type="defaultSemiBold">{version}</ThemedText>
             </View>
+          </View>
+
+          <View style={[styles.card, { backgroundColor: theme.surface }]}>
+            <ThemedText type="defaultSemiBold">Prayer timetable</ThemedText>
+            {zone.status === 'ok' ? (
+              <>
+                <ThemedText>
+                  ACJU Zone {zone.zoneId} · {formatZoneRegions(ACJU_ZONE_REGIONS[zone.zoneId] ?? [])}
+                </ThemedText>
+                <ThemedText style={[styles.sectionCaption, { color: theme.textSecondary }]}>
+                  {zone.basis === 'current-location'
+                    ? `Chosen from your current location (${zone.district} district).`
+                    : `Chosen from your last known location (${zone.district} district).`}
+                </ThemedText>
+              </>
+            ) : (
+              <ThemedText style={[styles.sectionCaption, { color: theme.textSecondary }]}>
+                {prayerZoneUnavailableReason(zone)}
+              </ThemedText>
+            )}
           </View>
 
           <View style={[styles.card, { backgroundColor: theme.surface }]}>
