@@ -1,4 +1,4 @@
-import { NEARBY_PLACES_MAX_RESULT_COUNT } from './build-nearby-places-request';
+import { NEARBY_SEARCH_CONFIG } from './nearby-search-config';
 import type { GeoCoordinates, PrayerPlaceCandidate } from './types';
 import type { NearbyPlacesOptions, NearbyPlacesResult, PrayerPlaceRepository } from './prayer-place-repository';
 
@@ -9,12 +9,13 @@ interface NearbyPlacesApiResponse {
 
 /**
  * Calls PrayerStop's own server-side API route (app/api/nearby-places+api.ts)
- * — never Google directly. The Google API key lives only on that server
- * route; this client-side module never sees it, so it can't end up in the
- * mobile bundle. See docs/06-data-and-api-plan.md for the verified Google
- * Places (New) details this route is built against.
+ * — never Supabase or Google directly. That route does the database-first
+ * lookup with Google Places as its fallback, and holds every key; this
+ * client-side module never sees any of them, so none can end up in the
+ * mobile bundle. Results arrive already merged, de-duplicated, and in the
+ * unified place format (`PlaceIdentity`).
  */
-export class GooglePlacesRepository implements PrayerPlaceRepository {
+export class NearbyPlacesApiRepository implements PrayerPlaceRepository {
   async findNearby(origin: GeoCoordinates, options: NearbyPlacesOptions): Promise<NearbyPlacesResult> {
     const params = new URLSearchParams({
       latitude: String(origin.latitude),
@@ -51,9 +52,9 @@ export class GooglePlacesRepository implements PrayerPlaceRepository {
   }
 }
 
-export const googlePlacesRepository: PrayerPlaceRepository = new GooglePlacesRepository();
+export const nearbyPlacesApiRepository: PrayerPlaceRepository = new NearbyPlacesApiRepository();
 
 export const DEFAULT_NEARBY_OPTIONS: NearbyPlacesOptions = {
-  radiusMeters: 5000,
-  maxResults: NEARBY_PLACES_MAX_RESULT_COUNT,
+  radiusMeters: NEARBY_SEARCH_CONFIG.defaultRadiusMeters,
+  maxResults: NEARBY_SEARCH_CONFIG.maxResults,
 };

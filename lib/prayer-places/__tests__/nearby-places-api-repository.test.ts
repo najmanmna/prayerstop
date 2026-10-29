@@ -1,5 +1,5 @@
 import { NEARBY_PLACES_MAX_RESULT_COUNT } from '../build-nearby-places-request';
-import { DEFAULT_NEARBY_OPTIONS, GooglePlacesRepository } from '../google-places-repository';
+import { DEFAULT_NEARBY_OPTIONS, NearbyPlacesApiRepository } from '../nearby-places-api-repository';
 
 describe('DEFAULT_NEARBY_OPTIONS', () => {
   it('requests the full 20-candidate pool by default', () => {
@@ -8,7 +8,7 @@ describe('DEFAULT_NEARBY_OPTIONS', () => {
   });
 });
 
-describe('GooglePlacesRepository', () => {
+describe('NearbyPlacesApiRepository', () => {
   const origin = { latitude: 6.9271, longitude: 79.8612 };
   const options = { radiusMeters: 5000, maxResults: 10 };
   let fetchMock: jest.Mock;
@@ -20,7 +20,7 @@ describe('GooglePlacesRepository', () => {
 
   it('calls the local API route, never Google directly', async () => {
     fetchMock.mockResolvedValue({ ok: true, json: async () => ({ places: [] }) });
-    const repository = new GooglePlacesRepository();
+    const repository = new NearbyPlacesApiRepository();
 
     await repository.findNearby(origin, options);
 
@@ -33,7 +33,7 @@ describe('GooglePlacesRepository', () => {
   it('returns ok with normalized places on success', async () => {
     const places = [{ id: '1', name: 'Masjid A', area: 'Colombo', coordinates: { latitude: 6.9, longitude: 79.8 } }];
     fetchMock.mockResolvedValue({ ok: true, json: async () => ({ places }) });
-    const repository = new GooglePlacesRepository();
+    const repository = new NearbyPlacesApiRepository();
 
     const result = await repository.findNearby(origin, options);
 
@@ -42,7 +42,7 @@ describe('GooglePlacesRepository', () => {
 
   it('returns an error when the network request itself fails', async () => {
     fetchMock.mockRejectedValue(new Error('Network down'));
-    const repository = new GooglePlacesRepository();
+    const repository = new NearbyPlacesApiRepository();
 
     const result = await repository.findNearby(origin, options);
 
@@ -55,7 +55,7 @@ describe('GooglePlacesRepository', () => {
       status: 503,
       json: async () => ({ error: 'Nearby place search is not configured on the server.' }),
     });
-    const repository = new GooglePlacesRepository();
+    const repository = new NearbyPlacesApiRepository();
 
     const result = await repository.findNearby(origin, options);
 
@@ -69,7 +69,7 @@ describe('GooglePlacesRepository', () => {
         throw new Error('invalid json');
       },
     });
-    const repository = new GooglePlacesRepository();
+    const repository = new NearbyPlacesApiRepository();
 
     const result = await repository.findNearby(origin, options);
 
@@ -78,7 +78,7 @@ describe('GooglePlacesRepository', () => {
 
   it('returns an error when the response shape is unexpected', async () => {
     fetchMock.mockResolvedValue({ ok: true, json: async () => ({ places: 'not-an-array' }) });
-    const repository = new GooglePlacesRepository();
+    const repository = new NearbyPlacesApiRepository();
 
     const result = await repository.findNearby(origin, options);
 

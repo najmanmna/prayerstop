@@ -1,3 +1,4 @@
+import { googlePlaceIdToAppId } from './place-ids';
 import type { PrayerPlaceCandidate } from './types';
 
 /** The shape of one place in Google's raw Nearby Search (New) response. */
@@ -36,7 +37,10 @@ export function normalizeNearbyPlacesResponse(places: RawNearbyPlace[]): PrayerP
         typeof place.location?.latitude === 'number' && typeof place.location?.longitude === 'number'
     )
     .map((place) => ({
-      id: place.id ?? `${place.location.latitude},${place.location.longitude}`,
+      id: googlePlaceIdToAppId(place.id ?? `${place.location.latitude},${place.location.longitude}`),
+      source: 'google' as const,
+      localRecordId: null,
+      googlePlaceId: place.id ?? null,
       name: place.displayName?.text ?? 'Unnamed place',
       area: place.shortFormattedAddress ?? place.formattedAddress ?? '',
       coordinates: { latitude: place.location.latitude, longitude: place.location.longitude },

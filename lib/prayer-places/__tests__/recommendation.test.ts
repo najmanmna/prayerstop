@@ -25,12 +25,12 @@ function rawPlace(id: string, offsetDegrees: number, businessStatus?: string): R
   };
 }
 
-function okTravelTime(placeId: string, durationSeconds: number, distanceMeters: number): TravelTimeResult {
-  return { placeId, outcome: { status: 'ok', durationSeconds, distanceMeters, condition: 'ROUTE_EXISTS' } };
+function okTravelTime(id: string, durationSeconds: number, distanceMeters: number): TravelTimeResult {
+  return { id, outcome: { status: 'ok', durationSeconds, distanceMeters, condition: 'ROUTE_EXISTS' } };
 }
 
-function unreachable(placeId: string): TravelTimeResult {
-  return { placeId, outcome: { status: 'unreachable', condition: 'ROUTE_NOT_FOUND' } };
+function unreachable(id: string): TravelTimeResult {
+  return { id, outcome: { status: 'unreachable', condition: 'ROUTE_NOT_FOUND' } };
 }
 
 /** Runs the real pipeline from raw Places-shaped input to the final PlaceScenario. */
@@ -44,7 +44,13 @@ function recommend(
 ) {
   const normalized = normalizeNearbyPlacesResponse(rawPlaces);
   const nearest = selectNearestCandidates(normalized, origin, MAX_ROUTE_MATRIX_DESTINATIONS);
-  const travelTimes = nearest.map((c) => travelTimesById[c.id]).filter(Boolean);
+  // Travel times are keyed by the raw Google Place ID in these fixtures;
+  // re-key them to the app's own place ID, exactly as the real Routes call
+  // does (it's sent `candidate.id` and echoes it back).
+  const travelTimes = nearest.flatMap((c) => {
+    const travelTime = travelTimesById[c.googlePlaceId ?? ''];
+    return travelTime ? [{ ...travelTime, id: c.id }] : [];
+  });
   const ranked = applyTravelTimes(nearest, travelTimes);
   return buildPlaceScenario(ranked, context, window, countdownSeconds, now);
 }
@@ -59,7 +65,9 @@ describe('NOW: recommend a mosque realistically reachable before the current pra
       window
     );
 
-    expect(scenario?.recommendation.id).toBe('a');
+    expect(scenario?.recommendation.googlePlaceId).toBe('a');
+    expect(scenario?.recommendation.id).toBe('google:a');
+    expect(scenario?.recommendation.source).toBe('google');
     expect(scenario?.recommendation.feasibility).toBe('comfortable');
   });
 
@@ -191,8 +199,8 @@ describe('unreachable places are never recommended', () => {
       window
     );
 
-    expect(scenario?.recommendation.id).toBe('reachable');
-    expect(scenario?.alternates.find((p) => p.id === 'unreachable')).toBeUndefined();
+    expect(scenario?.recommendation.googlePlaceId).toBe('reachable');
+    expect(scenario?.alternates.find((p) => p.googlePlaceId === 'unreachable')).toBeUndefined();
   });
 
   it('surfaces no scenario at all when every nearby candidate is unreachable', () => {
@@ -219,7 +227,7 @@ describe('temporarily closed places are never recommended', () => {
       window
     );
 
-    expect(scenario?.recommendation.id).toBe('open');
+    expect(scenario?.recommendation.googlePlaceId).toBe('open');
   });
 });
 
@@ -233,7 +241,7 @@ describe('multiple reachable candidates: practicality, not just distance', () =>
       window
     );
 
-    expect(scenario?.recommendation.id).toBe('near');
+    expect(scenario?.recommendation.googlePlaceId).toBe('near');
   });
 
   it('recommends the significantly faster mosque over a closer one that traffic has made materially slower', () => {
@@ -243,6 +251,6 @@ describe('multiple reachable candidates: practicality, not just distance', () =>
       window
     );
 
-    expect(scenario?.recommendation.id).toBe('farButFaster');
+    expect(scenario?.recommendation.googlePlaceId).toBe('farButFaster');
   });
 });

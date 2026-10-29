@@ -1,5 +1,5 @@
 import { applyTravelTimes } from './apply-travel-times';
-import { DEFAULT_NEARBY_OPTIONS } from './google-places-repository';
+import { DEFAULT_NEARBY_OPTIONS } from './nearby-places-api-repository';
 import type { PrayerPlaceRepository } from './prayer-place-repository';
 import { selectNearestCandidates } from './select-candidates';
 import { MAX_ROUTE_MATRIX_DESTINATIONS, type TravelTimeRepository } from './travel-time-repository';
@@ -43,7 +43,7 @@ export async function fetchNearbySession(
 
   const travelTimeResult = await travelTimeRepository.getTravelTimes({
     origin: coords,
-    destinations: nearest.map((candidate) => ({ placeId: candidate.id, coordinates: candidate.coordinates })),
+    destinations: nearest.map((candidate) => ({ id: candidate.id, coordinates: candidate.coordinates })),
   });
   if (travelTimeResult.status === 'error') {
     return { status: 'error', message: travelTimeResult.message };

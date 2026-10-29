@@ -3,34 +3,35 @@ import type { DistanceRankedCandidate } from '../select-candidates';
 import type { TravelTimeResult } from '../travel-time-repository';
 
 function candidate(id: string, distanceKm: number): DistanceRankedCandidate {
-  return { id, name: `Place ${id}`, area: 'Colombo', coordinates: { latitude: 6.9, longitude: 79.8 }, distanceKm };
+  return { id, source: 'google', localRecordId: null, googlePlaceId: null, name: `Place ${id}`, area: 'Colombo', coordinates: { latitude: 6.9, longitude: 79.8 }, distanceKm };
 }
 
 describe('applyTravelTimes', () => {
   it('merges a successful 3-destination travel-time response onto the candidates', () => {
     const candidates = [candidate('a', 1), candidate('b', 2), candidate('c', 3)];
     const travelTimes: TravelTimeResult[] = [
-      { placeId: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
-      { placeId: 'b', outcome: { status: 'ok', durationSeconds: 600, distanceMeters: 5000, condition: 'ROUTE_EXISTS' } },
-      { placeId: 'c', outcome: { status: 'ok', durationSeconds: 900, distanceMeters: 8000, condition: 'ROUTE_EXISTS' } },
+      { id: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
+      { id: 'b', outcome: { status: 'ok', durationSeconds: 600, distanceMeters: 5000, condition: 'ROUTE_EXISTS' } },
+      { id: 'c', outcome: { status: 'ok', durationSeconds: 900, distanceMeters: 8000, condition: 'ROUTE_EXISTS' } },
     ];
 
     const ranked = applyTravelTimes(candidates, travelTimes);
 
     const coordinates = { latitude: 6.9, longitude: 79.8 };
     const routeCondition = 'ROUTE_EXISTS';
+    const identity = { source: 'google', localRecordId: null, googlePlaceId: null };
     expect(ranked).toEqual([
-      { id: 'a', name: 'Place a', area: 'Colombo', coordinates, distanceKm: 2, etaMinutes: 5, routeCondition },
-      { id: 'b', name: 'Place b', area: 'Colombo', coordinates, distanceKm: 5, etaMinutes: 10, routeCondition },
-      { id: 'c', name: 'Place c', area: 'Colombo', coordinates, distanceKm: 8, etaMinutes: 15, routeCondition },
+      { id: 'a', ...identity, name: 'Place a', area: 'Colombo', coordinates, distanceKm: 2, etaMinutes: 5, routeCondition },
+      { id: 'b', ...identity, name: 'Place b', area: 'Colombo', coordinates, distanceKm: 5, etaMinutes: 10, routeCondition },
+      { id: 'c', ...identity, name: 'Place c', area: 'Colombo', coordinates, distanceKm: 8, etaMinutes: 15, routeCondition },
     ]);
   });
 
   it('drops a candidate whose individual matrix element failed, rather than fabricating an ETA', () => {
     const candidates = [candidate('a', 1), candidate('b', 2)];
     const travelTimes: TravelTimeResult[] = [
-      { placeId: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
-      { placeId: 'b', outcome: { status: 'error', message: 'Internal error' } },
+      { id: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
+      { id: 'b', outcome: { status: 'error', message: 'Internal error' } },
     ];
 
     const ranked = applyTravelTimes(candidates, travelTimes);
@@ -42,8 +43,8 @@ describe('applyTravelTimes', () => {
   it('drops a candidate Google could not find a route to (ROUTE_NOT_FOUND)', () => {
     const candidates = [candidate('a', 1), candidate('b', 2)];
     const travelTimes: TravelTimeResult[] = [
-      { placeId: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
-      { placeId: 'b', outcome: { status: 'unreachable', condition: 'ROUTE_NOT_FOUND' } },
+      { id: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
+      { id: 'b', outcome: { status: 'unreachable', condition: 'ROUTE_NOT_FOUND' } },
     ];
 
     const ranked = applyTravelTimes(candidates, travelTimes);
@@ -55,7 +56,7 @@ describe('applyTravelTimes', () => {
   it('returns an empty array when every candidate is unreachable (zero routable candidates)', () => {
     const candidates = [candidate('a', 1), candidate('b', 2), candidate('c', 3)];
     const travelTimes: TravelTimeResult[] = candidates.map((c) => ({
-      placeId: c.id,
+      id: c.id,
       outcome: { status: 'unreachable', condition: 'ROUTE_NOT_FOUND' },
     }));
 
@@ -70,7 +71,7 @@ describe('applyTravelTimes', () => {
   it('rounds duration to whole minutes and never returns less than 1 minute', () => {
     const candidates = [candidate('a', 1)];
     const travelTimes: TravelTimeResult[] = [
-      { placeId: 'a', outcome: { status: 'ok', durationSeconds: 20, distanceMeters: 100, condition: 'ROUTE_EXISTS' } },
+      { id: 'a', outcome: { status: 'ok', durationSeconds: 20, distanceMeters: 100, condition: 'ROUTE_EXISTS' } },
     ];
 
     const ranked = applyTravelTimes(candidates, travelTimes);

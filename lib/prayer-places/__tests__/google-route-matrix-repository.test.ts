@@ -3,7 +3,7 @@ import { GoogleRouteMatrixRepository } from '../google-route-matrix-repository';
 describe('GoogleRouteMatrixRepository', () => {
   const request = {
     origin: { latitude: 6.9271, longitude: 79.8612 },
-    destinations: [{ placeId: 'a', coordinates: { latitude: 6.9, longitude: 79.8 } }],
+    destinations: [{ id: 'a', coordinates: { latitude: 6.9, longitude: 79.8 } }],
   };
   let fetchMock: jest.Mock;
 
@@ -28,7 +28,7 @@ describe('GoogleRouteMatrixRepository', () => {
 
   it('returns ok with normalized results on success', async () => {
     const results = [
-      { placeId: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
+      { id: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
     ];
     fetchMock.mockResolvedValue({ ok: true, json: async () => ({ results }) });
     const repository = new GoogleRouteMatrixRepository();

@@ -73,7 +73,7 @@ export function AlternatePlaceRow({
       </View>
 
       <TouchableOpacity
-        onPress={() => openPlaceInGoogleMaps(place.name, place.id)}
+        onPress={() => openPlaceInGoogleMaps(place)}
         hitSlop={8}
         accessibilityRole="button"
         accessibilityLabel={`View ${place.name} on Google Maps`}

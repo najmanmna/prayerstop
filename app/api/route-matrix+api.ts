@@ -15,7 +15,7 @@ const REQUEST_TIMEOUT_MS = 8000;
 
 interface RequestBody {
   origin?: { latitude?: number; longitude?: number };
-  destinations?: { placeId?: string; coordinates?: { latitude?: number; longitude?: number } }[];
+  destinations?: { id?: string; coordinates?: { latitude?: number; longitude?: number } }[];
 }
 
 export async function POST(request: Request) {
@@ -37,12 +37,12 @@ export async function POST(request: Request) {
     // the caller alone to respect the "top few candidates only" rule.
     .slice(0, MAX_ROUTE_MATRIX_DESTINATIONS)
     .filter(
-      (d): d is { placeId: string; coordinates: { latitude: number; longitude: number } } =>
-        typeof d.placeId === 'string' &&
+      (d): d is { id: string; coordinates: { latitude: number; longitude: number } } =>
+        typeof d.id === 'string' &&
         typeof d.coordinates?.latitude === 'number' &&
         typeof d.coordinates?.longitude === 'number'
     )
-    .map((d) => ({ placeId: d.placeId, coordinates: d.coordinates }));
+    .map((d) => ({ id: d.id, coordinates: d.coordinates }));
 
   if (destinations.length === 0) {
     return Response.json({ error: 'At least one valid destination is required.' }, { status: 400 });

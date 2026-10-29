@@ -14,7 +14,7 @@ interface RouteMatrixApiResponse {
  * Calls PrayerStop's own server-side API route (app/api/route-matrix+api.ts)
  * — never Google directly. The Google Routes API key lives only on that
  * server route; this client-side module never sees it, so it can't end up
- * in the mobile bundle. Mirrors google-places-repository.ts.
+ * in the mobile bundle. Mirrors nearby-places-api-repository.ts.
  */
 export class GoogleRouteMatrixRepository implements TravelTimeRepository {
   async getTravelTimes(request: TravelTimeRequest): Promise<TravelTimeMatrixResult> {

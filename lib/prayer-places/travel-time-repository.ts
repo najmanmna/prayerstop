@@ -1,7 +1,8 @@
 import type { GeoCoordinates } from './types';
 
 export interface TravelTimeDestination {
-  placeId: string;
+  /** The app's own place ID (`PlaceIdentity.id`), used only to match results back — never sent to Google. Routes uses `coordinates`. */
+  id: string;
   coordinates: GeoCoordinates;
 }
 
@@ -16,7 +17,7 @@ export type TravelTimeOutcome =
   | { status: 'error'; message: string };
 
 export interface TravelTimeResult {
-  placeId: string;
+  id: string;
   outcome: TravelTimeOutcome;
 }
 

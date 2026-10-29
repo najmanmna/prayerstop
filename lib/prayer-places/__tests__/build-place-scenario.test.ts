@@ -9,6 +9,9 @@ const NOW = new Date('2026-08-15T06:30:00.000Z');
 function candidate(overrides: Partial<RankedPrayerPlaceCandidate>): RankedPrayerPlaceCandidate {
   return {
     id: 'p',
+    source: 'google',
+    localRecordId: null,
+    googlePlaceId: null,
     name: 'Place',
     area: 'Area',
     coordinates: { latitude: 6.9, longitude: 79.8 },

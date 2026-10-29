@@ -94,7 +94,7 @@ export function RecommendationHero({
         <TouchableOpacity
           accessibilityRole="button"
           activeOpacity={0.85}
-          onPress={() => openExternalNavigation(place.coordinates, place.id)}
+          onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
           style={[styles.actionButton, { backgroundColor: theme.tint }]}>
           <IconSymbol name="location.north.fill" size={15} color="#FFFFFF" />
           <ThemedText type="defaultSemiBold" style={styles.primaryActionLabel}>
@@ -104,7 +104,7 @@ export function RecommendationHero({
         <TouchableOpacity
           accessibilityRole="button"
           activeOpacity={0.7}
-          onPress={() => openPlaceInGoogleMaps(place.name, place.id)}
+          onPress={() => openPlaceInGoogleMaps(place)}
           style={[styles.actionButton, styles.secondaryAction, { backgroundColor: theme.surface, borderColor: theme.border }]}>
           <IconSymbol name="mappin.circle.fill" size={15} color={theme.tint} />
           <ThemedText type="defaultSemiBold" style={[styles.secondaryActionLabel, { color: theme.tint }]}>

@@ -108,6 +108,9 @@ function allText(renderer: TestRenderer.ReactTestRenderer): string {
 const PLACE_SCENARIO: PlaceScenario = {
   recommendation: {
     id: 'place-rec',
+    source: 'google',
+    localRecordId: null,
+    googlePlaceId: 'place-rec',
     name: 'Colombo Grand Mosque',
     area: 'Colombo 12',
     coordinates: { latitude: 6.9354, longitude: 79.8517 },
@@ -119,6 +122,9 @@ const PLACE_SCENARIO: PlaceScenario = {
   alternates: [
     {
       id: 'place-alt-1',
+      source: 'google',
+      localRecordId: null,
+      googlePlaceId: 'place-alt-1',
       name: 'Jami Ul-Alfar Mosque',
       area: 'Pettah',
       coordinates: { latitude: 6.937, longitude: 79.849 },

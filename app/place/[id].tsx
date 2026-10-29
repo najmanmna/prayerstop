@@ -121,7 +121,7 @@ export default function PlaceDetailsScreen() {
           <TouchableOpacity
             accessibilityRole="button"
             activeOpacity={0.85}
-            onPress={() => openExternalNavigation(place.coordinates, place.id)}
+            onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
             style={[styles.cta, { backgroundColor: theme.tint }]}>
             <IconSymbol name="location.north.fill" size={16} color="#FFFFFF" />
             <ThemedText type="defaultSemiBold" style={styles.ctaLabel}>

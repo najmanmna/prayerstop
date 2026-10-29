@@ -19,7 +19,7 @@ describe('normalizeNearbyPlacesResponse', () => {
 
     const result = normalizeNearbyPlacesResponse(places);
 
-    expect(result.map((p) => p.id)).toEqual(['open']);
+    expect(result.map((p) => p.googlePlaceId)).toEqual(['open']);
   });
 
   it('does not exclude a place with no businessStatus at all — missing data is not evidence of closure', () => {
@@ -28,7 +28,7 @@ describe('normalizeNearbyPlacesResponse', () => {
     const result = normalizeNearbyPlacesResponse(places);
 
     expect(result).toHaveLength(1);
-    expect(result[0].id).toBe('unknown-status');
+    expect(result[0].googlePlaceId).toBe('unknown-status');
   });
 
   it('does not exclude a place marked CLOSED_PERMANENTLY (out of scope for this filter)', () => {
@@ -61,13 +61,33 @@ describe('temporarily closed places are excluded before the Route Matrix candida
 
     // Stage 1 (normalize/filter — where the closure check happens):
     const normalized = normalizeNearbyPlacesResponse(rawPlaces);
-    expect(normalized.find((p) => p.id === 'closed-nearest')).toBeUndefined();
+    expect(normalized.find((p) => p.googlePlaceId === 'closed-nearest')).toBeUndefined();
 
     // Stage 2 (the 3-candidate limit applied afterward, per the Phase 4 pipeline):
     const topCandidates = selectNearestCandidates(normalized, origin, 3);
 
     expect(topCandidates).toHaveLength(3);
-    expect(topCandidates.some((c) => c.id === 'closed-nearest')).toBe(false);
-    expect(topCandidates.map((c) => c.id)).toEqual(['open-1', 'open-2', 'open-3']);
+    expect(topCandidates.some((c) => c.googlePlaceId === 'closed-nearest')).toBe(false);
+    expect(topCandidates.map((c) => c.googlePlaceId)).toEqual(['open-1', 'open-2', 'open-3']);
+  });
+});
+
+describe('unified place identity for Google results', () => {
+  it('gives a Google result a source-aware app ID and keeps the real Place ID separately', () => {
+    const [place] = normalizeNearbyPlacesResponse([rawPlace('ChIJabc', 0.01, 'OPERATIONAL')]);
+
+    expect(place.id).toBe('google:ChIJabc');
+    expect(place.source).toBe('google');
+    expect(place.googlePlaceId).toBe('ChIJabc');
+    expect(place.localRecordId).toBeNull();
+  });
+
+  it('never invents a Google Place ID when Google returned none', () => {
+    const [place] = normalizeNearbyPlacesResponse([
+      { displayName: { text: 'No ID' }, location: { latitude: 6.9, longitude: 79.8 } },
+    ]);
+
+    expect(place.googlePlaceId).toBeNull();
+    expect(place.id).toBe('google:6.9,79.8');
   });
 });

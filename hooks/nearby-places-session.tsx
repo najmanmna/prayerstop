@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 
 import { fetchNearbySession } from '@/lib/prayer-places/fetch-nearby-session';
-import { googlePlacesRepository } from '@/lib/prayer-places/google-places-repository';
+import { nearbyPlacesApiRepository } from '@/lib/prayer-places/nearby-places-api-repository';
 import { googleRouteMatrixRepository } from '@/lib/prayer-places/google-route-matrix-repository';
 import type { PrayerPlaceRepository } from '@/lib/prayer-places/prayer-place-repository';
 import { hasMovedSignificantly, isSessionTimeStale } from '@/lib/prayer-places/session-staleness';
@@ -60,7 +60,7 @@ const NearbyPlacesSessionContext = createContext<NearbyPlacesSessionValue | null
  */
 export function NearbyPlacesSessionProvider({
   children,
-  placeRepository = googlePlacesRepository,
+  placeRepository = nearbyPlacesApiRepository,
   travelTimeRepository = googleRouteMatrixRepository,
 }: {
   children: ReactNode;

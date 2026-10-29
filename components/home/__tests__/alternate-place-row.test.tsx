@@ -15,7 +15,10 @@ import { AlternatePlaceRow } from '../alternate-place-row';
 const window: PrayerWindow = { name: 'Dhuhr', startTime: '12:15', endTime: '15:20', hasStarted: true };
 
 const place: PrayerPlace = {
-  id: 'ChIJ27gT8x1Z4joRxngrQeaNYZA',
+  id: 'google:ChIJ27gT8x1Z4joRxngrQeaNYZA',
+  source: 'google',
+  localRecordId: null,
+  googlePlaceId: 'ChIJ27gT8x1Z4joRxngrQeaNYZA',
   name: 'Colombo Grand Mosque',
   area: 'Colombo 12',
   coordinates: { latitude: 6.9354, longitude: 79.8517 },
@@ -50,7 +53,7 @@ describe('AlternatePlaceRow — Google Maps action', () => {
     });
 
     expect(openURL).toHaveBeenCalledTimes(1);
-    expect(openURL).toHaveBeenCalledWith(buildViewPlaceUrl(place.name, place.id));
+    expect(openURL).toHaveBeenCalledWith(buildViewPlaceUrl(place));
   });
 
   it('does not trigger any Places/Routes API call — it only opens a URL built from data already on the place', () => {

@@ -16,11 +16,11 @@ import type { TravelTimeResult } from '../travel-time-repository';
 const NOW = new Date('2026-08-15T06:30:00.000Z'); // 12:00 Sri Lanka time
 
 function candidate(id: string): DistanceRankedCandidate {
-  return { id, name: `Place ${id}`, area: 'Colombo', coordinates: { latitude: 6.9, longitude: 79.8 }, distanceKm: 1 };
+  return { id, source: 'google', localRecordId: null, googlePlaceId: null, name: `Place ${id}`, area: 'Colombo', coordinates: { latitude: 6.9, longitude: 79.8 }, distanceKm: 1 };
 }
 
-function okTravelTime(placeId: string, durationSeconds: number, distanceMeters: number): TravelTimeResult {
-  return { placeId, outcome: { status: 'ok', durationSeconds, distanceMeters, condition: 'ROUTE_EXISTS' } };
+function okTravelTime(id: string, durationSeconds: number, distanceMeters: number): TravelTimeResult {
+  return { id, outcome: { status: 'ok', durationSeconds, distanceMeters, condition: 'ROUTE_EXISTS' } };
 }
 
 describe('NOW: real-duration arrival vs. a known prayer deadline', () => {

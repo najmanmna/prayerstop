@@ -1,15 +1,20 @@
 import { Linking, Platform } from 'react-native';
 
-import type { GeoCoordinates } from './types';
+import type { GeoCoordinates, PrayerPlaceCandidate } from './types';
+
+/** What the Google Maps links need from any place, local or Google-sourced. */
+export type MapsLinkPlace = Pick<PrayerPlaceCandidate, 'name' | 'coordinates' | 'googlePlaceId'>;
 
 /**
  * Google Maps' universal cross-platform directions URL. Includes the real
- * Google Place ID (`destination_place_id`) when available, so navigation
- * opens directly to the actual named mosque listing rather than an
- * anonymous coordinate pin. Works as a browser fallback everywhere, and on
- * mobile hands off to the Google Maps app via universal link if installed.
+ * Google Place ID (`destination_place_id`) when the place has one, so
+ * navigation opens directly to the actual named mosque listing rather than
+ * an anonymous coordinate pin. Local database records without a confirmed
+ * Place ID navigate by their verified coordinates alone. Works as a browser
+ * fallback everywhere, and on mobile hands off to the Google Maps app via
+ * universal link if installed.
  */
-export function buildWebNavigationUrl(coordinates: GeoCoordinates, placeId?: string): string {
+export function buildWebNavigationUrl(coordinates: GeoCoordinates, placeId?: string | null): string {
   const params = new URLSearchParams({
     api: '1',
     destination: `${coordinates.latitude},${coordinates.longitude}`,
@@ -31,7 +36,7 @@ export function buildWebNavigationUrl(coordinates: GeoCoordinates, placeId?: str
  * No origin/source is included in either URL — omitting it tells Google
  * Maps to route from the device's current location.
  */
-export function buildNavigationUrl(coordinates: GeoCoordinates, placeId: string, platform: string): string {
+export function buildNavigationUrl(coordinates: GeoCoordinates, placeId: string | null, platform: string): string {
   if (platform === 'android') {
     // Google Maps' own Android navigation intent — launches turn-by-turn
     // driving directions directly in the Google Maps app.
@@ -52,7 +57,7 @@ export function buildNavigationUrl(coordinates: GeoCoordinates, placeId: string,
  * opened (e.g. no maps app installed) or on any other platform (web).
  * Returns whether navigation was successfully launched.
  */
-export async function openExternalNavigation(coordinates: GeoCoordinates, placeId: string): Promise<boolean> {
+export async function openExternalNavigation(coordinates: GeoCoordinates, placeId: string | null): Promise<boolean> {
   const primaryUrl = buildNavigationUrl(coordinates, placeId, Platform.OS);
   const fallbackUrl = buildWebNavigationUrl(coordinates, placeId);
 
@@ -77,32 +82,37 @@ export async function openExternalNavigation(coordinates: GeoCoordinates, placeI
 /**
  * Google Maps' universal cross-platform "view place" URL — shows the
  * place's own listing (name, and reviews/photos/hours if Google has them),
- * not directions. Uses the real Google Place ID via `query_place_id` (the
- * documented way to open an exact place rather than a generic text search)
- * — verified against Google's current Maps URLs documentation. Unlike the
- * directions URL, this needs no platform-specific scheme: it hands off to
- * the Google Maps app via universal/app link on iOS and Android alike if
- * installed, or opens Google Maps in the browser otherwise.
+ * not directions. Verified against Google's current Maps URLs
+ * documentation (2026-10-29):
+ *
+ * - With a Google Place ID: `query_place_id` opens that exact listing
+ *   (`query` is only used if Google can't resolve the ID).
+ * - Without one (a local database record not yet matched to Google): a
+ *   pin at the record's own verified coordinates. Deliberately NOT a
+ *   name search — Google could resolve a common name like "Jumma Masjid"
+ *   to a different mosque entirely; the coordinates are what we know.
+ *
+ * Needs no platform-specific scheme: it hands off to the Google Maps app
+ * via universal/app link on iOS and Android alike if installed, or opens
+ * Google Maps in the browser otherwise.
  */
-export function buildViewPlaceUrl(name: string, placeId: string): string {
-  const params = new URLSearchParams({
-    api: '1',
-    query: name,
-    query_place_id: placeId,
-  });
+export function buildViewPlaceUrl(place: MapsLinkPlace): string {
+  const coordinates = `${place.coordinates.latitude},${place.coordinates.longitude}`;
+  const params = place.googlePlaceId
+    ? new URLSearchParams({ api: '1', query: place.name, query_place_id: place.googlePlaceId })
+    : new URLSearchParams({ api: '1', query: coordinates });
   return `https://www.google.com/maps/search/?${params.toString()}`;
 }
 
 /**
- * Opens a prayer place's own Google Maps listing — the recommendation
- * card's secondary "Google Maps" action, alongside `openExternalNavigation`'s
- * primary "Navigate". Uses only the place's existing Google Place ID
- * (already present in the current shared nearby-places session) — this
- * makes no additional Places API call of any kind.
+ * Opens a prayer place in Google Maps — the recommendation card's secondary
+ * "Google Maps" action, alongside `openExternalNavigation`'s primary
+ * "Navigate". Uses only data already in the current shared nearby-places
+ * session — this makes no additional Places API call of any kind.
  */
-export async function openPlaceInGoogleMaps(name: string, placeId: string): Promise<boolean> {
+export async function openPlaceInGoogleMaps(place: MapsLinkPlace): Promise<boolean> {
   try {
-    await Linking.openURL(buildViewPlaceUrl(name, placeId));
+    await Linking.openURL(buildViewPlaceUrl(place));
     return true;
   } catch {
     return false;

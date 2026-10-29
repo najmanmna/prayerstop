@@ -16,7 +16,7 @@ export function applyTravelTimes(
   candidates: DistanceRankedCandidate[],
   travelTimes: TravelTimeResult[]
 ): RankedPrayerPlaceCandidate[] {
-  const byId = new Map(travelTimes.map((result) => [result.placeId, result]));
+  const byId = new Map(travelTimes.map((result) => [result.id, result]));
 
   const ranked: RankedPrayerPlaceCandidate[] = [];
   for (const candidate of candidates) {
@@ -25,6 +25,9 @@ export function applyTravelTimes(
 
     ranked.push({
       id: candidate.id,
+      source: candidate.source,
+      localRecordId: candidate.localRecordId,
+      googlePlaceId: candidate.googlePlaceId,
       name: candidate.name,
       area: candidate.area,
       coordinates: candidate.coordinates,
