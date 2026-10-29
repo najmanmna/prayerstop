@@ -4,6 +4,7 @@ import { ActivityIndicator, Platform, RefreshControl, ScrollView, StyleSheet, To
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AlternatePlaceRow } from '@/components/home/alternate-place-row';
+import { DistancePlaceRow } from '@/components/nearby/distance-place-row';
 import { NearbyMap } from '@/components/nearby/nearby-map';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -14,8 +15,9 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
 import { buildPlaceScenario } from '@/lib/prayer-places/build-place-scenario';
 import { buildPlaceDetailsPath } from '@/lib/prayer-places/find-candidate';
+import { DEFAULT_NEARBY_OPTIONS } from '@/lib/prayer-places/nearby-places-api-repository';
 import { openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
-import { formatClock12 } from '@/lib/time';
+import { formatClock12, formatDuration } from '@/lib/time';
 import type { PrayerPlace } from '@/types/home';
 
 type ViewMode = 'list' | 'map';
@@ -46,6 +48,17 @@ export default function NearbyScreen() {
           return scenario ? [scenario.recommendation, ...scenario.alternates] : [];
         })()
       : [];
+
+  // Everything else discovery found — distance only, no ETA (never sent to
+  // Routes). Only shown alongside the routed places, never instead of them.
+  const morePlaces = places.length > 0 && nearby.status === 'ready' ? nearby.morePlaces : [];
+  const totalCount = places.length + morePlaces.length;
+  const radiusKm = DEFAULT_NEARBY_OPTIONS.radiusMeters / 1000;
+  const prayerSummary = timing
+    ? timing.countdownSeconds !== null
+      ? `${timing.window.name} · ${formatDuration(Math.max(0, Math.round(timing.countdownSeconds / 60)))} left`
+      : timing.window.name
+    : null;
 
   const selectedPlace = places.find((place) => place.id === selectedPlaceId) ?? places[0] ?? null;
   const goToDetails = (placeId: string) => router.push(buildPlaceDetailsPath(placeId));
@@ -167,6 +180,12 @@ export default function NearbyScreen() {
                 tintColor={theme.tint}
               />
             }>
+            <ThemedText style={[styles.summary, { color: theme.textSecondary }]}>
+              {totalCount} {totalCount === 1 ? 'mosque' : 'mosques'} within {radiusKm} km
+              {prayerSummary ? ` · ${prayerSummary}` : ''}
+            </ThemedText>
+
+            <ThemedText style={[styles.sectionTitle, { color: theme.textMuted }]}>FASTEST TO REACH</ThemedText>
             <View style={[styles.listCard, { backgroundColor: theme.surface }]}>
               {places.map((place, index) => (
                 <View key={place.id}>
@@ -182,6 +201,25 @@ export default function NearbyScreen() {
                 </View>
               ))}
             </View>
+
+            {morePlaces.length > 0 && (
+              <>
+                <ThemedText style={[styles.sectionTitle, { color: theme.textMuted }]}>MORE NEARBY</ThemedText>
+                <ThemedText style={[styles.sectionCaption, { color: theme.textMuted }]}>
+                  Straight-line distance. Live travel times are checked for the nearest {places.length} only.
+                </ThemedText>
+                <View style={[styles.listCard, { backgroundColor: theme.surface }]}>
+                  {morePlaces.map((place, index) => (
+                    <View key={place.id}>
+                      <DistancePlaceRow place={place} onPress={() => goToDetails(place.id)} />
+                      {index < morePlaces.length - 1 && (
+                        <View style={[styles.rowDivider, { backgroundColor: theme.border }]} />
+                      )}
+                    </View>
+                  ))}
+                </View>
+              </>
+            )}
           </ScrollView>
         )}
       </SafeAreaView>
@@ -311,6 +349,19 @@ const styles = StyleSheet.create({
   listContent: {
     padding: 20,
     gap: 10,
+  },
+  summary: {
+    fontSize: 13,
+  },
+  sectionTitle: {
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 0.6,
+    marginTop: 6,
+  },
+  sectionCaption: {
+    fontSize: 12,
+    marginTop: -6,
   },
   listCard: {
     borderRadius: 22,

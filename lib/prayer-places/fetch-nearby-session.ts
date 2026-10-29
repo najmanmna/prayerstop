@@ -1,12 +1,23 @@
 import { applyTravelTimes } from './apply-travel-times';
 import { DEFAULT_NEARBY_OPTIONS } from './nearby-places-api-repository';
 import type { PrayerPlaceRepository } from './prayer-place-repository';
-import { selectNearestCandidates } from './select-candidates';
+import { selectNearestCandidates, type DistanceRankedCandidate } from './select-candidates';
 import { MAX_ROUTE_MATRIX_DESTINATIONS, type TravelTimeRepository } from './travel-time-repository';
 import type { GeoCoordinates, RankedPrayerPlaceCandidate } from './types';
 
 export type FetchNearbySessionResult =
-  | { status: 'ready'; candidates: RankedPrayerPlaceCandidate[] }
+  | {
+      status: 'ready';
+      /** The few places sent to Google Routes, with real traffic-aware ETAs — what Home recommends from. */
+      candidates: RankedPrayerPlaceCandidate[];
+      /**
+       * Every other place discovery found, nearest first by straight-line
+       * distance only — never sent to Routes (cost rule), so they have NO
+       * ETA or feasibility and must never be shown with one. For the Nearby
+       * browse list.
+       */
+      morePlaces: DistanceRankedCandidate[];
+    }
   | { status: 'empty' }
   // Places were found nearby, but Google Routes couldn't compute a route to
   // any of them (e.g. all ROUTE_NOT_FOUND) — a distinct, honest state from
@@ -54,5 +65,10 @@ export async function fetchNearbySession(
     return { status: 'unreachable' };
   }
 
-  return { status: 'ready', candidates };
+  const routedIds = new Set(nearest.map((candidate) => candidate.id));
+  const morePlaces = selectNearestCandidates(placesResult.places, coords, placesResult.places.length).filter(
+    (candidate) => !routedIds.has(candidate.id)
+  );
+
+  return { status: 'ready', candidates, morePlaces };
 }

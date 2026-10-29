@@ -4,6 +4,7 @@ import { fetchNearbySession } from '@/lib/prayer-places/fetch-nearby-session';
 import { nearbyPlacesApiRepository } from '@/lib/prayer-places/nearby-places-api-repository';
 import { googleRouteMatrixRepository } from '@/lib/prayer-places/google-route-matrix-repository';
 import type { PrayerPlaceRepository } from '@/lib/prayer-places/prayer-place-repository';
+import type { DistanceRankedCandidate } from '@/lib/prayer-places/select-candidates';
 import { hasMovedSignificantly, isSessionTimeStale } from '@/lib/prayer-places/session-staleness';
 import type { TravelTimeRepository } from '@/lib/prayer-places/travel-time-repository';
 import type { GeoCoordinates, RankedPrayerPlaceCandidate } from '@/lib/prayer-places/types';
@@ -13,7 +14,13 @@ import { useDeviceLocation } from './use-device-location';
 export type NearbyPlacesSessionState =
   | { status: 'idle' }
   | { status: 'loading' }
-  | { status: 'ready'; candidates: RankedPrayerPlaceCandidate[]; fetchedAt: number }
+  | {
+      status: 'ready';
+      candidates: RankedPrayerPlaceCandidate[];
+      /** Places found but not sent to Routes — distance only, no ETA (see `fetchNearbySession`). */
+      morePlaces: DistanceRankedCandidate[];
+      fetchedAt: number;
+    }
   // Places were found nearby, but Google Routes couldn't compute a route to
   // any of them — a distinct, honest state from 'empty' (no places exist).
   | { status: 'unreachable'; fetchedAt: number }
@@ -121,7 +128,7 @@ export function NearbyPlacesSessionProvider({
       } else if (result.status === 'unreachable') {
         setState({ status: 'unreachable', fetchedAt });
       } else {
-        setState({ status: 'ready', candidates: result.candidates, fetchedAt });
+        setState({ status: 'ready', candidates: result.candidates, morePlaces: result.morePlaces, fetchedAt });
       }
     });
 

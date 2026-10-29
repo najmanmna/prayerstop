@@ -52,7 +52,46 @@ describe('fetchNearbySession', () => {
       candidates: [
         expect.objectContaining({ id: 'a', etaMinutes: 5, routeCondition: 'ROUTE_EXISTS' }),
       ],
+      morePlaces: [],
     });
+  });
+
+  it('keeps every place not sent to Routes as distance-only "more places", nearest first, with no ETA', async () => {
+    const places = ['e', 'b', 'd', 'a', 'c'].map((id) => place(id, 0.01 * (id.charCodeAt(0) - 96)));
+    const { placeRepository, travelTimeRepository } = fakeRepos({ places });
+
+    const result = await fetchNearbySession(origin, placeRepository, travelTimeRepository);
+
+    expect(result.status === 'ready' && result.candidates.map((c) => c.id)).toEqual(['a', 'b', 'c']);
+    expect(result.status === 'ready' && result.morePlaces.map((c) => c.id)).toEqual(['d', 'e']);
+    if (result.status === 'ready') {
+      for (const more of result.morePlaces) {
+        expect(more).not.toHaveProperty('etaMinutes');
+        expect(more.distanceKm).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it('never lists a routed place that turned out unreachable among "more places"', async () => {
+    const places = ['a', 'b', 'c', 'd'].map((id, i) => place(id, 0.01 * (i + 1)));
+    const { placeRepository } = fakeRepos({ places });
+    const travelTimeRepository: TravelTimeRepository = {
+      getTravelTimes: jest.fn(async (request) => ({
+        status: 'ok' as const,
+        results: request.destinations.map((d) => ({
+          id: d.id,
+          outcome:
+            d.id === 'b'
+              ? { status: 'unreachable' as const, condition: 'ROUTE_NOT_FOUND' }
+              : { status: 'ok' as const, durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' },
+        })),
+      })),
+    };
+
+    const result = await fetchNearbySession(origin, placeRepository, travelTimeRepository);
+
+    expect(result.status === 'ready' && result.candidates.map((c) => c.id)).toEqual(['a', 'c']);
+    expect(result.status === 'ready' && result.morePlaces.map((c) => c.id)).toEqual(['d']);
   });
 
   it('computes travel times for local database and Google places alike, by coordinates', async () => {
