@@ -69,6 +69,16 @@ describe('findNearbyPlaces — database first', () => {
     if (result.status === 'ok') expect(result.places.map((p) => p.id)).toEqual(['db:a', 'db:b', 'db:c']);
   });
 
+  it('calls Google when the only verified mosques are 1.5–2 km away (real Wattala case)', async () => {
+    const googleMock = googleSource({ status: 'ok', places: [google('ChIJbadriya', 'Al Badriya Jummah Masjid', 639)] });
+    const sparse = [local('a', 'Masjid A', 1200), local('b', 'Masjid B', 1674), local('c', 'Masjid C', 1900)];
+
+    const result = await findNearbyPlaces(request, deps({ local: localSource({ status: 'ok', places: sparse }), google: googleMock }));
+
+    expect(googleMock.searchNearby).toHaveBeenCalledTimes(1);
+    expect(result.status === 'ok' && result.places[0].id).toBe('google:ChIJbadriya');
+  });
+
   it('does not let two records of the same mosque count twice toward local coverage', async () => {
     const googleMock = googleSource({ status: 'ok', places: [] });
     const locals = [

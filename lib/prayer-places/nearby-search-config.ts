@@ -29,9 +29,14 @@ export const NEARBY_SEARCH_CONFIG = {
    * deliberately smaller than the search radius — having 3 verified
    * mosques 4–5 km away isn't "enough" if a closer, not-yet-verified
    * mosque might exist that only Google knows about.
+   *
+   * 1.5 km chosen from a 27-location Colombo evaluation (2026-10-29): at
+   * 2 km, Wattala had exactly 3 verified mosques 1.2–1.7 km away and skipped
+   * Google, missing a real mosque 639 m away. 1.5 km calls Google at 10/27
+   * locations (vs 6–8 at 2 km); 1 km would call it at 16/27.
    */
   minLocalResults: 3,
-  localSufficiencyRadiusMeters: 2000,
+  localSufficiencyRadiusMeters: 1500,
 
   /** A Google result within this distance of a local record, with a similar name, is the same mosque. */
   matchDistanceMeters: 50,
