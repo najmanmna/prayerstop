@@ -44,6 +44,16 @@ export const NEARBY_SEARCH_CONFIG = {
    * mapping without a name match too.
    */
   sameBuildingDistanceMeters: 15,
+  /**
+   * Google's pin is often on the road or at the entrance rather than where
+   * our reviewers placed the building, so a Google result up to this far
+   * from a local record is still the same mosque when the names match
+   * strongly (≥ `strongNameSimilarity`). Display de-duplication only: Place
+   * ID mappings are still saved only within `matchDistanceMeters`. Not used
+   * between two local records — both of those pins are human-verified.
+   */
+  strongNameMatchDistanceMeters: 100,
+  strongNameSimilarity: 0.8,
 
   /**
    * Requests are only served inside this box (Sri Lanka, with a small

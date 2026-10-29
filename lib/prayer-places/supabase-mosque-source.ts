@@ -1,8 +1,8 @@
 // Server-side only — imported solely by app/api/nearby-places+api.ts.
-// Calls the two Supabase functions added in migration 0009 over PostgREST
-// with plain fetch (no supabase-js dependency needed for two RPC calls).
+// Calls the Supabase functions added in migrations 0009/0010 over PostgREST
+// with plain fetch (no supabase-js dependency needed for a few RPC calls).
 
-import type { LocalMosqueSource, PlaceIdLinkWriter, PlaceSourceResult } from './find-nearby-places';
+import type { BlockedPlaceSource, LocalMosqueSource, PlaceIdLinkWriter, PlaceSourceResult } from './find-nearby-places';
 import type { PlaceIdLink } from './merge-nearby-places';
 import { normalizeDatabaseMosques, type RawDatabaseMosque } from './normalize-database-mosques';
 import type { GeoCoordinates } from './types';
@@ -58,6 +58,31 @@ export function createSupabaseMosqueSource(
       if (!result.ok) return { status: 'error', message: result.message };
       if (!Array.isArray(result.body)) return { status: 'error', message: 'nearby_verified_mosques returned a non-array' };
       return { status: 'ok', places: normalizeDatabaseMosques(result.body as RawDatabaseMosque[]) };
+    },
+  };
+}
+
+/** Checks Google Place IDs against the blocklist via `blocked_google_place_ids()` (migration 0010), publishable key. */
+export function createSupabaseBlocklistSource(
+  baseUrl: string,
+  publishableKey: string,
+  timeoutMs: number,
+  fetchImpl: typeof fetch = fetch
+): BlockedPlaceSource {
+  return {
+    async findBlocked(googlePlaceIds: string[]) {
+      const result = await callRpc(
+        baseUrl,
+        publishableKey,
+        'blocked_google_place_ids',
+        { p_ids: googlePlaceIds },
+        timeoutMs,
+        fetchImpl
+      );
+      if (!result.ok) return { status: 'error' as const, message: result.message };
+      if (!Array.isArray(result.body)) return { status: 'error' as const, message: 'blocked_google_place_ids returned a non-array' };
+      // A `returns setof text` function comes back from PostgREST as a plain JSON array of strings.
+      return { status: 'ok' as const, blocked: new Set(result.body.filter((id): id is string => typeof id === 'string')) };
     },
   };
 }

@@ -11,7 +11,11 @@
 import { findNearbyPlaces } from '@/lib/prayer-places/find-nearby-places';
 import { createGooglePlacesSource } from '@/lib/prayer-places/google-places-search';
 import { NEARBY_SEARCH_CONFIG } from '@/lib/prayer-places/nearby-search-config';
-import { createSupabaseMosqueSource, createSupabasePlaceIdLinkWriter } from '@/lib/prayer-places/supabase-mosque-source';
+import {
+  createSupabaseBlocklistSource,
+  createSupabaseMosqueSource,
+  createSupabasePlaceIdLinkWriter,
+} from '@/lib/prayer-places/supabase-mosque-source';
 import { validateNearbyRequest } from '@/lib/prayer-places/validate-nearby-request';
 
 export async function GET(request: Request) {
@@ -31,6 +35,10 @@ export async function GET(request: Request) {
         ? createSupabaseMosqueSource(supabaseUrl, supabasePublishableKey, NEARBY_SEARCH_CONFIG.databaseTimeoutMs)
         : null,
     google: googleApiKey ? createGooglePlacesSource(googleApiKey, NEARBY_SEARCH_CONFIG.googleTimeoutMs) : null,
+    blocklist:
+      supabaseUrl && supabasePublishableKey
+        ? createSupabaseBlocklistSource(supabaseUrl, supabasePublishableKey, NEARBY_SEARCH_CONFIG.databaseTimeoutMs)
+        : null,
     linkWriter:
       supabaseUrl && supabaseSecretKey
         ? createSupabasePlaceIdLinkWriter(supabaseUrl, supabaseSecretKey, NEARBY_SEARCH_CONFIG.databaseTimeoutMs)

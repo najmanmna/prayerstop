@@ -111,6 +111,38 @@ describe('mergeNearbyPlaces', () => {
     expect(result.links).toEqual([]);
   });
 
+  it('catches a strong name match whose Google pin is a little further away, without saving its Place ID (real Dehiwala case)', () => {
+    const localPlace = local('dmrca-R-2597-C-24-2', 'MASJIDHUL GAZZALI', at(200));
+    const googlePin = google('ChIJfVVcJOBa4joR55ynz_trIKw', 'Gazzali Masjid', at(255)); // 55 m
+
+    const result = mergeNearbyPlaces(origin, [localPlace], [googlePin], NEARBY_SEARCH_CONFIG);
+
+    expect(result.places.map((p) => p.id)).toEqual(['db:dmrca-R-2597-C-24-2']);
+    expect(result.duplicatesRemoved).toBe(1);
+    expect(result.links).toEqual([]); // beyond the 50 m Place ID threshold
+  });
+
+  it('catches Darul/Daruth spelling variants at a typical Google pin offset (real Dehiwala case)', () => {
+    const localPlace = local('dmrca-R-2226-C-21-7', 'DARUTH TAQWA AL QURAN MADRASA MASJID', at(200));
+    const googlePin = google('ChIJvb9XoFVa4joRxH_by7A-h-w', 'Masjid Darul Taqwa', at(262)); // 62 m
+
+    expect(mergeNearbyPlaces(origin, [localPlace], [googlePin], NEARBY_SEARCH_CONFIG).places).toHaveLength(1);
+  });
+
+  it('does not treat a strong name match beyond the strong-match distance as the same mosque', () => {
+    const localPlace = local('dmrca-R-1014-C-104', 'MASJIDUL AZHARIYAH', at(200));
+    const googlePin = google('ChIJM_8W8v9R4joRfz8CaO0JA1w', 'Azhariya Jummah Masjid', at(449)); // 249 m
+
+    expect(mergeNearbyPlaces(origin, [localPlace], [googlePin], NEARBY_SEARCH_CONFIG).places).toHaveLength(2);
+  });
+
+  it('keeps a differently named Google mosque 80 m away', () => {
+    const localPlace = local('nsdi-1', 'Masjidul Akbar', at(200));
+    const neighbour = google('ChIJn', 'Masjid Al Hidaya', at(280));
+
+    expect(mergeNearbyPlaces(origin, [localPlace], [neighbour], NEARBY_SEARCH_CONFIG).places).toHaveLength(2);
+  });
+
   it('keeps a nearby Google mosque with a different name that is beyond the same-building distance', () => {
     const localPlace = local('nsdi-1', 'Masjidul Akbar', at(200));
     const neighbour = google('ChIJn', 'Masjid Al Hidaya', at(240)); // 40 m, different name

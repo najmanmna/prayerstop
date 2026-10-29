@@ -23,6 +23,11 @@ export interface GooglePlacesSource {
   searchNearby(origin: GeoCoordinates, radiusMeters: number, maxResults: number): Promise<PlaceSourceResult>;
 }
 
+/** Which of these Google Place IDs are on PrayerStop's blocklist (non-mosques Google mislabels as mosques). */
+export interface BlockedPlaceSource {
+  findBlocked(googlePlaceIds: string[]): Promise<{ status: 'ok'; blocked: Set<string> } | { status: 'error'; message: string }>;
+}
+
 /** Persists confident Google Place ID matches. Must never throw — a failed save must not fail the search. */
 export interface PlaceIdLinkWriter {
   saveLinks(links: PlaceIdLink[]): Promise<void>;
@@ -34,6 +39,8 @@ export interface NearbySearchMeta {
   /** Local records hidden because another verified record is the same mosque (see `collapseLocalDuplicates`). */
   localDuplicatesCollapsed: number;
   googleStatus: 'not_needed' | 'ok' | 'error' | 'not_configured';
+  /** Google results dropped because their Place ID is on the blocklist. */
+  blockedRemoved: number;
   duplicatesRemoved: number;
   linksProposed: number;
 }
@@ -47,6 +54,8 @@ export interface FindNearbyPlacesDeps {
   local: LocalMosqueSource | null;
   /** null when GOOGLE_PLACES_API_KEY isn't configured. */
   google: GooglePlacesSource | null;
+  /** null when Supabase isn't configured — Google results are then not checked against the blocklist. */
+  blocklist: BlockedPlaceSource | null;
   /** null when no server-only Supabase key is configured — matches are still used in the response, just not saved. */
   linkWriter: PlaceIdLinkWriter | null;
   config: Pick<
@@ -56,6 +65,8 @@ export interface FindNearbyPlacesDeps {
     | 'matchDistanceMeters'
     | 'minNameSimilarity'
     | 'sameBuildingDistanceMeters'
+    | 'strongNameMatchDistanceMeters'
+    | 'strongNameSimilarity'
     | 'maxResults'
   >;
 }
@@ -67,9 +78,9 @@ export interface FindNearbyPlacesDeps {
  *    collapsing any two records that are clearly the same mosque.
  * 2. If local coverage is sufficient (`hasSufficientLocalCoverage`), return
  *    them — Google is NOT called.
- * 3. Otherwise call Google Places once, drop Google results that duplicate a
- *    local record, save confident Place ID matches, and return one
- *    nearest-first list.
+ * 3. Otherwise call Google Places once, drop blocklisted non-mosques and
+ *    Google results that duplicate a local record, save confident Place ID
+ *    matches, and return one nearest-first list.
  *
  * So a search makes at most ONE Google Places request, and zero when local
  * coverage is good. Degrades rather than fails: if the database is down, it
@@ -101,7 +112,14 @@ export async function findNearbyPlaces(
     }
   }
 
-  const baseMeta = { localStatus, localCount: local.length, localDuplicatesCollapsed, duplicatesRemoved: 0, linksProposed: 0 };
+  const baseMeta = {
+    localStatus,
+    localCount: local.length,
+    localDuplicatesCollapsed,
+    duplicatesRemoved: 0,
+    linksProposed: 0,
+    blockedRemoved: 0,
+  };
   const localOnly = (googleStatus: NearbySearchMeta['googleStatus']): FindNearbyPlacesResult => ({
     status: 'ok',
     places: sortByDistance(local, origin).slice(0, config.maxResults),
@@ -127,7 +145,8 @@ export async function findNearbyPlaces(
     return { status: 'error', httpStatus: 502, message: googleResult.message };
   }
 
-  const merged = mergeNearbyPlaces(origin, local, googleResult.places, config);
+  const { places: googlePlaces, blockedRemoved } = await removeBlocked(googleResult.places, deps.blocklist);
+  const merged = mergeNearbyPlaces(origin, local, googlePlaces, config);
   if (merged.links.length > 0 && deps.linkWriter) {
     await deps.linkWriter.saveLinks(merged.links);
   }
@@ -140,6 +159,30 @@ export async function findNearbyPlaces(
       googleStatus: 'ok',
       duplicatesRemoved: merged.duplicatesRemoved,
       linksProposed: merged.links.length,
+      blockedRemoved,
     },
   };
+}
+
+/**
+ * Drops Google results whose Place ID is on the blocklist, before
+ * de-duplication and Place ID matching — so a blocked place can never be
+ * shown, sent to Routes, or linked to a local record. Fails open: if the
+ * blocklist can't be read, results are returned unfiltered rather than
+ * failing the whole search.
+ */
+async function removeBlocked(
+  places: PrayerPlaceCandidate[],
+  blocklist: BlockedPlaceSource | null
+): Promise<{ places: PrayerPlaceCandidate[]; blockedRemoved: number }> {
+  const ids = places.map((place) => place.googlePlaceId).filter((id): id is string => !!id);
+  if (!blocklist || ids.length === 0) return { places, blockedRemoved: 0 };
+
+  const result = await blocklist.findBlocked(ids);
+  if (result.status === 'error') {
+    console.error('[nearby-places] blocklist lookup failed, returning Google results unfiltered:', result.message);
+    return { places, blockedRemoved: 0 };
+  }
+  const kept = places.filter((place) => !place.googlePlaceId || !result.blocked.has(place.googlePlaceId));
+  return { places: kept, blockedRemoved: places.length - kept.length };
 }

@@ -1,5 +1,5 @@
 import { normalizeDatabaseMosques } from '../normalize-database-mosques';
-import { createSupabaseMosqueSource, createSupabasePlaceIdLinkWriter } from '../supabase-mosque-source';
+import { createSupabaseBlocklistSource, createSupabaseMosqueSource, createSupabasePlaceIdLinkWriter } from '../supabase-mosque-source';
 
 const origin = { latitude: 6.9271, longitude: 79.8612 };
 
@@ -100,5 +100,25 @@ describe('createSupabasePlaceIdLinkWriter', () => {
     }) as unknown as typeof fetch);
 
     await expect(writer.saveLinks([{ localRecordId: 'a', googlePlaceId: 'b' }])).resolves.toBeUndefined();
+  });
+});
+
+describe('createSupabaseBlocklistSource', () => {
+  it('asks blocked_google_place_ids about exactly the given IDs, with the publishable key', async () => {
+    const fetchMock = jest.fn(async () => jsonResponse(['ChIJbad']));
+    const source = createSupabaseBlocklistSource('https://p', 'sb_publishable_x', 1000, fetchMock as unknown as typeof fetch);
+
+    const result = await source.findBlocked(['ChIJbad', 'ChIJok']);
+
+    const [url, init] = fetchMock.mock.calls[0] as unknown as [string, RequestInit];
+    expect(url).toBe('https://p/rest/v1/rpc/blocked_google_place_ids');
+    expect((init.headers as Record<string, string>).apikey).toBe('sb_publishable_x');
+    expect(JSON.parse(init.body as string)).toEqual({ p_ids: ['ChIJbad', 'ChIJok'] });
+    expect(result).toEqual({ status: 'ok', blocked: new Set(['ChIJbad']) });
+  });
+
+  it('returns an error (never throws) when the lookup fails', async () => {
+    const source = createSupabaseBlocklistSource('https://p', 'k', 1000, (async () => jsonResponse({}, false, 404)) as unknown as typeof fetch);
+    expect((await source.findBlocked(['a'])).status).toBe('error');
   });
 });

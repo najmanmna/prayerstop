@@ -1,9 +1,9 @@
 /**
  * Words that say "this is a mosque" rather than which mosque it is. Removed
  * before comparing names, so "Masjidun Noor Jummah masjid" (NSDI) and
- * "MASJIDUN NOOR JUMMA MOSQUE" (DMRCA) compare as "masjidun noor" both
- * times. Includes the common Sri Lankan transliteration variants seen in
- * the DMRCA/NSDI/OSM data.
+ * "MASJIDUN NOOR JUMMA MOSQUE" (DMRCA) compare as the same name. Includes
+ * the common Sri Lankan transliteration variants seen in the DMRCA/NSDI/OSM
+ * data.
  */
 const GENERIC_WORDS = new Set([
   'mosque',
@@ -28,8 +28,45 @@ const GENERIC_WORDS = new Set([
   'old',
 ]);
 
-/** Lowercases, strips punctuation/diacritics, and drops generic mosque words. */
-export function normalizeMosqueName(name: string): string {
+/**
+ * "Masjid-ul X" / "Masjid-un X" = "mosque of X". Usually the prefix is
+ * noise ("Masjidhul Gazzali" vs "Gazzali Masjid"), but for short names it
+ * also carries signal ("Masjidul Huda" vs "Masjidul Hudha"), so similarity
+ * is scored both with and without these words — see `mosqueNameSimilarity`.
+ */
+const PREFIX_WORDS = new Set([
+  'masjidul',
+  'masjidhul',
+  'masjidun',
+  'masjidhun',
+  'masjidur',
+  'masjidhur',
+  'masjidus',
+  'masjidhus',
+  'masjiduth',
+  'masjidhuth',
+]);
+
+/**
+ * Transliteration variants of the same word, mapped to one spelling so they
+ * compare equal ("Daruth Taqwa" vs "Darul Taqwa" — "house of").
+ */
+const WORD_VARIANTS: Record<string, string> = {
+  darul: 'dar',
+  daruth: 'dar',
+  darut: 'dar',
+  darus: 'dar',
+  dharul: 'dar',
+  dharuth: 'dar',
+  dharus: 'dar',
+};
+
+/**
+ * Lowercases, strips punctuation/diacritics, unifies spelling variants, and
+ * drops generic mosque words — and, unless `keepPrefixes`, "Masjid-ul"-style
+ * prefixes too.
+ */
+export function normalizeMosqueName(name: string, keepPrefixes = false): string {
   return name
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -38,7 +75,8 @@ export function normalizeMosqueName(name: string): string {
     .replace(/['\u2018\u2019`]/g, '')
     .replace(/[^a-z0-9\s]/g, ' ')
     .split(/\s+/)
-    .filter((word) => word.length > 0 && !GENERIC_WORDS.has(word))
+    .map((word) => WORD_VARIANTS[word] ?? word)
+    .filter((word) => word.length > 0 && !GENERIC_WORDS.has(word) && (keepPrefixes || !PREFIX_WORDS.has(word)))
     .join(' ');
 }
 
@@ -57,14 +95,24 @@ function bigrams(value: string): string[] {
  * "hudha"/"huda"), raised to 1 when one name's distinctive words are all
  * contained in the other's ("Masjidul Huda" vs "Hinguloya Masjidul Huda").
  *
+ * Scored with and without "Masjid-ul"-style prefixes; the higher score
+ * wins (see `PREFIX_WORDS`).
+ *
  * Returns 0 — never a match — when either name has no distinctive words
- * left after normalization (e.g. "Jumma Mosque"): a generic name can't
- * confirm which mosque something is.
+ * left after normalization (e.g. "Jumma Mosque", "Masjidul"): a generic
+ * name can't confirm which mosque something is.
  */
 export function mosqueNameSimilarity(a: string, b: string): number {
-  const normalizedA = normalizeMosqueName(a);
-  const normalizedB = normalizeMosqueName(b);
-  if (!normalizedA || !normalizedB) return 0;
+  const strictA = normalizeMosqueName(a);
+  const strictB = normalizeMosqueName(b);
+  if (!strictA || !strictB) return 0;
+  return Math.max(
+    normalizedSimilarity(strictA, strictB),
+    normalizedSimilarity(normalizeMosqueName(a, true), normalizeMosqueName(b, true))
+  );
+}
+
+function normalizedSimilarity(normalizedA: string, normalizedB: string): number {
   if (normalizedA === normalizedB) return 1;
 
   const wordsA = new Set(normalizedA.split(' '));

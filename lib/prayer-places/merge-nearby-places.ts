@@ -5,7 +5,12 @@ import type { GeoCoordinates, PrayerPlaceCandidate } from './types';
 
 type MatchConfig = Pick<
   NearbySearchConfig,
-  'matchDistanceMeters' | 'minNameSimilarity' | 'sameBuildingDistanceMeters' | 'maxResults'
+  | 'matchDistanceMeters'
+  | 'minNameSimilarity'
+  | 'sameBuildingDistanceMeters'
+  | 'strongNameMatchDistanceMeters'
+  | 'strongNameSimilarity'
+  | 'maxResults'
 >;
 
 /** A confident, unambiguous Google ↔ local match, to be persisted as `mosque_records.google_place_id`. */
@@ -103,7 +108,8 @@ export function collapseLocalDuplicates(
  * - **De-duplication.** A Google result is dropped (the local record is
  *   kept) when it's the same mosque as a local record: same Google Place
  *   ID as an existing mapping, OR within `matchDistanceMeters` with a
- *   similar name, OR within `sameBuildingDistanceMeters` regardless of
+ *   similar name, OR within `strongNameMatchDistanceMeters` with a strongly
+ *   matching name, OR within `sameBuildingDistanceMeters` regardless of
  *   name.
  * - **Place ID matching.** A mapping is proposed only when a Google result
  *   name-matches exactly ONE local record within `matchDistanceMeters`,
@@ -135,15 +141,23 @@ export function mergeNearbyPlaces(
       continue;
     }
 
+    const searchRadius = Math.max(config.matchDistanceMeters, config.strongNameMatchDistanceMeters);
     const nearbyLocal = local
-      .map((place) => ({ place, meters: metersBetween(candidate.coordinates, place.coordinates) }))
-      .filter(({ meters }) => meters <= config.matchDistanceMeters);
+      .map((place) => ({
+        place,
+        meters: metersBetween(candidate.coordinates, place.coordinates),
+        similarity: mosqueNameSimilarity(candidate.name, place.name),
+      }))
+      .filter(({ meters }) => meters <= searchRadius);
     const nameMatches = nearbyLocal.filter(
-      ({ place }) => mosqueNameSimilarity(candidate.name, place.name) >= config.minNameSimilarity
+      ({ meters, similarity }) => meters <= config.matchDistanceMeters && similarity >= config.minNameSimilarity
+    );
+    const strongNameMatch = nearbyLocal.some(
+      ({ meters, similarity }) => meters <= config.strongNameMatchDistanceMeters && similarity >= config.strongNameSimilarity
     );
     const sameBuilding = nearbyLocal.some(({ meters }) => meters <= config.sameBuildingDistanceMeters);
 
-    if (nameMatches.length === 0 && !sameBuilding) {
+    if (nameMatches.length === 0 && !strongNameMatch && !sameBuilding) {
       keptGoogle.push(candidate);
       continue;
     }

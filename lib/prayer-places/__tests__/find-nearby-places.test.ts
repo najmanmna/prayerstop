@@ -1,4 +1,5 @@
 import {
+  type BlockedPlaceSource,
   findNearbyPlaces,
   type FindNearbyPlacesDeps,
   type GooglePlacesSource,
@@ -33,12 +34,16 @@ function googleSource(result: PlaceSourceResult): GooglePlacesSource & { searchN
   return { searchNearby: jest.fn(async () => result) };
 }
 
+function blocklist(result: Awaited<ReturnType<BlockedPlaceSource['findBlocked']>>): BlockedPlaceSource & { findBlocked: jest.Mock } {
+  return { findBlocked: jest.fn(async () => result) };
+}
+
 function linkWriter(): PlaceIdLinkWriter & { saveLinks: jest.Mock } {
   return { saveLinks: jest.fn(async () => undefined) };
 }
 
 function deps(overrides: Partial<FindNearbyPlacesDeps>): FindNearbyPlacesDeps {
-  return { local: null, google: null, linkWriter: null, config: NEARBY_SEARCH_CONFIG, ...overrides };
+  return { local: null, google: null, blocklist: null, linkWriter: null, config: NEARBY_SEARCH_CONFIG, ...overrides };
 }
 
 const threeNearbyLocals = [local('a', 'Masjid A', 100), local('b', 'Masjid B', 600), local('c', 'Masjid C', 1200)];
@@ -187,6 +192,64 @@ describe('findNearbyPlaces — database first', () => {
   it('returns a 503 when nothing is configured', async () => {
     const result = await findNearbyPlaces(request, deps({}));
     expect(result).toMatchObject({ status: 'error', httpStatus: 503 });
+  });
+
+  it('drops blocklisted Google results (non-mosques Google labels as mosques)', async () => {
+    const blocklistMock = blocklist({ status: 'ok', blocked: new Set(['ChIJsZi-UepR4joRANXd2Fn8OuM']) });
+    const result = await findNearbyPlaces(
+      request,
+      deps({
+        local: localSource({ status: 'ok', places: [] }),
+        google: googleSource({
+          status: 'ok',
+          places: [google('ChIJsZi-UepR4joRANXd2Fn8OuM', 'Veesoft IT PVT (Ltd)', 300), google('g1', 'Masjid G', 500)],
+        }),
+        blocklist: blocklistMock,
+      })
+    );
+
+    expect(blocklistMock.findBlocked).toHaveBeenCalledWith(['ChIJsZi-UepR4joRANXd2Fn8OuM', 'g1']);
+    expect(result.status === 'ok' && result.places.map((p) => p.id)).toEqual(['google:g1']);
+    expect(result).toMatchObject({ meta: { blockedRemoved: 1 } });
+  });
+
+  it('never links a blocklisted Google result to a local record, even with a matching name', async () => {
+    const writer = linkWriter();
+    await findNearbyPlaces(
+      request,
+      deps({
+        local: localSource({ status: 'ok', places: [local('nsdi-1', 'Masjidun Noor', 200)] }),
+        google: googleSource({ status: 'ok', places: [google('ChIJbad', 'Masjidun Noor', 210)] }),
+        blocklist: blocklist({ status: 'ok', blocked: new Set(['ChIJbad']) }),
+        linkWriter: writer,
+      })
+    );
+
+    expect(writer.saveLinks).not.toHaveBeenCalled();
+  });
+
+  it('returns Google results unfiltered if the blocklist cannot be read', async () => {
+    const result = await findNearbyPlaces(
+      request,
+      deps({
+        local: localSource({ status: 'ok', places: [] }),
+        google: googleSource({ status: 'ok', places: [google('g1', 'Masjid G', 300)] }),
+        blocklist: blocklist({ status: 'error', message: 'db down' }),
+      })
+    );
+
+    expect(result).toMatchObject({ status: 'ok', meta: { blockedRemoved: 0 } });
+    expect(result.status === 'ok' && result.places).toHaveLength(1);
+  });
+
+  it('does not query the blocklist when Google was not called', async () => {
+    const blocklistMock = blocklist({ status: 'ok', blocked: new Set() });
+    await findNearbyPlaces(
+      request,
+      deps({ local: localSource({ status: 'ok', places: threeNearbyLocals }), google: googleSource({ status: 'ok', places: [] }), blocklist: blocklistMock })
+    );
+
+    expect(blocklistMock.findBlocked).not.toHaveBeenCalled();
   });
 
   it('honours a smaller requested maxResults for both sources', async () => {
