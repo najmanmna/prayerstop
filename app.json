@@ -29,7 +29,12 @@
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.SCHEDULE_EXACT_ALARM"
       ],
-      "package": "com.ahamedwebstudio.prayerstop"
+      "package": "com.ahamedwebstudio.prayerstop",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC3rgUa7JjDuL--8Sx89gj7SA6PfEyXtFw"
+        }
+      }
     },
     "web": {
       "output": "server",

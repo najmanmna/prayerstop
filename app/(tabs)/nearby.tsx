@@ -1,15 +1,16 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { ActivityIndicator, Platform, RefreshControl, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, RefreshControl, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AlternatePlaceRow } from '@/components/home/alternate-place-row';
-import { DistancePlaceRow } from '@/components/nearby/distance-place-row';
-import { NearbyMap } from '@/components/nearby/nearby-map';
+import { DistancePlaceRow, formatStraightLineDistance } from '@/components/nearby/distance-place-row';
+import type { NearbyMapPin } from '@/components/nearby/map-pin';
+import { NEARBY_MAP_AVAILABLE, NearbyMap } from '@/components/nearby/nearby-map';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors, FeasibilityColors } from '@/constants/theme';
+import { Colors } from '@/constants/theme';
 import { useNearbyPlacesSession } from '@/hooks/nearby-places-session';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
@@ -19,13 +20,6 @@ import { DEFAULT_NEARBY_OPTIONS } from '@/lib/prayer-places/nearby-places-api-re
 import { openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
 import { formatClock12, formatDuration } from '@/lib/time';
 import type { PrayerPlace } from '@/types/home';
-
-type ViewMode = 'list' | 'map';
-
-// expo-maps' Apple Maps path is the only one wired up (Android's Google
-// Maps path needs its own Maps SDK API key we don't have configured — see
-// docs/06-data-and-api-plan.md). Only offer the toggle where it works.
-const MAP_SUPPORTED = Platform.OS === 'ios';
 
 /**
  * Nearby reads the same shared session Home does (`useNearbyPlacesSession`)
@@ -38,8 +32,7 @@ export default function NearbyScreen() {
   const isRefreshingEverything = device.isRefreshing || nearby.status === 'loading';
   const prayerTimes = usePrayerTimes();
   const timing = selectPrayerTimesForContext(prayerTimes, 'now');
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
-  const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
+  const [selectedPinId, setSelectedPinId] = useState<string | null>(null);
 
   const places: PrayerPlace[] =
     timing && nearby.status === 'ready'
@@ -60,8 +53,27 @@ export default function NearbyScreen() {
       : timing.window.name
     : null;
 
-  const selectedPlace = places.find((place) => place.id === selectedPlaceId) ?? places[0] ?? null;
   const goToDetails = (placeId: string) => router.push(buildPlaceDetailsPath(placeId));
+
+  // Map pins: the routed places with their real ETA, then the distance-only
+  // ones with straight-line distance — the same honesty rule as the list.
+  const pins: NearbyMapPin[] = [
+    ...places.map((place) => ({
+      id: place.id,
+      name: place.name,
+      coordinates: place.coordinates,
+      detail: `${place.etaMinutes} min · arrive ${formatClock12(place.arrivalTime)}`,
+    })),
+    ...morePlaces.map((place) => ({
+      id: place.id,
+      name: place.name,
+      coordinates: place.coordinates,
+      detail: formatStraightLineDistance(place.distanceKm),
+    })),
+  ];
+  const selectedPin = pins.find((pin) => pin.id === selectedPinId) ?? null;
+  const allPlaces = [...places, ...morePlaces];
+  const showMap = NEARBY_MAP_AVAILABLE && places.length > 0;
 
   // Mirrors Home's placesNotice pattern — every step of the pipeline gets an
   // honest state to render rather than a blank screen.
@@ -127,13 +139,6 @@ export default function NearbyScreen() {
           </ThemedText>
         )}
 
-        {MAP_SUPPORTED && places.length > 0 && (
-          <View style={styles.toggleRow}>
-            <ToggleButton label="List" active={viewMode === 'list'} onPress={() => setViewMode('list')} />
-            <ToggleButton label="Map" active={viewMode === 'map'} onPress={() => setViewMode('map')} />
-          </View>
-        )}
-
         {places.length === 0 ? (
           <View style={styles.noticeWrap}>
             <TouchableOpacity
@@ -146,22 +151,6 @@ export default function NearbyScreen() {
               </ThemedText>
               <ThemedText style={[styles.unavailableBody, { color: theme.textSecondary }]}>{notice?.body}</ThemedText>
             </TouchableOpacity>
-          </View>
-        ) : viewMode === 'map' && MAP_SUPPORTED ? (
-          <View style={styles.mapArea}>
-            <NearbyMap
-              places={places}
-              userCoords={device.status === 'granted' ? device.coords : null}
-              selectedPlaceId={selectedPlace?.id ?? null}
-              onSelectPlace={setSelectedPlaceId}
-            />
-            {selectedPlace && (
-              <SelectedPlaceCard
-                place={selectedPlace}
-                theme={theme}
-                onPress={() => goToDetails(selectedPlace.id)}
-              />
-            )}
           </View>
         ) : (
           <ScrollView
@@ -180,6 +169,27 @@ export default function NearbyScreen() {
                 tintColor={theme.tint}
               />
             }>
+            {showMap && (
+              <View style={styles.mapCard}>
+                <NearbyMap
+                  pins={pins}
+                  userCoords={device.status === 'granted' ? device.coords : null}
+                  selectedPinId={selectedPin?.id ?? null}
+                  onSelectPin={setSelectedPinId}
+                />
+              </View>
+            )}
+            {showMap && selectedPin && (
+              <SelectedPinCard
+                pin={selectedPin}
+                onOpen={() => goToDetails(selectedPin.id)}
+                onOpenInMaps={() => {
+                  const place = allPlaces.find((entry) => entry.id === selectedPin.id);
+                  if (place) void openPlaceInGoogleMaps(place);
+                }}
+              />
+            )}
+
             <ThemedText style={[styles.summary, { color: theme.textSecondary }]}>
               {totalCount} {totalCount === 1 ? 'mosque' : 'mosques'} within {radiusKm} km
               {prayerSummary ? ` · ${prayerSummary}` : ''}
@@ -227,59 +237,37 @@ export default function NearbyScreen() {
   );
 }
 
-function ToggleButton({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
+function SelectedPinCard({
+  pin,
+  onOpen,
+  onOpenInMaps,
+}: {
+  pin: NearbyMapPin;
+  onOpen: () => void;
+  onOpenInMaps: () => void;
+}) {
   const theme = Colors[useColorScheme() ?? 'light'];
   return (
     <TouchableOpacity
-      onPress={onPress}
-      accessibilityRole="button"
-      style={[styles.toggleButton, active && { backgroundColor: theme.surfaceElevated }]}>
-      <ThemedText
-        type={active ? 'defaultSemiBold' : 'default'}
-        style={[styles.toggleLabel, { color: active ? theme.tint : theme.textSecondary }]}>
-        {label}
-      </ThemedText>
-    </TouchableOpacity>
-  );
-}
-
-function SelectedPlaceCard({
-  place,
-  theme,
-  onPress,
-}: {
-  place: PrayerPlace;
-  theme: (typeof Colors)['light'];
-  onPress: () => void;
-}) {
-  const statusColor = FeasibilityColors[place.feasibility].foreground;
-  return (
-    <TouchableOpacity
-      onPress={onPress}
+      onPress={onOpen}
       activeOpacity={0.85}
       accessibilityRole="button"
-      style={[styles.selectedCard, { backgroundColor: theme.surfaceElevated }]}>
+      style={[styles.selectedCard, { backgroundColor: theme.surface }]}>
       <View style={styles.selectedInfo}>
         <ThemedText type="defaultSemiBold" numberOfLines={1}>
-          {place.name}
+          {pin.name}
         </ThemedText>
-        <ThemedText style={[styles.selectedArea, { color: theme.textSecondary }]} numberOfLines={1}>
-          {place.area}
-        </ThemedText>
-      </View>
-      <View style={styles.selectedMeta}>
-        <ThemedText style={[styles.selectedEta, { color: statusColor }]}>{place.etaMinutes} min</ThemedText>
-        <ThemedText style={[styles.selectedArrival, { color: theme.textMuted }]}>
-          Arrive {formatClock12(place.arrivalTime)}
+        <ThemedText style={[styles.selectedDetail, { color: theme.textSecondary }]} numberOfLines={1}>
+          {pin.detail}
         </ThemedText>
       </View>
       <TouchableOpacity
-        onPress={() => openPlaceInGoogleMaps(place)}
+        onPress={onOpenInMaps}
         hitSlop={8}
         accessibilityRole="button"
-        accessibilityLabel={`View ${place.name} on Google Maps`}
+        accessibilityLabel={`View ${pin.name} on Google Maps`}
         style={styles.mapsButton}>
-        <IconSymbol name="mappin.circle.fill" size={18} color={theme.tint} />
+        <IconSymbol name="mappin.circle.fill" size={20} color={theme.tint} />
       </TouchableOpacity>
       <IconSymbol name="chevron.right" size={16} color={theme.textMuted} />
     </TouchableOpacity>
@@ -314,23 +302,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 6,
   },
-  toggleRow: {
-    flexDirection: 'row',
-    marginHorizontal: 20,
-    marginTop: 14,
-    padding: 3,
-    borderRadius: 12,
-    backgroundColor: 'rgba(0,0,0,0.04)',
-  },
-  toggleButton: {
-    flex: 1,
-    paddingVertical: 7,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  toggleLabel: {
-    fontSize: 13,
-  },
   noticeWrap: {
     padding: 20,
   },
@@ -363,6 +334,22 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: -6,
   },
+  mapCard: {
+    height: 260,
+    borderRadius: 22,
+    overflow: 'hidden',
+  },
+  selectedCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    borderRadius: 18,
+    paddingVertical: 12,
+    paddingHorizontal: 15,
+  },
+  selectedDetail: {
+    fontSize: 13,
+  },
   listCard: {
     borderRadius: 22,
     padding: 15,
@@ -372,44 +359,9 @@ const styles = StyleSheet.create({
     height: StyleSheet.hairlineWidth,
     marginTop: 10,
   },
-  mapArea: {
-    flex: 1,
-    margin: 20,
-    marginTop: 14,
-  },
-  selectedCard: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    borderRadius: 18,
-    padding: 14,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    shadowColor: '#000',
-    shadowOpacity: 0.12,
-    shadowRadius: 16,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 4,
-  },
   selectedInfo: {
     flex: 1,
     gap: 2,
-  },
-  selectedArea: {
-    fontSize: 12,
-  },
-  selectedMeta: {
-    alignItems: 'flex-end',
-    gap: 2,
-  },
-  selectedEta: {
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  selectedArrival: {
-    fontSize: 11,
   },
   mapsButton: {
     padding: 2,
