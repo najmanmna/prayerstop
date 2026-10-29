@@ -12,6 +12,7 @@
  *
  * Usage:
  *   node scripts/acju/parse-acju-pdf.js <path-to-pdf> --year 2025 [--out output.json]
+ *   node scripts/acju/parse-acju-pdf.js <path-to-pdf> --permanent [--out output.json]
  *
  * Also usable as a library:
  *   const { parseAcjuPdf } = require('./scripts/acju/parse-acju-pdf');
@@ -34,18 +35,27 @@ const MONTH_NAME = [
 // Column key -> accepted header spellings. LUHR is ACJU's own printed
 // spelling for Dhuhr in this document (not an extraction artifact) — DHUHR
 // and ZUHR are accepted too in case later months spell it differently.
+// ACJU's 2026 permanent-timetable PDFs print two Asr columns, ASR-SHAFIE and
+// ASR-HANAFI; `asr` is the Shafi'i time (the same column the older
+// single-Asr PDFs printed — verified identical for Aug–Dec), and the Hanafi
+// time is kept separately as `asrHanafi`.
 const COLUMN_ALIASES = {
   date: ['DATE'],
   fajr: ['FAJR'],
   sunrise: ['SUNRISE'],
   dhuhr: ['LUHR', 'DHUHR', 'ZUHR'],
-  asr: ['ASR'],
+  asr: ['ASR', 'ASR-SHAFIE', 'ASR-SHAFI'],
+  asrHanafi: ['ASR-HANAFI'],
   maghrib: ['MAGRIB', 'MAGHRIB'],
   isha: ['ISHA'],
 };
 const COLUMN_KEYS = Object.keys(COLUMN_ALIASES);
+const REQUIRED_KEYS = COLUMN_KEYS.filter((key) => key !== 'asrHanafi');
+// A permanent timetable has no year, so February has 29 rows (used only in leap years).
+const PERMANENT_MONTH_LENGTHS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-const DATE_CELL_PATTERN = /^(\d{1,2})-([A-Za-z]{3})$/;
+// "1-Aug" — and "Jun-1", which ACJU's 2026 Colombo June PDF uses instead.
+const DATE_CELL_PATTERN = /^(?:(\d{1,2})-([A-Za-z]{3})|([A-Za-z]{3})-(\d{1,2}))$/;
 const TIME_CELL_PATTERN = /^(\d{1,2}):(\d{2})\s*([AP]M)$/i;
 
 /** "4:43 AM" -> "04:43", "12:18 PM" -> "12:18", "7:44 PM" -> "19:44". */
@@ -68,7 +78,7 @@ function findColumnOrder(headerCells) {
     const normalized = cell.trim().toUpperCase();
     return COLUMN_KEYS.find((key) => COLUMN_ALIASES[key].includes(normalized)) ?? null;
   });
-  const hasAllColumns = COLUMN_KEYS.every((key) => order.includes(key));
+  const hasAllColumns = REQUIRED_KEYS.every((key) => order.includes(key)) && !order.includes(null);
   return hasAllColumns ? order : null;
 }
 
@@ -85,7 +95,7 @@ function extractRows(rawText) {
 
   for (let i = 0; i < lines.length; i++) {
     const cells = lines[i].split('\t').map((cell) => cell.trim());
-    if (cells.length !== COLUMN_KEYS.length) continue;
+    if (cells.length < REQUIRED_KEYS.length) continue;
     const order = findColumnOrder(cells);
     if (order) {
       columnOrder = order;
@@ -96,7 +106,7 @@ function extractRows(rawText) {
 
   if (!columnOrder) {
     throw new Error(
-      `Could not find a header row containing all of: ${COLUMN_KEYS.join(', ')}. ` +
+      `Could not find a header row containing all of: ${REQUIRED_KEYS.join(', ')}. ` +
         'The PDF layout may have changed — inspect the raw extracted text before adjusting this parser.'
     );
   }
@@ -129,8 +139,8 @@ function extractRows(rawText) {
     }
 
     rows.push({
-      day: Number(dateMatch[1]),
-      monthAbbr: dateMatch[2].toLowerCase(),
+      day: Number(dateMatch[1] ?? dateMatch[4]),
+      monthAbbr: (dateMatch[2] ?? dateMatch[3]).toLowerCase(),
       times,
     });
   }
@@ -149,7 +159,10 @@ function extractZone(rawText) {
 
 /** From a line like "PRAYER TIMECOLOMBO DISTRICT, GAMPAHA DISTRICT , KALUTARA DISTRICT - SRI LANKA". */
 function extractCoverage(rawText) {
-  const match = /PRAYER TIME\s*(.+?)\s*-\s*([A-Z ]+)\s*$/im.exec(rawText);
+  // Older PDFs: "PRAYER TIME<regions> - SRI LANKA" on one line. ACJU's 2026
+  // PDFs often put "<regions> - SRI LANKA" on a line of its own.
+  const match =
+    /PRAYER TIME[ \t]*(\S.*?)\s*-\s*([A-Z ]+)\s*$/im.exec(rawText) ?? /^[ \t]*([A-Z][A-Z ,().]*?)\s*-\s*(SRI LANKA)\s*$/m.exec(rawText);
   if (!match) return { regions: [], country: null };
   const regions = match[1]
     .split(',')
@@ -163,7 +176,7 @@ function extractCoverage(rawText) {
  * real calendar month, so a parsing mistake surfaces immediately instead of
  * silently producing wrong data.
  */
-function validateRows(rows, year) {
+function validateRows(rows, year, permanent = false) {
   const errors = [];
   const warnings = [];
 
@@ -178,9 +191,10 @@ function validateRows(rows, year) {
     return { errors, warnings, monthIndex: null };
   }
 
-  const expectedDayCount = new Date(year, monthIndex + 1, 0).getDate();
+  const expectedDayCount = permanent ? PERMANENT_MONTH_LENGTHS[monthIndex] : new Date(year, monthIndex + 1, 0).getDate();
   if (rows.length !== expectedDayCount) {
-    errors.push(`Expected ${expectedDayCount} days for ${MONTH_NAME[monthIndex]} ${year}, found ${rows.length}.`);
+    const label = permanent ? `${MONTH_NAME[monthIndex]} (permanent timetable)` : `${MONTH_NAME[monthIndex]} ${year}`;
+    errors.push(`Expected ${expectedDayCount} days for ${label}, found ${rows.length}.`);
   }
 
   rows.forEach((row, index) => {
@@ -188,7 +202,7 @@ function validateRows(rows, year) {
     if (row.day !== expectedDay) {
       errors.push(`Row ${index + 1}: expected day ${expectedDay}, found ${row.day}.`);
     }
-    const order = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
+    const order = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha']; // asrHanafi checked separately below
     const minutes = order.map((key) => {
       const [h, m] = row.times[key].split(':').map(Number);
       return h * 60 + m;
@@ -200,6 +214,9 @@ function validateRows(rows, year) {
         );
       }
     }
+    if (row.times.asrHanafi && !(row.times.asr < row.times.asrHanafi && row.times.asrHanafi < row.times.maghrib)) {
+      warnings.push(`Day ${row.day}: Hanafi Asr (${row.times.asrHanafi}) is not between Shafi'i Asr and Maghrib.`);
+    }
   });
 
   return { errors, warnings, monthIndex };
@@ -207,12 +224,16 @@ function validateRows(rows, year) {
 
 /**
  * @param {Buffer} pdfBuffer
- * @param {{ year: number, sourceFile?: string }} options
+ * @param {{ year?: number, permanent?: boolean, sourceFile?: string }} options
+ *   Exactly one of `year` (a timetable for one calendar year) or `permanent`
+ *   (ACJU's year-independent timetable: days keyed "MM-DD", February with
+ *   29 rows) — the PDF itself never says which, so the caller must.
  */
 async function parseAcjuPdf(pdfBuffer, options) {
-  if (!options || !Number.isInteger(options.year)) {
+  const permanent = options?.permanent === true;
+  if (!options || (permanent ? options.year !== undefined : !Number.isInteger(options.year))) {
     throw new Error(
-      'A --year is required: this PDF does not print a calendar year anywhere, so it cannot be inferred safely.'
+      'Pass exactly one of --year YYYY or --permanent: this PDF does not print a calendar year anywhere, so it cannot be inferred safely.'
     );
   }
 
@@ -228,19 +249,21 @@ async function parseAcjuPdf(pdfBuffer, options) {
   const rows = extractRows(rawText);
   const zone = extractZone(rawText);
   const { regions, country } = extractCoverage(rawText);
-  const { errors, warnings, monthIndex } = validateRows(rows, options.year);
+  const { errors, warnings, monthIndex } = validateRows(rows, options.year, permanent);
 
   if (errors.length > 0) {
     const message = ['Validation failed:', ...errors.map((error) => `  - ${error}`)].join('\n');
     throw new Error(message);
   }
 
+  const monthDayOf = (row) => `${String(monthIndex + 1).padStart(2, '0')}-${String(row.day).padStart(2, '0')}`;
   const days = rows.map((row) => ({
-    date: `${options.year}-${String(monthIndex + 1).padStart(2, '0')}-${String(row.day).padStart(2, '0')}`,
+    ...(permanent ? { monthDay: monthDayOf(row) } : { date: `${options.year}-${monthDayOf(row)}` }),
     fajr: row.times.fajr,
     sunrise: row.times.sunrise,
     dhuhr: row.times.dhuhr,
     asr: row.times.asr,
+    ...(row.times.asrHanafi ? { asrHanafi: row.times.asrHanafi } : {}),
     maghrib: row.times.maghrib,
     isha: row.times.isha,
   }));
@@ -252,7 +275,8 @@ async function parseAcjuPdf(pdfBuffer, options) {
       regions,
       country,
       month: MONTH_NAME[monthIndex],
-      year: options.year,
+      year: permanent ? null : options.year,
+      permanent,
       extractedAt: new Date().toISOString(),
     },
     days,
@@ -265,9 +289,10 @@ async function main() {
   const pdfPathArg = args.find((arg) => !arg.startsWith('--'));
   const yearArg = args.find((arg) => arg.startsWith('--year='))?.split('=')[1] ?? argValueAfterFlag(args, '--year');
   const outArg = args.find((arg) => arg.startsWith('--out='))?.split('=')[1] ?? argValueAfterFlag(args, '--out');
+  const permanent = args.includes('--permanent');
 
   if (!pdfPathArg) {
-    console.error('Usage: node scripts/acju/parse-acju-pdf.js <path-to-pdf> --year YYYY [--out output.json]');
+    console.error('Usage: node scripts/acju/parse-acju-pdf.js <path-to-pdf> (--year YYYY | --permanent) [--out output.json]');
     process.exitCode = 1;
     return;
   }
@@ -275,11 +300,11 @@ async function main() {
   const pdfPath = path.resolve(process.cwd(), pdfPathArg);
   const pdfBuffer = fs.readFileSync(pdfPath);
 
-  if (!yearArg) {
+  if (!yearArg && !permanent) {
     const parser = new PDFParse({ data: pdfBuffer });
     const info = await parser.getInfo();
     await parser.destroy();
-    console.error('Error: --year is required — this PDF does not print a calendar year anywhere.');
+    console.error('Error: --year (or --permanent) is required — this PDF does not print a calendar year anywhere.');
     if (info.info?.CreationDate) {
       console.error(`Hint: this PDF's own metadata says it was created ${info.info.CreationDate} — verify the intended year before passing --year, do not assume it.`);
     }
@@ -287,15 +312,17 @@ async function main() {
     return;
   }
 
-  const year = Number(yearArg);
-  const result = await parseAcjuPdf(pdfBuffer, { year, sourceFile: path.basename(pdfPath) });
+  const result = await parseAcjuPdf(
+    pdfBuffer,
+    permanent ? { permanent: true, sourceFile: path.basename(pdfPath) } : { year: Number(yearArg), sourceFile: path.basename(pdfPath) }
+  );
 
   const outPath = outArg
     ? path.resolve(process.cwd(), outArg)
     : pdfPath.replace(/\.pdf$/i, '.json');
   fs.writeFileSync(outPath, JSON.stringify(result, null, 2) + '\n');
 
-  console.log(`Parsed ${result.days.length} day(s) for ${result.source.month} ${result.source.year}, Zone ${result.source.zone}.`);
+  console.log(`Parsed ${result.days.length} day(s) for ${result.source.month} ${result.source.permanent ? '(permanent)' : result.source.year}, Zone ${result.source.zone}.`);
   console.log(`Regions: ${result.source.regions.join(', ')} — ${result.source.country}`);
   if (result.warnings.length > 0) {
     console.log(`\n${result.warnings.length} warning(s):`);

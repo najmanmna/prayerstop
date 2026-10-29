@@ -56,9 +56,9 @@ describe('zone data coverage', () => {
     expect(new Set(Object.values(DISTRICT_ZONES))).toEqual(zonesWithData);
   });
 
-  it.each(Object.keys(ACJU_ZONE_REGIONS))('Zone %s has every day from 1 Aug to 31 Dec 2026, in prayer order', (zoneId) => {
+  it.each(Object.keys(ACJU_ZONE_REGIONS))('Zone %s has every day of a leap year (2028), in prayer order', (zoneId) => {
     const toMinutes = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3));
-    for (let date = new Date(Date.UTC(2026, 7, 1)); date <= new Date(Date.UTC(2026, 11, 31)); date.setUTCDate(date.getUTCDate() + 1)) {
+    for (let date = new Date(Date.UTC(2028, 0, 1)); date <= new Date(Date.UTC(2028, 11, 31)); date.setUTCDate(date.getUTCDate() + 1)) {
       const day = acjuPrayerTimeRepository.getDailyTimes(zoneId, date.toISOString().slice(0, 10));
       expect(day).not.toBeNull();
       const order = [day!.fajr, day!.sunrise, day!.dhuhr, day!.asr, day!.maghrib, day!.isha].map(toMinutes);

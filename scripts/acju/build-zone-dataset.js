@@ -2,9 +2,21 @@
 
 /**
  * Merges the per-month ACJU extraction outputs (produced by
- * parse-acju-pdf.js) into one consolidated per-zone dataset consumed by the
- * app's PrayerTimeRepository (lib/prayer-times/). Every date in the merged
- * dataset traces back to a parsed PDF — nothing here is hardcoded.
+ * `parse-acju-pdf.js --permanent`) into one consolidated per-zone dataset
+ * consumed by the app's PrayerTimeRepository (lib/prayer-times/). Every day
+ * in the merged dataset traces back to a parsed PDF — nothing here is
+ * hardcoded.
+ *
+ * ACJU's timetable is permanent — the same times every year, keyed by
+ * calendar day, with a 29 February row for leap years. Verified 2026-10-29:
+ * ACJU's July-2025 and October-2026 uploads are identical on every
+ * overlapping day, no PDF prints a year, and February has 29 rows; real
+ * sunrise/noon/sunset for the same date differ by under 20 seconds between
+ * years, well inside ACJU's whole-minute rounding. So datasets are keyed by
+ * "MM-DD" (366 per zone), not by full date.
+ *
+ * Source PDFs + extractions: assets/images/prayer-times-acju-pdfs/permanent/
+ * zone-NN/NN-MM.pdf, with each file's ACJU URL in sources.json there.
  *
  * Usage: node scripts/acju/build-zone-dataset.js
  */
@@ -12,24 +24,32 @@
 const fs = require('fs');
 const path = require('path');
 
-const SOURCE_DIR = path.resolve(__dirname, '../../assets/images/prayer-times-acju-pdfs');
+const SOURCE_DIR = path.resolve(__dirname, '../../assets/images/prayer-times-acju-pdfs/permanent');
 const OUTPUT_DIR = path.resolve(__dirname, '../../data/acju');
+const MONTH_LENGTHS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-/** Extracted JSON files in SOURCE_DIR and its zone-N/ subfolders. */
+/** Every "MM-DD" in a permanent timetable, 01-01 .. 12-31 including 02-29. */
+function allMonthDays() {
+  return MONTH_LENGTHS.flatMap((length, monthIndex) =>
+    Array.from({ length }, (_, dayIndex) => `${String(monthIndex + 1).padStart(2, '0')}-${String(dayIndex + 1).padStart(2, '0')}`)
+  );
+}
+
+/** Extracted JSON files in the zone-NN/ subfolders of SOURCE_DIR. */
 function listExtractedFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) return listExtractedFiles(full);
-    return entry.name.endsWith('.json') ? [full] : [];
+    return /^\d{2}-\d{2}\.json$/.test(entry.name) ? [full] : [];
   });
 }
 
 /**
- * The zone comes from the official file name ("06-KURUNEGALA-DISTRICT-9-Sep.pdf"
- * -> "06"), NOT from the "Zone: NN" label printed inside the PDF: ACJU's own
- * Kurunegala PDFs for Sep and Nov 2026 print "Zone: 05" (verified: their
- * heading says KURUNEGALA DISTRICT and their times differ from Zone 05's on
- * almost every day). A mismatch is recorded on the dataset, never trusted.
+ * The zone comes from the file name ("06-09.json" -> "06"), NOT from the
+ * "Zone: NN" label printed inside the PDF: ACJU's earlier Kurunegala PDFs
+ * misprinted "Zone: 05", and acju.lk's October-2026 "Mullaitivu" downloads
+ * actually contain Colombo's Zone 01 timetable (see sources.json `_notes`).
+ * A mismatch is recorded on the dataset, never trusted.
  */
 function zoneFromFileName(file) {
   const match = /^(\d{2})-/.exec(path.basename(file));
@@ -46,12 +66,16 @@ function main() {
   const byZone = new Map();
   for (const file of files) {
     const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    if (!parsed.source.permanent) {
+      throw new Error(`${path.basename(file)} was not parsed with --permanent.`);
+    }
     const zone = zoneFromFileName(file);
     if (!byZone.has(zone)) {
       byZone.set(zone, {
         zone,
         regions: parsed.source.regions,
         country: parsed.source.country,
+        calendar: 'permanent',
         notes: [],
         days: [],
       });
@@ -67,47 +91,27 @@ function main() {
       );
     }
     if (parsed.source.zone !== zone) {
-      dataset.notes.push(
-        `${parsed.source.month} ${parsed.source.year}: PDF prints "Zone: ${parsed.source.zone}"; zone taken from the file name (${zone}).`
-      );
+      dataset.notes.push(`${parsed.source.month}: PDF prints "Zone: ${parsed.source.zone}"; zone taken from the file name (${zone}).`);
     }
     dataset.days.push(...parsed.days);
   }
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  const expected = allMonthDays();
 
-  for (const [zone, dataset] of byZone) {
-    dataset.days.sort((a, b) => a.date.localeCompare(b.date));
-
-    const seenDates = new Set();
-    const gaps = [];
-    let previousDate = null;
-    for (const day of dataset.days) {
-      if (seenDates.has(day.date)) {
-        throw new Error(`Zone ${zone}: duplicate date ${day.date} across source files.`);
-      }
-      seenDates.add(day.date);
-      if (previousDate) {
-        const expected = new Date(`${previousDate}T00:00:00Z`);
-        expected.setUTCDate(expected.getUTCDate() + 1);
-        const expectedIso = expected.toISOString().slice(0, 10);
-        if (expectedIso !== day.date) {
-          gaps.push(`${previousDate} -> ${day.date}`);
-        }
-      }
-      previousDate = day.date;
+  for (const [zone, dataset] of [...byZone].sort(([a], [b]) => a.localeCompare(b))) {
+    dataset.days.sort((a, b) => a.monthDay.localeCompare(b.monthDay));
+    const actual = dataset.days.map((day) => day.monthDay);
+    if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+      const missing = expected.filter((monthDay) => !actual.includes(monthDay));
+      const extra = actual.filter((monthDay, index) => !expected.includes(monthDay) || actual.indexOf(monthDay) !== index);
+      throw new Error(`Zone ${zone}: expected every day 01-01..12-31 once — missing ${missing.join(', ') || 'none'}, unexpected/duplicate ${extra.join(', ') || 'none'}.`);
     }
-
-    if (gaps.length > 0) {
-      throw new Error(`Zone ${zone}: date gap(s) found — ${gaps.join(', ')}. Add the missing month's PDF before building this dataset.`);
-    }
-
     if (dataset.notes.length === 0) delete dataset.notes;
+
     const outPath = path.join(OUTPUT_DIR, `zone-${zone}.json`);
     fs.writeFileSync(outPath, JSON.stringify(dataset, null, 2) + '\n');
-    console.log(
-      `Wrote ${outPath}: ${dataset.days.length} days, ${dataset.days[0].date} to ${dataset.days[dataset.days.length - 1].date}, no gaps.`
-    );
+    console.log(`Wrote ${outPath}: ${dataset.days.length} days (permanent, 01-01 to 12-31 incl. 02-29).`);
   }
 }
 

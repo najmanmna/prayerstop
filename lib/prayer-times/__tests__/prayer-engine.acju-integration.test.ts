@@ -1,10 +1,10 @@
 import zone01 from '@/data/acju/zone-01.json';
 
 import { acjuPrayerTimeRepository } from '../acju-repository';
-
-const ZONE_01 = '01';
 import { getPrayerEngineState } from '../prayer-engine';
 import type { DailyPrayerTimes } from '../types';
+
+const ZONE_01 = '01';
 
 /** Builds the UTC instant corresponding to a given Sri Lanka (UTC+5:30) wall-clock time. */
 function slInstant(isoDate: string, hours: number, minutes: number, seconds = 0): Date {
@@ -17,10 +17,11 @@ function hhmmToSeconds(hhmm: string): number {
   return hours * 3600 + minutes * 60;
 }
 
+/** Reads the bundled JSON directly (not via the repository) so the tests check the repository against the raw data. */
 function dayByDate(isoDate: string): DailyPrayerTimes {
-  const day = zone01.days.find((entry) => entry.date === isoDate);
-  if (!day) throw new Error(`Test fixture problem: ${isoDate} not found in the bundled zone-01 dataset.`);
-  return day;
+  const day = zone01.days.find((entry) => entry.monthDay === isoDate.slice(5));
+  if (!day) throw new Error(`Test fixture problem: ${isoDate.slice(5)} not found in the bundled zone-01 dataset.`);
+  return { date: isoDate, fajr: day.fajr, sunrise: day.sunrise, dhuhr: day.dhuhr, asr: day.asr, maghrib: day.maghrib, isha: day.isha };
 }
 
 describe('getPrayerEngineState against the real Zone 01 dataset', () => {
@@ -117,8 +118,27 @@ describe('getPrayerEngineState against the real Zone 01 dataset', () => {
     }
   );
 
-  it('reports unavailable after 2026-12-31\'s Isha, since 2027 is outside the dataset', () => {
+  it('crosses the 2026 -> 2027 year boundary (the timetable is permanent, so 2027 has times)', () => {
     const result = getPrayerEngineState(acjuPrayerTimeRepository, ZONE_01, slInstant('2026-12-31', 23, 0));
-    expect(result.status).toBe('unavailable');
+    expect(result.status).toBe('ok');
+    if (result.status !== 'ok') return;
+    expect(result.state.active).toEqual({ name: 'Isha', startTime: dayByDate('2026-12-31').isha, endTime: null, hasStarted: true });
+    expect(result.state.next.startTime).toBe(dayByDate('2027-01-01').fajr);
+  });
+
+  it('gives the same calendar day the same times in any year', () => {
+    for (const isoDate of ['2027-06-15', '2030-06-15', '2045-06-15']) {
+      expect(acjuPrayerTimeRepository.getDailyTimes(ZONE_01, isoDate)).toEqual(dayByDate(isoDate));
+    }
+  });
+
+  it('uses the 29 February row in a leap year, and goes straight from 28 February to 1 March otherwise', () => {
+    expect(acjuPrayerTimeRepository.getDailyTimes(ZONE_01, '2028-02-29')).toEqual(dayByDate('2028-02-29'));
+
+    // 2027 isn't a leap year: late on 28 Feb, the next Fajr is 1 March's.
+    const result = getPrayerEngineState(acjuPrayerTimeRepository, ZONE_01, slInstant('2027-02-28', 23, 0));
+    expect(result.status).toBe('ok');
+    if (result.status !== 'ok') return;
+    expect(result.state.next.startTime).toBe(dayByDate('2027-03-01').fajr);
   });
 });
