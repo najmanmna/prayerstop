@@ -6,7 +6,7 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
-import { formatClock12, formatDuration, getArrivalOutcome, offsetClock } from '@/lib/time';
+import { formatClock12, getArrivalOutcome, offsetClock } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
 /** Deliberately a plain row, not a card — reads as a lighter-weight alternative to the hero. */
@@ -33,15 +33,18 @@ export function AlternatePlaceRow({
   const statusColor = FeasibilityColors[place.feasibility].foreground;
   const leaveByTime = offsetClock(window.startTime, -place.etaMinutes);
 
-  let remainingText: string;
+  // One short status label instead of a sentence — the exact minutes live on
+  // the Home card and in Place Details. `place.feasibility` already encodes
+  // comfortable/tight/too-late correctly for this context.
+  let statusLabel: string | null;
   if (context === 'next') {
-    remainingText = `Leave by ${formatClock12(leaveByTime)}`;
+    statusLabel = `Leave by ${formatClock12(leaveByTime)}`;
   } else if (outcome.status === 'unknown') {
-    remainingText = `${window.name} end time not listed`;
+    statusLabel = null; // no listed end time (Isha) — nothing factual to label
   } else if (outcome.overflow) {
-    remainingText = 'Too late to reach';
+    statusLabel = 'Too late to reach';
   } else {
-    remainingText = `${formatDuration(outcome.remaining)} before ${window.name} ends`;
+    statusLabel = place.feasibility === 'tight' ? 'Just in time' : 'In time';
   }
 
   return (
@@ -53,39 +56,39 @@ export function AlternatePlaceRow({
       style={styles.row}>
       <PlaceThumbnail size={44} />
 
-      {/* Name and address get the full width and may wrap (never truncated
-          to "Mosque Mahara…"); travel details sit on their own line below
-          instead of squeezing the name from the right. */}
+      {/* Full name (up to 2 lines), address on one line, then just drive
+          time + distance and a status label — kept deliberately sparse. */}
       <View style={styles.info}>
         <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={2}>
           {place.name}
         </ThemedText>
         {place.area ? (
-          <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={2}>
+          <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={1}>
             {place.area}
           </ThemedText>
         ) : null}
         <View style={styles.statsLine}>
-          <View style={[styles.statusDot, { backgroundColor: statusColor }]} />
           <IconSymbol name="location.north.fill" size={11} color={statusColor} />
           <ThemedText style={[styles.eta, { color: statusColor }]}>{place.etaMinutes} min</ThemedText>
-          <ThemedText style={[styles.separator, { color: theme.textMuted }]}>·</ThemedText>
-          <ThemedText style={[styles.distance, { color: theme.textMuted }]}>{place.distanceKm.toFixed(1)} km</ThemedText>
-          <ThemedText style={[styles.separator, { color: theme.textMuted }]}>·</ThemedText>
-          <ThemedText style={[styles.remaining, { color: statusColor }]}>{remainingText}</ThemedText>
+          <ThemedText style={[styles.distance, { color: theme.textMuted }]}>· {place.distanceKm.toFixed(1)} km</ThemedText>
+          {statusLabel ? (
+            <View style={[styles.statusPill, { backgroundColor: FeasibilityColors[place.feasibility].background }]}>
+              <ThemedText style={[styles.statusLabel, { color: statusColor }]} numberOfLines={1}>
+                {statusLabel}
+              </ThemedText>
+            </View>
+          ) : null}
         </View>
       </View>
 
       <TouchableOpacity
         onPress={() => openPlaceInGoogleMaps(place)}
-        hitSlop={8}
+        hitSlop={10}
         accessibilityRole="button"
         accessibilityLabel={`View ${place.name} on Google Maps`}
         style={styles.mapsButton}>
         <IconSymbol name="mappin.circle.fill" size={22} color={theme.tint} />
       </TouchableOpacity>
-
-      <IconSymbol name="chevron.right" size={16} color={theme.textMuted} />
     </TouchableOpacity>
   );
 }
@@ -114,28 +117,27 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     columnGap: 4,
+    rowGap: 4,
     marginTop: 2,
-  },
-  statusDot: {
-    width: 5,
-    height: 5,
-    borderRadius: 3,
   },
   eta: {
     fontSize: 13,
     fontWeight: '700',
   },
-  separator: {
-    fontSize: 12,
-  },
   distance: {
     fontSize: 12,
   },
-  remaining: {
-    fontSize: 12,
-    fontWeight: '600',
+  statusPill: {
+    marginLeft: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 10,
+  },
+  statusLabel: {
+    fontSize: 11,
+    fontWeight: '700',
   },
   mapsButton: {
-    padding: 2,
+    padding: 4,
   },
 });

@@ -21,13 +21,13 @@ export function DistancePlaceRow({ place, onPress }: { place: DistanceRankedCand
     <TouchableOpacity onPress={onPress} activeOpacity={0.7} accessibilityRole="button" style={styles.row}>
       <PlaceThumbnail size={44} />
 
-      {/* Same layout as AlternatePlaceRow: full name and address, details below. */}
+      {/* Same layout as AlternatePlaceRow: full name, one-line address, distance below. */}
       <View style={styles.info}>
         <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={2}>
           {place.name}
         </ThemedText>
         {place.area ? (
-          <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={2}>
+          <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={1}>
             {place.area}
           </ThemedText>
         ) : null}
@@ -38,14 +38,12 @@ export function DistancePlaceRow({ place, onPress }: { place: DistanceRankedCand
 
       <TouchableOpacity
         onPress={() => openPlaceInGoogleMaps(place)}
-        hitSlop={8}
+        hitSlop={10}
         accessibilityRole="button"
         accessibilityLabel={`View ${place.name} on Google Maps`}
         style={styles.mapsButton}>
         <IconSymbol name="mappin.circle.fill" size={22} color={theme.tint} />
       </TouchableOpacity>
-
-      <IconSymbol name="chevron.right" size={16} color={theme.textMuted} />
     </TouchableOpacity>
   );
 }
@@ -79,6 +77,6 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   mapsButton: {
-    padding: 2,
+    padding: 4,
   },
 });
