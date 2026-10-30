@@ -36,7 +36,7 @@ const DEVELOPER_NAME = 'Ahamed Web Studio';
  * WhatsApp number for feedback, international format digits only (e.g.
  * '94771234567'). The WhatsApp row stays hidden until this is set.
  */
-const DEVELOPER_WHATSAPP: string | null = null;
+const DEVELOPER_WHATSAPP: string | null = '94717411188';
 
 export default function SettingsScreen() {
   const theme = Colors[useColorScheme() ?? 'light'];
