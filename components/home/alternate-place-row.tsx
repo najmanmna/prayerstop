@@ -37,11 +37,11 @@ export function AlternatePlaceRow({
   if (context === 'next') {
     remainingText = `Leave by ${formatClock12(leaveByTime)}`;
   } else if (outcome.status === 'unknown') {
-    remainingText = 'No deadline data';
+    remainingText = `${window.name} end time not listed`;
   } else if (outcome.overflow) {
     remainingText = 'Too late to reach';
   } else {
-    remainingText = `${formatDuration(outcome.remaining)} left`;
+    remainingText = `${formatDuration(outcome.remaining)} before ${window.name} ends`;
   }
 
   return (

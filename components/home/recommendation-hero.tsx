@@ -48,7 +48,8 @@ export function RecommendationHero({
     headline = `Leave by ${formatClock12(leaveByTime)}`;
     caption = `${driveDetail} · Arrive by ${formatClock12(window.startTime)}`;
   } else if (outcome.status === 'unknown') {
-    headline = 'No deadline data';
+    // Factual: ACJU's timetable lists no end time for this prayer (Isha).
+    headline = `${window.name} end time not listed`;
     headlineColor = theme.textMuted;
     caption = `${driveDetail} · Arrive ${formatClock12(place.arrivalTime)}`;
   } else if (outcome.overflow) {
@@ -57,7 +58,8 @@ export function RecommendationHero({
     headline = 'Too late to reach';
     caption = `Arrives ${formatDuration(Math.abs(outcome.remaining))} after ${window.name} ends · ${place.etaMinutes} min drive`;
   } else {
-    headline = `${formatDuration(outcome.remaining)} to spare`;
+    // Plain wording (was "X to spare", which testers found unclear).
+    headline = `Arrive ${formatDuration(outcome.remaining)} before ${window.name} ends`;
     caption = `${driveDetail} · Arrive ${formatClock12(place.arrivalTime)}`;
   }
 

@@ -49,7 +49,7 @@ export default function NearbyScreen() {
   const radiusKm = DEFAULT_NEARBY_OPTIONS.radiusMeters / 1000;
   const prayerSummary = timing
     ? timing.countdownSeconds !== null
-      ? `${timing.window.name} · ${formatDuration(Math.max(0, Math.round(timing.countdownSeconds / 60)))} left`
+      ? `${timing.window.name} ends in ${formatDuration(Math.max(0, Math.round(timing.countdownSeconds / 60)))}`
       : timing.window.name
     : null;
 
