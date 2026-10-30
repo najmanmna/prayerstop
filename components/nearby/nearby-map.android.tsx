@@ -11,7 +11,7 @@ import type { NearbyMapProps } from './map-pin';
  * tell us what the installed native build contains — so this is an explicit
  * switch, flipped when a build with the key is installed.
  */
-export const NEARBY_MAP_AVAILABLE = false;
+export const NEARBY_MAP_AVAILABLE = true;
 
 /**
  * Google Maps on Android via expo-maps. Deliberately NO `mapId`: map loads
