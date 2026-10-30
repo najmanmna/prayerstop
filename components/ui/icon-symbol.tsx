@@ -25,6 +25,7 @@ const MAPPING = {
   'gearshape.fill': 'settings',
   'arrow.clockwise': 'refresh',
   'bell.fill': 'notifications',
+  'info.circle.fill': 'info',
 } as IconMapping;
 
 /**
