@@ -19,22 +19,22 @@ export function DistancePlaceRow({ place, onPress }: { place: DistanceRankedCand
 
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.7} accessibilityRole="button" style={styles.row}>
-      <PlaceThumbnail size={40} />
+      <PlaceThumbnail size={44} />
 
+      {/* Same layout as AlternatePlaceRow: full name and address, details below. */}
       <View style={styles.info}>
-        <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={1}>
+        <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={2}>
           {place.name}
         </ThemedText>
         {place.area ? (
-          <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={1}>
+          <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={2}>
             {place.area}
           </ThemedText>
         ) : null}
+        <ThemedText style={[styles.distance, { color: theme.textMuted }]}>
+          {formatStraightLineDistance(place.distanceKm)}
+        </ThemedText>
       </View>
-
-      <ThemedText style={[styles.distance, { color: theme.textSecondary }]}>
-        {formatStraightLineDistance(place.distanceKm)}
-      </ThemedText>
 
       <TouchableOpacity
         onPress={() => openPlaceInGoogleMaps(place)}
@@ -42,7 +42,7 @@ export function DistancePlaceRow({ place, onPress }: { place: DistanceRankedCand
         accessibilityRole="button"
         accessibilityLabel={`View ${place.name} on Google Maps`}
         style={styles.mapsButton}>
-        <IconSymbol name="mappin.circle.fill" size={20} color={theme.tint} />
+        <IconSymbol name="mappin.circle.fill" size={22} color={theme.tint} />
       </TouchableOpacity>
 
       <IconSymbol name="chevron.right" size={16} color={theme.textMuted} />
@@ -60,20 +60,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    minHeight: 50,
+    paddingVertical: 4,
   },
   info: {
     flex: 1,
-    gap: 2,
+    gap: 3,
   },
   name: {
     fontSize: 15,
+    lineHeight: 20,
   },
   area: {
     fontSize: 12,
+    lineHeight: 16,
   },
   distance: {
-    fontSize: 13,
+    fontSize: 12,
+    marginTop: 2,
   },
   mapsButton: {
     padding: 2,

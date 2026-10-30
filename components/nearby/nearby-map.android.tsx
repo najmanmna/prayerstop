@@ -1,3 +1,4 @@
+import { useImage } from 'expo-image';
 import { GoogleMaps } from 'expo-maps';
 import { StyleSheet } from 'react-native';
 
@@ -22,11 +23,19 @@ export const NEARBY_MAP_AVAILABLE = true;
  */
 export function NearbyMap({ pins, userCoords, selectedPinId, onSelectPin }: NearbyMapProps) {
   const center = userCoords ?? pins[0]?.coordinates ?? { latitude: 6.9271, longitude: 79.8612 };
+  // Green pins in the approved accent (#126B46), darker and larger when
+  // selected. Google markers can't be tinted, so these are bitmaps; until
+  // they've loaded (null), the default marker is used.
+  const pinIcon = useImage(require('@/assets/images/map-pin.png'));
+  const selectedPinIcon = useImage(require('@/assets/images/map-pin-selected.png'));
 
   return (
     <GoogleMaps.View
       style={styles.map}
       cameraPosition={{ coordinates: center, zoom: 13 }}
+      // The app is light-only (see hooks/use-color-scheme.ts); without this
+      // the map follows the phone's dark mode.
+      colorScheme={GoogleMaps.MapColorScheme.LIGHT}
       properties={{ isMyLocationEnabled: userCoords !== null }}
       uiSettings={{ myLocationButtonEnabled: true, compassEnabled: false, mapToolbarEnabled: false }}
       markers={pins.map((pin) => ({
@@ -35,6 +44,7 @@ export function NearbyMap({ pins, userCoords, selectedPinId, onSelectPin }: Near
         title: pin.name,
         snippet: pin.detail,
         zIndex: pin.id === selectedPinId ? 1 : 0,
+        icon: (pin.id === selectedPinId ? selectedPinIcon : pinIcon) ?? undefined,
       }))}
       onMarkerClick={(marker) => {
         if (marker.id) onSelectPin(marker.id);

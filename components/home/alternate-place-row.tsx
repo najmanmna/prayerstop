@@ -51,25 +51,29 @@ export function AlternatePlaceRow({
       activeOpacity={onPress ? 0.7 : 1}
       accessibilityRole={onPress ? 'button' : undefined}
       style={styles.row}>
-      <PlaceThumbnail size={48} />
+      <PlaceThumbnail size={44} />
 
+      {/* Name and address get the full width and may wrap (never truncated
+          to "Mosque Mahara…"); travel details sit on their own line below
+          instead of squeezing the name from the right. */}
       <View style={styles.info}>
-        <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={1}>
+        <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={2}>
           {place.name}
         </ThemedText>
-        <ThemedText style={[styles.area, { color: theme.textSecondary }]}>{place.area}</ThemedText>
-      </View>
-
-      <View style={styles.stats}>
-        <View style={styles.etaRow}>
+        {place.area ? (
+          <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={2}>
+            {place.area}
+          </ThemedText>
+        ) : null}
+        <View style={styles.statsLine}>
           <View style={[styles.statusDot, { backgroundColor: statusColor }]} />
           <IconSymbol name="location.north.fill" size={11} color={statusColor} />
           <ThemedText style={[styles.eta, { color: statusColor }]}>{place.etaMinutes} min</ThemedText>
+          <ThemedText style={[styles.separator, { color: theme.textMuted }]}>·</ThemedText>
+          <ThemedText style={[styles.distance, { color: theme.textMuted }]}>{place.distanceKm.toFixed(1)} km</ThemedText>
+          <ThemedText style={[styles.separator, { color: theme.textMuted }]}>·</ThemedText>
+          <ThemedText style={[styles.remaining, { color: statusColor }]}>{remainingText}</ThemedText>
         </View>
-        <ThemedText style={[styles.distance, { color: theme.textMuted }]}>
-          {place.distanceKm.toFixed(1)} km
-        </ThemedText>
-        <ThemedText style={[styles.remaining, { color: statusColor }]}>{remainingText}</ThemedText>
       </View>
 
       <TouchableOpacity
@@ -78,7 +82,7 @@ export function AlternatePlaceRow({
         accessibilityRole="button"
         accessibilityLabel={`View ${place.name} on Google Maps`}
         style={styles.mapsButton}>
-        <IconSymbol name="mappin.circle.fill" size={20} color={theme.tint} />
+        <IconSymbol name="mappin.circle.fill" size={22} color={theme.tint} />
       </TouchableOpacity>
 
       <IconSymbol name="chevron.right" size={16} color={theme.textMuted} />
@@ -91,26 +95,26 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    minHeight: 58,
+    paddingVertical: 4,
   },
   info: {
     flex: 1,
-    gap: 2,
+    gap: 3,
   },
   name: {
     fontSize: 15,
+    lineHeight: 20,
   },
   area: {
     fontSize: 12,
+    lineHeight: 16,
   },
-  stats: {
-    alignItems: 'flex-end',
-    gap: 2,
-  },
-  etaRow: {
+  statsLine: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
-    gap: 3,
+    columnGap: 4,
+    marginTop: 2,
   },
   statusDot: {
     width: 5,
@@ -118,14 +122,17 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   eta: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
   },
+  separator: {
+    fontSize: 12,
+  },
   distance: {
-    fontSize: 11,
+    fontSize: 12,
   },
   remaining: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '600',
   },
   mapsButton: {

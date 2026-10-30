@@ -5,8 +5,9 @@ import type { NearbyMapProps } from './map-pin';
 
 export const NEARBY_MAP_AVAILABLE = true;
 
-const SELECTED_TINT = '#126B46'; // approved accent green (constants/theme.ts)
-const DEFAULT_TINT = '#8E8E93';
+// Approved accent green (constants/theme.ts); darker when selected — matches the Android pins.
+const DEFAULT_TINT = '#126B46';
+const SELECTED_TINT = '#0B4A30';
 
 /**
  * Real interactive map (Apple Maps via expo-maps) on iOS. Shows the
