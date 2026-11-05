@@ -8,6 +8,7 @@
 
 import { normalizeRouteMatrixResponse, type RawRouteMatrixElement } from '@/lib/prayer-places/normalize-route-matrix';
 import { MAX_ROUTE_MATRIX_DESTINATIONS, type TravelTimeDestination } from '@/lib/prayer-places/travel-time-repository';
+import { createRateLimiter, rateLimitResponse } from '@/lib/rate-limit';
 
 const GOOGLE_ROUTE_MATRIX_ENDPOINT = 'https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix';
 const FIELD_MASK = 'originIndex,destinationIndex,duration,distanceMeters,condition,status';
@@ -18,7 +19,13 @@ interface RequestBody {
   destinations?: { id?: string; coordinates?: { latitude?: number; longitude?: number } }[];
 }
 
+// One Route Matrix call per nearby-places session; see nearby-places+api.ts.
+const checkRateLimit = createRateLimiter({ limit: 30, windowMs: 60_000 });
+
 export async function POST(request: Request) {
+  const limited = rateLimitResponse(checkRateLimit, request);
+  if (limited) return limited;
+
   let body: RequestBody;
   try {
     body = await request.json();

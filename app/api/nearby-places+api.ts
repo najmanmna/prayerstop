@@ -17,8 +17,16 @@ import {
   createSupabasePlaceIdLinkWriter,
 } from '@/lib/prayer-places/supabase-mosque-source';
 import { validateNearbyRequest } from '@/lib/prayer-places/validate-nearby-request';
+import { createRateLimiter, rateLimitResponse } from '@/lib/rate-limit';
+
+// The app fetches once per session (first load, >500 m move, or manual
+// refresh), so this is generous for real use and cheap insurance against abuse.
+const checkRateLimit = createRateLimiter({ limit: 30, windowMs: 60_000 });
 
 export async function GET(request: Request) {
+  const limited = rateLimitResponse(checkRateLimit, request);
+  if (limited) return limited;
+
   const validation = validateNearbyRequest(new URL(request.url).searchParams, NEARBY_SEARCH_CONFIG);
   if (!validation.ok) {
     return Response.json({ error: validation.error }, { status: 400 });
