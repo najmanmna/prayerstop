@@ -1,3 +1,4 @@
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Constants from 'expo-constants';
 import { Alert, Linking, Platform, ScrollView, StyleSheet, Switch, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,6 +9,9 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { usePrayerNotifications } from '@/hooks/prayer-notifications';
+import { usePrayerZone } from '@/hooks/prayer-zone';
+import { ACJU_ZONE_REGIONS } from '@/lib/prayer-times/acju-repository';
+import { prayerZoneUnavailableReason } from '@/lib/prayer-times/prayer-zones';
 
 /**
  * Deliberately minimal for now — no user accounts (see the "no complex
@@ -15,11 +19,31 @@ import { usePrayerNotifications } from '@/hooks/prayer-notifications';
  * one real preference so far; exists as a real tab per Phase 6, not a
  * placeholder route.
  */
+/** "KANDY DISTRICT", "NUWARA ELIYA DISTRICT" → "Kandy, Nuwara Eliya" (ACJU prints region names in capitals). */
+function formatZoneRegions(regions: string[]): string {
+  return regions
+    .map((region) =>
+      region
+        .replace(/\s*DISTRICT\b/i, '')
+        .toLowerCase()
+        .replace(/\b[a-z]/g, (letter) => letter.toUpperCase())
+    )
+    .join(', ');
+}
+
+const DEVELOPER_NAME = 'Ahamed Web Studio';
+/**
+ * WhatsApp number for feedback, international format digits only (e.g.
+ * '94771234567'). The WhatsApp row stays hidden until this is set.
+ */
+const DEVELOPER_WHATSAPP: string | null = '94717411188';
+
 export default function SettingsScreen() {
   const theme = Colors[useColorScheme() ?? 'light'];
   const version = Constants.expoConfig?.version ?? '—';
   const notifications = usePrayerNotifications();
   const remindersOn = notifications.settings.enabled;
+  const zone = usePrayerZone();
 
   return (
     <ThemedView style={styles.flex}>
@@ -35,15 +59,30 @@ export default function SettingsScreen() {
           </View>
 
           <View style={[styles.card, { backgroundColor: theme.surface }]}>
+            <ThemedText type="defaultSemiBold">Prayer timetable</ThemedText>
+            {zone.status === 'ok' ? (
+              <>
+                <ThemedText>
+                  ACJU Zone {zone.zoneId} · {formatZoneRegions(ACJU_ZONE_REGIONS[zone.zoneId] ?? [])}
+                </ThemedText>
+                <ThemedText style={[styles.sectionCaption, { color: theme.textSecondary }]}>
+                  {zone.basis === 'current-location'
+                    ? `Chosen from your current location (${zone.district} district).`
+                    : `Chosen from your last known location (${zone.district} district).`}
+                </ThemedText>
+              </>
+            ) : (
+              <ThemedText style={[styles.sectionCaption, { color: theme.textSecondary }]}>
+                {prayerZoneUnavailableReason(zone)}
+              </ThemedText>
+            )}
+          </View>
+
+          <View style={[styles.card, { backgroundColor: theme.surface }]}>
             <View style={styles.sectionHeader}>
               <IconSymbol name="bell.fill" size={17} color={theme.tint} />
               <ThemedText type="defaultSemiBold">Prayer reminders</ThemedText>
             </View>
-            <ThemedText style={[styles.sectionCaption, { color: theme.textSecondary }]}>
-              Local reminders for Fajr, Dhuhr, Asr, Maghrib, and Isha — 10 minutes before and at the start of each.
-              Scheduled on this device only; no account and no internet connection required.
-            </ThemedText>
-
             <View style={styles.row}>
               <ThemedText type="defaultSemiBold">Enable reminders</ThemedText>
               <Switch
@@ -103,7 +142,7 @@ export default function SettingsScreen() {
             <View style={[styles.card, { backgroundColor: theme.surface }]}>
               <View style={styles.sectionHeader}>
                 <IconSymbol name="bell.fill" size={17} color={theme.textSecondary} />
-                <ThemedText type="defaultSemiBold">Developer</ThemedText>
+                <ThemedText type="defaultSemiBold">Debug tools</ThemedText>
               </View>
               <ThemedText style={[styles.sectionCaption, { color: theme.textSecondary }]}>
                 Fires a one-off local notification in 5 seconds, bypassing real prayer times — for checking
@@ -128,6 +167,33 @@ export default function SettingsScreen() {
               </TouchableOpacity>
             </View>
           )}
+
+          <View style={[styles.card, { backgroundColor: theme.surface }]}>
+            <View style={styles.sectionHeader}>
+              <IconSymbol name="info.circle.fill" size={17} color={theme.tint} />
+              <ThemedText type="defaultSemiBold">About</ThemedText>
+            </View>
+            <View style={styles.row}>
+              <ThemedText style={{ color: theme.textSecondary }}>Developed by</ThemedText>
+              <ThemedText type="defaultSemiBold">{DEVELOPER_NAME}</ThemedText>
+            </View>
+            {DEVELOPER_WHATSAPP && (
+              <TouchableOpacity
+                accessibilityRole="link"
+                accessibilityLabel={`Contact ${DEVELOPER_NAME} on WhatsApp`}
+                activeOpacity={0.7}
+                onPress={() => Linking.openURL(`https://wa.me/${DEVELOPER_WHATSAPP}`)}
+                style={styles.row}>
+                <ThemedText style={{ color: theme.textSecondary }}>Feedback & support</ThemedText>
+                <View style={styles.linkValue}>
+                  <FontAwesome name="whatsapp" size={18} color={theme.tint} />
+                  <ThemedText type="defaultSemiBold" style={{ color: theme.tint }}>
+                    WhatsApp
+                  </ThemedText>
+                </View>
+              </TouchableOpacity>
+            )}
+          </View>
 
           <ThemedText style={[styles.footnote, { color: theme.textMuted }]}>
             PrayerStop doesn&apos;t track whether you&apos;ve prayed, and doesn&apos;t require an account. More
@@ -182,6 +248,11 @@ const styles = StyleSheet.create({
     fontSize: 12.5,
     lineHeight: 17,
     fontWeight: '600',
+  },
+  linkValue: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
   },
   footnote: {
     fontSize: 13,

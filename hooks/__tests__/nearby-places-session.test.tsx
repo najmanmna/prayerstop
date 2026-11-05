@@ -30,7 +30,7 @@ const ORIGIN_A: GeoCoordinates = { latitude: 6.9271, longitude: 79.8612 };
 const ORIGIN_B: GeoCoordinates = { latitude: 6.9771, longitude: 79.8612 };
 
 function place(id: string): PrayerPlaceCandidate {
-  return { id, name: `Place ${id}`, area: 'Colombo', coordinates: { latitude: 6.92, longitude: 79.85 } };
+  return { id, source: 'google', localRecordId: null, googlePlaceId: null, name: `Place ${id}`, area: 'Colombo', coordinates: { latitude: 6.92, longitude: 79.85 } };
 }
 
 function grantLocation(coords: GeoCoordinates, timestamp = Date.now()) {
@@ -55,7 +55,7 @@ function makeFakeRepositories() {
   const getTravelTimes = jest.fn(
     async (_request: TravelTimeRequest): Promise<TravelTimeMatrixResult> => ({
       status: 'ok',
-      results: [{ placeId: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } }],
+      results: [{ id: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } }],
     })
   );
   return { placeRepository: { findNearby }, travelTimeRepository: { getTravelTimes } };
@@ -315,7 +315,7 @@ describe('NearbyPlacesSessionProvider — single session shared across screens',
       const travelTimeRepository = {
         getTravelTimes: jest.fn(async () => ({
           status: 'ok' as const,
-          results: [{ placeId: 'a', outcome: { status: 'ok' as const, durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } }],
+          results: [{ id: 'a', outcome: { status: 'ok' as const, durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } }],
         })),
       };
       let latest: NearbyPlacesSessionValue | undefined;

@@ -6,6 +6,9 @@ const origin = { latitude: 6.9271, longitude: 79.8612 };
 function candidate(id: string, offsetDegrees: number): PrayerPlaceCandidate {
   return {
     id,
+    source: 'google',
+    localRecordId: null,
+    googlePlaceId: null,
     name: `Place ${id}`,
     area: 'Colombo',
     coordinates: { latitude: origin.latitude + offsetDegrees, longitude: origin.longitude + offsetDegrees },

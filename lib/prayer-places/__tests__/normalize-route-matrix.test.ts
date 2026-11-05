@@ -2,9 +2,9 @@ import { normalizeRouteMatrixResponse, type RawRouteMatrixElement } from '../nor
 import type { TravelTimeDestination } from '../travel-time-repository';
 
 const destinations: TravelTimeDestination[] = [
-  { placeId: 'a', coordinates: { latitude: 6.9, longitude: 79.8 } },
-  { placeId: 'b', coordinates: { latitude: 6.91, longitude: 79.81 } },
-  { placeId: 'c', coordinates: { latitude: 6.92, longitude: 79.82 } },
+  { id: 'a', coordinates: { latitude: 6.9, longitude: 79.8 } },
+  { id: 'b', coordinates: { latitude: 6.91, longitude: 79.81 } },
+  { id: 'c', coordinates: { latitude: 6.92, longitude: 79.82 } },
 ];
 
 function okElement(destinationIndex: number, durationSeconds: number, distanceMeters: number): RawRouteMatrixElement {
@@ -25,9 +25,9 @@ describe('normalizeRouteMatrixResponse', () => {
     const results = normalizeRouteMatrixResponse(elements, destinations);
 
     expect(results).toEqual([
-      { placeId: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
-      { placeId: 'b', outcome: { status: 'ok', durationSeconds: 600, distanceMeters: 5000, condition: 'ROUTE_EXISTS' } },
-      { placeId: 'c', outcome: { status: 'ok', durationSeconds: 900, distanceMeters: 8000, condition: 'ROUTE_EXISTS' } },
+      { id: 'a', outcome: { status: 'ok', durationSeconds: 300, distanceMeters: 2000, condition: 'ROUTE_EXISTS' } },
+      { id: 'b', outcome: { status: 'ok', durationSeconds: 600, distanceMeters: 5000, condition: 'ROUTE_EXISTS' } },
+      { id: 'c', outcome: { status: 'ok', durationSeconds: 900, distanceMeters: 8000, condition: 'ROUTE_EXISTS' } },
     ]);
   });
 
@@ -40,7 +40,7 @@ describe('normalizeRouteMatrixResponse', () => {
 
     const results = normalizeRouteMatrixResponse(elements, destinations);
 
-    expect(results[1]).toEqual({ placeId: 'b', outcome: { status: 'error', message: 'Internal error' } });
+    expect(results[1]).toEqual({ id: 'b', outcome: { status: 'error', message: 'Internal error' } });
     expect(results[0].outcome.status).toBe('ok');
     expect(results[2].outcome.status).toBe('ok');
   });
@@ -54,7 +54,7 @@ describe('normalizeRouteMatrixResponse', () => {
 
     const results = normalizeRouteMatrixResponse(elements, destinations);
 
-    expect(results[1]).toEqual({ placeId: 'b', outcome: { status: 'unreachable', condition: 'ROUTE_NOT_FOUND' } });
+    expect(results[1]).toEqual({ id: 'b', outcome: { status: 'unreachable', condition: 'ROUTE_NOT_FOUND' } });
   });
 
   it('treats a missing element for a destination index as an error, never silently dropped', () => {

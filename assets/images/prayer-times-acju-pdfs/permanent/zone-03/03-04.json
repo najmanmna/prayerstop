@@ -1,0 +1,289 @@
+{
+  "source": {
+    "file": "03-04.pdf",
+    "zone": "03",
+    "regions": [
+      "MULLAITIVU DISTRICT (EXCEPT NALLUR)",
+      "KILINOCHCHI DISTRICT",
+      "VAVUNIYA DISTRICT"
+    ],
+    "country": "SRI LANKA",
+    "month": "April",
+    "year": null,
+    "permanent": true,
+    "extractedAt": "2026-10-29T17:39:10.120Z"
+  },
+  "days": [
+    {
+      "monthDay": "04-01",
+      "fajr": "04:49",
+      "sunrise": "06:06",
+      "dhuhr": "12:14",
+      "asr": "15:23",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-02",
+      "fajr": "04:48",
+      "sunrise": "06:06",
+      "dhuhr": "12:13",
+      "asr": "15:23",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-03",
+      "fajr": "04:47",
+      "sunrise": "06:05",
+      "dhuhr": "12:13",
+      "asr": "15:22",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-04",
+      "fajr": "04:47",
+      "sunrise": "06:05",
+      "dhuhr": "12:13",
+      "asr": "15:21",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-05",
+      "fajr": "04:46",
+      "sunrise": "06:04",
+      "dhuhr": "12:12",
+      "asr": "15:20",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-06",
+      "fajr": "04:46",
+      "sunrise": "06:03",
+      "dhuhr": "12:12",
+      "asr": "15:19",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-07",
+      "fajr": "04:45",
+      "sunrise": "06:03",
+      "dhuhr": "12:12",
+      "asr": "15:18",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-08",
+      "fajr": "04:44",
+      "sunrise": "06:02",
+      "dhuhr": "12:12",
+      "asr": "15:18",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "04-09",
+      "fajr": "04:44",
+      "sunrise": "06:02",
+      "dhuhr": "12:11",
+      "asr": "15:17",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-10",
+      "fajr": "04:43",
+      "sunrise": "06:01",
+      "dhuhr": "12:11",
+      "asr": "15:16",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-11",
+      "fajr": "04:43",
+      "sunrise": "06:01",
+      "dhuhr": "12:11",
+      "asr": "15:15",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-12",
+      "fajr": "04:42",
+      "sunrise": "06:00",
+      "dhuhr": "12:10",
+      "asr": "15:14",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-13",
+      "fajr": "04:41",
+      "sunrise": "06:00",
+      "dhuhr": "12:10",
+      "asr": "15:13",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-14",
+      "fajr": "04:41",
+      "sunrise": "05:59",
+      "dhuhr": "12:10",
+      "asr": "15:13",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-15",
+      "fajr": "04:40",
+      "sunrise": "05:59",
+      "dhuhr": "12:10",
+      "asr": "15:13",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-16",
+      "fajr": "04:40",
+      "sunrise": "05:58",
+      "dhuhr": "12:09",
+      "asr": "15:14",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-17",
+      "fajr": "04:39",
+      "sunrise": "05:58",
+      "dhuhr": "12:09",
+      "asr": "15:14",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-18",
+      "fajr": "04:38",
+      "sunrise": "05:57",
+      "dhuhr": "12:09",
+      "asr": "15:15",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-19",
+      "fajr": "04:38",
+      "sunrise": "05:57",
+      "dhuhr": "12:09",
+      "asr": "15:15",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-20",
+      "fajr": "04:37",
+      "sunrise": "05:57",
+      "dhuhr": "12:09",
+      "asr": "15:16",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "04-21",
+      "fajr": "04:37",
+      "sunrise": "05:56",
+      "dhuhr": "12:08",
+      "asr": "15:16",
+      "maghrib": "18:20",
+      "isha": "19:31"
+    },
+    {
+      "monthDay": "04-22",
+      "fajr": "04:36",
+      "sunrise": "05:56",
+      "dhuhr": "12:08",
+      "asr": "15:17",
+      "maghrib": "18:20",
+      "isha": "19:31"
+    },
+    {
+      "monthDay": "04-23",
+      "fajr": "04:36",
+      "sunrise": "05:55",
+      "dhuhr": "12:08",
+      "asr": "15:17",
+      "maghrib": "18:20",
+      "isha": "19:31"
+    },
+    {
+      "monthDay": "04-24",
+      "fajr": "04:35",
+      "sunrise": "05:55",
+      "dhuhr": "12:08",
+      "asr": "15:18",
+      "maghrib": "18:20",
+      "isha": "19:31"
+    },
+    {
+      "monthDay": "04-25",
+      "fajr": "04:35",
+      "sunrise": "05:54",
+      "dhuhr": "12:08",
+      "asr": "15:18",
+      "maghrib": "18:20",
+      "isha": "19:31"
+    },
+    {
+      "monthDay": "04-26",
+      "fajr": "04:34",
+      "sunrise": "05:54",
+      "dhuhr": "12:07",
+      "asr": "15:19",
+      "maghrib": "18:20",
+      "isha": "19:31"
+    },
+    {
+      "monthDay": "04-27",
+      "fajr": "04:34",
+      "sunrise": "05:54",
+      "dhuhr": "12:07",
+      "asr": "15:19",
+      "maghrib": "18:20",
+      "isha": "19:32"
+    },
+    {
+      "monthDay": "04-28",
+      "fajr": "04:33",
+      "sunrise": "05:53",
+      "dhuhr": "12:07",
+      "asr": "15:20",
+      "maghrib": "18:20",
+      "isha": "19:32"
+    },
+    {
+      "monthDay": "04-29",
+      "fajr": "04:32",
+      "sunrise": "05:53",
+      "dhuhr": "12:07",
+      "asr": "15:20",
+      "maghrib": "18:20",
+      "isha": "19:32"
+    },
+    {
+      "monthDay": "04-30",
+      "fajr": "04:32",
+      "sunrise": "05:53",
+      "dhuhr": "12:07",
+      "asr": "15:20",
+      "maghrib": "18:20",
+      "isha": "19:32"
+    }
+  ],
+  "warnings": []
+}

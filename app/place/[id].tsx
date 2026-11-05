@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { PlaceThumbnail } from '@/components/home/place-thumbnail';
+import { formatStraightLineDistance } from '@/components/nearby/distance-place-row';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -12,7 +13,8 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
 import { buildPlaceScenario } from '@/lib/prayer-places/build-place-scenario';
 import { findCandidateById } from '@/lib/prayer-places/find-candidate';
-import { openExternalNavigation } from '@/lib/prayer-places/navigation';
+import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
+import type { DistanceRankedCandidate } from '@/lib/prayer-places/select-candidates';
 import { formatClock12, formatDuration, getArrivalOutcome } from '@/lib/time';
 
 /**
@@ -34,6 +36,14 @@ export default function PlaceDetailsScreen() {
     candidate && timing
       ? buildPlaceScenario([candidate], 'now', timing.window, timing.countdownSeconds)?.recommendation
       : null;
+
+  // A "More nearby" place: found by discovery but never sent to Routes, so
+  // there is no ETA or feasibility to show — distance and actions only.
+  const distanceOnly =
+    !candidate && nearby.status === 'ready' ? (nearby.morePlaces.find((entry) => entry.id === id) ?? null) : null;
+  if (distanceOnly) {
+    return <DistanceOnlyDetails place={distanceOnly} />;
+  }
 
   if (!place || !timing) {
     return (
@@ -121,11 +131,68 @@ export default function PlaceDetailsScreen() {
           <TouchableOpacity
             accessibilityRole="button"
             activeOpacity={0.85}
-            onPress={() => openExternalNavigation(place.coordinates, place.id)}
+            onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
             style={[styles.cta, { backgroundColor: theme.tint }]}>
             <IconSymbol name="location.north.fill" size={16} color="#FFFFFF" />
             <ThemedText type="defaultSemiBold" style={styles.ctaLabel}>
               Navigate
+            </ThemedText>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    </ThemedView>
+  );
+}
+
+function DistanceOnlyDetails({ place }: { place: DistanceRankedCandidate }) {
+  const theme = Colors[useColorScheme() ?? 'light'];
+  return (
+    <ThemedView style={styles.flex}>
+      <SafeAreaView style={styles.flex} edges={['bottom']}>
+        <ScrollView contentContainerStyle={styles.content}>
+          <View style={styles.headerRow}>
+            <PlaceThumbnail size={72} />
+            <View style={styles.headerInfo}>
+              <ThemedText type="defaultSemiBold" style={styles.name}>
+                {place.name}
+              </ThemedText>
+              {place.area ? (
+                <ThemedText style={[styles.address, { color: theme.textSecondary }]}>{place.area}</ThemedText>
+              ) : null}
+            </View>
+          </View>
+
+          <View style={[styles.statsCard, { backgroundColor: theme.surface }]}>
+            <View style={styles.statColumn}>
+              <ThemedText style={[styles.statLabel, { color: theme.textMuted }]}>Straight-line distance</ThemedText>
+              <ThemedText style={styles.statValue}>{formatStraightLineDistance(place.distanceKm)}</ThemedText>
+            </View>
+          </View>
+
+          <ThemedText style={[styles.feasibilityNote, { color: theme.textMuted }]}>
+            Live travel time is only checked for the nearest few mosques, so we can&apos;t say how long this one takes
+            to reach or whether you&apos;d arrive in time. Navigate to see the route in Google Maps.
+          </ThemedText>
+
+          <TouchableOpacity
+            accessibilityRole="button"
+            activeOpacity={0.85}
+            onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
+            style={[styles.cta, { backgroundColor: theme.tint }]}>
+            <IconSymbol name="location.north.fill" size={16} color="#FFFFFF" />
+            <ThemedText type="defaultSemiBold" style={styles.ctaLabel}>
+              Navigate
+            </ThemedText>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            accessibilityRole="button"
+            activeOpacity={0.7}
+            onPress={() => openPlaceInGoogleMaps(place)}
+            style={styles.secondaryCta}>
+            <IconSymbol name="mappin.circle.fill" size={16} color={theme.tint} />
+            <ThemedText type="defaultSemiBold" style={{ color: theme.tint }}>
+              View on Google Maps
             </ThemedText>
           </TouchableOpacity>
         </ScrollView>
@@ -212,6 +279,13 @@ const styles = StyleSheet.create({
     gap: 8,
     borderRadius: 16,
     paddingVertical: 14,
+  },
+  secondaryCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 10,
   },
   ctaLabel: {
     color: '#FFFFFF',

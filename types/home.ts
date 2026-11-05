@@ -1,4 +1,4 @@
-import type { GeoCoordinates } from '@/lib/prayer-places/types';
+import type { GeoCoordinates, PlaceIdentity } from '@/lib/prayer-places/types';
 import type { PrayerName } from '@/lib/prayer-times/types';
 
 export type { PrayerName };
@@ -16,8 +16,7 @@ export interface PrayerWindow {
   hasStarted: boolean;
 }
 
-export interface PrayerPlace {
-  id: string;
+export interface PrayerPlace extends PlaceIdentity {
   name: string;
   area: string;
   /** Needed to open external navigation (see lib/prayer-places/navigation.ts) — not shown directly in the UI. */

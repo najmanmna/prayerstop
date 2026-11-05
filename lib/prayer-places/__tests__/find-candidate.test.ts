@@ -4,6 +4,9 @@ import type { RankedPrayerPlaceCandidate } from '../types';
 function candidate(id: string): RankedPrayerPlaceCandidate {
   return {
     id,
+    source: 'google',
+    localRecordId: null,
+    googlePlaceId: null,
     name: `Place ${id}`,
     area: 'Colombo',
     coordinates: { latitude: 6.9, longitude: 79.8 },

@@ -121,6 +121,9 @@ export function buildPlaceScenario(
         : classifyNextFeasibility(candidate.etaMinutes, countdownSeconds);
     return {
       id: candidate.id,
+      source: candidate.source,
+      localRecordId: candidate.localRecordId,
+      googlePlaceId: candidate.googlePlaceId,
       name: candidate.name,
       area: candidate.area,
       coordinates: candidate.coordinates,

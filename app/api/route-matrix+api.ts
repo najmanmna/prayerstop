@@ -8,6 +8,7 @@
 
 import { normalizeRouteMatrixResponse, type RawRouteMatrixElement } from '@/lib/prayer-places/normalize-route-matrix';
 import { MAX_ROUTE_MATRIX_DESTINATIONS, type TravelTimeDestination } from '@/lib/prayer-places/travel-time-repository';
+import { createRateLimiter, rateLimitResponse } from '@/lib/rate-limit';
 
 const GOOGLE_ROUTE_MATRIX_ENDPOINT = 'https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix';
 const FIELD_MASK = 'originIndex,destinationIndex,duration,distanceMeters,condition,status';
@@ -15,10 +16,16 @@ const REQUEST_TIMEOUT_MS = 8000;
 
 interface RequestBody {
   origin?: { latitude?: number; longitude?: number };
-  destinations?: { placeId?: string; coordinates?: { latitude?: number; longitude?: number } }[];
+  destinations?: { id?: string; coordinates?: { latitude?: number; longitude?: number } }[];
 }
 
+// One Route Matrix call per nearby-places session; see nearby-places+api.ts.
+const checkRateLimit = createRateLimiter({ limit: 30, windowMs: 60_000 });
+
 export async function POST(request: Request) {
+  const limited = rateLimitResponse(checkRateLimit, request);
+  if (limited) return limited;
+
   let body: RequestBody;
   try {
     body = await request.json();
@@ -37,12 +44,12 @@ export async function POST(request: Request) {
     // the caller alone to respect the "top few candidates only" rule.
     .slice(0, MAX_ROUTE_MATRIX_DESTINATIONS)
     .filter(
-      (d): d is { placeId: string; coordinates: { latitude: number; longitude: number } } =>
-        typeof d.placeId === 'string' &&
+      (d): d is { id: string; coordinates: { latitude: number; longitude: number } } =>
+        typeof d.id === 'string' &&
         typeof d.coordinates?.latitude === 'number' &&
         typeof d.coordinates?.longitude === 'number'
     )
-    .map((d) => ({ placeId: d.placeId, coordinates: d.coordinates }));
+    .map((d) => ({ id: d.id, coordinates: d.coordinates }));
 
   if (destinations.length === 0) {
     return Response.json({ error: 'At least one valid destination is required.' }, { status: 400 });

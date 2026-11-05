@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AppState, type AppStateStatus } from 'react-native';
 
-import { acjuPrayerTimeRepository, DEFAULT_ZONE_ID } from '@/lib/prayer-times/acju-repository';
+import { acjuPrayerTimeRepository } from '@/lib/prayer-times/acju-repository';
 import { getPrayerEngineState } from '@/lib/prayer-times/prayer-engine';
+import { prayerZoneUnavailableReason } from '@/lib/prayer-times/prayer-zones';
 import type { PlanningContext, PrayerWindow, ScheduleEntry } from '@/types/home';
+
+import { usePrayerZone } from './prayer-zone';
 
 export interface PrayerTimesForContext {
   window: PrayerWindow;
@@ -29,8 +32,9 @@ export type PrayerTimesHookState =
     };
 
 /**
- * Live, per-second view of the current/next prayer for Zone 01, backed by
- * the real ACJU-based prayer engine. Recomputes from a fresh `Date` every
+ * Live, per-second view of the current/next prayer for the user's ACJU zone
+ * (resolved from their location — see `usePrayerZone`), backed by the real
+ * ACJU-based prayer engine. Recomputes from a fresh `Date` every
  * tick rather than simulating elapsed time client-side, so it stays correct
  * across app backgrounding and can't drift.
  *
@@ -51,6 +55,7 @@ export type PrayerTimesHookState =
  * away instead of waiting up to a second for the next tick.
  */
 export function usePrayerTimes(): PrayerTimesHookState {
+  const zone = usePrayerZone();
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -72,7 +77,10 @@ export function usePrayerTimes(): PrayerTimesHookState {
   }, []);
 
   return useMemo<PrayerTimesHookState>(() => {
-    const result = getPrayerEngineState(acjuPrayerTimeRepository, DEFAULT_ZONE_ID, new Date());
+    if (zone.status !== 'ok') {
+      return { status: 'unavailable', reason: prayerZoneUnavailableReason(zone) };
+    }
+    const result = getPrayerEngineState(acjuPrayerTimeRepository, zone.zoneId, new Date());
     if (result.status === 'unavailable') {
       return { status: 'unavailable', reason: result.reason };
     }
@@ -104,7 +112,7 @@ export function usePrayerTimes(): PrayerTimesHookState {
       schedule,
       sunriseTime: today.sunrise,
     };
-  }, [tick]);
+  }, [tick, zone]);
 }
 
 export function selectPrayerTimesForContext(

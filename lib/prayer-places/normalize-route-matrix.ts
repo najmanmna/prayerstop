@@ -40,7 +40,7 @@ function toOutcome(element: RawRouteMatrixElement | undefined): TravelTimeOutcom
 
 /**
  * Converts Google's raw computeRouteMatrix response elements into our own
- * per-destination `TravelTimeResult[]`, keyed by the `placeId` we originally
+ * per-destination `TravelTimeResult[]`, keyed by the app place `id` we originally
  * sent (Google only knows the positional `destinationIndex`). An element
  * that errored, found no route, or is simply missing from the response is
  * normalized to an honest 'error'/'unreachable' outcome rather than a
@@ -52,7 +52,7 @@ export function normalizeRouteMatrixResponse(
   destinations: TravelTimeDestination[]
 ): TravelTimeResult[] {
   return destinations.map((destination, index) => ({
-    placeId: destination.placeId,
+    id: destination.id,
     outcome: toOutcome(elements.find((element) => element.destinationIndex === index)),
   }));
 }

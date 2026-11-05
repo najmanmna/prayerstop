@@ -48,7 +48,8 @@ export function RecommendationHero({
     headline = `Leave by ${formatClock12(leaveByTime)}`;
     caption = `${driveDetail} · Arrive by ${formatClock12(window.startTime)}`;
   } else if (outcome.status === 'unknown') {
-    headline = 'No deadline data';
+    // Factual: ACJU's timetable lists no end time for this prayer (Isha).
+    headline = `${window.name} end time not listed`;
     headlineColor = theme.textMuted;
     caption = `${driveDetail} · Arrive ${formatClock12(place.arrivalTime)}`;
   } else if (outcome.overflow) {
@@ -57,7 +58,8 @@ export function RecommendationHero({
     headline = 'Too late to reach';
     caption = `Arrives ${formatDuration(Math.abs(outcome.remaining))} after ${window.name} ends · ${place.etaMinutes} min drive`;
   } else {
-    headline = `${formatDuration(outcome.remaining)} to spare`;
+    // Plain wording (was "X to spare", which testers found unclear).
+    headline = `Arrive ${formatDuration(outcome.remaining)} before ${window.name} ends`;
     caption = `${driveDetail} · Arrive ${formatClock12(place.arrivalTime)}`;
   }
 
@@ -94,7 +96,7 @@ export function RecommendationHero({
         <TouchableOpacity
           accessibilityRole="button"
           activeOpacity={0.85}
-          onPress={() => openExternalNavigation(place.coordinates, place.id)}
+          onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
           style={[styles.actionButton, { backgroundColor: theme.tint }]}>
           <IconSymbol name="location.north.fill" size={15} color="#FFFFFF" />
           <ThemedText type="defaultSemiBold" style={styles.primaryActionLabel}>
@@ -104,7 +106,7 @@ export function RecommendationHero({
         <TouchableOpacity
           accessibilityRole="button"
           activeOpacity={0.7}
-          onPress={() => openPlaceInGoogleMaps(place.name, place.id)}
+          onPress={() => openPlaceInGoogleMaps(place)}
           style={[styles.actionButton, styles.secondaryAction, { backgroundColor: theme.surface, borderColor: theme.border }]}>
           <IconSymbol name="mappin.circle.fill" size={15} color={theme.tint} />
           <ThemedText type="defaultSemiBold" style={[styles.secondaryActionLabel, { color: theme.tint }]}>

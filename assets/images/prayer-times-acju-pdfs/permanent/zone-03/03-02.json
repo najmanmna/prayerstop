@@ -1,0 +1,280 @@
+{
+  "source": {
+    "file": "03-02.pdf",
+    "zone": "03",
+    "regions": [
+      "MULLAITIVU DISTRICT (EXCEPT NALLUR)",
+      "KILINOCHCHI DISTRICT",
+      "VAVUNIYA DISTRICT"
+    ],
+    "country": "SRI LANKA",
+    "month": "February",
+    "year": null,
+    "permanent": true,
+    "extractedAt": "2026-10-29T17:39:09.358Z"
+  },
+  "days": [
+    {
+      "monthDay": "02-01",
+      "fajr": "05:10",
+      "sunrise": "06:31",
+      "dhuhr": "12:23",
+      "asr": "15:44",
+      "maghrib": "18:15",
+      "isha": "19:27"
+    },
+    {
+      "monthDay": "02-02",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:23",
+      "asr": "15:44",
+      "maghrib": "18:15",
+      "isha": "19:27"
+    },
+    {
+      "monthDay": "02-03",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:24",
+      "asr": "15:44",
+      "maghrib": "18:16",
+      "isha": "19:27"
+    },
+    {
+      "monthDay": "02-04",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:16",
+      "isha": "19:27"
+    },
+    {
+      "monthDay": "02-05",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:16",
+      "isha": "19:28"
+    },
+    {
+      "monthDay": "02-06",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:17",
+      "isha": "19:28"
+    },
+    {
+      "monthDay": "02-07",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:17",
+      "isha": "19:28"
+    },
+    {
+      "monthDay": "02-08",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:17",
+      "isha": "19:28"
+    },
+    {
+      "monthDay": "02-09",
+      "fajr": "05:10",
+      "sunrise": "06:30",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:17",
+      "isha": "19:28"
+    },
+    {
+      "monthDay": "02-10",
+      "fajr": "05:10",
+      "sunrise": "06:29",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:18",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-11",
+      "fajr": "05:10",
+      "sunrise": "06:29",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:18",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-12",
+      "fajr": "05:10",
+      "sunrise": "06:29",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:18",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-13",
+      "fajr": "05:10",
+      "sunrise": "06:29",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:18",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-14",
+      "fajr": "05:10",
+      "sunrise": "06:29",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:18",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-15",
+      "fajr": "05:10",
+      "sunrise": "06:28",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:19",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-16",
+      "fajr": "05:09",
+      "sunrise": "06:28",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:19",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-17",
+      "fajr": "05:09",
+      "sunrise": "06:28",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:19",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-18",
+      "fajr": "05:09",
+      "sunrise": "06:27",
+      "dhuhr": "12:24",
+      "asr": "15:45",
+      "maghrib": "18:19",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-19",
+      "fajr": "05:09",
+      "sunrise": "06:27",
+      "dhuhr": "12:24",
+      "asr": "15:44",
+      "maghrib": "18:19",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-20",
+      "fajr": "05:08",
+      "sunrise": "06:27",
+      "dhuhr": "12:24",
+      "asr": "15:44",
+      "maghrib": "18:19",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-21",
+      "fajr": "05:08",
+      "sunrise": "06:26",
+      "dhuhr": "12:23",
+      "asr": "15:44",
+      "maghrib": "18:20",
+      "isha": "19:29"
+    },
+    {
+      "monthDay": "02-22",
+      "fajr": "05:08",
+      "sunrise": "06:26",
+      "dhuhr": "12:23",
+      "asr": "15:44",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-23",
+      "fajr": "05:08",
+      "sunrise": "06:26",
+      "dhuhr": "12:23",
+      "asr": "15:44",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-24",
+      "fajr": "05:07",
+      "sunrise": "06:25",
+      "dhuhr": "12:23",
+      "asr": "15:44",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-25",
+      "fajr": "05:07",
+      "sunrise": "06:25",
+      "dhuhr": "12:23",
+      "asr": "15:43",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-26",
+      "fajr": "05:07",
+      "sunrise": "06:24",
+      "dhuhr": "12:23",
+      "asr": "15:43",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-27",
+      "fajr": "05:06",
+      "sunrise": "06:24",
+      "dhuhr": "12:23",
+      "asr": "15:43",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-28",
+      "fajr": "05:06",
+      "sunrise": "06:24",
+      "dhuhr": "12:22",
+      "asr": "15:42",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    },
+    {
+      "monthDay": "02-29",
+      "fajr": "05:06",
+      "sunrise": "06:23",
+      "dhuhr": "12:22",
+      "asr": "15:42",
+      "maghrib": "18:20",
+      "isha": "19:30"
+    }
+  ],
+  "warnings": []
+}

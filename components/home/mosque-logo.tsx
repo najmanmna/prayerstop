@@ -1,19 +1,33 @@
-import Svg, { Circle, Path, Rect } from 'react-native-svg';
+import Svg, { Defs, Mask, Path } from 'react-native-svg';
 
-/** A compact, neutral mosque silhouette used to identify prayer-place tiles. */
+/**
+ * The app icon's place-type marker: a map pin with a mosque dome-arch inside.
+ * The pin and arch are white and the gaps are cut out with a mask, so the
+ * tile's gradient shows through them, as the icon's green does.
+ */
 export function MosqueLogo({ size, color = '#FFFFFF' }: { size: number; color?: string }) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 64 64" fill="none">
-      <Rect x="8" y="27" width="8" height="26" rx="2" fill={color} />
-      <Rect x="48" y="27" width="8" height="26" rx="2" fill={color} />
-      <Path d="M7 25L12 18L17 25H7Z" fill={color} />
-      <Path d="M47 25L52 18L57 25H47Z" fill={color} />
-      <Path d="M17 52V36C17 27.163 23.716 20 32 20C40.284 20 47 27.163 47 36V52H17Z" fill={color} />
-      <Path d="M22 31C24.743 25.518 28.023 23 32 23C35.977 23 39.257 25.518 42 31H22Z" fill="rgba(0,0,0,0.16)" />
-      <Path d="M28 52V45C28 42.791 29.791 41 32 41C34.209 41 36 42.791 36 45V52H28Z" fill="rgba(0,0,0,0.2)" />
-      <Rect x="5" y="52" width="54" height="5" rx="2.5" fill={color} />
-      <Rect x="30.5" y="12" width="3" height="9" rx="1.5" fill={color} />
-      <Circle cx="32" cy="10" r="3" fill={color} />
+    <Svg width={size} height={size} viewBox="182 150 660 730" fill="none">
+      <Defs>
+        <Mask id="mosque-pin-mask" maskUnits="userSpaceOnUse" x="182" y="150" width="660" height="730">
+          {/* Pin body (visible), minus the round window (hidden)... */}
+          <Path
+            d="M512 175C362 175 241 296 241 445C241 520 270 575 320 635L492 840Q512 858 532 840L718 625C760 575 783 520 783 445C783 296 662 175 512 175Z"
+            fill="#FFFFFF"
+          />
+          <Path d="M512 250A195 195 0 1 1 511.9 250Z" fill="#000000" />
+          {/* ...plus the dome-arch (visible), minus its doorway (hidden). */}
+          <Path
+            d="M378 585V478C378 420 410 410 450 385C490 360 505 340 514 322C523 340 538 360 578 385C618 410 650 420 650 478V585L640 660H388Z"
+            fill="#FFFFFF"
+          />
+          <Path
+            d="M435 635V515C435 470 470 455 514 435C558 455 593 470 593 515V635C560 650 470 650 435 635Z"
+            fill="#000000"
+          />
+        </Mask>
+      </Defs>
+      <Path d="M182 150H842V880H182Z" fill={color} mask="url(#mosque-pin-mask)" />
     </Svg>
   );
 }

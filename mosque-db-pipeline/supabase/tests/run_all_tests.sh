@@ -22,6 +22,8 @@ psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0005_admin_correct_task.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0006_skip_queue_exclusions.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0007_duplicate_candidates.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0008_fix_duplicate_candidates_fk.sql
+psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0009_public_mosque_lookup.sql
+psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/0010_blocked_google_places.sql
 psql -d "$DB" -v ON_ERROR_STOP=1 -q -f local-test-harness/0001_wire_auth_trigger.sql
 psql -d "$DB" -c "grant authenticated to $(whoami); grant anon to $(whoami); grant service_role to $(whoami);" -q
 
@@ -80,6 +82,8 @@ fi
 
 run_sql_test "Test 08: admin_correct_mosque_task() (Step 7D)" tests/08_admin_correct_task.sql
 run_sql_test "Test 09: duplicate_candidates confirm/reject (Step 7F)" tests/09_duplicate_candidates.sql
+run_sql_test "Test 10: public nearby lookup + Place ID linking (Step 8)" tests/10_public_mosque_lookup.sql
+run_sql_test "Test 11: blocked Google Places lookup (Step 8b)" tests/11_blocked_google_places.sql
 
 echo ""
 if [ "$FAILED" -eq 0 ]; then

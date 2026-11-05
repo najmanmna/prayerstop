@@ -13,6 +13,7 @@ import { TEST_NOTIFICATION_PREFIX } from '@/lib/notifications/expo-notification-
 import ExactAlarmModule from '@/modules/exact-alarm/src/ExactAlarmModule';
 
 import { PrayerNotificationsProvider, usePrayerNotifications, type PrayerNotificationsValue } from '../prayer-notifications';
+import { usePrayerZone } from '../prayer-zone';
 
 jest.mock('expo-notifications', () => ({
   setNotificationHandler: jest.fn(),
@@ -29,6 +30,12 @@ jest.mock('expo-notifications', () => ({
 jest.mock('@/modules/exact-alarm/src/ExactAlarmModule', () => ({
   canScheduleExactAlarms: jest.fn(),
 }));
+
+// The zone normally comes from PrayerZoneProvider (device location); these
+// tests are about scheduling, so they pin it to Colombo's zone.
+const COLOMBO_ZONE = { status: 'ok', zoneId: '01', district: 'Colombo', basis: 'current-location' } as const;
+jest.mock('../prayer-zone', () => ({ usePrayerZone: jest.fn() }));
+const mockedUsePrayerZone = usePrayerZone as jest.Mock;
 
 jest.mock('expo-intent-launcher', () => ({
   startActivityAsync: jest.fn(),
@@ -63,6 +70,7 @@ const originalPlatformOS = Platform.OS;
 describe('PrayerNotificationsProvider', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
+    mockedUsePrayerZone.mockReturnValue(COLOMBO_ZONE);
     await AsyncStorage.clear();
     mockedNotifications.getPermissionsAsync.mockResolvedValue({ status: 'undetermined' } as never);
     mockedNotifications.requestPermissionsAsync.mockResolvedValue({ status: 'granted' } as never);
@@ -196,6 +204,31 @@ describe('PrayerNotificationsProvider', () => {
     expect(mockedNotifications.scheduleNotificationAsync).toHaveBeenCalled();
     const [firstCall] = mockedNotifications.scheduleNotificationAsync.mock.calls;
     expect((firstCall[0] as { identifier: string }).identifier.startsWith(PRAYER_NOTIFICATION_PREFIX)).toBe(true);
+  });
+
+  it('leaves existing reminders untouched while the prayer zone is unknown (never cancels them, never schedules another zone)', async () => {
+    mockedUsePrayerZone.mockReturnValue({ status: 'resolving' });
+    mockedNotifications.getPermissionsAsync.mockResolvedValue({ status: 'granted' } as never);
+    mockedNotifications.getAllScheduledNotificationsAsync.mockResolvedValue([
+      { identifier: `${PRAYER_NOTIFICATION_PREFIX}existing` },
+    ] as never);
+    let latest: PrayerNotificationsValue | undefined;
+
+    await act(async () => {
+      renderer = TestRenderer.create(
+        <PrayerNotificationsProvider>
+          <Probe onValue={(v) => (latest = v)} />
+        </PrayerNotificationsProvider>
+      );
+    });
+    await flush();
+    await act(async () => {
+      await latest?.setEnabled(true);
+    });
+    await flush();
+
+    expect(mockedNotifications.scheduleNotificationAsync).not.toHaveBeenCalled();
+    expect(mockedNotifications.cancelScheduledNotificationAsync).not.toHaveBeenCalled();
   });
 
   it('resyncs (re-checking permission) when the app returns to the foreground', async () => {

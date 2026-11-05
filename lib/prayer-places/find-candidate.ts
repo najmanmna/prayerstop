@@ -1,6 +1,6 @@
 import type { RankedPrayerPlaceCandidate } from './types';
 
-/** Looks up a candidate from the current shared session by its Google Place ID. */
+/** Looks up a candidate from the current shared session by the app's own place ID (`PlaceIdentity.id` — not a Google Place ID). */
 export function findCandidateById(
   candidates: RankedPrayerPlaceCandidate[],
   id: string
@@ -15,6 +15,6 @@ export function findCandidateById(
  * place" call site (Home's recommendation/alternates, Nearby's list/map)
  * navigates the same way.
  */
-export function buildPlaceDetailsPath(placeId: string): { pathname: '/place/[id]'; params: { id: string } } {
-  return { pathname: '/place/[id]', params: { id: placeId } };
+export function buildPlaceDetailsPath(id: string): { pathname: '/place/[id]'; params: { id: string } } {
+  return { pathname: '/place/[id]', params: { id } };
 }

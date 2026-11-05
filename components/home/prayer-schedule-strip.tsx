@@ -26,11 +26,20 @@ export function PrayerScheduleStrip({
           <View
             key={entry.name}
             style={[styles.column, active && { backgroundColor: inverted ? 'rgba(255,255,255,0.16)' : theme.accentSoft }]}>
+            {/* One line each, shrinking to fit rather than wrapping: with a
+                large system font size, "Maghrib" fills its fifth of the row and
+                its time used to wrap onto a second line (seen on a real device). */}
             <ThemedText
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              minimumFontScale={0.7}
               style={[styles.name, { color: inverted ? '#FFFFFF' : active ? theme.text : theme.textSecondary }]}>
               {entry.name}
             </ThemedText>
             <ThemedText
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              minimumFontScale={0.7}
               style={[styles.time, { color: inverted ? (active ? '#9AEEA6' : 'rgba(255,255,255,0.65)') : active ? theme.tint : theme.textMuted }]}>
               {formatClock12(entry.time)}
             </ThemedText>
@@ -49,6 +58,8 @@ const styles = StyleSheet.create({
   },
   column: {
     flex: 1,
+    minWidth: 0,
+    paddingHorizontal: 2,
     alignItems: 'center',
     gap: 2,
     paddingVertical: 7,

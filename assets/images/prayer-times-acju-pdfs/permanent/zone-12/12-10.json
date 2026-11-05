@@ -1,0 +1,328 @@
+{
+  "source": {
+    "file": "12-10.pdf",
+    "zone": "12",
+    "regions": [
+      "GALLE DISTRICT",
+      "MATARA DISTRICT"
+    ],
+    "country": "SRI LANKA",
+    "month": "October",
+    "year": null,
+    "permanent": true,
+    "extractedAt": "2026-10-29T17:39:55.248Z"
+  },
+  "days": [
+    {
+      "monthDay": "10-01",
+      "fajr": "04:41",
+      "sunrise": "05:57",
+      "dhuhr": "12:00",
+      "asr": "15:14",
+      "asrHanafi": "16:19",
+      "maghrib": "18:02",
+      "isha": "19:11"
+    },
+    {
+      "monthDay": "10-02",
+      "fajr": "04:41",
+      "sunrise": "05:57",
+      "dhuhr": "12:00",
+      "asr": "15:14",
+      "asrHanafi": "16:18",
+      "maghrib": "18:02",
+      "isha": "19:10"
+    },
+    {
+      "monthDay": "10-03",
+      "fajr": "04:40",
+      "sunrise": "05:57",
+      "dhuhr": "12:00",
+      "asr": "15:14",
+      "asrHanafi": "16:18",
+      "maghrib": "18:01",
+      "isha": "19:10"
+    },
+    {
+      "monthDay": "10-04",
+      "fajr": "04:40",
+      "sunrise": "05:57",
+      "dhuhr": "11:59",
+      "asr": "15:14",
+      "asrHanafi": "16:18",
+      "maghrib": "18:01",
+      "isha": "19:09"
+    },
+    {
+      "monthDay": "10-05",
+      "fajr": "04:40",
+      "sunrise": "05:57",
+      "dhuhr": "11:59",
+      "asr": "15:14",
+      "asrHanafi": "16:17",
+      "maghrib": "18:00",
+      "isha": "19:09"
+    },
+    {
+      "monthDay": "10-06",
+      "fajr": "04:40",
+      "sunrise": "05:56",
+      "dhuhr": "11:59",
+      "asr": "15:14",
+      "asrHanafi": "16:17",
+      "maghrib": "18:00",
+      "isha": "19:09"
+    },
+    {
+      "monthDay": "10-07",
+      "fajr": "04:40",
+      "sunrise": "05:56",
+      "dhuhr": "11:58",
+      "asr": "15:14",
+      "asrHanafi": "16:17",
+      "maghrib": "17:59",
+      "isha": "19:08"
+    },
+    {
+      "monthDay": "10-08",
+      "fajr": "04:39",
+      "sunrise": "05:56",
+      "dhuhr": "11:58",
+      "asr": "15:14",
+      "asrHanafi": "16:17",
+      "maghrib": "17:59",
+      "isha": "19:08"
+    },
+    {
+      "monthDay": "10-09",
+      "fajr": "04:39",
+      "sunrise": "05:56",
+      "dhuhr": "11:58",
+      "asr": "15:14",
+      "asrHanafi": "16:17",
+      "maghrib": "17:59",
+      "isha": "19:07"
+    },
+    {
+      "monthDay": "10-10",
+      "fajr": "04:39",
+      "sunrise": "05:56",
+      "dhuhr": "11:58",
+      "asr": "15:15",
+      "asrHanafi": "16:16",
+      "maghrib": "17:58",
+      "isha": "19:07"
+    },
+    {
+      "monthDay": "10-11",
+      "fajr": "04:39",
+      "sunrise": "05:56",
+      "dhuhr": "11:57",
+      "asr": "15:14",
+      "asrHanafi": "16:16",
+      "maghrib": "17:58",
+      "isha": "19:06"
+    },
+    {
+      "monthDay": "10-12",
+      "fajr": "04:39",
+      "sunrise": "05:56",
+      "dhuhr": "11:57",
+      "asr": "15:14",
+      "asrHanafi": "16:16",
+      "maghrib": "17:57",
+      "isha": "19:06"
+    },
+    {
+      "monthDay": "10-13",
+      "fajr": "04:39",
+      "sunrise": "05:56",
+      "dhuhr": "11:57",
+      "asr": "15:15",
+      "asrHanafi": "16:16",
+      "maghrib": "17:57",
+      "isha": "19:06"
+    },
+    {
+      "monthDay": "10-14",
+      "fajr": "04:39",
+      "sunrise": "05:56",
+      "dhuhr": "11:57",
+      "asr": "15:15",
+      "asrHanafi": "16:15",
+      "maghrib": "17:57",
+      "isha": "19:05"
+    },
+    {
+      "monthDay": "10-15",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:56",
+      "asr": "15:15",
+      "asrHanafi": "16:15",
+      "maghrib": "17:56",
+      "isha": "19:05"
+    },
+    {
+      "monthDay": "10-16",
+      "fajr": "04:38",
+      "sunrise": "05:56",
+      "dhuhr": "11:56",
+      "asr": "15:15",
+      "asrHanafi": "16:15",
+      "maghrib": "17:56",
+      "isha": "19:05"
+    },
+    {
+      "monthDay": "10-17",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:56",
+      "asr": "15:15",
+      "asrHanafi": "16:15",
+      "maghrib": "17:56",
+      "isha": "19:05"
+    },
+    {
+      "monthDay": "10-18",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:56",
+      "asr": "15:15",
+      "asrHanafi": "16:15",
+      "maghrib": "17:55",
+      "isha": "19:04"
+    },
+    {
+      "monthDay": "10-19",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:56",
+      "asr": "15:15",
+      "asrHanafi": "16:14",
+      "maghrib": "17:55",
+      "isha": "19:04"
+    },
+    {
+      "monthDay": "10-20",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:55",
+      "asr": "15:15",
+      "asrHanafi": "16:14",
+      "maghrib": "17:54",
+      "isha": "19:04"
+    },
+    {
+      "monthDay": "10-21",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:55",
+      "asr": "15:15",
+      "asrHanafi": "16:14",
+      "maghrib": "17:54",
+      "isha": "19:04"
+    },
+    {
+      "monthDay": "10-22",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:55",
+      "asr": "15:15",
+      "asrHanafi": "16:14",
+      "maghrib": "17:54",
+      "isha": "19:03"
+    },
+    {
+      "monthDay": "10-23",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:55",
+      "asr": "15:15",
+      "asrHanafi": "16:13",
+      "maghrib": "17:53",
+      "isha": "19:03"
+    },
+    {
+      "monthDay": "10-24",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:55",
+      "asr": "15:15",
+      "asrHanafi": "16:13",
+      "maghrib": "17:53",
+      "isha": "19:03"
+    },
+    {
+      "monthDay": "10-25",
+      "fajr": "04:38",
+      "sunrise": "05:55",
+      "dhuhr": "11:55",
+      "asr": "15:15",
+      "asrHanafi": "16:13",
+      "maghrib": "17:53",
+      "isha": "19:03"
+    },
+    {
+      "monthDay": "10-26",
+      "fajr": "04:37",
+      "sunrise": "05:55",
+      "dhuhr": "11:55",
+      "asr": "15:15",
+      "asrHanafi": "16:13",
+      "maghrib": "17:53",
+      "isha": "19:02"
+    },
+    {
+      "monthDay": "10-27",
+      "fajr": "04:37",
+      "sunrise": "05:55",
+      "dhuhr": "11:54",
+      "asr": "15:15",
+      "asrHanafi": "16:13",
+      "maghrib": "17:52",
+      "isha": "19:02"
+    },
+    {
+      "monthDay": "10-28",
+      "fajr": "04:37",
+      "sunrise": "05:56",
+      "dhuhr": "11:54",
+      "asr": "15:15",
+      "asrHanafi": "16:13",
+      "maghrib": "17:52",
+      "isha": "19:02"
+    },
+    {
+      "monthDay": "10-29",
+      "fajr": "04:37",
+      "sunrise": "05:56",
+      "dhuhr": "11:54",
+      "asr": "15:15",
+      "asrHanafi": "16:12",
+      "maghrib": "17:52",
+      "isha": "19:02"
+    },
+    {
+      "monthDay": "10-30",
+      "fajr": "04:37",
+      "sunrise": "05:56",
+      "dhuhr": "11:54",
+      "asr": "15:15",
+      "asrHanafi": "16:12",
+      "maghrib": "17:52",
+      "isha": "19:02"
+    },
+    {
+      "monthDay": "10-31",
+      "fajr": "04:37",
+      "sunrise": "05:56",
+      "dhuhr": "11:54",
+      "asr": "15:15",
+      "asrHanafi": "16:12",
+      "maghrib": "17:52",
+      "isha": "19:02"
+    }
+  ],
+  "warnings": []
+}

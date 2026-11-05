@@ -11,6 +11,9 @@ import {
 const coordinates = { latitude: 6.9271, longitude: 79.8612 };
 const placeId = 'ChIJ27gT8x1Z4joRxngrQeaNYZA';
 const placeName = 'Colombo Grand Mosque';
+const googlePlace = { name: placeName, coordinates, googlePlaceId: placeId };
+// A verified local database record that hasn't been matched to a Google listing yet.
+const localPlace = { name: 'Masjidun Noor Jumma Mosque', coordinates: { latitude: 7.0912, longitude: 79.9998 }, googlePlaceId: null };
 
 describe('buildNavigationUrl', () => {
   it('opens Google Maps (not Apple Maps) via the universal directions URL on iOS', () => {
@@ -37,6 +40,15 @@ describe('buildWebNavigationUrl', () => {
     expect(url).toBe(
       'https://www.google.com/maps/dir/?api=1&destination=6.9271%2C79.8612&travelmode=driving&destination_place_id=ChIJ27gT8x1Z4joRxngrQeaNYZA'
     );
+  });
+
+  it('navigates a local record without a Google Place ID by coordinates on every platform', () => {
+    expect(buildNavigationUrl(localPlace.coordinates, null, 'android')).toBe(
+      'google.navigation:q=7.0912,79.9998&mode=d'
+    );
+    const iosUrl = buildNavigationUrl(localPlace.coordinates, null, 'ios');
+    expect(iosUrl).toContain('destination=7.0912%2C79.9998');
+    expect(iosUrl).not.toContain('destination_place_id');
   });
 
   it('omits destination_place_id when no place ID is given', () => {
@@ -96,7 +108,7 @@ describe('openExternalNavigation', () => {
 
 describe('buildViewPlaceUrl', () => {
   it('builds the universal "view place" Search URL using the real Place ID, not directions', () => {
-    const url = buildViewPlaceUrl(placeName, placeId);
+    const url = buildViewPlaceUrl(googlePlace);
 
     expect(url).toBe(
       'https://www.google.com/maps/search/?api=1&query=Colombo+Grand+Mosque&query_place_id=ChIJ27gT8x1Z4joRxngrQeaNYZA'
@@ -105,11 +117,20 @@ describe('buildViewPlaceUrl', () => {
     expect(url).not.toContain('/maps/dir/');
   });
 
+  it('opens a pin at the verified coordinates for a local record without a Google Place ID', () => {
+    const url = buildViewPlaceUrl(localPlace);
+
+    expect(url).toBe('https://www.google.com/maps/search/?api=1&query=7.0912%2C79.9998');
+    expect(url).not.toContain('query_place_id');
+    // Never a bare name search — a common mosque name could resolve to a different mosque.
+    expect(url).not.toContain('Masjidun');
+  });
+
   it('is the same URL regardless of platform (no platform-specific scheme needed)', () => {
     // Unlike buildNavigationUrl, this has no platform parameter at all —
     // the universal Search URL works identically everywhere.
-    const url1 = buildViewPlaceUrl(placeName, placeId);
-    const url2 = buildViewPlaceUrl(placeName, placeId);
+    const url1 = buildViewPlaceUrl(googlePlace);
+    const url2 = buildViewPlaceUrl(googlePlace);
     expect(url1).toBe(url2);
   });
 });
@@ -124,17 +145,26 @@ describe('openPlaceInGoogleMaps', () => {
   it('opens the place\'s Google Maps listing using only the existing Place ID (no Places API call)', async () => {
     openURL.mockResolvedValue(undefined);
 
-    const opened = await openPlaceInGoogleMaps(placeName, placeId);
+    const opened = await openPlaceInGoogleMaps(googlePlace);
 
     expect(opened).toBe(true);
     expect(openURL).toHaveBeenCalledTimes(1);
-    expect(openURL).toHaveBeenCalledWith(buildViewPlaceUrl(placeName, placeId));
+    expect(openURL).toHaveBeenCalledWith(buildViewPlaceUrl(googlePlace));
+  });
+
+  it('opens a local record without a Place ID at its coordinates', async () => {
+    openURL.mockResolvedValue(undefined);
+
+    const opened = await openPlaceInGoogleMaps(localPlace);
+
+    expect(opened).toBe(true);
+    expect(openURL).toHaveBeenCalledWith('https://www.google.com/maps/search/?api=1&query=7.0912%2C79.9998');
   });
 
   it('returns false if opening the URL fails', async () => {
     openURL.mockRejectedValue(new Error('could not open'));
 
-    const opened = await openPlaceInGoogleMaps(placeName, placeId);
+    const opened = await openPlaceInGoogleMaps(googlePlace);
 
     expect(opened).toBe(false);
   });
