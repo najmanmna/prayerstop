@@ -26,6 +26,8 @@ const MAPPING = {
   'arrow.clockwise': 'refresh',
   'bell.fill': 'notifications',
   'info.circle.fill': 'info',
+  'car.fill': 'directions-car',
+  'star.fill': 'star',
 } as IconMapping;
 
 /**

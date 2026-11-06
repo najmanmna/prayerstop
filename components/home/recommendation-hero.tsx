@@ -34,7 +34,8 @@ export function RecommendationHero({
   const outcome = isNow ? getArrivalOutcome(window, place.arrivalTime) : { status: 'unknown' as const };
   const statusColor = FeasibilityColors[place.feasibility].foreground;
   const leaveByTime = offsetClock(window.startTime, -place.etaMinutes);
-  const driveDetail = `${place.etaMinutes} min drive · ${place.distanceKm.toFixed(1)} km`;
+  // Distance is already on the place row above, so the caption keeps to timing.
+  const driveDetail = `${place.etaMinutes} min drive`;
 
   // One dominant, colored headline answers "can I make it, and by when" at a
   // glance; a single small caption underneath carries the supporting
@@ -73,23 +74,36 @@ export function RecommendationHero({
       <View style={styles.headerRow}>
         <ThemedText style={[styles.overline, { color: theme.textSecondary }]}>BEST FOR {window.name.toUpperCase()}</ThemedText>
         <View style={[styles.badge, { backgroundColor: theme.accentSoft }]}>
-          <ThemedText style={[styles.badgeLabel, { color: theme.tint }]}>Recommended</ThemedText>
+          <IconSymbol name="star.fill" size={13} color={theme.tint} />
+          <ThemedText style={[styles.badgeLabel, { color: theme.tint }]}>BEST MATCH</ThemedText>
         </View>
       </View>
 
       <View style={styles.placeRow}>
-        <PlaceThumbnail size={56} />
+        <PlaceThumbnail size={76} />
         <View style={styles.placeInfo}>
-          <ThemedText type="defaultSemiBold" style={styles.placeName}>
+          <ThemedText type="defaultSemiBold" style={styles.placeName} numberOfLines={2}>
             {place.name}
           </ThemedText>
-          <ThemedText style={[styles.placeArea, { color: theme.textSecondary }]}>{place.area}</ThemedText>
+          <View style={styles.areaRow}>
+            <IconSymbol name="mappin.circle.fill" size={14} color={theme.textMuted} />
+            <ThemedText style={[styles.placeArea, { color: theme.textSecondary }]} numberOfLines={1}>
+              {/* Distance first so a long address can't truncate it away. */}
+              {place.distanceKm.toFixed(1)} km away{place.area ? ` · ${place.area}` : ''}
+            </ThemedText>
+          </View>
         </View>
+        {onPress && <IconSymbol name="chevron.right" size={22} color={theme.textMuted} />}
       </View>
 
       <View style={[styles.headlineBlock, { backgroundColor: theme.surface }]}>
-        <ThemedText style={[styles.headline, { color: headlineColor }]}>{headline}</ThemedText>
-        <ThemedText style={[styles.caption, { color: theme.textSecondary }]}>{caption}</ThemedText>
+        <View style={[styles.carBadge, { backgroundColor: theme.surfaceElevated }]}>
+          <IconSymbol name="car.fill" size={20} color={headlineColor} />
+        </View>
+        <View style={styles.headlineText}>
+          <ThemedText style={[styles.headline, { color: headlineColor }]}>{headline}</ThemedText>
+          <ThemedText style={[styles.caption, { color: theme.textSecondary }]}>{caption}</ThemedText>
+        </View>
       </View>
 
       <View style={styles.actionsRow}>
@@ -97,21 +111,19 @@ export function RecommendationHero({
           accessibilityRole="button"
           activeOpacity={0.85}
           onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
-          style={[styles.actionButton, { backgroundColor: theme.tint }]}>
-          <IconSymbol name="location.north.fill" size={15} color="#FFFFFF" />
+          style={[styles.primaryAction, { backgroundColor: theme.tint }]}>
+          <IconSymbol name="location.north.fill" size={18} color="#FFFFFF" />
           <ThemedText type="defaultSemiBold" style={styles.primaryActionLabel}>
-            Navigate
+            Get directions
           </ThemedText>
         </TouchableOpacity>
         <TouchableOpacity
           accessibilityRole="button"
+          accessibilityLabel={`View ${place.name} on Google Maps`}
           activeOpacity={0.7}
           onPress={() => openPlaceInGoogleMaps(place)}
-          style={[styles.actionButton, styles.secondaryAction, { backgroundColor: theme.surface, borderColor: theme.border }]}>
-          <IconSymbol name="mappin.circle.fill" size={15} color={theme.tint} />
-          <ThemedText type="defaultSemiBold" style={[styles.secondaryActionLabel, { color: theme.tint }]}>
-            Google Maps
-          </ThemedText>
+          style={[styles.secondaryAction, { backgroundColor: theme.accentSoft }]}>
+          <IconSymbol name="map.fill" size={20} color={theme.tint} />
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
@@ -133,9 +145,9 @@ function cardShadow(color: string) {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 24,
-    padding: 14,
-    gap: 12,
+    borderRadius: 26,
+    padding: 16,
+    gap: 14,
   },
   headerRow: {
     flexDirection: 'row',
@@ -144,44 +156,69 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   overline: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '700',
-    letterSpacing: 0.7,
+    letterSpacing: 1.1,
   },
   badge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
     borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    paddingHorizontal: 11,
+    paddingVertical: 5,
   },
   badgeLabel: {
     fontSize: 11,
-    fontWeight: '600',
+    fontWeight: '800',
+    letterSpacing: 0.6,
   },
   placeRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: 14,
   },
   placeInfo: {
     flex: 1,
-    gap: 3,
+    gap: 5,
   },
   placeName: {
-    fontSize: 18,
-    lineHeight: 22,
+    fontSize: 20,
+    lineHeight: 25,
+    fontWeight: '700',
+  },
+  areaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
   },
   placeArea: {
-    fontSize: 13,
+    fontSize: 14,
+    flexShrink: 1,
   },
   headlineBlock: {
-    borderRadius: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderRadius: 18,
     paddingVertical: 12,
-    paddingHorizontal: 14,
-    gap: 3,
+    paddingHorizontal: 12,
+  },
+  carBadge: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headlineText: {
+    flex: 1,
+    gap: 2,
   },
   headline: {
-    fontSize: 21,
-    fontWeight: '700',
+    fontSize: 17,
+    lineHeight: 22,
+    fontWeight: '800',
     fontVariant: ['tabular-nums'],
   },
   caption: {
@@ -189,25 +226,25 @@ const styles = StyleSheet.create({
   },
   actionsRow: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 10,
   },
-  actionButton: {
+  primaryAction: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,
-    borderRadius: 14,
-    paddingVertical: 11,
-  },
-  secondaryAction: {
-    borderWidth: StyleSheet.hairlineWidth,
+    gap: 8,
+    borderRadius: 16,
+    paddingVertical: 15,
   },
   primaryActionLabel: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 16,
   },
-  secondaryActionLabel: {
-    fontSize: 14,
+  secondaryAction: {
+    width: 54,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

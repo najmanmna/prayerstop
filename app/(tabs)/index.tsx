@@ -1,18 +1,22 @@
-import { router } from 'expo-router';
-import { ActivityIndicator, Linking, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { router, useFocusEffect } from 'expo-router';
+import { setStatusBarStyle } from 'expo-status-bar';
+import { useCallback, useState } from 'react';
+import { Linking, ScrollView, StyleSheet, TouchableOpacity, View, type NativeScrollEvent, type NativeSyntheticEvent } from 'react-native';
 
 import { AlternatePlaceRow } from '@/components/home/alternate-place-row';
+import { HEADER_CARD_OVERLAP, HomeHeader } from '@/components/home/home-header';
+import { PrayerDayCard } from '@/components/home/prayer-day-card';
 import { PrayerPanel } from '@/components/home/prayer-panel';
+import { ReachabilityBanner } from '@/components/home/reachability-banner';
 import { RecommendationHero } from '@/components/home/recommendation-hero';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useNearbyPlacesSession } from '@/hooks/nearby-places-session';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { usePlanningContext } from '@/hooks/use-planning-context';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
+import { summarizeReachability } from '@/lib/home-display';
 import { formatCoordinates } from '@/lib/location';
 import { isLocationStale, resolveLocationNotice } from '@/lib/location-freshness';
 import { buildPlaceScenario } from '@/lib/prayer-places/build-place-scenario';
@@ -66,6 +70,20 @@ export default function HomeScreen() {
 
   const goToPlaceDetails = (placeId: string) => router.push(buildPlaceDetailsPath(placeId));
 
+  // Light status-bar icons over the green header; back to dark once it has
+  // scrolled away, and whenever another tab is showing.
+  const [headerScrolledAway, setHeaderScrolledAway] = useState(false);
+  useFocusEffect(
+    useCallback(() => {
+      setStatusBarStyle(headerScrolledAway ? 'dark' : 'light');
+      return () => setStatusBarStyle('dark');
+    }, [headerScrolledAway])
+  );
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const scrolledAway = event.nativeEvent.contentOffset.y > HEADER_SCROLL_THRESHOLD;
+    if (scrolledAway !== headerScrolledAway) setHeaderScrolledAway(scrolledAway);
+  };
+
   // What to show in place of the recommendation/alternates when we don't
   // have a ready place scenario yet — covers every step of device GPS →
   // Google Places → ranked results, so nothing silently renders blank.
@@ -110,55 +128,23 @@ export default function HomeScreen() {
 
   return (
     <ThemedView style={styles.flex}>
-      <SafeAreaView style={styles.flex} edges={['top']}>
-        <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-          <View style={styles.header}>
-            <View style={styles.headerRow}>
-              <View style={styles.headerTextColumn}>
-                <ThemedText style={[styles.eyebrow, { color: theme.tint }]}>Prayer planner</ThemedText>
-                <TouchableOpacity
-                  style={styles.locationRow}
-                  disabled={!locationInteractive}
-                  onPress={handleLocationPress}
-                  activeOpacity={0.7}>
-                  <IconSymbol name="location.fill" size={16} color={theme.tint} />
-                  <ThemedText type="defaultSemiBold" style={styles.locationTitle} numberOfLines={1}>
-                    {locationText}
-                  </ThemedText>
-                </TouchableOpacity>
-                {/* Fixed-height slot regardless of whether there's a notice
-                    to show — otherwise the prayer card below shifts up/down
-                    every time the notice appears or clears. */}
-                <View style={styles.noticeSlot}>
-                  {locationNotice && (
-                    <TouchableOpacity
-                      onPress={() => refreshWithLocation()}
-                      disabled={isRefreshingEverything}
-                      activeOpacity={0.7}>
-                      <ThemedText style={[styles.locationStaleNotice, { color: theme.textMuted }]}>
-                        {locationNotice.message}
-                      </ThemedText>
-                    </TouchableOpacity>
-                  )}
-                </View>
-              </View>
-              {device.status === 'granted' && (
-                <TouchableOpacity
-                  onPress={() => refreshWithLocation()}
-                  disabled={isRefreshingEverything}
-                  accessibilityRole="button"
-                  accessibilityLabel="Refresh location and nearby places"
-                  style={styles.refreshLocationButton}>
-                  {isRefreshingEverything ? (
-                    <ActivityIndicator size="small" color={theme.tint} />
-                  ) : (
-                    <IconSymbol name="arrow.clockwise" size={18} color={theme.tint} />
-                  )}
-                </TouchableOpacity>
-              )}
-            </View>
-          </View>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={32}>
+        <HomeHeader
+          locationText={locationText}
+          locationInteractive={locationInteractive}
+          onLocationPress={handleLocationPress}
+          notice={locationNotice?.message ?? null}
+          onNoticePress={() => refreshWithLocation()}
+          showRefresh={device.status === 'granted'}
+          isRefreshing={isRefreshingEverything}
+          onRefresh={() => refreshWithLocation()}
+        />
 
+        <View style={styles.content}>
           {timing ? (
             <>
               {/* Prayer data is independent of location/places — it must
@@ -169,20 +155,32 @@ export default function HomeScreen() {
                 onChangeContext={setContext}
                 window={timing.window}
                 countdownSeconds={timing.countdownSeconds}
-                schedule={prayerTimes.status === 'ready' ? prayerTimes.schedule : []}
-                sunriseTime={prayerTimes.status === 'ready' ? prayerTimes.sunriseTime : undefined}
               />
+              {prayerTimes.status === 'ready' && (
+                <PrayerDayCard
+                  schedule={prayerTimes.schedule}
+                  activeName={timing.window.name}
+                  sunriseTime={prayerTimes.sunriseTime}
+                  now={new Date()}
+                />
+              )}
 
               {placeScenario ? (
                 <>
-                  <View style={styles.primarySection}>
-                    <RecommendationHero
-                      place={placeScenario.recommendation}
-                      window={timing.window}
-                      context={context}
-                      onPress={() => goToPlaceDetails(placeScenario.recommendation.id)}
-                    />
-                  </View>
+                  <ReachabilityBanner
+                    summary={summarizeReachability(
+                      context,
+                      timing.window,
+                      timing.countdownSeconds,
+                      placeScenario.recommendation
+                    )}
+                  />
+                  <RecommendationHero
+                    place={placeScenario.recommendation}
+                    window={timing.window}
+                    context={context}
+                    onPress={() => goToPlaceDetails(placeScenario.recommendation.id)}
+                  />
 
                   {placeScenario.alternates.length > 0 && (
                     <View style={styles.alternatesSection}>
@@ -194,7 +192,7 @@ export default function HomeScreen() {
                           {placeScenario.alternates.length} options
                         </ThemedText>
                       </View>
-                      <View style={[styles.alternatesCard, { backgroundColor: theme.surface }]}>
+                      <View style={[styles.alternatesCard, { backgroundColor: theme.surfaceElevated }]}>
                         {placeScenario.alternates.map((place, index) => (
                           <View key={place.id}>
                             <AlternatePlaceRow
@@ -216,7 +214,7 @@ export default function HomeScreen() {
                 // Compact, secondary — a location/place failure never hides
                 // the prayer card above, it only replaces this section.
                 <TouchableOpacity
-                  style={[styles.unavailableCard, { backgroundColor: theme.surface }]}
+                  style={[styles.unavailableCard, { backgroundColor: theme.surfaceElevated }]}
                   disabled={!placesNotice.onPress}
                   onPress={placesNotice.onPress}
                   activeOpacity={placesNotice.onPress ? 0.7 : 1}>
@@ -234,7 +232,7 @@ export default function HomeScreen() {
             // today) — an explicit, distinct state, never conflated with a
             // location/places failure and never silently falling back to a
             // different zone's data.
-            <View style={[styles.unavailableCard, { backgroundColor: theme.surface }]}>
+            <View style={[styles.unavailableCard, { backgroundColor: theme.surfaceElevated }]}>
               <ThemedText type="defaultSemiBold" style={styles.unavailableTitle}>
                 Prayer times aren&apos;t available for today
               </ThemedText>
@@ -243,71 +241,36 @@ export default function HomeScreen() {
               </ThemedText>
             </View>
           )}
-        </ScrollView>
-      </SafeAreaView>
+        </View>
+      </ScrollView>
     </ThemedView>
   );
 }
+
+/** Scroll distance after which the green header is mostly out of view. */
+const HEADER_SCROLL_THRESHOLD = 120;
 
 const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  scrollContent: {
+    paddingBottom: 24,
+  },
   content: {
-    paddingHorizontal: 20,
-    paddingTop: 4,
-    paddingBottom: 20,
+    paddingHorizontal: 16,
+    marginTop: -HEADER_CARD_OVERLAP,
     gap: 14,
-  },
-  header: {
-    paddingTop: 0,
-    paddingBottom: 0,
-  },
-  headerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  headerTextColumn: {
-    flex: 1,
-    gap: 3,
-  },
-  eyebrow: {
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 0.7,
-    textTransform: 'uppercase',
-  },
-  locationRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  locationTitle: {
-    flexShrink: 1,
-    fontSize: 20,
-    lineHeight: 25,
-  },
-  refreshLocationButton: {
-    padding: 2,
-  },
-  primarySection: {
-    marginTop: 2,
-  },
-  noticeSlot: {
-    height: 18,
-    justifyContent: 'center',
-  },
-  locationStaleNotice: {
-    fontSize: 11,
   },
   alternatesSection: {
     gap: 10,
+    marginTop: 2,
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'baseline',
     justifyContent: 'space-between',
+    paddingHorizontal: 4,
   },
   sectionTitle: {
     fontSize: 17,

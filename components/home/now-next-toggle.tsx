@@ -1,28 +1,23 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
 import type { PlanningContext } from '@/types/home';
 
-const OPTIONS: { value: PlanningContext; title: string; subtitle: string }[] = [
-  { value: 'now', title: 'NOW', subtitle: 'Current prayer' },
-  { value: 'next', title: 'NEXT', subtitle: 'Upcoming prayer' },
+const OPTIONS: { value: PlanningContext; title: string; hint: string }[] = [
+  { value: 'now', title: 'Now', hint: 'Plan for the current prayer' },
+  { value: 'next', title: 'Next', hint: 'Plan for the upcoming prayer' },
 ];
 
+/** Compact pill toggle for the dark prayer card. */
 export function NowNextToggle({
   value,
   onChange,
-  inverted = false,
 }: {
   value: PlanningContext;
   onChange: (value: PlanningContext) => void;
-  inverted?: boolean;
 }) {
-  const theme = Colors[useColorScheme() ?? 'light'];
-
   return (
-    <View style={[styles.row, { backgroundColor: inverted ? 'rgba(255,255,255,0.12)' : theme.surface }]}>
+    <View style={styles.row}>
       {OPTIONS.map((option) => {
         const selected = option.value === value;
         return (
@@ -30,23 +25,12 @@ export function NowNextToggle({
             key={option.value}
             accessibilityRole="button"
             accessibilityState={{ selected }}
+            accessibilityHint={option.hint}
             onPress={() => onChange(option.value)}
             activeOpacity={0.85}
-            style={[
-              styles.segment,
-              { backgroundColor: selected ? (inverted ? 'rgba(255,255,255,0.2)' : theme.tint) : 'transparent' },
-            ]}>
-            <ThemedText
-              type="defaultSemiBold"
-              style={[styles.title, { color: inverted ? '#FFFFFF' : selected ? '#FFFFFF' : theme.text }]}> 
+            style={[styles.segment, selected && styles.segmentSelected]}>
+            <ThemedText type="defaultSemiBold" style={[styles.title, { color: selected ? '#0B3B28' : '#FFFFFF' }]}>
               {option.title}
-            </ThemedText>
-            <ThemedText
-              style={[
-                styles.subtitle,
-                { color: inverted ? 'rgba(255,255,255,0.72)' : selected ? 'rgba(255,255,255,0.8)' : theme.textSecondary },
-              ]}>
-              {option.subtitle}
             </ThemedText>
           </TouchableOpacity>
         );
@@ -58,21 +42,23 @@ export function NowNextToggle({
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    padding: 4,
-    borderRadius: 16,
+    padding: 3,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255,255,255,0.12)',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(255,255,255,0.22)',
   },
   segment: {
-    flex: 1,
-    borderRadius: 12,
-    paddingVertical: 9,
+    minWidth: 76,
+    borderRadius: 999,
+    paddingVertical: 7,
+    paddingHorizontal: 16,
     alignItems: 'center',
+  },
+  segmentSelected: {
+    backgroundColor: '#A8EBBE',
   },
   title: {
     fontSize: 14,
-    letterSpacing: 0.5,
-  },
-  subtitle: {
-    fontSize: 11,
-    marginTop: 1,
   },
 });

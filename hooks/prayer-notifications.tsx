@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
-import { AppState, type AppStateStatus } from 'react-native';
+import { AppState, Platform, type AppStateStatus } from 'react-native';
 
 import { canScheduleExactAlarms, openExactAlarmSettings } from '@/lib/notifications/android-exact-alarm';
 import {
@@ -112,6 +112,8 @@ export function PrayerNotificationsProvider({ children }: { children: ReactNode 
     // zone's times. The next sync after the zone resolves catches up.
     const currentZoneId = zoneIdRef.current;
     if (!currentZoneId) return;
+    // Local scheduling doesn't exist on web (localhost preview only).
+    if (Platform.OS === 'web') return;
 
     await ensureAndroidReminderChannel();
     const desired = computeDesiredPrayerNotifications(acjuPrayerTimeRepository, currentZoneId, new Date(), effectiveSettings);

@@ -22,6 +22,16 @@ A reference screenshot (a green-accented prayer-times app with a card-based layo
 - Bottom tab bar (Home/Map/Route/Settings) — reintroducing nav destinations we deliberately deferred when the Explore tab was removed (see [03-ux-and-user-flows.md](./03-ux-and-user-flows.md)). Still correct future IA, just not built yet.
 - Real place photography — no Places imagery integration yet (Phase 2). An abstract gradient+icon tile stands in, so we're not presenting a stock photo as if it depicts a specific real building.
 
+## Premium Home redesign (2026-11-06)
+
+Requested by the project owner from a reference mockup; supersedes the Home layout above (the principles still hold).
+
+- **Header**: full-bleed deep-green gradient running under the status bar, pin logo + "Assalamu Alaikum" + "PrayerStop", location line, refresh button, and a drawn mosque skyline (`MosqueSkyline`, vector, generic — never a photo presented as a specific real mosque). The bottom fades into the page and the countdown card overlaps it by `HEADER_CARD_OVERLAP`. The owner explicitly approved this decorative illustration for the Home header; the no-ornament rule still applies to the rest of the app.
+- **Countdown card** (`PrayerPanel`): pill NOW/NEXT toggle, LIVE/PLAN dot, prayer name, one large live countdown, ends-at/starts-at, and a remaining-time bar only when the deadline is known (`windowRemainingFraction` — none for Isha or NEXT). A decorative arched window sits behind the text on the right.
+- **Prayer-times card** (`PrayerDayCard`): five columns, the selected prayer highlighted with the place marker; times already behind the clock are dimmed. **No checkmarks** — that would imply tracking whether the user prayed.
+- **Reachability banner** (`ReachabilityBanner` + `summarizeReachability`): one plain sentence ("You can make it in time." / "It’s tight, but you can make it." / "Too late to reach" / "Leave by …"), built only from the recommendation's existing feasibility and the engine's countdown; neutral when the deadline is unknown.
+- **Recommendation card**: "BEST FOR {prayer}" + "Best match" pill, larger thumbnail, distance first then address, arrival box with car icon, full-width "Get directions" plus a square Google Maps button.
+
 ## Light mode only (for now)
 
 **Decided (2026-08-21):** the app forces light mode regardless of the device's system appearance setting — consistent branding, and avoids a half-finished dark mode (the `dark` token values in `constants/theme.ts` were inherited proportionally from the light palette, not independently designed). Enforced centrally in `hooks/use-color-scheme.ts`/`.web.ts` (hardcoded to return `'light'`) plus `app.json`'s `userInterfaceStyle: "light"` and a fixed `StatusBar style="dark"` in `app/_layout.tsx` — not by touching every component. The `dark` palette values are kept in `theme.ts` for a possible future dark-mode pass; re-enabling it is a matter of restoring the real `useColorScheme` from `react-native` in those two hook files.

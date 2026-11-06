@@ -4,6 +4,7 @@
 // what actually renders in the JSX tree when location/places fail, which a
 // pure function can't express on its own: the prayer card must be visible
 // independently of GPS/Places/Routes state (Phase 8C).
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import TestRenderer, { act } from 'react-test-renderer';
 
 import { useNearbyPlacesSession } from '@/hooks/nearby-places-session';
@@ -14,7 +15,7 @@ import type { PlaceScenario } from '@/types/home';
 
 import HomeScreen from '../index';
 
-jest.mock('expo-router', () => ({ router: { push: jest.fn() } }));
+jest.mock('expo-router', () => ({ router: { push: jest.fn() }, useFocusEffect: jest.fn() }));
 
 jest.mock('@/hooks/nearby-places-session', () => ({
   useNearbyPlacesSession: jest.fn(),
@@ -88,7 +89,12 @@ function mockSession(overrides: {
 function renderHome() {
   let renderer!: TestRenderer.ReactTestRenderer;
   act(() => {
-    renderer = TestRenderer.create(<HomeScreen />);
+    renderer = TestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{ frame: { x: 0, y: 0, width: 390, height: 844 }, insets: { top: 47, left: 0, right: 0, bottom: 34 } }}>
+        <HomeScreen />
+      </SafeAreaProvider>
+    );
   });
   return renderer;
 }

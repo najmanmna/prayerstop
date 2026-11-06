@@ -1,26 +1,26 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Platform, StyleSheet, View } from 'react-native';
+import Svg, { Defs, LinearGradient as SvgGradient, Path, Rect, Stop } from 'react-native-svg';
 
 import { NowNextToggle } from '@/components/home/now-next-toggle';
-import { PrayerScheduleStrip } from '@/components/home/prayer-schedule-strip';
 import { ThemedText } from '@/components/themed-text';
+import { IconSymbol } from '@/components/ui/icon-symbol';
+import { windowRemainingFraction } from '@/lib/home-display';
 import { formatClock12 } from '@/lib/time';
-import type { PlanningContext, PrayerWindow, ScheduleEntry } from '@/types/home';
+import type { PlanningContext, PrayerWindow } from '@/types/home';
 
 /**
- * Shows only the selected prayer's own timing — name, one primary
- * countdown, and its key time (ends-at for NOW, starts-at for NEXT).
- * Deliberately carries no ETA/arrival/recommendation information — that
- * belongs to the recommendation card below (`RecommendationHero`), which
- * already shows it for the specific recommended place.
+ * The hero timing card: NOW/NEXT toggle, the selected prayer's name, one big
+ * live countdown and its key time (ends-at for NOW, starts-at for NEXT),
+ * plus a bar showing how much of the window is left when that's known.
+ * Deliberately carries no ETA/arrival information — that belongs to the
+ * recommendation card below.
  */
 export function PrayerPanel({
   context,
   onChangeContext,
   window,
   countdownSeconds,
-  schedule,
-  sunriseTime,
 }: {
   context: PlanningContext;
   onChangeContext: (value: PlanningContext) => void;
@@ -31,77 +31,104 @@ export function PrayerPanel({
    * prayer starts — always known. See hooks/use-prayer-times.ts.
    */
   countdownSeconds: number | null;
-  schedule: ScheduleEntry[];
-  sunriseTime?: string;
 }) {
   const isNow = context === 'now';
   // No live "remaining" countdown is possible either when the deadline
   // isn't known (Isha) or when the window hasn't started yet (Dhuhr during
   // the Sunrise-to-Dhuhr gap) — countdownSeconds is null in both cases.
   const noCountdown = isNow && countdownSeconds === null;
+  const remainingFraction = windowRemainingFraction(context, window, countdownSeconds);
+  const countdownText = noCountdown ? '—' : formatLiveCountdown(countdownSeconds ?? 0);
+
+  let caption: string;
+  let keyTime: string;
+  if (noCountdown) {
+    caption = window.hasStarted ? 'No fixed end time in our data' : 'Hasn’t started yet';
+    keyTime = `${window.hasStarted ? 'Started at' : 'Starts at'} ${formatClock12(window.startTime)}`;
+  } else {
+    caption = isNow ? 'Time remaining' : 'Starts in';
+    keyTime = isNow
+      ? `Ends at ${formatClock12(window.endTime ?? window.startTime)}`
+      : `Starts at ${formatClock12(window.startTime)}`;
+  }
 
   return (
     <LinearGradient
-      colors={['#164C38', '#063A29']}
+      colors={['#145C3F', '#0A4430', '#06321F']}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
-      style={[styles.card, cardShadow('#000')]}>
-      <View style={styles.titleRow}>
-        <ThemedText style={[styles.cardLabel, { color: 'rgba(255,255,255,0.72)' }]}>
-          {context === 'now' ? 'CURRENT PRAYER' : 'NEXT PRAYER'}
-        </ThemedText>
+      style={[styles.card, cardShadow()]}>
+      <View pointerEvents="none" style={styles.arch}>
+        <ArchWindow />
+      </View>
+
+      <View style={styles.topRow}>
+        <NowNextToggle value={context} onChange={onChangeContext} />
         <View style={styles.liveStatus}>
-          <View style={styles.liveDot} />
-          <ThemedText style={styles.liveLabel}>{context === 'now' ? 'LIVE' : 'PLAN'}</ThemedText>
+          <View style={[styles.liveDot, !isNow && styles.planDot]} />
+          <ThemedText style={styles.liveLabel}>{isNow ? 'LIVE' : 'PLAN'}</ThemedText>
         </View>
       </View>
-      <NowNextToggle value={context} onChange={onChangeContext} inverted />
 
-      <View style={styles.windowSummary}>
-        <ThemedText style={[styles.prayerName, { color: '#FFFFFF' }]}>{window.name}</ThemedText>
-        {noCountdown ? (
-          <>
-            <ThemedText style={styles.countdownNumber}>—</ThemedText>
-            <ThemedText style={styles.countdownCaption}>
-              {window.hasStarted ? 'No fixed deadline in our data' : 'Hasn’t started yet'}
-            </ThemedText>
-            <ThemedText style={[styles.keyTime, { color: 'rgba(255,255,255,0.72)' }]}>
-              {window.hasStarted ? 'Started at' : 'Starts at'} {formatClock12(window.startTime)}
-            </ThemedText>
-          </>
-        ) : (
-          <>
-            <ThemedText style={styles.countdownNumber}>{formatLiveCountdown(countdownSeconds ?? 0)}</ThemedText>
-            <ThemedText style={styles.countdownCaption}>{isNow ? 'remaining' : 'until start'}</ThemedText>
-            <ThemedText style={[styles.keyTime, { color: 'rgba(255,255,255,0.72)' }]}>
-              {isNow ? 'Ends' : 'Starts'} {formatClock12(isNow ? (window.endTime ?? window.startTime) : window.startTime)}
-            </ThemedText>
-          </>
-        )}
+      <View style={styles.body}>
+        <ThemedText style={styles.overline}>{isNow ? 'CURRENT PRAYER' : 'NEXT PRAYER'}</ThemedText>
+        <ThemedText style={styles.prayerName}>{window.name}</ThemedText>
+        <View style={styles.captionRow}>
+          <IconSymbol name="clock.fill" size={14} color="rgba(255,255,255,0.75)" />
+          <ThemedText style={styles.caption}>{caption}</ThemedText>
+        </View>
+        {/* Hour-long countdowns ("2:32:15") step down a size so they fit
+            beside the arch on narrow phones (adjustsFontSizeToFit is iOS-only). */}
+        <ThemedText style={[styles.countdown, countdownText.length > 5 && styles.countdownLong]} numberOfLines={1}>
+          {countdownText}
+        </ThemedText>
+        <ThemedText style={styles.keyTime}>{keyTime}</ThemedText>
       </View>
 
-      <View style={styles.divider} />
-
-      <View style={styles.scheduleHeaderRow}>
-        <ThemedText style={styles.scheduleLabel}>TODAY&apos;S PRAYER TIMES</ThemedText>
-        {sunriseTime && (
-          <ThemedText style={styles.sunriseNote}>Sunrise {formatClock12(sunriseTime)}</ThemedText>
-        )}
-      </View>
-      <PrayerScheduleStrip schedule={schedule} activeName={window.name} inverted />
+      {remainingFraction !== null && (
+        <View
+          style={styles.track}
+          accessibilityRole="progressbar"
+          accessibilityValue={{ min: 0, max: 100, now: Math.round(remainingFraction * 100) }}>
+          <View style={[styles.fill, { width: `${Math.max(2, remainingFraction * 100)}%` }]} />
+        </View>
+      )}
     </LinearGradient>
   );
 }
 
-function cardShadow(color: string) {
+/** Decorative arched window with a minaret seen through it. */
+function ArchWindow() {
+  return (
+    <Svg width={132} height={190} viewBox="0 0 132 190">
+      <Defs>
+        <SvgGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <Stop offset="0" stopColor="#CFEBDD" stopOpacity="0.55" />
+          <Stop offset="1" stopColor="#2E7A57" stopOpacity="0.25" />
+        </SvgGradient>
+      </Defs>
+      {/* Frame */}
+      <Path d="M8 190 V86 C8 42 40 18 66 4 C92 18 124 42 124 86 V190 Z" fill="#FFFFFF" opacity={0.1} />
+      {/* Opening */}
+      <Path d="M24 190 V90 C24 56 46 36 66 24 C86 36 108 56 108 90 V190 Z" fill="url(#sky)" />
+      {/* Minaret through the window */}
+      <Path d="M78 60 L82 50 L86 60 Z" fill="#FFFFFF" opacity={0.5} />
+      <Rect x="79" y="60" width="6" height="130" fill="#FFFFFF" opacity={0.45} />
+      <Rect x="76.5" y="88" width="11" height="3" rx="1" fill="#FFFFFF" opacity={0.5} />
+      <Rect x="77" y="118" width="10" height="3" rx="1" fill="#FFFFFF" opacity={0.5} />
+    </Svg>
+  );
+}
+
+function cardShadow() {
   return Platform.select({
     ios: {
-      shadowColor: color,
-      shadowOpacity: 0.08,
-      shadowRadius: 20,
-      shadowOffset: { width: 0, height: 8 },
+      shadowColor: '#062F20',
+      shadowOpacity: 0.28,
+      shadowRadius: 22,
+      shadowOffset: { width: 0, height: 12 },
     },
-    android: { elevation: 3 },
+    android: { elevation: 8 },
     default: {},
   });
 }
@@ -128,87 +155,94 @@ export function formatLiveCountdown(seconds: number) {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 24,
-    padding: 16,
-    gap: 10,
+    borderRadius: 28,
+    padding: 18,
+    gap: 14,
     overflow: 'hidden',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(255,255,255,0.14)',
   },
-  titleRow: {
+  arch: {
+    position: 'absolute',
+    right: 10,
+    bottom: 0,
+  },
+  topRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  cardLabel: {
-    fontSize: 11,
-    fontWeight: '700',
-    letterSpacing: 0.8,
-  },
-  liveDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 4,
-    backgroundColor: '#75E78C',
   },
   liveStatus: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 5,
+    gap: 6,
+  },
+  liveDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#75E78C',
+  },
+  planDot: {
+    backgroundColor: '#FFD98A',
   },
   liveLabel: {
-    color: 'rgba(255,255,255,0.72)',
-    fontSize: 10,
+    color: 'rgba(255,255,255,0.85)',
+    fontSize: 12,
     fontWeight: '700',
-    letterSpacing: 0.7,
+    letterSpacing: 1,
+  },
+  body: {
+    gap: 2,
+  },
+  overline: {
+    color: 'rgba(255,255,255,0.6)',
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 0.9,
   },
   prayerName: {
-    fontSize: 26,
-    lineHeight: 30,
-    fontWeight: '700',
-  },
-  windowSummary: {
-    alignItems: 'center',
-    paddingVertical: 4,
-    gap: 1,
-  },
-  countdownNumber: {
+    color: '#FFFFFF',
     fontSize: 40,
     lineHeight: 46,
-    fontWeight: '700',
-    fontVariant: ['tabular-nums'],
-    color: '#91ED9D',
-    marginTop: 2,
+    fontWeight: '800',
   },
-  countdownCaption: {
-    color: 'rgba(255,255,255,0.62)',
-    fontSize: 12,
-  },
-  keyTime: {
-    fontSize: 13,
-    fontWeight: '600',
-    marginTop: 4,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: 'rgba(255,255,255,0.16)',
-  },
-  scheduleHeaderRow: {
+  captionRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 1,
+    gap: 6,
+    marginTop: 2,
   },
-  scheduleLabel: {
-    fontSize: 10,
-    fontWeight: '700',
-    letterSpacing: 0.7,
-    color: 'rgba(255,255,255,0.58)',
+  caption: {
+    color: 'rgba(255,255,255,0.78)',
+    fontSize: 14,
   },
-  // A warm, distinctly non-brand tone — Sunrise is a reference marker
-  // (Fajr's real end, see prayer-engine.ts), never an active/selectable
-  // prayer, so it must read as clearly separate from the schedule strip.
-  sunriseNote: {
-    fontSize: 10,
+  countdown: {
+    color: '#A8EBBE',
+    fontSize: 58,
+    lineHeight: 64,
+    fontWeight: '800',
+    fontVariant: ['tabular-nums'],
+    letterSpacing: -1,
+  },
+  countdownLong: {
+    fontSize: 46,
+    lineHeight: 56,
+  },
+  keyTime: {
+    color: 'rgba(255,255,255,0.88)',
+    fontSize: 15,
     fontWeight: '600',
-    color: 'rgba(255, 202, 130, 0.9)',
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'rgba(255,255,255,0.14)',
+    overflow: 'hidden',
+  },
+  fill: {
+    height: '100%',
+    borderRadius: 4,
+    backgroundColor: '#A8EBBE',
   },
 });
