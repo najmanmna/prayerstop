@@ -1,4 +1,4 @@
-import { formatClock12, offsetClock, parseClock } from '@/lib/time';
+import { formatClock12, formatDuration, getArrivalOutcome, offsetClock, parseClock } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
 /**
@@ -63,4 +63,41 @@ export function summarizeReachability(context: PlanningContext, window: PrayerWi
     tone: place.feasibility,
     title: place.feasibility === 'tight' ? 'It’s tight, but you can make it' : 'You can make it in time',
   };
+}
+
+export interface PlanFigure {
+  value: string;
+  label: string;
+}
+
+/**
+ * The three figures under the verdict on the best-match card. Only facts we
+ * have: real drive time, arrival, and the window's known start/end. The
+ * NOW arrival-vs-end comparison is same-day safe; NEXT never compares
+ * clock strings (see build-place-scenario.ts) and shows leave-by/start
+ * instead. Isha's end stays "not listed".
+ */
+export function planFigures(context: PlanningContext, window: PrayerWindow, place: PrayerPlace): [PlanFigure, PlanFigure, PlanFigure] {
+  const drive: PlanFigure = { value: `${place.etaMinutes} min`, label: 'drive' };
+
+  if (context === 'next') {
+    return [
+      drive,
+      { value: formatClock12(offsetClock(window.startTime, -place.etaMinutes)), label: 'leave by' },
+      { value: formatClock12(window.startTime), label: `${window.name} starts` },
+    ];
+  }
+
+  const arrive: PlanFigure = { value: formatClock12(place.arrivalTime), label: 'arrive' };
+  if (!window.hasStarted) {
+    return [drive, arrive, { value: formatClock12(window.startTime), label: `${window.name} starts` }];
+  }
+  const outcome = getArrivalOutcome(window, place.arrivalTime);
+  if (outcome.status === 'unknown') {
+    return [drive, arrive, { value: '—', label: 'end not listed' }];
+  }
+  if (outcome.overflow) {
+    return [drive, arrive, { value: formatDuration(Math.abs(outcome.remaining)), label: 'after it ends' }];
+  }
+  return [drive, arrive, { value: formatDuration(outcome.remaining), label: 'before it ends' }];
 }

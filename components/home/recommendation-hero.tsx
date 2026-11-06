@@ -8,11 +8,17 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { displayPlaceText } from '@/lib/display-text';
-import { summarizeReachability } from '@/lib/home-display';
+import { planFigures, summarizeReachability } from '@/lib/home-display';
 import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
-import { formatClock12, formatDuration, getArrivalOutcome } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
+/**
+ * The best-match card: title row, the place (same layout as the list rows,
+ * larger), then one tinted panel with the plain-words verdict over three
+ * evenly spaced figures, then the actions. The verdict and figures come
+ * from lib/home-display.ts, which only uses facts we have (see there for
+ * the NOW/NEXT and unknown-deadline rules).
+ */
 export function RecommendationHero({
   place,
   window,
@@ -26,35 +32,13 @@ export function RecommendationHero({
   onPress?: () => void;
 }) {
   const theme = Colors[useColorScheme() ?? 'light'];
-  const isNow = context === 'now';
-  // NOW-only: getArrivalOutcome(window, place.arrivalTime) compares an
-  // arrival time computed from "now" against the *active* window's real
-  // start/end — safe only when window and "now" are the same effective
-  // calendar day, which holds for NOW but not for NEXT (e.g. planning for
-  // tomorrow's Fajr from late tonight would otherwise falsely compare
-  // "23:50 tonight" as later than "04:45 tomorrow"). Never derive
-  // the verdict from this for NEXT — summarizeReachability uses
-  // `place.feasibility`, already computed per-context by build-place-scenario.ts.
-  const outcome = isNow ? getArrivalOutcome(window, place.arrivalTime) : { status: 'unknown' as const };
   const summary = summarizeReachability(context, window, place);
-  const panelColors =
+  const figures = planFigures(context, window, place);
+  const panel =
     summary.tone === 'neutral'
       ? { background: theme.surface, foreground: theme.textSecondary }
       : FeasibilityColors[summary.tone];
-  const drive = `${place.etaMinutes} min drive`;
-
-  // The verdict (title) answers "can I make it?"; this one line underneath
-  // carries the numbers behind it.
-  let detail: string;
-  if (!isNow) {
-    detail = `${drive} · arrive by ${formatClock12(window.startTime)}`;
-  } else if (!window.hasStarted) {
-    detail = `Starts at ${formatClock12(window.startTime)} · ${drive}`;
-  } else if (outcome.status === 'unknown' || !outcome.overflow) {
-    detail = `${drive} · arrive ${formatClock12(place.arrivalTime)}`;
-  } else {
-    detail = `Arrives ${formatDuration(Math.abs(outcome.remaining))} after ${window.name} ends · ${drive}`;
-  }
+  const area = place.area ? ` · ${displayPlaceText(place.area)}` : '';
 
   return (
     <TouchableOpacity
@@ -63,64 +47,73 @@ export function RecommendationHero({
       activeOpacity={onPress ? 0.9 : 1}
       accessibilityRole={onPress ? 'button' : undefined}
       style={[styles.card, { backgroundColor: theme.surfaceElevated }, cardShadow(theme.text)]}>
-      <View style={styles.body}>
-        {/* Same title row as the other place cards (PlaceListCard). */}
-        <View style={styles.titleRow}>
-          <ThemedText style={styles.title}>Best for {window.name}</ThemedText>
-          <View style={[styles.badge, { backgroundColor: theme.accentSoft }]}>
-            <IconSymbol name="star.fill" size={11} color={theme.tint} />
-            <ThemedText style={[styles.badgeLabel, { color: theme.tint }]}>Recommended</ThemedText>
-          </View>
+      {/* Same title row as the other place cards (PlaceListCard). */}
+      <View style={styles.titleRow}>
+        <ThemedText style={styles.title}>Best for {window.name}</ThemedText>
+        <View style={[styles.badge, { backgroundColor: theme.accentSoft }]}>
+          <IconSymbol name="star.fill" size={11} color={theme.tint} />
+          <ThemedText style={[styles.badgeLabel, { color: theme.tint }]}>Recommended</ThemedText>
         </View>
+      </View>
 
-        <View style={styles.placeRow}>
+      <View style={styles.placeRow}>
+        <View style={styles.iconColumn}>
           <PlaceThumbnail size={PLACE_ICON_SIZE} />
-          <View style={styles.placeInfo}>
-            <ThemedText type="defaultSemiBold" style={styles.placeName} numberOfLines={2}>
-              {displayPlaceText(place.name)}
-            </ThemedText>
-            <ThemedText style={[styles.placeArea, { color: theme.textSecondary }]} numberOfLines={1}>
-              {/* Distance first so a long address can't truncate it away. */}
-              {place.distanceKm.toFixed(1)} km away{place.area ? ` · ${displayPlaceText(place.area)}` : ''}
-            </ThemedText>
-          </View>
-          {onPress && <IconSymbol name="chevron.right" size={20} color={theme.textMuted} />}
         </View>
+        <View style={styles.placeInfo}>
+          <ThemedText type="defaultSemiBold" style={styles.placeName} numberOfLines={2}>
+            {displayPlaceText(place.name)}
+          </ThemedText>
+          <ThemedText style={[styles.placeArea, { color: theme.textSecondary }]} numberOfLines={1}>
+            {place.distanceKm.toFixed(1)} km{area}
+          </ThemedText>
+        </View>
+      </View>
 
-        {/* One tinted panel: the verdict and the numbers behind it. The
-            glyph sits in the thumbnail's column so the text lines up. */}
-        <View accessibilityRole="summary" style={[styles.verdict, { backgroundColor: panelColors.background }]}>
-          <View style={styles.glyphColumn}>
-            <StatusGlyph tone={summary.tone} color={panelColors.foreground} size={28} />
-          </View>
-          <View style={styles.verdictText}>
-            <ThemedText style={[styles.verdictTitle, { color: summary.tone === 'neutral' ? theme.text : panelColors.foreground }]}>
-              {summary.title}
-            </ThemedText>
-            <ThemedText style={[styles.verdictDetail, { color: theme.textSecondary }]}>{detail}</ThemedText>
-          </View>
+      <View accessibilityRole="summary" style={[styles.panel, { backgroundColor: panel.background }]}>
+        <View style={styles.verdictRow}>
+          <StatusGlyph tone={summary.tone} color={panel.foreground} size={20} />
+          <ThemedText style={[styles.verdict, { color: summary.tone === 'neutral' ? theme.text : panel.foreground }]}>
+            {summary.title}
+          </ThemedText>
         </View>
+        <View style={[styles.panelDivider, { backgroundColor: `${panel.foreground}26` }]} />
+        <View style={styles.figures}>
+          {figures.map((figure, index) => (
+            <View key={figure.label} style={styles.figureWrap}>
+              {index > 0 && <View style={[styles.figureDivider, { backgroundColor: `${panel.foreground}26` }]} />}
+              <View style={styles.figure}>
+                <ThemedText style={styles.figureValue} numberOfLines={1}>
+                  {figure.value}
+                </ThemedText>
+                <ThemedText style={[styles.figureLabel, { color: theme.textSecondary }]} numberOfLines={1}>
+                  {figure.label}
+                </ThemedText>
+              </View>
+            </View>
+          ))}
+        </View>
+      </View>
 
-        <View style={styles.actionsRow}>
-          <TouchableOpacity
-            accessibilityRole="button"
-            activeOpacity={0.85}
-            onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
-            style={[styles.primaryAction, { backgroundColor: theme.tint }]}>
-            <IconSymbol name="location.north.fill" size={16} color="#FFFFFF" />
-            <ThemedText type="defaultSemiBold" style={styles.primaryActionLabel}>
-              Get directions
-            </ThemedText>
-          </TouchableOpacity>
-          <TouchableOpacity
-            accessibilityRole="button"
-            accessibilityLabel={`View ${place.name} on Google Maps`}
-            activeOpacity={0.7}
-            onPress={() => openPlaceInGoogleMaps(place)}
-            style={[styles.secondaryAction, { backgroundColor: theme.accentSoft }]}>
-            <IconSymbol name="map.fill" size={18} color={theme.tint} />
-          </TouchableOpacity>
-        </View>
+      <View style={styles.actionsRow}>
+        <TouchableOpacity
+          accessibilityRole="button"
+          activeOpacity={0.85}
+          onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
+          style={[styles.primaryAction, { backgroundColor: theme.tint }]}>
+          <IconSymbol name="location.north.fill" size={16} color="#FFFFFF" />
+          <ThemedText type="defaultSemiBold" style={styles.primaryActionLabel}>
+            Get directions
+          </ThemedText>
+        </TouchableOpacity>
+        <TouchableOpacity
+          accessibilityRole="button"
+          accessibilityLabel={`View ${place.name} on Google Maps`}
+          activeOpacity={0.7}
+          onPress={() => openPlaceInGoogleMaps(place)}
+          style={[styles.secondaryAction, { backgroundColor: theme.accentSoft }]}>
+          <IconSymbol name="map.fill" size={18} color={theme.tint} />
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
@@ -142,20 +135,8 @@ function cardShadow(color: string) {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 22,
-    overflow: 'hidden',
-  },
-  body: {
     padding: 14,
     gap: 12,
-  },
-  placeRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  placeInfo: {
-    flex: 1,
-    gap: 2,
   },
   titleRow: {
     flexDirection: 'row',
@@ -178,39 +159,75 @@ const styles = StyleSheet.create({
     fontSize: 11.5,
     fontWeight: '700',
   },
+  placeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  iconColumn: {
+    width: PLACE_ICON_SIZE,
+    alignItems: 'center',
+  },
+  placeInfo: {
+    flex: 1,
+    gap: 3,
+  },
   placeName: {
-    fontSize: 16.5,
-    lineHeight: 21,
+    fontSize: 17,
+    lineHeight: 22,
     fontWeight: '700',
   },
   placeArea: {
     fontSize: 12.5,
+    lineHeight: 16,
   },
-  verdict: {
+  panel: {
+    borderRadius: 16,
+    paddingTop: 11,
+    paddingBottom: 12,
+  },
+  verdictRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    borderRadius: 16,
-    paddingVertical: 11,
-    paddingRight: 12,
+    gap: 8,
+    paddingHorizontal: 14,
   },
-  glyphColumn: {
-    width: PLACE_ICON_SIZE,
-    alignItems: 'center',
-  },
-  verdictText: {
-    flex: 1,
-    gap: 2,
-  },
-  verdictTitle: {
+  verdict: {
     fontSize: 15.5,
     lineHeight: 20,
     fontWeight: '800',
+    flexShrink: 1,
   },
-  verdictDetail: {
-    fontSize: 12.5,
-    lineHeight: 17,
+  panelDivider: {
+    height: StyleSheet.hairlineWidth,
+    marginVertical: 10,
+    marginHorizontal: 14,
+  },
+  figures: {
+    flexDirection: 'row',
+  },
+  figureWrap: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  figureDivider: {
+    width: StyleSheet.hairlineWidth,
+  },
+  figure: {
+    flex: 1,
+    alignItems: 'center',
+    gap: 1,
+    paddingHorizontal: 4,
+  },
+  figureValue: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: '800',
     fontVariant: ['tabular-nums'],
+  },
+  figureLabel: {
+    fontSize: 11.5,
+    lineHeight: 15,
   },
   actionsRow: {
     flexDirection: 'row',

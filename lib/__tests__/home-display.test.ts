@@ -1,4 +1,4 @@
-import { hasPrayerTimePassed, summarizeReachability, windowRemainingFraction } from '../home-display';
+import { hasPrayerTimePassed, planFigures, summarizeReachability, windowRemainingFraction } from '../home-display';
 import type { PrayerPlace, PrayerWindow } from '@/types/home';
 
 const DHUHR: PrayerWindow = { name: 'Dhuhr', startTime: '12:00', endTime: '15:20', hasStarted: true };
@@ -92,5 +92,35 @@ describe('summarizeReachability', () => {
       tone: 'tooLate',
       title: 'Can’t arrive before Asr starts',
     });
+  });
+});
+
+describe('planFigures', () => {
+  it('NOW in time: drive, arrival, time before the end', () => {
+    expect(planFigures('now', DHUHR, place({ etaMinutes: 4, arrivalTime: '15:10' }))).toEqual([
+      { value: '4 min', label: 'drive' },
+      { value: '3:10 PM', label: 'arrive' },
+      { value: '10 min', label: 'before it ends' },
+    ]);
+  });
+
+  it('NOW too late: how long after the end', () => {
+    expect(planFigures('now', DHUHR, place({ arrivalTime: '15:35', feasibility: 'tooLate' }))[2]).toEqual({
+      value: '15 min',
+      label: 'after it ends',
+    });
+  });
+
+  it('Isha: the end stays not listed', () => {
+    expect(planFigures('now', ISHA, place({ arrivalTime: '19:30' }))[2]).toEqual({ value: '—', label: 'end not listed' });
+  });
+
+  it('NEXT: leave-by and start, never an arrival-vs-end comparison', () => {
+    const fajr: PrayerWindow = { name: 'Fajr', startTime: '04:40', endTime: '05:59', hasStarted: false };
+    expect(planFigures('next', fajr, place({ etaMinutes: 10, arrivalTime: '23:59' }))).toEqual([
+      { value: '10 min', label: 'drive' },
+      { value: '4:30 AM', label: 'leave by' },
+      { value: '4:40 AM', label: 'Fajr starts' },
+    ]);
   });
 });
