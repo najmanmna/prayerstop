@@ -1,11 +1,13 @@
 import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 
+import { PLACE_ICON_SIZE } from '@/components/home/place-list-card';
 import { PlaceThumbnail } from '@/components/home/place-thumbnail';
 import { ReachabilityStrip } from '@/components/home/reachability-strip';
 import { ThemedText } from '@/components/themed-text';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { displayPlaceText } from '@/lib/display-text';
 import type { ReachabilitySummary } from '@/lib/home-display';
 import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
 import { formatClock12, formatDuration, getArrivalOutcome, offsetClock } from '@/lib/time';
@@ -80,7 +82,7 @@ export function RecommendationHero({
 
       <View style={styles.body}>
         <View style={styles.placeRow}>
-          <PlaceThumbnail size={56} />
+          <PlaceThumbnail size={PLACE_ICON_SIZE} />
           <View style={styles.placeInfo}>
             <View style={styles.bestMatch}>
               <IconSymbol name="star.fill" size={11} color={theme.tint} />
@@ -89,19 +91,23 @@ export function RecommendationHero({
               </ThemedText>
             </View>
             <ThemedText type="defaultSemiBold" style={styles.placeName} numberOfLines={2}>
-              {place.name}
+              {displayPlaceText(place.name)}
             </ThemedText>
             <ThemedText style={[styles.placeArea, { color: theme.textSecondary }]} numberOfLines={1}>
               {/* Distance first so a long address can't truncate it away. */}
-              {place.distanceKm.toFixed(1)} km away{place.area ? ` · ${place.area}` : ''}
+              {place.distanceKm.toFixed(1)} km away{place.area ? ` · ${displayPlaceText(place.area)}` : ''}
             </ThemedText>
           </View>
           {onPress && <IconSymbol name="chevron.right" size={20} color={theme.textMuted} />}
         </View>
 
+        {/* Car icon sits in the same column as the thumbnail above, so the
+            headline starts on the same line as the place name. */}
         <View style={[styles.headlineBlock, { backgroundColor: theme.surface }]}>
-          <View style={[styles.carBadge, { backgroundColor: theme.surfaceElevated }]}>
-            <IconSymbol name="car.fill" size={17} color={headlineColor} />
+          <View style={styles.carColumn}>
+            <View style={[styles.carBadge, { backgroundColor: theme.surfaceElevated }]}>
+              <IconSymbol name="car.fill" size={17} color={headlineColor} />
+            </View>
           </View>
           <View style={styles.headlineText}>
             <ThemedText style={[styles.headline, { color: headlineColor }]}>{headline}</ThemedText>
@@ -183,13 +189,19 @@ const styles = StyleSheet.create({
   placeArea: {
     fontSize: 12.5,
   },
+  // No left padding: the 48px car column lines up exactly with the
+  // thumbnail column above it, and the box edges match the button below.
   headlineBlock: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: 12,
     borderRadius: 14,
     paddingVertical: 9,
-    paddingHorizontal: 10,
+    paddingRight: 12,
+  },
+  carColumn: {
+    width: PLACE_ICON_SIZE,
+    alignItems: 'center',
   },
   carBadge: {
     width: 34,

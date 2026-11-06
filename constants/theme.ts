@@ -45,6 +45,9 @@ export const RouteGradient = {
   dark: ['#4BAE81', '#0B422E'] as const,
 };
 
+// Deep-green gradient behind the full-bleed screen headers (Home, Nearby).
+export const HeaderGradient = ['#062F20', '#0E4A33', '#1B6446'] as const;
+
 // Feasibility palette — communicates reachability status, not brand identity.
 export const FeasibilityColors = {
   comfortable: { background: '#E1F0E8', foreground: '#126B46' },

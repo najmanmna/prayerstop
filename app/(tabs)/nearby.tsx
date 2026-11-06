@@ -1,11 +1,12 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { ActivityIndicator, RefreshControl, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { RefreshControl, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { AlternatePlaceRow } from '@/components/home/alternate-place-row';
+import { cardShadow, PlaceListCard } from '@/components/home/place-list-card';
 import { DistancePlaceRow, formatStraightLineDistance } from '@/components/nearby/distance-place-row';
 import type { NearbyMapPin } from '@/components/nearby/map-pin';
+import { NEARBY_HEADER_OVERLAP, NearbyHeader } from '@/components/nearby/nearby-header';
 import { NEARBY_MAP_AVAILABLE, NearbyMap } from '@/components/nearby/nearby-map';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -13,7 +14,9 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useNearbyPlacesSession } from '@/hooks/nearby-places-session';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useHeaderStatusBar } from '@/hooks/use-header-status-bar';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
+import { displayPlaceText } from '@/lib/display-text';
 import { buildPlaceScenario } from '@/lib/prayer-places/build-place-scenario';
 import { buildPlaceDetailsPath } from '@/lib/prayer-places/find-candidate';
 import { DEFAULT_NEARBY_OPTIONS } from '@/lib/prayer-places/nearby-places-api-repository';
@@ -33,6 +36,7 @@ export default function NearbyScreen() {
   const prayerTimes = usePrayerTimes();
   const timing = selectPrayerTimesForContext(prayerTimes, 'now');
   const [selectedPinId, setSelectedPinId] = useState<string | null>(null);
+  const handleScroll = useHeaderStatusBar(90);
 
   const places: PrayerPlace[] =
     timing && nearby.status === 'ready'
@@ -50,8 +54,12 @@ export default function NearbyScreen() {
   const prayerSummary = timing
     ? timing.countdownSeconds !== null
       ? `${timing.window.name} ends in ${formatDuration(Math.max(0, Math.round(timing.countdownSeconds / 60)))}`
-      : timing.window.name
+      : `${timing.window.name} · end time not listed`
     : null;
+  const headerSummary =
+    places.length > 0
+      ? `${totalCount} ${totalCount === 1 ? 'mosque' : 'mosques'} within ${radiusKm} km of you`
+      : 'Prayer places around you';
 
   const goToDetails = (placeId: string) => router.push(buildPlaceDetailsPath(placeId));
 
@@ -60,13 +68,13 @@ export default function NearbyScreen() {
   const pins: NearbyMapPin[] = [
     ...places.map((place) => ({
       id: place.id,
-      name: place.name,
+      name: displayPlaceText(place.name),
       coordinates: place.coordinates,
       detail: `${place.etaMinutes} min · arrive ${formatClock12(place.arrivalTime)}`,
     })),
     ...morePlaces.map((place) => ({
       id: place.id,
-      name: place.name,
+      name: displayPlaceText(place.name),
       coordinates: place.coordinates,
       detail: formatStraightLineDistance(place.distanceKm),
     })),
@@ -116,33 +124,36 @@ export default function NearbyScreen() {
 
   return (
     <ThemedView style={styles.flex}>
-      <SafeAreaView style={styles.flex} edges={['top']}>
-        <View style={styles.header}>
-          <ThemedText style={styles.title}>Nearby</ThemedText>
-          <TouchableOpacity
-            onPress={() => refreshWithLocation()}
-            disabled={isRefreshingEverything}
-            accessibilityRole="button"
-            style={styles.refreshButton}>
-            {isRefreshingEverything ? (
-              <ActivityIndicator size="small" color={theme.tint} />
-            ) : (
-              <IconSymbol name="location.fill" size={14} color={theme.tint} />
-            )}
-            <ThemedText style={[styles.refreshLabel, { color: theme.tint }]}>Refresh</ThemedText>
-          </TouchableOpacity>
-        </View>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={32}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshingEverything}
+            onRefresh={() => {
+              // Fire-and-forget: `refreshing` above reflects the shared
+              // session's real state, not this promise settling, so the
+              // native indicator stays in sync even though the actual
+              // Places/Routes fetch happens asynchronously inside the
+              // one shared Provider (see refreshWithLocation).
+              void refreshWithLocation();
+            }}
+            tintColor={theme.tint}
+          />
+        }>
+        <NearbyHeader
+          summary={headerSummary}
+          detail={places.length > 0 ? prayerSummary : null}
+          isRefreshing={isRefreshingEverything}
+          onRefresh={() => refreshWithLocation()}
+        />
 
-        {isStale && places.length > 0 && (
-          <ThemedText style={[styles.staleNotice, { color: theme.textMuted }]}>
-            This may be a little out of date · tap Refresh for the latest
-          </ThemedText>
-        )}
-
-        {places.length === 0 ? (
-          <View style={styles.noticeWrap}>
+        <View style={styles.content}>
+          {places.length === 0 ? (
             <TouchableOpacity
-              style={[styles.unavailableCard, { backgroundColor: theme.surface }]}
+              style={[styles.unavailableCard, { backgroundColor: theme.surfaceElevated }, cardShadow()]}
               disabled={!notice?.onPress}
               onPress={notice?.onPress}
               activeOpacity={notice?.onPress ? 0.7 : 1}>
@@ -151,88 +162,63 @@ export default function NearbyScreen() {
               </ThemedText>
               <ThemedText style={[styles.unavailableBody, { color: theme.textSecondary }]}>{notice?.body}</ThemedText>
             </TouchableOpacity>
-          </View>
-        ) : (
-          <ScrollView
-            contentContainerStyle={styles.listContent}
-            refreshControl={
-              <RefreshControl
-                refreshing={isRefreshingEverything}
-                onRefresh={() => {
-                  // Fire-and-forget: `refreshing` above reflects the shared
-                  // session's real state, not this promise settling, so the
-                  // native indicator stays in sync even though the actual
-                  // Places/Routes fetch happens asynchronously inside the
-                  // one shared Provider (see refreshWithLocation).
-                  void refreshWithLocation();
-                }}
-                tintColor={theme.tint}
-              />
-            }>
-            {showMap && (
-              <View style={styles.mapCard}>
-                <NearbyMap
-                  pins={pins}
-                  userCoords={device.status === 'granted' ? device.coords : null}
-                  selectedPinId={selectedPin?.id ?? null}
-                  onSelectPin={setSelectedPinId}
-                />
-              </View>
-            )}
-            {showMap && selectedPin && (
-              <SelectedPinCard
-                pin={selectedPin}
-                onOpen={() => goToDetails(selectedPin.id)}
-                onOpenInMaps={() => {
-                  const place = allPlaces.find((entry) => entry.id === selectedPin.id);
-                  if (place) void openPlaceInGoogleMaps(place);
-                }}
-              />
-            )}
+          ) : (
+            <>
+              {showMap && (
+                <View style={[styles.mapCard, { backgroundColor: theme.surface }, cardShadow()]}>
+                  <NearbyMap
+                    pins={pins}
+                    userCoords={device.status === 'granted' ? device.coords : null}
+                    selectedPinId={selectedPin?.id ?? null}
+                    onSelectPin={setSelectedPinId}
+                  />
+                  {selectedPin && (
+                    <SelectedPinCard
+                      pin={selectedPin}
+                      onOpen={() => goToDetails(selectedPin.id)}
+                      onOpenInMaps={() => {
+                        const place = allPlaces.find((entry) => entry.id === selectedPin.id);
+                        if (place) void openPlaceInGoogleMaps(place);
+                      }}
+                    />
+                  )}
+                </View>
+              )}
 
-            <ThemedText style={[styles.summary, { color: theme.textSecondary }]}>
-              {totalCount} {totalCount === 1 ? 'mosque' : 'mosques'} within {radiusKm} km
-              {prayerSummary ? ` · ${prayerSummary}` : ''}
-            </ThemedText>
+              {isStale && (
+                <TouchableOpacity onPress={() => refreshWithLocation()} activeOpacity={0.7}>
+                  <ThemedText style={[styles.staleNotice, { color: theme.textMuted }]}>
+                    This may be a little out of date · tap to refresh
+                  </ThemedText>
+                </TouchableOpacity>
+              )}
 
-            <ThemedText style={[styles.sectionTitle, { color: theme.textMuted }]}>FASTEST TO REACH</ThemedText>
-            <View style={[styles.listCard, { backgroundColor: theme.surface }]}>
-              {places.map((place, index) => (
-                <View key={place.id}>
+              <PlaceListCard title="Fastest to reach" caption="Live drive times">
+                {places.map((place) => (
                   <AlternatePlaceRow
+                    key={place.id}
                     place={place}
                     window={timing!.window}
                     context="now"
                     onPress={() => goToDetails(place.id)}
                   />
-                  {index < places.length - 1 && (
-                    <View style={[styles.rowDivider, { backgroundColor: theme.border }]} />
-                  )}
-                </View>
-              ))}
-            </View>
+                ))}
+              </PlaceListCard>
 
-            {morePlaces.length > 0 && (
-              <>
-                <ThemedText style={[styles.sectionTitle, { color: theme.textMuted }]}>MORE NEARBY</ThemedText>
-                <ThemedText style={[styles.sectionCaption, { color: theme.textMuted }]}>
-                  Straight-line distance. Live travel times are checked for the nearest {places.length} only.
-                </ThemedText>
-                <View style={[styles.listCard, { backgroundColor: theme.surface }]}>
-                  {morePlaces.map((place, index) => (
-                    <View key={place.id}>
-                      <DistancePlaceRow place={place} onPress={() => goToDetails(place.id)} />
-                      {index < morePlaces.length - 1 && (
-                        <View style={[styles.rowDivider, { backgroundColor: theme.border }]} />
-                      )}
-                    </View>
+              {morePlaces.length > 0 && (
+                <PlaceListCard
+                  title="More nearby"
+                  caption={`${morePlaces.length} more`}
+                  note={`Straight-line distance. Live travel times are checked for the nearest ${places.length} only.`}>
+                  {morePlaces.map((place) => (
+                    <DistancePlaceRow key={place.id} place={place} onPress={() => goToDetails(place.id)} />
                   ))}
-                </View>
-              </>
-            )}
-          </ScrollView>
-        )}
-      </SafeAreaView>
+                </PlaceListCard>
+              )}
+            </>
+          )}
+        </View>
+      </ScrollView>
     </ThemedView>
   );
 }
@@ -252,9 +238,9 @@ function SelectedPinCard({
       onPress={onOpen}
       activeOpacity={0.85}
       accessibilityRole="button"
-      style={[styles.selectedCard, { backgroundColor: theme.surface }]}>
+      style={[styles.selectedCard, { backgroundColor: theme.surfaceElevated }, cardShadow()]}>
       <View style={styles.selectedInfo}>
-        <ThemedText type="defaultSemiBold" numberOfLines={1}>
+        <ThemedText type="defaultSemiBold" style={styles.selectedName} numberOfLines={1}>
           {pin.name}
         </ThemedText>
         <ThemedText style={[styles.selectedDetail, { color: theme.textSecondary }]} numberOfLines={1}>
@@ -266,49 +252,28 @@ function SelectedPinCard({
         hitSlop={8}
         accessibilityRole="button"
         accessibilityLabel={`View ${pin.name} on Google Maps`}
-        style={styles.mapsButton}>
-        <IconSymbol name="mappin.circle.fill" size={20} color={theme.tint} />
+        style={[styles.selectedMapsButton, { backgroundColor: theme.accentSoft }]}>
+        <IconSymbol name="map.fill" size={16} color={theme.tint} />
       </TouchableOpacity>
-      <IconSymbol name="chevron.right" size={16} color={theme.textMuted} />
+      <IconSymbol name="chevron.right" size={18} color={theme.textMuted} />
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   flex: { flex: 1 },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 2,
+  scrollContent: {
+    paddingBottom: 24,
   },
-  title: {
-    fontSize: 24,
-    lineHeight: 30,
-    fontWeight: '700',
-  },
-  refreshButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-  },
-  refreshLabel: {
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  staleNotice: {
-    fontSize: 12,
-    paddingHorizontal: 20,
-    marginTop: 6,
-  },
-  noticeWrap: {
-    padding: 20,
+  content: {
+    paddingHorizontal: 16,
+    marginTop: -NEARBY_HEADER_OVERLAP,
+    gap: 10,
   },
   unavailableCard: {
     borderRadius: 22,
-    padding: 18,
     gap: 6,
+    padding: 18,
   },
   unavailableTitle: {
     fontSize: 15,
@@ -317,53 +282,42 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
   },
-  listContent: {
-    padding: 20,
-    gap: 10,
-  },
-  summary: {
-    fontSize: 13,
-  },
-  sectionTitle: {
-    fontSize: 11,
-    fontWeight: '700',
-    letterSpacing: 0.6,
-    marginTop: 6,
-  },
-  sectionCaption: {
-    fontSize: 12,
-    marginTop: -6,
-  },
   mapCard: {
-    height: 260,
-    borderRadius: 22,
+    height: 250,
+    borderRadius: 24,
     overflow: 'hidden',
   },
+  staleNotice: {
+    fontSize: 12,
+    textAlign: 'center',
+  },
   selectedCard: {
+    position: 'absolute',
+    left: 10,
+    right: 10,
+    bottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    borderRadius: 18,
-    paddingVertical: 12,
-    paddingHorizontal: 15,
-  },
-  selectedDetail: {
-    fontSize: 13,
-  },
-  listCard: {
-    borderRadius: 22,
-    padding: 15,
-    gap: 10,
-  },
-  rowDivider: {
-    height: StyleSheet.hairlineWidth,
-    marginTop: 10,
+    borderRadius: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
   },
   selectedInfo: {
     flex: 1,
-    gap: 2,
+    gap: 1,
   },
-  mapsButton: {
-    padding: 2,
+  selectedName: {
+    fontSize: 14.5,
+  },
+  selectedDetail: {
+    fontSize: 12.5,
+  },
+  selectedMapsButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

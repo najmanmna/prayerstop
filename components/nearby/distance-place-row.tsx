@@ -1,10 +1,12 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
+import { PLACE_ICON_SIZE } from '@/components/home/place-list-card';
 import { PlaceThumbnail } from '@/components/home/place-thumbnail';
 import { ThemedText } from '@/components/themed-text';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { displayPlaceText } from '@/lib/display-text';
 import { openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
 import type { DistanceRankedCandidate } from '@/lib/prayer-places/select-candidates';
 
@@ -19,30 +21,33 @@ export function DistancePlaceRow({ place, onPress }: { place: DistanceRankedCand
 
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.7} accessibilityRole="button" style={styles.row}>
-      <PlaceThumbnail size={44} />
+      <PlaceThumbnail size={PLACE_ICON_SIZE} />
 
       {/* Same layout as AlternatePlaceRow: full name, one-line address, distance below. */}
       <View style={styles.info}>
         <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={2}>
-          {place.name}
+          {displayPlaceText(place.name)}
         </ThemedText>
         {place.area ? (
           <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={1}>
-            {place.area}
+            {displayPlaceText(place.area)}
           </ThemedText>
         ) : null}
-        <ThemedText style={[styles.distance, { color: theme.textMuted }]}>
-          {formatStraightLineDistance(place.distanceKm)}
-        </ThemedText>
+        <View style={styles.distanceLine}>
+          <IconSymbol name="mappin.circle.fill" size={12} color={theme.textMuted} />
+          <ThemedText style={[styles.distance, { color: theme.textMuted }]}>
+            {formatStraightLineDistance(place.distanceKm)}
+          </ThemedText>
+        </View>
       </View>
 
       <TouchableOpacity
         onPress={() => openPlaceInGoogleMaps(place)}
-        hitSlop={10}
+        hitSlop={8}
         accessibilityRole="button"
         accessibilityLabel={`View ${place.name} on Google Maps`}
-        style={styles.mapsButton}>
-        <IconSymbol name="mappin.circle.fill" size={22} color={theme.tint} />
+        style={[styles.mapsButton, { backgroundColor: theme.accentSoft }]}>
+        <IconSymbol name="map.fill" size={17} color={theme.tint} />
       </TouchableOpacity>
     </TouchableOpacity>
   );
@@ -58,25 +63,35 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    paddingVertical: 4,
   },
   info: {
     flex: 1,
-    gap: 3,
+    gap: 2,
   },
   name: {
-    fontSize: 15,
-    lineHeight: 20,
+    fontSize: 14.5,
+    lineHeight: 19,
+    fontWeight: '700',
   },
   area: {
     fontSize: 12,
     lineHeight: 16,
   },
+  distanceLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    marginTop: 4,
+  },
   distance: {
     fontSize: 12,
-    marginTop: 2,
+    fontWeight: '500',
   },
   mapsButton: {
-    padding: 4,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
 
+import { PLACE_ICON_SIZE } from '@/components/home/place-list-card';
 import { ThemedText } from '@/components/themed-text';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -20,7 +21,10 @@ export function ReachabilityStrip({ summary }: { summary: ReachabilitySummary })
 
   return (
     <View accessibilityRole="summary" style={[styles.strip, { backgroundColor: colors.background }]}>
-      <StatusGlyph tone={summary.tone} color={colors.foreground} />
+      {/* Same 48px column as the place thumbnail below it. */}
+      <View style={styles.glyphColumn}>
+        <StatusGlyph tone={summary.tone} color={colors.foreground} />
+      </View>
       <View style={styles.text}>
         <ThemedText style={[styles.title, { color: summary.tone === 'neutral' ? theme.text : colors.foreground }]}>
           {summary.title}
@@ -50,9 +54,13 @@ const styles = StyleSheet.create({
   strip: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 11,
+    gap: 12,
     paddingVertical: 11,
     paddingHorizontal: 14,
+  },
+  glyphColumn: {
+    width: PLACE_ICON_SIZE,
+    alignItems: 'center',
   },
   text: {
     flex: 1,

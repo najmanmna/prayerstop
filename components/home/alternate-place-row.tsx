@@ -1,15 +1,17 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
+import { PLACE_ICON_SIZE } from '@/components/home/place-list-card';
 import { PlaceThumbnail } from '@/components/home/place-thumbnail';
 import { ThemedText } from '@/components/themed-text';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { displayPlaceText } from '@/lib/display-text';
 import { openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
 import { formatClock12, getArrivalOutcome, offsetClock } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
-/** Deliberately a plain row, not a card — reads as a lighter-weight alternative to the hero. */
+/** A lighter-weight row (no card of its own) so alternates never compete with the hero. */
 export function AlternatePlaceRow({
   place,
   window,
@@ -47,6 +49,8 @@ export function AlternatePlaceRow({
     statusLabel = place.feasibility === 'tight' ? 'Just in time' : 'In time';
   }
 
+  const colors = FeasibilityColors[place.feasibility];
+
   return (
     <TouchableOpacity
       disabled={!onPress}
@@ -54,40 +58,43 @@ export function AlternatePlaceRow({
       activeOpacity={onPress ? 0.7 : 1}
       accessibilityRole={onPress ? 'button' : undefined}
       style={styles.row}>
-      <PlaceThumbnail size={44} />
+      <PlaceThumbnail size={PLACE_ICON_SIZE} />
 
-      {/* Full name (up to 2 lines), address on one line, then just drive
-          time + distance and a status label — kept deliberately sparse. */}
+      {/* Full name (up to 2 lines), address on one line, then drive time,
+          distance and a short status — kept deliberately sparse. */}
       <View style={styles.info}>
         <ThemedText type="defaultSemiBold" style={styles.name} numberOfLines={2}>
-          {place.name}
+          {displayPlaceText(place.name)}
         </ThemedText>
         {place.area ? (
           <ThemedText style={[styles.area, { color: theme.textSecondary }]} numberOfLines={1}>
-            {place.area}
+            {displayPlaceText(place.area)}
           </ThemedText>
         ) : null}
         <View style={styles.statsLine}>
-          <IconSymbol name="location.north.fill" size={11} color={statusColor} />
-          <ThemedText style={[styles.eta, { color: statusColor }]}>{place.etaMinutes} min</ThemedText>
-          <ThemedText style={[styles.distance, { color: theme.textMuted }]}>· {place.distanceKm.toFixed(1)} km</ThemedText>
+          <View style={[styles.etaChip, { backgroundColor: colors.background }]}>
+            <IconSymbol name="car.fill" size={12} color={statusColor} />
+            <ThemedText style={[styles.eta, { color: statusColor }]}>{place.etaMinutes} min</ThemedText>
+          </View>
+          <ThemedText style={[styles.distance, { color: theme.textMuted }]}>{place.distanceKm.toFixed(1)} km</ThemedText>
           {statusLabel ? (
-            <View style={[styles.statusPill, { backgroundColor: FeasibilityColors[place.feasibility].background }]}>
+            <>
+              <View style={[styles.dot, { backgroundColor: theme.textMuted }]} />
               <ThemedText style={[styles.statusLabel, { color: statusColor }]} numberOfLines={1}>
                 {statusLabel}
               </ThemedText>
-            </View>
+            </>
           ) : null}
         </View>
       </View>
 
       <TouchableOpacity
         onPress={() => openPlaceInGoogleMaps(place)}
-        hitSlop={10}
+        hitSlop={8}
         accessibilityRole="button"
         accessibilityLabel={`View ${place.name} on Google Maps`}
-        style={styles.mapsButton}>
-        <IconSymbol name="mappin.circle.fill" size={22} color={theme.tint} />
+        style={[styles.mapsButton, { backgroundColor: theme.accentSoft }]}>
+        <IconSymbol name="map.fill" size={17} color={theme.tint} />
       </TouchableOpacity>
     </TouchableOpacity>
   );
@@ -98,15 +105,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    paddingVertical: 4,
   },
   info: {
     flex: 1,
-    gap: 3,
+    gap: 2,
   },
   name: {
-    fontSize: 15,
-    lineHeight: 20,
+    fontSize: 14.5,
+    lineHeight: 19,
+    fontWeight: '700',
   },
   area: {
     fontSize: 12,
@@ -116,28 +123,40 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
-    columnGap: 4,
+    columnGap: 7,
     rowGap: 4,
-    marginTop: 2,
+    marginTop: 4,
+  },
+  etaChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    borderRadius: 8,
   },
   eta: {
-    fontSize: 13,
-    fontWeight: '700',
+    fontSize: 12,
+    fontWeight: '800',
   },
   distance: {
     fontSize: 12,
+    fontWeight: '500',
   },
-  statusPill: {
-    marginLeft: 4,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 10,
+  dot: {
+    width: 3,
+    height: 3,
+    borderRadius: 1.5,
   },
   statusLabel: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '700',
   },
   mapsButton: {
-    padding: 4,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

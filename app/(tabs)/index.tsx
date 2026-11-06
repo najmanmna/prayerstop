@@ -1,10 +1,9 @@
-import { router, useFocusEffect } from 'expo-router';
-import { setStatusBarStyle } from 'expo-status-bar';
-import { useCallback, useState } from 'react';
-import { Linking, ScrollView, StyleSheet, TouchableOpacity, View, type NativeScrollEvent, type NativeSyntheticEvent } from 'react-native';
+import { router } from 'expo-router';
+import { Linking, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { AlternatePlaceRow } from '@/components/home/alternate-place-row';
 import { HEADER_CARD_OVERLAP, HomeHeader } from '@/components/home/home-header';
+import { PlaceListCard } from '@/components/home/place-list-card';
 import { PrayerDayCard } from '@/components/home/prayer-day-card';
 import { PrayerPanel } from '@/components/home/prayer-panel';
 import { RecommendationHero } from '@/components/home/recommendation-hero';
@@ -13,6 +12,7 @@ import { ThemedView } from '@/components/themed-view';
 import { Colors } from '@/constants/theme';
 import { useNearbyPlacesSession } from '@/hooks/nearby-places-session';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useHeaderStatusBar } from '@/hooks/use-header-status-bar';
 import { usePlanningContext } from '@/hooks/use-planning-context';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
 import { summarizeReachability } from '@/lib/home-display';
@@ -69,19 +69,8 @@ export default function HomeScreen() {
 
   const goToPlaceDetails = (placeId: string) => router.push(buildPlaceDetailsPath(placeId));
 
-  // Light status-bar icons over the green header; back to dark once it has
-  // scrolled away, and whenever another tab is showing.
-  const [headerScrolledAway, setHeaderScrolledAway] = useState(false);
-  useFocusEffect(
-    useCallback(() => {
-      setStatusBarStyle(headerScrolledAway ? 'dark' : 'light');
-      return () => setStatusBarStyle('dark');
-    }, [headerScrolledAway])
-  );
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const scrolledAway = event.nativeEvent.contentOffset.y > HEADER_SCROLL_THRESHOLD;
-    if (scrolledAway !== headerScrolledAway) setHeaderScrolledAway(scrolledAway);
-  };
+  // Light status-bar icons while the green header is in view.
+  const handleScroll = useHeaderStatusBar(HEADER_SCROLL_THRESHOLD);
 
   // What to show in place of the recommendation/alternates when we don't
   // have a ready place scenario yet — covers every step of device GPS →
@@ -180,31 +169,19 @@ export default function HomeScreen() {
                   />
 
                   {placeScenario.alternates.length > 0 && (
-                    <View style={styles.alternatesSection}>
-                      <View style={styles.sectionHeader}>
-                        <ThemedText type="defaultSemiBold" style={styles.sectionTitle}>
-                          Other nearby places
-                        </ThemedText>
-                        <ThemedText style={[styles.resultCount, { color: theme.textMuted }]}>
-                          {placeScenario.alternates.length} options
-                        </ThemedText>
-                      </View>
-                      <View style={[styles.alternatesCard, { backgroundColor: theme.surfaceElevated }]}>
-                        {placeScenario.alternates.map((place, index) => (
-                          <View key={place.id}>
-                            <AlternatePlaceRow
-                              place={place}
-                              window={timing.window}
-                              context={context}
-                              onPress={() => goToPlaceDetails(place.id)}
-                            />
-                            {index < placeScenario.alternates.length - 1 && (
-                              <View style={[styles.rowDivider, { backgroundColor: theme.border }]} />
-                            )}
-                          </View>
-                        ))}
-                      </View>
-                    </View>
+                    <PlaceListCard
+                      title="Other nearby places"
+                      caption={`${placeScenario.alternates.length} more`}>
+                      {placeScenario.alternates.map((place) => (
+                        <AlternatePlaceRow
+                          key={place.id}
+                          place={place}
+                          window={timing.window}
+                          context={context}
+                          onPress={() => goToPlaceDetails(place.id)}
+                        />
+                      ))}
+                    </PlaceListCard>
                   )}
                 </>
               ) : placesNotice ? (
@@ -258,32 +235,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginTop: -HEADER_CARD_OVERLAP,
     gap: 12,
-  },
-  alternatesSection: {
-    gap: 10,
-    marginTop: 2,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-    justifyContent: 'space-between',
-    paddingHorizontal: 4,
-  },
-  sectionTitle: {
-    fontSize: 17,
-  },
-  resultCount: {
-    fontSize: 13,
-    fontWeight: '500',
-  },
-  alternatesCard: {
-    borderRadius: 22,
-    padding: 15,
-    gap: 10,
-  },
-  rowDivider: {
-    height: StyleSheet.hairlineWidth,
-    marginTop: 10,
   },
   unavailableCard: {
     borderRadius: 22,

@@ -6,7 +6,7 @@ import { MosqueLogo } from '@/components/home/mosque-logo';
 import { MosqueSkyline } from '@/components/home/mosque-skyline';
 import { ThemedText } from '@/components/themed-text';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, HeaderGradient } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 /** How far the prayer card below is pulled up over the header's lower edge. */
@@ -45,7 +45,7 @@ export function HomeHeader({
   return (
     <View style={[styles.container, { paddingTop: insets.top + 8, paddingBottom: HEADER_CARD_OVERLAP + 12 }]}>
       <LinearGradient
-        colors={['#062F20', '#0E4A33', '#1B6446']}
+        colors={HeaderGradient}
         start={{ x: 0, y: 0 }}
         end={{ x: 0.6, y: 1 }}
         style={StyleSheet.absoluteFill}
