@@ -15,7 +15,6 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useHeaderStatusBar } from '@/hooks/use-header-status-bar';
 import { usePlanningContext } from '@/hooks/use-planning-context';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
-import { summarizeReachability } from '@/lib/home-display';
 import { formatCoordinates } from '@/lib/location';
 import { isLocationStale, resolveLocationNotice } from '@/lib/location-freshness';
 import { buildPlaceScenario } from '@/lib/prayer-places/build-place-scenario';
@@ -159,12 +158,6 @@ export default function HomeScreen() {
                     place={placeScenario.recommendation}
                     window={timing.window}
                     context={context}
-                    summary={summarizeReachability(
-                      context,
-                      timing.window,
-                      timing.countdownSeconds,
-                      placeScenario.recommendation
-                    )}
                     onPress={() => goToPlaceDetails(placeScenario.recommendation.id)}
                   />
 

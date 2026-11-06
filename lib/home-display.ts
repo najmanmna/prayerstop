@@ -1,4 +1,4 @@
-import { formatClock12, formatDuration, offsetClock, parseClock } from '@/lib/time';
+import { formatClock12, offsetClock, parseClock } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
 /**
@@ -33,54 +33,34 @@ export type ReachabilityTone = 'comfortable' | 'tight' | 'tooLate' | 'neutral';
 export interface ReachabilitySummary {
   tone: ReachabilityTone;
   title: string;
-  body: string;
 }
 
 /**
- * One-glance answer for the banner above the recommendation. Built only from
- * facts we have: the recommended place's real ETA, its already-computed
- * feasibility (never recomputed here; see build-place-scenario.ts), and the
- * prayer engine's countdown. Unknown deadlines stay unknown.
+ * The one-glance answer on the recommendation card ("You can make it in
+ * time."). Built only from facts we have: the place's already-computed
+ * feasibility (never recomputed here; see build-place-scenario.ts) and the
+ * window's known/unknown deadline. Unknown deadlines stay unknown.
  */
-export function summarizeReachability(
-  context: PlanningContext,
-  window: PrayerWindow,
-  countdownSeconds: number | null,
-  place: PrayerPlace
-): ReachabilitySummary {
-  const away = `mosque ${place.etaMinutes} min away`;
-  const countdown = countdownSeconds === null ? null : formatDuration(Math.max(0, Math.round(countdownSeconds / 60)));
-
+export function summarizeReachability(context: PlanningContext, window: PrayerWindow, place: PrayerPlace): ReachabilitySummary {
   if (context === 'next') {
-    const startsIn = countdown ? `${window.name} starts in ${countdown}` : `${window.name} starts at ${formatClock12(window.startTime)}`;
     if (place.feasibility === 'tooLate') {
-      return { tone: 'tooLate', title: `Can’t arrive before ${window.name} starts`, body: `${startsIn} · ${away}` };
+      return { tone: 'tooLate', title: `Can’t arrive before ${window.name} starts` };
     }
-    return {
-      tone: place.feasibility,
-      title: `Leave by ${formatClock12(offsetClock(window.startTime, -place.etaMinutes))}`,
-      body: `${startsIn} · ${away}`,
-    };
+    return { tone: place.feasibility, title: `Leave by ${formatClock12(offsetClock(window.startTime, -place.etaMinutes))}` };
   }
-
   if (!window.hasStarted) {
-    return {
-      tone: 'neutral',
-      title: `${window.name} hasn’t started yet`,
-      body: `Starts at ${formatClock12(window.startTime)} · ${away}`,
-    };
+    return { tone: 'neutral', title: `${window.name} hasn’t started yet` };
   }
-  if (window.endTime === null || countdown === null) {
+  if (window.endTime === null) {
     // Isha: ACJU lists no end time, so we make no in-time/too-late claim.
-    return { tone: 'neutral', title: `${window.name} end time not listed`, body: `Recommended mosque is ${place.etaMinutes} min away` };
+    return { tone: 'neutral', title: `${window.name} end time not listed` };
   }
   if (place.feasibility === 'tooLate') {
     // "Too late to reach" is preserved verbatim (see CLAUDE.md).
-    return { tone: 'tooLate', title: 'Too late to reach', body: `${window.name} ends in ${countdown} · ${away}` };
+    return { tone: 'tooLate', title: 'Too late to reach' };
   }
   return {
     tone: place.feasibility,
-    title: place.feasibility === 'tight' ? 'It’s tight, but you can make it.' : 'You can make it in time.',
-    body: `${window.name} ends in ${countdown} · ${away}`,
+    title: place.feasibility === 'tight' ? 'It’s tight, but you can make it' : 'You can make it in time',
   };
 }

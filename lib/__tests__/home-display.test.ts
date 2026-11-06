@@ -52,50 +52,45 @@ describe('hasPrayerTimePassed', () => {
 });
 
 describe('summarizeReachability', () => {
-  it('NOW and reachable: says so, with the real countdown and ETA', () => {
-    expect(summarizeReachability('now', DHUHR, 10 * 60, place())).toEqual({
-      tone: 'comfortable',
-      title: 'You can make it in time.',
-      body: 'Dhuhr ends in 10 min · mosque 4 min away',
-    });
+  it('NOW and reachable', () => {
+    expect(summarizeReachability('now', DHUHR, place())).toEqual({ tone: 'comfortable', title: 'You can make it in time' });
   });
 
   it('NOW and tight', () => {
-    expect(summarizeReachability('now', DHUHR, 6 * 60, place({ feasibility: 'tight' })).title).toBe(
-      'It’s tight, but you can make it.'
-    );
+    expect(summarizeReachability('now', DHUHR, place({ feasibility: 'tight' }))).toEqual({
+      tone: 'tight',
+      title: 'It’s tight, but you can make it',
+    });
   });
 
   it('NOW and too late keeps the factual wording', () => {
-    const summary = summarizeReachability('now', DHUHR, 2 * 60, place({ feasibility: 'tooLate' }));
-    expect(summary.tone).toBe('tooLate');
-    expect(summary.title).toBe('Too late to reach');
+    expect(summarizeReachability('now', DHUHR, place({ feasibility: 'tooLate' }))).toEqual({
+      tone: 'tooLate',
+      title: 'Too late to reach',
+    });
   });
 
   it('Isha makes no in-time or too-late claim', () => {
-    const summary = summarizeReachability('now', ISHA, null, place());
-    expect(summary).toEqual({ tone: 'neutral', title: 'Isha end time not listed', body: 'Recommended mosque is 4 min away' });
+    expect(summarizeReachability('now', ISHA, place())).toEqual({ tone: 'neutral', title: 'Isha end time not listed' });
   });
 
   it('NOW before the window starts is neutral', () => {
-    const summary = summarizeReachability('now', { ...DHUHR, hasStarted: false }, null, place());
-    expect(summary.tone).toBe('neutral');
-    expect(summary.title).toBe('Dhuhr hasn’t started yet');
+    expect(summarizeReachability('now', { ...DHUHR, hasStarted: false }, place())).toEqual({
+      tone: 'neutral',
+      title: 'Dhuhr hasn’t started yet',
+    });
   });
 
   it('NEXT gives a leave-by time', () => {
     const asr: PrayerWindow = { name: 'Asr', startTime: '15:20', endTime: null, hasStarted: false };
-    expect(summarizeReachability('next', asr, 90 * 60, place({ etaMinutes: 12 }))).toEqual({
-      tone: 'comfortable',
-      title: 'Leave by 3:08 PM',
-      body: 'Asr starts in 1h 30m · mosque 12 min away',
-    });
+    expect(summarizeReachability('next', asr, place({ etaMinutes: 12 }))).toEqual({ tone: 'comfortable', title: 'Leave by 3:08 PM' });
   });
 
   it('NEXT too late', () => {
     const asr: PrayerWindow = { name: 'Asr', startTime: '15:20', endTime: null, hasStarted: false };
-    expect(summarizeReachability('next', asr, 5 * 60, place({ etaMinutes: 12, feasibility: 'tooLate' })).title).toBe(
-      'Can’t arrive before Asr starts'
-    );
+    expect(summarizeReachability('next', asr, place({ etaMinutes: 12, feasibility: 'tooLate' }))).toEqual({
+      tone: 'tooLate',
+      title: 'Can’t arrive before Asr starts',
+    });
   });
 });

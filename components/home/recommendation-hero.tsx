@@ -2,29 +2,26 @@ import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { PLACE_ICON_SIZE } from '@/components/home/place-list-card';
 import { PlaceThumbnail } from '@/components/home/place-thumbnail';
-import { ReachabilityStrip } from '@/components/home/reachability-strip';
+import { StatusGlyph } from '@/components/home/status-glyph';
 import { ThemedText } from '@/components/themed-text';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { displayPlaceText } from '@/lib/display-text';
-import type { ReachabilitySummary } from '@/lib/home-display';
+import { summarizeReachability } from '@/lib/home-display';
 import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
-import { formatClock12, formatDuration, getArrivalOutcome, offsetClock } from '@/lib/time';
+import { formatClock12, formatDuration, getArrivalOutcome } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
 export function RecommendationHero({
   place,
   window,
   context,
-  summary,
   onPress,
 }: {
   place: PrayerPlace;
   window: PrayerWindow;
   context: PlanningContext;
-  /** Plain-words reachability answer shown as the card's top band. */
-  summary?: ReachabilitySummary;
   /** Opens the place's Details screen. Omit to render the card inert (used only in contexts with no Details destination). */
   onPress?: () => void;
 }) {
@@ -36,39 +33,27 @@ export function RecommendationHero({
   // calendar day, which holds for NOW but not for NEXT (e.g. planning for
   // tomorrow's Fajr from late tonight would otherwise falsely compare
   // "23:50 tonight" as later than "04:45 tomorrow"). Never derive
-  // `statusColor` from this for NEXT — `place.feasibility` (below) is
-  // already correctly computed per-context by build-place-scenario.ts.
+  // the verdict from this for NEXT — summarizeReachability uses
+  // `place.feasibility`, already computed per-context by build-place-scenario.ts.
   const outcome = isNow ? getArrivalOutcome(window, place.arrivalTime) : { status: 'unknown' as const };
-  const statusColor = FeasibilityColors[place.feasibility].foreground;
-  const leaveByTime = offsetClock(window.startTime, -place.etaMinutes);
-  // Distance is already on the place row above, so the caption keeps to timing.
-  const driveDetail = `${place.etaMinutes} min drive`;
+  const summary = summarizeReachability(context, window, place);
+  const panelColors =
+    summary.tone === 'neutral'
+      ? { background: theme.surface, foreground: theme.textSecondary }
+      : FeasibilityColors[summary.tone];
+  const drive = `${place.etaMinutes} min drive`;
 
-  // One dominant, colored headline answers "can I make it, and by when" at a
-  // glance; a single small caption underneath carries the supporting
-  // numbers (drive time, distance, arrival) — replacing what used to be the
-  // same handful of facts repeated across a separate ETA chip, a two-column
-  // stat pill, and an optional overflow note.
-  let headline: string;
-  let headlineColor = statusColor;
-  let caption: string;
+  // The verdict (title) answers "can I make it?"; this one line underneath
+  // carries the numbers behind it.
+  let detail: string;
   if (!isNow) {
-    headline = `Leave by ${formatClock12(leaveByTime)}`;
-    caption = `${driveDetail} · Arrive by ${formatClock12(window.startTime)}`;
-  } else if (outcome.status === 'unknown') {
-    // Factual: ACJU's timetable lists no end time for this prayer (Isha).
-    headline = `${window.name} end time not listed`;
-    headlineColor = theme.textMuted;
-    caption = `${driveDetail} · Arrive ${formatClock12(place.arrivalTime)}`;
-  } else if (outcome.overflow) {
-    // Preserved verbatim — a recorded product decision (see CLAUDE.md /
-    // docs/03-ux-and-user-flows.md), not just styling.
-    headline = 'Too late to reach';
-    caption = `Arrives ${formatDuration(Math.abs(outcome.remaining))} after ${window.name} ends · ${place.etaMinutes} min drive`;
+    detail = `${drive} · arrive by ${formatClock12(window.startTime)}`;
+  } else if (!window.hasStarted) {
+    detail = `Starts at ${formatClock12(window.startTime)} · ${drive}`;
+  } else if (outcome.status === 'unknown' || !outcome.overflow) {
+    detail = `${drive} · arrive ${formatClock12(place.arrivalTime)}`;
   } else {
-    // Plain wording (was "X to spare", which testers found unclear).
-    headline = `Arrive ${formatDuration(outcome.remaining)} before ${window.name} ends`;
-    caption = `${driveDetail} · Arrive ${formatClock12(place.arrivalTime)}`;
+    detail = `Arrives ${formatDuration(Math.abs(outcome.remaining))} after ${window.name} ends · ${drive}`;
   }
 
   return (
@@ -78,8 +63,6 @@ export function RecommendationHero({
       activeOpacity={onPress ? 0.9 : 1}
       accessibilityRole={onPress ? 'button' : undefined}
       style={[styles.card, { backgroundColor: theme.surfaceElevated }, cardShadow(theme.text)]}>
-      {summary && <ReachabilityStrip summary={summary} />}
-
       <View style={styles.body}>
         <View style={styles.placeRow}>
           <PlaceThumbnail size={PLACE_ICON_SIZE} />
@@ -101,17 +84,17 @@ export function RecommendationHero({
           {onPress && <IconSymbol name="chevron.right" size={20} color={theme.textMuted} />}
         </View>
 
-        {/* Car icon sits in the same column as the thumbnail above, so the
-            headline starts on the same line as the place name. */}
-        <View style={[styles.headlineBlock, { backgroundColor: theme.surface }]}>
-          <View style={styles.carColumn}>
-            <View style={[styles.carBadge, { backgroundColor: theme.surfaceElevated }]}>
-              <IconSymbol name="car.fill" size={17} color={headlineColor} />
-            </View>
+        {/* One tinted panel: the verdict and the numbers behind it. The
+            glyph sits in the thumbnail's column so the text lines up. */}
+        <View accessibilityRole="summary" style={[styles.verdict, { backgroundColor: panelColors.background }]}>
+          <View style={styles.glyphColumn}>
+            <StatusGlyph tone={summary.tone} color={panelColors.foreground} size={28} />
           </View>
-          <View style={styles.headlineText}>
-            <ThemedText style={[styles.headline, { color: headlineColor }]}>{headline}</ThemedText>
-            <ThemedText style={[styles.caption, { color: theme.textSecondary }]}>{caption}</ThemedText>
+          <View style={styles.verdictText}>
+            <ThemedText style={[styles.verdictTitle, { color: summary.tone === 'neutral' ? theme.text : panelColors.foreground }]}>
+              {summary.title}
+            </ThemedText>
+            <ThemedText style={[styles.verdictDetail, { color: theme.textSecondary }]}>{detail}</ThemedText>
           </View>
         </View>
 
@@ -189,39 +172,31 @@ const styles = StyleSheet.create({
   placeArea: {
     fontSize: 12.5,
   },
-  // No left padding: the 48px car column lines up exactly with the
-  // thumbnail column above it, and the box edges match the button below.
-  headlineBlock: {
+  verdict: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    borderRadius: 14,
-    paddingVertical: 9,
+    borderRadius: 16,
+    paddingVertical: 11,
     paddingRight: 12,
   },
-  carColumn: {
+  glyphColumn: {
     width: PLACE_ICON_SIZE,
     alignItems: 'center',
   },
-  carBadge: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headlineText: {
+  verdictText: {
     flex: 1,
-    gap: 1,
+    gap: 2,
   },
-  headline: {
-    fontSize: 14.5,
-    lineHeight: 19,
+  verdictTitle: {
+    fontSize: 15.5,
+    lineHeight: 20,
     fontWeight: '800',
-    fontVariant: ['tabular-nums'],
   },
-  caption: {
-    fontSize: 12,
+  verdictDetail: {
+    fontSize: 12.5,
+    lineHeight: 17,
+    fontVariant: ['tabular-nums'],
   },
   actionsRow: {
     flexDirection: 'row',
