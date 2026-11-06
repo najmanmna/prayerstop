@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { PLACE_ICON_SIZE } from '@/components/home/place-list-card';
 import { PlaceThumbnail } from '@/components/home/place-thumbnail';
 import { ThemedText } from '@/components/themed-text';
+import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
@@ -23,6 +24,7 @@ export function PlaceRow({
   valueColor,
   caption,
   captionColor,
+  isDriveTime = false,
   onPress,
 }: {
   name: string;
@@ -31,6 +33,8 @@ export function PlaceRow({
   valueColor?: string;
   caption?: string | null;
   captionColor?: string;
+  /** Marks `value` as a drive time, shown with the car icon. */
+  isDriveTime?: boolean;
   /** Opens the place's Details screen. Omit to render the row inert. */
   onPress?: () => void;
 }) {
@@ -55,7 +59,10 @@ export function PlaceRow({
         </ThemedText>
       </View>
       <View style={styles.trailing}>
-        <ThemedText style={[styles.value, { color: valueColor ?? theme.text }]}>{value}</ThemedText>
+        <View style={styles.valueRow}>
+          {isDriveTime && <IconSymbol name="car.fill" size={14} color={valueColor ?? theme.text} />}
+          <ThemedText style={[styles.value, { color: valueColor ?? theme.text }]}>{value}</ThemedText>
+        </View>
         {caption ? (
           <ThemedText style={[styles.caption, { color: captionColor ?? theme.textMuted }]} numberOfLines={1}>
             {caption}
@@ -95,6 +102,11 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     gap: 3,
     maxWidth: 110,
+  },
+  valueRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
   },
   value: {
     fontSize: 15,

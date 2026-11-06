@@ -65,9 +65,16 @@ export function summarizeReachability(context: PlanningContext, window: PrayerWi
   };
 }
 
+export interface ReachabilityDetail {
+  /** "Asr ends in 1h 45m" — null when there's no deadline to state (Isha). */
+  prayer: string | null;
+  /** "3 min away" — shown with the car icon. */
+  drive: string;
+}
+
 /**
  * The one line under the verdict: how long the prayer has left (or until it
- * starts) and how far the mosque is, e.g. "Asr ends in 1h 45m · mosque 3 min
+ * starts) and the drive to the mosque, e.g. "Asr ends in 1h 45m · 🚗 3 min
  * away". Uses the prayer engine's countdown (already correct across
  * midnight) and the place's real ETA; never invents an end for Isha.
  */
@@ -76,16 +83,17 @@ export function reachabilityDetail(
   window: PrayerWindow,
   countdownSeconds: number | null,
   place: PrayerPlace
-): string {
-  const away = `mosque ${place.etaMinutes} min away`;
+): ReachabilityDetail {
+  const drive = `${place.etaMinutes} min away`;
   const countdown = countdownSeconds === null ? null : formatDuration(Math.max(0, Math.round(countdownSeconds / 60)));
 
   if (context === 'next') {
-    return countdown
-      ? `${window.name} starts in ${countdown} · ${away}`
-      : `${window.name} starts at ${formatClock12(window.startTime)} · ${away}`;
+    return {
+      prayer: countdown ? `${window.name} starts in ${countdown}` : `${window.name} starts at ${formatClock12(window.startTime)}`,
+      drive,
+    };
   }
-  if (!window.hasStarted) return `Starts at ${formatClock12(window.startTime)} · ${away}`;
-  if (window.endTime === null || countdown === null) return `Mosque is ${place.etaMinutes} min away`;
-  return `${window.name} ends in ${countdown} · ${away}`;
+  if (!window.hasStarted) return { prayer: `Starts at ${formatClock12(window.startTime)}`, drive };
+  if (window.endTime === null || countdown === null) return { prayer: null, drive };
+  return { prayer: `${window.name} ends in ${countdown}`, drive };
 }

@@ -53,6 +53,7 @@ export function AlternatePlaceRow({
       valueColor={statusColor}
       caption={statusLabel}
       captionColor={statusColorUsed}
+      isDriveTime
       onPress={onPress}
     />
   );

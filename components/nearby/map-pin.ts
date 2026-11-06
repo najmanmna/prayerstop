@@ -7,6 +7,8 @@ export interface NearbyMapPin {
   coordinates: GeoCoordinates;
   /** Shown under the name when tapped: "8 min · arrive 12:30" for routed places, "1.8 km away" for distance-only ones. */
   detail: string;
+  /** True when `detail` starts with a real drive time (routed places), shown with the car icon. */
+  isDriveTime?: boolean;
 }
 
 export interface NearbyMapProps {

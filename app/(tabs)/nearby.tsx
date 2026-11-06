@@ -71,6 +71,7 @@ export default function NearbyScreen() {
       name: displayPlaceText(place.name),
       coordinates: place.coordinates,
       detail: `${place.etaMinutes} min · arrive ${formatClock12(place.arrivalTime)}`,
+      isDriveTime: true,
     })),
     ...morePlaces.map((place) => ({
       id: place.id,
@@ -243,9 +244,12 @@ function SelectedPinCard({
         <ThemedText type="defaultSemiBold" style={styles.selectedName} numberOfLines={1}>
           {pin.name}
         </ThemedText>
-        <ThemedText style={[styles.selectedDetail, { color: theme.textSecondary }]} numberOfLines={1}>
-          {pin.detail}
-        </ThemedText>
+        <View style={styles.selectedDetailRow}>
+          {pin.isDriveTime && <IconSymbol name="car.fill" size={13} color={theme.textSecondary} />}
+          <ThemedText style={[styles.selectedDetail, { color: theme.textSecondary }]} numberOfLines={1}>
+            {pin.detail}
+          </ThemedText>
+        </View>
       </View>
       <TouchableOpacity
         onPress={onOpenInMaps}
@@ -309,6 +313,11 @@ const styles = StyleSheet.create({
   },
   selectedName: {
     fontSize: 14.5,
+  },
+  selectedDetailRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
   },
   selectedDetail: {
     fontSize: 12.5,

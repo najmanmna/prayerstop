@@ -106,8 +106,11 @@ export default function PlaceDetailsScreen() {
             </View>
             <View style={[styles.statDivider, { backgroundColor: theme.border }]} />
             <View style={styles.statColumn}>
-              <ThemedText style={[styles.statLabel, { color: theme.textMuted }]}>Travel ETA</ThemedText>
-              <ThemedText style={[styles.statValue, { color: statusColor }]}>{place.etaMinutes} min</ThemedText>
+              <ThemedText style={[styles.statLabel, { color: theme.textMuted }]}>Drive time</ThemedText>
+              <View style={styles.statValueRow}>
+                <IconSymbol name="car.fill" size={15} color={statusColor} />
+                <ThemedText style={[styles.statValue, { color: statusColor }]}>{place.etaMinutes} min</ThemedText>
+              </View>
             </View>
             <View style={[styles.statDivider, { backgroundColor: theme.border }]} />
             <View style={styles.statColumn}>
@@ -263,6 +266,11 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
+  },
+  statValueRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
   },
   statValue: {
     fontSize: 16,

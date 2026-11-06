@@ -97,19 +97,28 @@ describe('summarizeReachability', () => {
 
 describe('reachabilityDetail', () => {
   it('NOW: how long the prayer has left and how far the mosque is', () => {
-    expect(reachabilityDetail('now', DHUHR, 105 * 60, place({ etaMinutes: 3 }))).toBe('Dhuhr ends in 1h 45m · mosque 3 min away');
+    expect(reachabilityDetail('now', DHUHR, 105 * 60, place({ etaMinutes: 3 }))).toEqual({
+      prayer: 'Dhuhr ends in 1h 45m',
+      drive: '3 min away',
+    });
   });
 
   it('NEXT: time until it starts', () => {
     const asr: PrayerWindow = { name: 'Asr', startTime: '15:20', endTime: null, hasStarted: false };
-    expect(reachabilityDetail('next', asr, 90 * 60, place({ etaMinutes: 12 }))).toBe('Asr starts in 1h 30m · mosque 12 min away');
+    expect(reachabilityDetail('next', asr, 90 * 60, place({ etaMinutes: 12 }))).toEqual({
+      prayer: 'Asr starts in 1h 30m',
+      drive: '12 min away',
+    });
   });
 
   it('Isha: never claims an end', () => {
-    expect(reachabilityDetail('now', ISHA, null, place())).toBe('Mosque is 4 min away');
+    expect(reachabilityDetail('now', ISHA, null, place())).toEqual({ prayer: null, drive: '4 min away' });
   });
 
   it('NOW before the window starts', () => {
-    expect(reachabilityDetail('now', { ...DHUHR, hasStarted: false }, null, place())).toBe('Starts at 12:00 PM · mosque 4 min away');
+    expect(reachabilityDetail('now', { ...DHUHR, hasStarted: false }, null, place())).toEqual({
+      prayer: 'Starts at 12:00 PM',
+      drive: '4 min away',
+    });
   });
 });

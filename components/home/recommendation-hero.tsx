@@ -15,7 +15,7 @@ import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 /**
  * The best-match card: title row, the place (same layout as the list rows,
  * larger), then one tinted panel with the plain-words verdict and one line
- * ("Asr ends in 1h 45m · mosque 3 min away"), then the actions. Both come
+ * ("Asr ends in 1h 45m · 🚗 3 min away", the car drawn as an icon), then the actions. Both come
  * from lib/home-display.ts, which only uses facts we have (see there for
  * the NOW/NEXT and unknown-deadline rules).
  */
@@ -83,7 +83,13 @@ export function RecommendationHero({
           <ThemedText style={[styles.verdict, { color: summary.tone === 'neutral' ? theme.text : panel.foreground }]}>
             {summary.title}
           </ThemedText>
-          <ThemedText style={[styles.detail, { color: theme.textSecondary }]}>{detail}</ThemedText>
+          <View style={styles.detailRow}>
+            {detail.prayer && (
+              <ThemedText style={[styles.detail, { color: theme.textSecondary }]}>{detail.prayer} ·</ThemedText>
+            )}
+            <IconSymbol name="car.fill" size={13} color={theme.textSecondary} />
+            <ThemedText style={[styles.detail, { color: theme.textSecondary }]}>{detail.drive}</ThemedText>
+          </View>
         </View>
       </View>
 
@@ -189,6 +195,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 21,
     fontWeight: '800',
+  },
+  detailRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    columnGap: 4,
   },
   detail: {
     fontSize: 13,
