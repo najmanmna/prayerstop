@@ -5,6 +5,7 @@ import {
   sortByDistance,
   type PlaceIdLink,
 } from './merge-nearby-places';
+import { isExcludedByName } from './name-filter';
 import type { NearbySearchConfig } from './nearby-search-config';
 import type { NearbySearchRequest } from './validate-nearby-request';
 import type { GeoCoordinates, PrayerPlaceCandidate } from './types';
@@ -41,6 +42,8 @@ export interface NearbySearchMeta {
   googleStatus: 'not_needed' | 'ok' | 'error' | 'not_configured';
   /** Google results dropped because their Place ID is on the blocklist. */
   blockedRemoved: number;
+  /** Google results dropped because their name says it's a home ("… House", "… Residence"; see `isExcludedByName`). */
+  nameExcludedRemoved: number;
   duplicatesRemoved: number;
   linksProposed: number;
 }
@@ -68,6 +71,8 @@ export interface FindNearbyPlacesDeps {
     | 'strongNameMatchDistanceMeters'
     | 'strongNameSimilarity'
     | 'maxResults'
+    | 'excludedNameWords'
+    | 'mosqueNameWords'
   >;
 }
 
@@ -78,8 +83,9 @@ export interface FindNearbyPlacesDeps {
  *    collapsing any two records that are clearly the same mosque.
  * 2. If local coverage is sufficient (`hasSufficientLocalCoverage`), return
  *    them — Google is NOT called.
- * 3. Otherwise call Google Places once, drop blocklisted non-mosques and
- *    Google results that duplicate a local record, save confident Place ID
+ * 3. Otherwise call Google Places once, drop homes by name ("… House",
+ *    "… Residence"), blocklisted non-mosques and Google results that
+ *    duplicate a local record, save confident Place ID
  *    matches, and return one nearest-first list.
  *
  * So a search makes at most ONE Google Places request, and zero when local
@@ -119,6 +125,7 @@ export async function findNearbyPlaces(
     duplicatesRemoved: 0,
     linksProposed: 0,
     blockedRemoved: 0,
+    nameExcludedRemoved: 0,
   };
   const localOnly = (googleStatus: NearbySearchMeta['googleStatus']): FindNearbyPlacesResult => ({
     status: 'ok',
@@ -145,7 +152,11 @@ export async function findNearbyPlaces(
     return { status: 'error', httpStatus: 502, message: googleResult.message };
   }
 
-  const { places: googlePlaces, blockedRemoved } = await removeBlocked(googleResult.places, deps.blocklist);
+  // Name filter first: it needs no lookup, and a dropped home never
+  // reaches the blocklist query, de-duplication, Place ID linking or Routes.
+  const namedPlaces = googleResult.places.filter((place) => !isExcludedByName(place.name, config));
+  const nameExcludedRemoved = googleResult.places.length - namedPlaces.length;
+  const { places: googlePlaces, blockedRemoved } = await removeBlocked(namedPlaces, deps.blocklist);
   const merged = mergeNearbyPlaces(origin, local, googlePlaces, config);
   if (merged.links.length > 0 && deps.linkWriter) {
     await deps.linkWriter.saveLinks(merged.links);
@@ -160,6 +171,7 @@ export async function findNearbyPlaces(
       duplicatesRemoved: merged.duplicatesRemoved,
       linksProposed: merged.links.length,
       blockedRemoved,
+      nameExcludedRemoved,
     },
   };
 }

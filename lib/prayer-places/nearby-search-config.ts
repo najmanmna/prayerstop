@@ -61,6 +61,35 @@ export const NEARBY_SEARCH_CONFIG = {
   strongNameSimilarity: 0.8,
 
   /**
+   * Google results whose name contains any of these whole words are dropped
+   * as private homes Google labels as mosques ("Ahamed's House", "Fathima
+   * Residence") — unless the name also has a word from `mosqueNameWords`
+   * ("Prayer House", "Masjid … House" are kept). Case-insensitive. Applied
+   * to Google results only; verified database records are never filtered.
+   */
+  excludedNameWords: ['home', 'homes', 'house', 'houses', 'residence', 'residences', 'residency', 'residential'],
+  mosqueNameWords: [
+    'mosque',
+    'masjid',
+    'masjidh',
+    'masjith',
+    'jami',
+    'jamiya',
+    'jumma',
+    'jummah',
+    'juma',
+    'musalla',
+    'musallah',
+    'thakkiya',
+    'takkiya',
+    'thaika',
+    'zaviya',
+    'zawiya',
+    'dargah',
+    'prayer',
+  ],
+
+  /**
    * Requests are only served inside this box (Sri Lanka, with a small
    * margin). PrayerStop's prayer times and mosque data are Sri Lanka-only,
    * and refusing elsewhere stops the endpoint being used to run up Google

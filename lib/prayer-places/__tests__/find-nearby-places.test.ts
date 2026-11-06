@@ -223,6 +223,34 @@ describe('findNearbyPlaces — database first', () => {
     expect(result).toMatchObject({ meta: { blockedRemoved: 1 } });
   });
 
+  it('drops Google results named as homes, before the blocklist lookup', async () => {
+    const blocklistMock = blocklist({ status: 'ok', blocked: new Set() });
+    const result = await findNearbyPlaces(
+      request,
+      deps({
+        local: localSource({ status: 'ok', places: [] }),
+        google: googleSource({
+          status: 'ok',
+          places: [google('h1', 'Rizvi Residence', 200), google('h2', 'Ahamed House', 250), google('g1', 'Prayer House', 400)],
+        }),
+        blocklist: blocklistMock,
+      })
+    );
+
+    expect(blocklistMock.findBlocked).toHaveBeenCalledWith(['g1']);
+    expect(result.status === 'ok' && result.places.map((p) => p.id)).toEqual(['google:g1']);
+    expect(result).toMatchObject({ meta: { nameExcludedRemoved: 2 } });
+  });
+
+  it('never filters verified database records by name', async () => {
+    const result = await findNearbyPlaces(
+      request,
+      deps({ local: localSource({ status: 'ok', places: [local('a', 'Rizvi House', 100), ...threeNearbyLocals] }) })
+    );
+
+    expect(result.status === 'ok' && result.places.map((p) => p.name)).toContain('Rizvi House');
+  });
+
   it('never links a blocklisted Google result to a local record, even with a matching name', async () => {
     const writer = linkWriter();
     await findNearbyPlaces(
