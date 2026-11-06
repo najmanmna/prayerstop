@@ -1,4 +1,4 @@
-import { formatClock12, formatDuration, getArrivalOutcome, offsetClock, parseClock } from '@/lib/time';
+import { formatClock12, formatDuration, offsetClock, parseClock } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
 /**
@@ -65,39 +65,27 @@ export function summarizeReachability(context: PlanningContext, window: PrayerWi
   };
 }
 
-export interface PlanFigure {
-  value: string;
-  label: string;
-}
-
 /**
- * The three figures under the verdict on the best-match card. Only facts we
- * have: real drive time, arrival, and the window's known start/end. The
- * NOW arrival-vs-end comparison is same-day safe; NEXT never compares
- * clock strings (see build-place-scenario.ts) and shows leave-by/start
- * instead. Isha's end stays "not listed".
+ * The one line under the verdict: how long the prayer has left (or until it
+ * starts) and how far the mosque is, e.g. "Asr ends in 1h 45m · mosque 3 min
+ * away". Uses the prayer engine's countdown (already correct across
+ * midnight) and the place's real ETA; never invents an end for Isha.
  */
-export function planFigures(context: PlanningContext, window: PrayerWindow, place: PrayerPlace): [PlanFigure, PlanFigure, PlanFigure] {
-  const drive: PlanFigure = { value: `${place.etaMinutes} min`, label: 'drive' };
+export function reachabilityDetail(
+  context: PlanningContext,
+  window: PrayerWindow,
+  countdownSeconds: number | null,
+  place: PrayerPlace
+): string {
+  const away = `mosque ${place.etaMinutes} min away`;
+  const countdown = countdownSeconds === null ? null : formatDuration(Math.max(0, Math.round(countdownSeconds / 60)));
 
   if (context === 'next') {
-    return [
-      drive,
-      { value: formatClock12(offsetClock(window.startTime, -place.etaMinutes)), label: 'leave by' },
-      { value: formatClock12(window.startTime), label: `${window.name} starts` },
-    ];
+    return countdown
+      ? `${window.name} starts in ${countdown} · ${away}`
+      : `${window.name} starts at ${formatClock12(window.startTime)} · ${away}`;
   }
-
-  const arrive: PlanFigure = { value: formatClock12(place.arrivalTime), label: 'arrive' };
-  if (!window.hasStarted) {
-    return [drive, arrive, { value: formatClock12(window.startTime), label: `${window.name} starts` }];
-  }
-  const outcome = getArrivalOutcome(window, place.arrivalTime);
-  if (outcome.status === 'unknown') {
-    return [drive, arrive, { value: '—', label: 'end not listed' }];
-  }
-  if (outcome.overflow) {
-    return [drive, arrive, { value: formatDuration(Math.abs(outcome.remaining)), label: 'after it ends' }];
-  }
-  return [drive, arrive, { value: formatDuration(outcome.remaining), label: 'before it ends' }];
+  if (!window.hasStarted) return `Starts at ${formatClock12(window.startTime)} · ${away}`;
+  if (window.endTime === null || countdown === null) return `Mosque is ${place.etaMinutes} min away`;
+  return `${window.name} ends in ${countdown} · ${away}`;
 }

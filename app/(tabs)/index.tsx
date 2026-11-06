@@ -158,6 +158,7 @@ export default function HomeScreen() {
                     place={placeScenario.recommendation}
                     window={timing.window}
                     context={context}
+                    countdownSeconds={timing.countdownSeconds}
                     onPress={() => goToPlaceDetails(placeScenario.recommendation.id)}
                   />
 

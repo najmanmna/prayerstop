@@ -8,14 +8,14 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { displayPlaceText } from '@/lib/display-text';
-import { planFigures, summarizeReachability } from '@/lib/home-display';
+import { reachabilityDetail, summarizeReachability } from '@/lib/home-display';
 import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
 /**
  * The best-match card: title row, the place (same layout as the list rows,
- * larger), then one tinted panel with the plain-words verdict over three
- * evenly spaced figures, then the actions. The verdict and figures come
+ * larger), then one tinted panel with the plain-words verdict and one line
+ * ("Asr ends in 1h 45m · mosque 3 min away"), then the actions. Both come
  * from lib/home-display.ts, which only uses facts we have (see there for
  * the NOW/NEXT and unknown-deadline rules).
  */
@@ -23,17 +23,20 @@ export function RecommendationHero({
   place,
   window,
   context,
+  countdownSeconds,
   onPress,
 }: {
   place: PrayerPlace;
   window: PrayerWindow;
   context: PlanningContext;
+  /** The prayer engine's countdown for this context (null when the deadline is unknown). */
+  countdownSeconds: number | null;
   /** Opens the place's Details screen. Omit to render the card inert (used only in contexts with no Details destination). */
   onPress?: () => void;
 }) {
   const theme = Colors[useColorScheme() ?? 'light'];
   const summary = summarizeReachability(context, window, place);
-  const figures = planFigures(context, window, place);
+  const detail = reachabilityDetail(context, window, countdownSeconds, place);
   const panel =
     summary.tone === 'neutral'
       ? { background: theme.surface, foreground: theme.textSecondary }
@@ -70,28 +73,17 @@ export function RecommendationHero({
         </View>
       </View>
 
+      {/* Verdict panel. The tick sits in the thumbnail's column so the
+          verdict text starts on the same line as the mosque name. */}
       <View accessibilityRole="summary" style={[styles.panel, { backgroundColor: panel.background }]}>
-        <View style={styles.verdictRow}>
-          <StatusGlyph tone={summary.tone} color={panel.foreground} size={20} />
+        <View style={styles.iconColumn}>
+          <StatusGlyph tone={summary.tone} color={panel.foreground} size={28} />
+        </View>
+        <View style={styles.panelText}>
           <ThemedText style={[styles.verdict, { color: summary.tone === 'neutral' ? theme.text : panel.foreground }]}>
             {summary.title}
           </ThemedText>
-        </View>
-        <View style={[styles.panelDivider, { backgroundColor: `${panel.foreground}26` }]} />
-        <View style={styles.figures}>
-          {figures.map((figure, index) => (
-            <View key={figure.label} style={styles.figureWrap}>
-              {index > 0 && <View style={[styles.figureDivider, { backgroundColor: `${panel.foreground}26` }]} />}
-              <View style={styles.figure}>
-                <ThemedText style={styles.figureValue} numberOfLines={1}>
-                  {figure.value}
-                </ThemedText>
-                <ThemedText style={[styles.figureLabel, { color: theme.textSecondary }]} numberOfLines={1}>
-                  {figure.label}
-                </ThemedText>
-              </View>
-            </View>
-          ))}
+          <ThemedText style={[styles.detail, { color: theme.textSecondary }]}>{detail}</ThemedText>
         </View>
       </View>
 
@@ -182,51 +174,26 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   panel: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
     borderRadius: 16,
     paddingVertical: 14,
+    paddingRight: 16,
   },
-  verdictRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingHorizontal: 16,
+  panelText: {
+    flex: 1,
+    gap: 2,
   },
   verdict: {
-    fontSize: 15.5,
-    lineHeight: 20,
-    fontWeight: '800',
-    flexShrink: 1,
-  },
-  panelDivider: {
-    height: StyleSheet.hairlineWidth,
-    marginVertical: 12,
-    marginHorizontal: 16,
-  },
-  figures: {
-    flexDirection: 'row',
-  },
-  figureWrap: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  figureDivider: {
-    width: StyleSheet.hairlineWidth,
-  },
-  figure: {
-    flex: 1,
-    alignItems: 'center',
-    gap: 1,
-    paddingHorizontal: 4,
-  },
-  figureValue: {
     fontSize: 16,
     lineHeight: 21,
     fontWeight: '800',
-    fontVariant: ['tabular-nums'],
   },
-  figureLabel: {
-    fontSize: 11.5,
-    lineHeight: 15,
+  detail: {
+    fontSize: 13,
+    lineHeight: 18,
+    fontVariant: ['tabular-nums'],
   },
   actionsRow: {
     flexDirection: 'row',

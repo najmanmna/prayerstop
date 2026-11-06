@@ -1,4 +1,4 @@
-import { hasPrayerTimePassed, planFigures, summarizeReachability, windowRemainingFraction } from '../home-display';
+import { hasPrayerTimePassed, reachabilityDetail, summarizeReachability, windowRemainingFraction } from '../home-display';
 import type { PrayerPlace, PrayerWindow } from '@/types/home';
 
 const DHUHR: PrayerWindow = { name: 'Dhuhr', startTime: '12:00', endTime: '15:20', hasStarted: true };
@@ -95,32 +95,21 @@ describe('summarizeReachability', () => {
   });
 });
 
-describe('planFigures', () => {
-  it('NOW in time: drive, arrival, time before the end', () => {
-    expect(planFigures('now', DHUHR, place({ etaMinutes: 4, arrivalTime: '15:10' }))).toEqual([
-      { value: '4 min', label: 'drive' },
-      { value: '3:10 PM', label: 'arrive' },
-      { value: '10 min', label: 'before it ends' },
-    ]);
+describe('reachabilityDetail', () => {
+  it('NOW: how long the prayer has left and how far the mosque is', () => {
+    expect(reachabilityDetail('now', DHUHR, 105 * 60, place({ etaMinutes: 3 }))).toBe('Dhuhr ends in 1h 45m · mosque 3 min away');
   });
 
-  it('NOW too late: how long after the end', () => {
-    expect(planFigures('now', DHUHR, place({ arrivalTime: '15:35', feasibility: 'tooLate' }))[2]).toEqual({
-      value: '15 min',
-      label: 'after it ends',
-    });
+  it('NEXT: time until it starts', () => {
+    const asr: PrayerWindow = { name: 'Asr', startTime: '15:20', endTime: null, hasStarted: false };
+    expect(reachabilityDetail('next', asr, 90 * 60, place({ etaMinutes: 12 }))).toBe('Asr starts in 1h 30m · mosque 12 min away');
   });
 
-  it('Isha: the end stays not listed', () => {
-    expect(planFigures('now', ISHA, place({ arrivalTime: '19:30' }))[2]).toEqual({ value: '—', label: 'end not listed' });
+  it('Isha: never claims an end', () => {
+    expect(reachabilityDetail('now', ISHA, null, place())).toBe('Mosque is 4 min away');
   });
 
-  it('NEXT: leave-by and start, never an arrival-vs-end comparison', () => {
-    const fajr: PrayerWindow = { name: 'Fajr', startTime: '04:40', endTime: '05:59', hasStarted: false };
-    expect(planFigures('next', fajr, place({ etaMinutes: 10, arrivalTime: '23:59' }))).toEqual([
-      { value: '10 min', label: 'drive' },
-      { value: '4:30 AM', label: 'leave by' },
-      { value: '4:40 AM', label: 'Fajr starts' },
-    ]);
+  it('NOW before the window starts', () => {
+    expect(reachabilityDetail('now', { ...DHUHR, hasStarted: false }, null, place())).toBe('Starts at 12:00 PM · mosque 4 min away');
   });
 });
