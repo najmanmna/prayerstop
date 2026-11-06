@@ -40,16 +40,16 @@ export function PrayerPanel({
   const remainingFraction = windowRemainingFraction(context, window, countdownSeconds);
   const countdownText = noCountdown ? '—' : formatLiveCountdown(countdownSeconds ?? 0);
 
-  let caption: string;
-  let keyTime: string;
+  // One line under the countdown says what it counts to.
+  let detail: string;
   if (noCountdown) {
-    caption = window.hasStarted ? 'No fixed end time in our data' : 'Hasn’t started yet';
-    keyTime = `${window.hasStarted ? 'Started at' : 'Starts at'} ${formatClock12(window.startTime)}`;
-  } else {
-    caption = isNow ? 'Time remaining' : 'Starts in';
-    keyTime = isNow
-      ? `Ends at ${formatClock12(window.endTime ?? window.startTime)}`
+    detail = window.hasStarted
+      ? `Started at ${formatClock12(window.startTime)} · no end time listed`
       : `Starts at ${formatClock12(window.startTime)}`;
+  } else if (isNow) {
+    detail = `remaining · ends at ${formatClock12(window.endTime ?? window.startTime)}`;
+  } else {
+    detail = `until it starts at ${formatClock12(window.startTime)}`;
   }
 
   return (
@@ -73,16 +73,15 @@ export function PrayerPanel({
       <View style={styles.body}>
         <ThemedText style={styles.overline}>{isNow ? 'CURRENT PRAYER' : 'NEXT PRAYER'}</ThemedText>
         <ThemedText style={styles.prayerName}>{window.name}</ThemedText>
-        <View style={styles.captionRow}>
-          <IconSymbol name="clock.fill" size={14} color="rgba(255,255,255,0.75)" />
-          <ThemedText style={styles.caption}>{caption}</ThemedText>
-        </View>
         {/* Hour-long countdowns ("2:32:15") step down a size so they fit
             beside the arch on narrow phones (adjustsFontSizeToFit is iOS-only). */}
         <ThemedText style={[styles.countdown, countdownText.length > 5 && styles.countdownLong]} numberOfLines={1}>
           {countdownText}
         </ThemedText>
-        <ThemedText style={styles.keyTime}>{keyTime}</ThemedText>
+        <View style={styles.detailRow}>
+          <IconSymbol name="clock.fill" size={13} color="rgba(255,255,255,0.75)" />
+          <ThemedText style={styles.detail}>{detail}</ThemedText>
+        </View>
       </View>
 
       {remainingFraction !== null && (
@@ -100,7 +99,7 @@ export function PrayerPanel({
 /** Decorative arched window with a minaret seen through it. */
 function ArchWindow() {
   return (
-    <Svg width={132} height={190} viewBox="0 0 132 190">
+    <Svg width={104} height={150} viewBox="0 0 132 190">
       <Defs>
         <SvgGradient id="sky" x1="0" y1="0" x2="0" y2="1">
           <Stop offset="0" stopColor="#CFEBDD" stopOpacity="0.55" />
@@ -155,9 +154,9 @@ export function formatLiveCountdown(seconds: number) {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 28,
-    padding: 18,
-    gap: 14,
+    borderRadius: 24,
+    padding: 15,
+    gap: 8,
     overflow: 'hidden',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'rgba(255,255,255,0.14)',
@@ -197,46 +196,41 @@ const styles = StyleSheet.create({
   },
   overline: {
     color: 'rgba(255,255,255,0.6)',
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: '700',
     letterSpacing: 0.9,
   },
   prayerName: {
     color: '#FFFFFF',
-    fontSize: 40,
-    lineHeight: 46,
+    fontSize: 30,
+    lineHeight: 35,
     fontWeight: '800',
-  },
-  captionRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginTop: 2,
-  },
-  caption: {
-    color: 'rgba(255,255,255,0.78)',
-    fontSize: 14,
   },
   countdown: {
     color: '#A8EBBE',
-    fontSize: 58,
-    lineHeight: 64,
+    fontSize: 46,
+    lineHeight: 52,
     fontWeight: '800',
     fontVariant: ['tabular-nums'],
     letterSpacing: -1,
   },
   countdownLong: {
-    fontSize: 46,
-    lineHeight: 56,
+    fontSize: 38,
+    lineHeight: 52,
   },
-  keyTime: {
-    color: 'rgba(255,255,255,0.88)',
-    fontSize: 15,
+  detailRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  detail: {
+    color: 'rgba(255,255,255,0.85)',
+    fontSize: 13,
     fontWeight: '600',
   },
   track: {
-    height: 8,
-    borderRadius: 4,
+    height: 6,
+    borderRadius: 3,
     backgroundColor: 'rgba(255,255,255,0.14)',
     overflow: 'hidden',
   },

@@ -45,9 +45,9 @@ export function PrayerDayCard({
             <View key={entry.name} style={[styles.column, active && { backgroundColor: theme.accentSoft }]}>
               <View style={styles.icon}>
                 {active ? (
-                  <MosqueLogo size={20} color={theme.tint} />
+                  <MosqueLogo size={18} color={theme.tint} />
                 ) : (
-                  <IconSymbol name="clock.fill" size={17} color={passed ? theme.border : theme.textMuted} />
+                  <IconSymbol name="clock.fill" size={15} color={passed ? theme.border : theme.textMuted} />
                 )}
               </View>
               {/* One line each, shrinking to fit rather than wrapping, so a
@@ -85,10 +85,10 @@ function cardShadow() {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 22,
-    paddingHorizontal: 10,
-    paddingTop: 12,
-    paddingBottom: 10,
-    gap: 8,
+    paddingHorizontal: 8,
+    paddingTop: 10,
+    paddingBottom: 8,
+    gap: 6,
   },
   headerRow: {
     flexDirection: 'row',
@@ -97,13 +97,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   label: {
-    fontSize: 10.5,
+    fontSize: 10,
     fontWeight: '700',
     letterSpacing: 0.8,
   },
   // Warm, non-brand tone: Sunrise is a reference marker (Fajr's end), not a prayer.
   sunrise: {
-    fontSize: 11,
+    fontSize: 10.5,
     fontWeight: '600',
     color: '#B8741A',
   },
@@ -115,21 +115,21 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0,
     alignItems: 'center',
-    gap: 3,
-    paddingVertical: 9,
+    gap: 2,
+    paddingVertical: 6,
     paddingHorizontal: 2,
     borderRadius: 14,
   },
   icon: {
-    height: 22,
+    height: 19,
     justifyContent: 'center',
   },
   name: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
   },
   time: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '500',
   },
 });

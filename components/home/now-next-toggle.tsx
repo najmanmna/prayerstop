@@ -49,16 +49,16 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.22)',
   },
   segment: {
-    minWidth: 76,
+    minWidth: 64,
     borderRadius: 999,
-    paddingVertical: 7,
-    paddingHorizontal: 16,
+    paddingVertical: 5,
+    paddingHorizontal: 14,
     alignItems: 'center',
   },
   segmentSelected: {
     backgroundColor: '#A8EBBE',
   },
   title: {
-    fontSize: 14,
+    fontSize: 13,
   },
 });

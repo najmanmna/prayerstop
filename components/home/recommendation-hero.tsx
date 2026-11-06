@@ -1,10 +1,12 @@
 import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { PlaceThumbnail } from '@/components/home/place-thumbnail';
+import { ReachabilityStrip } from '@/components/home/reachability-strip';
 import { ThemedText } from '@/components/themed-text';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, FeasibilityColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import type { ReachabilitySummary } from '@/lib/home-display';
 import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
 import { formatClock12, formatDuration, getArrivalOutcome, offsetClock } from '@/lib/time';
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
@@ -13,11 +15,14 @@ export function RecommendationHero({
   place,
   window,
   context,
+  summary,
   onPress,
 }: {
   place: PrayerPlace;
   window: PrayerWindow;
   context: PlanningContext;
+  /** Plain-words reachability answer shown as the card's top band. */
+  summary?: ReachabilitySummary;
   /** Opens the place's Details screen. Omit to render the card inert (used only in contexts with no Details destination). */
   onPress?: () => void;
 }) {
@@ -71,60 +76,59 @@ export function RecommendationHero({
       activeOpacity={onPress ? 0.9 : 1}
       accessibilityRole={onPress ? 'button' : undefined}
       style={[styles.card, { backgroundColor: theme.surfaceElevated }, cardShadow(theme.text)]}>
-      <View style={styles.headerRow}>
-        <ThemedText style={[styles.overline, { color: theme.textSecondary }]}>BEST FOR {window.name.toUpperCase()}</ThemedText>
-        <View style={[styles.badge, { backgroundColor: theme.accentSoft }]}>
-          <IconSymbol name="star.fill" size={13} color={theme.tint} />
-          <ThemedText style={[styles.badgeLabel, { color: theme.tint }]}>BEST MATCH</ThemedText>
-        </View>
-      </View>
+      {summary && <ReachabilityStrip summary={summary} />}
 
-      <View style={styles.placeRow}>
-        <PlaceThumbnail size={76} />
-        <View style={styles.placeInfo}>
-          <ThemedText type="defaultSemiBold" style={styles.placeName} numberOfLines={2}>
-            {place.name}
-          </ThemedText>
-          <View style={styles.areaRow}>
-            <IconSymbol name="mappin.circle.fill" size={14} color={theme.textMuted} />
+      <View style={styles.body}>
+        <View style={styles.placeRow}>
+          <PlaceThumbnail size={56} />
+          <View style={styles.placeInfo}>
+            <View style={styles.bestMatch}>
+              <IconSymbol name="star.fill" size={11} color={theme.tint} />
+              <ThemedText style={[styles.bestMatchLabel, { color: theme.tint }]}>
+                BEST MATCH FOR {window.name.toUpperCase()}
+              </ThemedText>
+            </View>
+            <ThemedText type="defaultSemiBold" style={styles.placeName} numberOfLines={2}>
+              {place.name}
+            </ThemedText>
             <ThemedText style={[styles.placeArea, { color: theme.textSecondary }]} numberOfLines={1}>
               {/* Distance first so a long address can't truncate it away. */}
               {place.distanceKm.toFixed(1)} km away{place.area ? ` · ${place.area}` : ''}
             </ThemedText>
           </View>
+          {onPress && <IconSymbol name="chevron.right" size={20} color={theme.textMuted} />}
         </View>
-        {onPress && <IconSymbol name="chevron.right" size={22} color={theme.textMuted} />}
-      </View>
 
-      <View style={[styles.headlineBlock, { backgroundColor: theme.surface }]}>
-        <View style={[styles.carBadge, { backgroundColor: theme.surfaceElevated }]}>
-          <IconSymbol name="car.fill" size={20} color={headlineColor} />
+        <View style={[styles.headlineBlock, { backgroundColor: theme.surface }]}>
+          <View style={[styles.carBadge, { backgroundColor: theme.surfaceElevated }]}>
+            <IconSymbol name="car.fill" size={17} color={headlineColor} />
+          </View>
+          <View style={styles.headlineText}>
+            <ThemedText style={[styles.headline, { color: headlineColor }]}>{headline}</ThemedText>
+            <ThemedText style={[styles.caption, { color: theme.textSecondary }]}>{caption}</ThemedText>
+          </View>
         </View>
-        <View style={styles.headlineText}>
-          <ThemedText style={[styles.headline, { color: headlineColor }]}>{headline}</ThemedText>
-          <ThemedText style={[styles.caption, { color: theme.textSecondary }]}>{caption}</ThemedText>
-        </View>
-      </View>
 
-      <View style={styles.actionsRow}>
-        <TouchableOpacity
-          accessibilityRole="button"
-          activeOpacity={0.85}
-          onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
-          style={[styles.primaryAction, { backgroundColor: theme.tint }]}>
-          <IconSymbol name="location.north.fill" size={18} color="#FFFFFF" />
-          <ThemedText type="defaultSemiBold" style={styles.primaryActionLabel}>
-            Get directions
-          </ThemedText>
-        </TouchableOpacity>
-        <TouchableOpacity
-          accessibilityRole="button"
-          accessibilityLabel={`View ${place.name} on Google Maps`}
-          activeOpacity={0.7}
-          onPress={() => openPlaceInGoogleMaps(place)}
-          style={[styles.secondaryAction, { backgroundColor: theme.accentSoft }]}>
-          <IconSymbol name="map.fill" size={20} color={theme.tint} />
-        </TouchableOpacity>
+        <View style={styles.actionsRow}>
+          <TouchableOpacity
+            accessibilityRole="button"
+            activeOpacity={0.85}
+            onPress={() => openExternalNavigation(place.coordinates, place.googlePlaceId)}
+            style={[styles.primaryAction, { backgroundColor: theme.tint }]}>
+            <IconSymbol name="location.north.fill" size={16} color="#FFFFFF" />
+            <ThemedText type="defaultSemiBold" style={styles.primaryActionLabel}>
+              Get directions
+            </ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={`View ${place.name} on Google Maps`}
+            activeOpacity={0.7}
+            onPress={() => openPlaceInGoogleMaps(place)}
+            style={[styles.secondaryAction, { backgroundColor: theme.accentSoft }]}>
+            <IconSymbol name="map.fill" size={18} color={theme.tint} />
+          </TouchableOpacity>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -145,105 +149,88 @@ function cardShadow(color: string) {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 26,
-    padding: 16,
-    gap: 14,
+    borderRadius: 22,
+    overflow: 'hidden',
   },
-  headerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 8,
-  },
-  overline: {
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 1.1,
-  },
-  badge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-    borderRadius: 999,
-    paddingHorizontal: 11,
-    paddingVertical: 5,
-  },
-  badgeLabel: {
-    fontSize: 11,
-    fontWeight: '800',
-    letterSpacing: 0.6,
+  body: {
+    padding: 14,
+    gap: 12,
   },
   placeRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 14,
+    gap: 12,
   },
   placeInfo: {
     flex: 1,
-    gap: 5,
+    gap: 2,
   },
-  placeName: {
-    fontSize: 20,
-    lineHeight: 25,
-    fontWeight: '700',
-  },
-  areaRow: {
+  bestMatch: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
   },
+  bestMatchLabel: {
+    fontSize: 10,
+    fontWeight: '800',
+    letterSpacing: 0.7,
+  },
+  placeName: {
+    fontSize: 16.5,
+    lineHeight: 21,
+    fontWeight: '700',
+  },
   placeArea: {
-    fontSize: 14,
-    flexShrink: 1,
+    fontSize: 12.5,
   },
   headlineBlock: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    borderRadius: 18,
-    paddingVertical: 12,
-    paddingHorizontal: 12,
+    gap: 10,
+    borderRadius: 14,
+    paddingVertical: 9,
+    paddingHorizontal: 10,
   },
   carBadge: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     alignItems: 'center',
     justifyContent: 'center',
   },
   headlineText: {
     flex: 1,
-    gap: 2,
+    gap: 1,
   },
   headline: {
-    fontSize: 17,
-    lineHeight: 22,
+    fontSize: 14.5,
+    lineHeight: 19,
     fontWeight: '800',
     fontVariant: ['tabular-nums'],
   },
   caption: {
-    fontSize: 13,
+    fontSize: 12,
   },
   actionsRow: {
     flexDirection: 'row',
-    gap: 10,
+    gap: 8,
   },
   primaryAction: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
-    borderRadius: 16,
-    paddingVertical: 15,
+    gap: 7,
+    borderRadius: 14,
+    paddingVertical: 12,
   },
   primaryActionLabel: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 15,
   },
   secondaryAction: {
-    width: 54,
-    borderRadius: 16,
+    width: 48,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
   },

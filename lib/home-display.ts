@@ -48,18 +48,18 @@ export function summarizeReachability(
   countdownSeconds: number | null,
   place: PrayerPlace
 ): ReachabilitySummary {
-  const away = `The recommended mosque is ${place.etaMinutes} min away.`;
+  const away = `mosque ${place.etaMinutes} min away`;
   const countdown = countdownSeconds === null ? null : formatDuration(Math.max(0, Math.round(countdownSeconds / 60)));
 
   if (context === 'next') {
-    const startsIn = countdown ? `${window.name} starts in ${countdown}.` : `${window.name} starts at ${formatClock12(window.startTime)}.`;
+    const startsIn = countdown ? `${window.name} starts in ${countdown}` : `${window.name} starts at ${formatClock12(window.startTime)}`;
     if (place.feasibility === 'tooLate') {
-      return { tone: 'tooLate', title: `Can’t arrive before ${window.name} starts`, body: `${startsIn} ${away}` };
+      return { tone: 'tooLate', title: `Can’t arrive before ${window.name} starts`, body: `${startsIn} · ${away}` };
     }
     return {
       tone: place.feasibility,
       title: `Leave by ${formatClock12(offsetClock(window.startTime, -place.etaMinutes))}`,
-      body: `${startsIn} ${away}`,
+      body: `${startsIn} · ${away}`,
     };
   }
 
@@ -67,20 +67,20 @@ export function summarizeReachability(
     return {
       tone: 'neutral',
       title: `${window.name} hasn’t started yet`,
-      body: `It starts at ${formatClock12(window.startTime)}. ${away}`,
+      body: `Starts at ${formatClock12(window.startTime)} · ${away}`,
     };
   }
   if (window.endTime === null || countdown === null) {
     // Isha: ACJU lists no end time, so we make no in-time/too-late claim.
-    return { tone: 'neutral', title: `${window.name} end time not listed`, body: away };
+    return { tone: 'neutral', title: `${window.name} end time not listed`, body: `Recommended mosque is ${place.etaMinutes} min away` };
   }
   if (place.feasibility === 'tooLate') {
     // "Too late to reach" is preserved verbatim (see CLAUDE.md).
-    return { tone: 'tooLate', title: 'Too late to reach', body: `${window.name} ends in ${countdown}. ${away}` };
+    return { tone: 'tooLate', title: 'Too late to reach', body: `${window.name} ends in ${countdown} · ${away}` };
   }
   return {
     tone: place.feasibility,
     title: place.feasibility === 'tight' ? 'It’s tight, but you can make it.' : 'You can make it in time.',
-    body: `${window.name} ends in ${countdown}. ${away}`,
+    body: `${window.name} ends in ${countdown} · ${away}`,
   };
 }

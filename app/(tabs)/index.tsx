@@ -7,7 +7,6 @@ import { AlternatePlaceRow } from '@/components/home/alternate-place-row';
 import { HEADER_CARD_OVERLAP, HomeHeader } from '@/components/home/home-header';
 import { PrayerDayCard } from '@/components/home/prayer-day-card';
 import { PrayerPanel } from '@/components/home/prayer-panel';
-import { ReachabilityBanner } from '@/components/home/reachability-banner';
 import { RecommendationHero } from '@/components/home/recommendation-hero';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -167,18 +166,16 @@ export default function HomeScreen() {
 
               {placeScenario ? (
                 <>
-                  <ReachabilityBanner
+                  <RecommendationHero
+                    place={placeScenario.recommendation}
+                    window={timing.window}
+                    context={context}
                     summary={summarizeReachability(
                       context,
                       timing.window,
                       timing.countdownSeconds,
                       placeScenario.recommendation
                     )}
-                  />
-                  <RecommendationHero
-                    place={placeScenario.recommendation}
-                    window={timing.window}
-                    context={context}
                     onPress={() => goToPlaceDetails(placeScenario.recommendation.id)}
                   />
 
@@ -260,7 +257,7 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 16,
     marginTop: -HEADER_CARD_OVERLAP,
-    gap: 14,
+    gap: 12,
   },
   alternatesSection: {
     gap: 10,

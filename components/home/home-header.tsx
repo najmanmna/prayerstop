@@ -10,7 +10,7 @@ import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 /** How far the prayer card below is pulled up over the header's lower edge. */
-export const HEADER_CARD_OVERLAP = 72;
+export const HEADER_CARD_OVERLAP = 60;
 
 /**
  * Full-bleed green header that runs up under the status bar: greeting,
@@ -40,10 +40,10 @@ export function HomeHeader({
   const theme = Colors[useColorScheme() ?? 'light'];
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
-  const skylineWidth = Math.min(width * 0.47, 210);
+  const skylineWidth = Math.min(width * 0.42, 190);
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top + 14, paddingBottom: HEADER_CARD_OVERLAP + 18 }]}>
+    <View style={[styles.container, { paddingTop: insets.top + 8, paddingBottom: HEADER_CARD_OVERLAP + 12 }]}>
       <LinearGradient
         colors={['#062F20', '#0E4A33', '#1B6446']}
         start={{ x: 0, y: 0 }}
@@ -62,7 +62,7 @@ export function HomeHeader({
 
       <View style={styles.topRow}>
         <View style={styles.brand}>
-          <MosqueLogo size={42} />
+          <MosqueLogo size={34} />
           <View>
             <ThemedText style={styles.greeting}>Assalamu Alaikum</ThemedText>
             <ThemedText style={styles.appName}>PrayerStop</ThemedText>
@@ -78,7 +78,7 @@ export function HomeHeader({
             {isRefreshing ? (
               <ActivityIndicator size="small" color="#FFFFFF" />
             ) : (
-              <IconSymbol name="arrow.clockwise" size={20} color="#FFFFFF" />
+              <IconSymbol name="arrow.clockwise" size={18} color="#FFFFFF" />
             )}
           </TouchableOpacity>
         )}
@@ -89,7 +89,7 @@ export function HomeHeader({
         disabled={!locationInteractive}
         onPress={onLocationPress}
         activeOpacity={0.7}>
-        <IconSymbol name="mappin.circle.fill" size={18} color="#9BE3B5" />
+        <IconSymbol name="mappin.circle.fill" size={16} color="#9BE3B5" />
         <ThemedText type="defaultSemiBold" style={styles.locationText} numberOfLines={1}>
           {locationText}
         </ThemedText>
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -10,
     // Base tucks behind the overlapping card, as if the card sits in front of the mosque.
-    bottom: HEADER_CARD_OVERLAP - 44,
+    bottom: HEADER_CARD_OVERLAP - 38,
     opacity: 0.9,
   },
   fade: {
@@ -136,20 +136,20 @@ const styles = StyleSheet.create({
   },
   greeting: {
     color: 'rgba(255,255,255,0.78)',
-    fontSize: 13,
-    lineHeight: 17,
+    fontSize: 12,
+    lineHeight: 15,
   },
   appName: {
     color: '#FFFFFF',
-    fontSize: 26,
-    lineHeight: 31,
+    fontSize: 21,
+    lineHeight: 26,
     fontWeight: '800',
     letterSpacing: 0.2,
   },
   iconButton: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(255,255,255,0.14)',
@@ -158,16 +158,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    marginTop: 14,
+    marginTop: 10,
     maxWidth: '62%',
   },
   locationText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 14,
     flexShrink: 1,
   },
   noticeSlot: {
-    height: 18,
+    height: 16,
     justifyContent: 'center',
     maxWidth: '62%',
   },

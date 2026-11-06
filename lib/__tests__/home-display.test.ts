@@ -56,7 +56,7 @@ describe('summarizeReachability', () => {
     expect(summarizeReachability('now', DHUHR, 10 * 60, place())).toEqual({
       tone: 'comfortable',
       title: 'You can make it in time.',
-      body: 'Dhuhr ends in 10 min. The recommended mosque is 4 min away.',
+      body: 'Dhuhr ends in 10 min · mosque 4 min away',
     });
   });
 
@@ -74,7 +74,7 @@ describe('summarizeReachability', () => {
 
   it('Isha makes no in-time or too-late claim', () => {
     const summary = summarizeReachability('now', ISHA, null, place());
-    expect(summary).toEqual({ tone: 'neutral', title: 'Isha end time not listed', body: 'The recommended mosque is 4 min away.' });
+    expect(summary).toEqual({ tone: 'neutral', title: 'Isha end time not listed', body: 'Recommended mosque is 4 min away' });
   });
 
   it('NOW before the window starts is neutral', () => {
@@ -88,7 +88,7 @@ describe('summarizeReachability', () => {
     expect(summarizeReachability('next', asr, 90 * 60, place({ etaMinutes: 12 }))).toEqual({
       tone: 'comfortable',
       title: 'Leave by 3:08 PM',
-      body: 'Asr starts in 1h 30m. The recommended mosque is 12 min away.',
+      body: 'Asr starts in 1h 30m · mosque 12 min away',
     });
   });
 
