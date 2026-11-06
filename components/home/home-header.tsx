@@ -43,7 +43,7 @@ export function HomeHeader({
   const skylineWidth = Math.min(width * 0.42, 190);
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top + 8, paddingBottom: HEADER_CARD_OVERLAP + 12 }]}>
+    <View style={[styles.container, { paddingTop: insets.top + 8, paddingBottom: HEADER_CARD_OVERLAP + 4 }]}>
       <LinearGradient
         colors={HeaderGradient}
         start={{ x: 0, y: 0 }}
@@ -94,11 +94,14 @@ export function HomeHeader({
           {locationText}
         </ThemedText>
       </TouchableOpacity>
-      {/* Fixed-height slot so the card below never jumps when a notice appears. */}
       <View style={styles.noticeSlot}>
         {notice && (
-          <TouchableOpacity onPress={onNoticePress} disabled={isRefreshing} activeOpacity={0.7}>
-            <ThemedText style={styles.notice}>{notice}</ThemedText>
+          <TouchableOpacity onPress={onNoticePress} disabled={isRefreshing} activeOpacity={0.7} style={styles.noticePill}>
+            <IconSymbol name="arrow.clockwise" size={11} color="rgba(255,255,255,0.85)" />
+            {/* Always one line: wrapping used to spill up over the location. */}
+            <ThemedText style={styles.notice} numberOfLines={1}>
+              {notice}
+            </ThemedText>
           </TouchableOpacity>
         )}
       </View>
@@ -166,13 +169,26 @@ const styles = StyleSheet.create({
     fontSize: 14,
     flexShrink: 1,
   },
+  // Fixed height so the card below never jumps when a notice appears.
   noticeSlot: {
-    height: 16,
+    height: 30,
     justifyContent: 'center',
-    maxWidth: '62%',
+    alignItems: 'flex-start',
+  },
+  noticePill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    maxWidth: '100%',
+    paddingHorizontal: 9,
+    paddingVertical: 4,
+    borderRadius: 999,
+    backgroundColor: 'rgba(0,0,0,0.22)',
   },
   notice: {
-    color: 'rgba(255,255,255,0.7)',
+    color: 'rgba(255,255,255,0.9)',
     fontSize: 11,
+    lineHeight: 14,
+    flexShrink: 1,
   },
 });
