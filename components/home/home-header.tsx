@@ -56,7 +56,7 @@ export function HomeHeader({
       {/* Fade into the page so the overlapping card sits on a soft edge. */}
       <LinearGradient
         pointerEvents="none"
-        colors={['rgba(251,252,251,0)', theme.background]}
+        colors={[`${theme.background}00`, theme.background]}
         style={[styles.fade, { height: HEADER_CARD_OVERLAP + 10 }]}
       />
 

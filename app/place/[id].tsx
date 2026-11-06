@@ -98,7 +98,7 @@ export default function PlaceDetailsScreen() {
             </View>
           </View>
 
-          <View style={[styles.statsCard, { backgroundColor: theme.surface }]}>
+          <View style={[styles.statsCard, { backgroundColor: theme.surfaceElevated }]}>
             <View style={styles.statColumn}>
               <ThemedText style={[styles.statLabel, { color: theme.textMuted }]}>Distance</ThemedText>
               <ThemedText style={styles.statValue}>{place.distanceKm.toFixed(1)} km</ThemedText>
@@ -162,7 +162,7 @@ function DistanceOnlyDetails({ place }: { place: DistanceRankedCandidate }) {
             </View>
           </View>
 
-          <View style={[styles.statsCard, { backgroundColor: theme.surface }]}>
+          <View style={[styles.statsCard, { backgroundColor: theme.surfaceElevated }]}>
             <View style={styles.statColumn}>
               <ThemedText style={[styles.statLabel, { color: theme.textMuted }]}>Straight-line distance</ThemedText>
               <ThemedText style={styles.statValue}>{formatStraightLineDistance(place.distanceKm)}</ThemedText>

@@ -42,7 +42,7 @@ Requested by the project owner from a reference mockup; supersedes the Home layo
 
 **Colors** (`constants/theme.ts`)
 - Accent — a grounded forest green (`#126B46` light / `#6BC69A` dark), used for location, route, selection, and CTA states.
-- Layered surfaces: `background` → `surface` → `surfaceElevated`, giving cards depth without visible borders. `accentSoft` is a pale green tint used for small badges/icon chips (e.g. the "Recommended" pill, the active-prayer icon badge).
+- Layered surfaces: `background` → `surface` → `surfaceElevated`, giving cards depth without visible borders. Since 2026-11-06 the page `background` is a soft sage tint (`#ECF2EE`) and every card is white (`surfaceElevated`), so cards lift off the page instead of white-on-white; `surface` is for panels inside cards. `accentSoft` is a pale green tint used for small badges/icon chips (e.g. the "Recommended" pill, the active-prayer icon badge).
 - Text: `text` (primary), `textSecondary`, `textMuted` — three steps of hierarchy.
 - Feasibility palette uses **forest / amber / rose** (`comfortable` `#126B46`, `tight` `#C2760A`, `tooLate` `#C93A32`). Conveyed mainly through colored numbers/text now, not standalone badge pills.
 - `RouteGradient` — forest-green two-stop gradient used only for the abstract place-thumbnail tile (`PlaceThumbnail`); not a real map/photo.

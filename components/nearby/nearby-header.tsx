@@ -30,7 +30,7 @@ export function NearbyHeader({
       <LinearGradient colors={HeaderGradient} start={{ x: 0, y: 0 }} end={{ x: 0.6, y: 1 }} style={StyleSheet.absoluteFill} />
       <LinearGradient
         pointerEvents="none"
-        colors={['rgba(251,252,251,0)', theme.background]}
+        colors={[`${theme.background}00`, theme.background]}
         style={[styles.fade, { height: NEARBY_HEADER_OVERLAP + 6 }]}
       />
       <View style={styles.row}>

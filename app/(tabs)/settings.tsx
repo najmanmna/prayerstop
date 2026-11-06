@@ -51,14 +51,14 @@ export default function SettingsScreen() {
         <ScrollView contentContainerStyle={styles.content}>
           <ThemedText style={styles.title}>Settings</ThemedText>
 
-          <View style={[styles.card, { backgroundColor: theme.surface }]}>
+          <View style={[styles.card, { backgroundColor: theme.surfaceElevated }]}>
             <View style={styles.row}>
               <ThemedText style={{ color: theme.textSecondary }}>App version</ThemedText>
               <ThemedText type="defaultSemiBold">{version}</ThemedText>
             </View>
           </View>
 
-          <View style={[styles.card, { backgroundColor: theme.surface }]}>
+          <View style={[styles.card, { backgroundColor: theme.surfaceElevated }]}>
             <ThemedText type="defaultSemiBold">Prayer timetable</ThemedText>
             {zone.status === 'ok' ? (
               <>
@@ -78,7 +78,7 @@ export default function SettingsScreen() {
             )}
           </View>
 
-          <View style={[styles.card, { backgroundColor: theme.surface }]}>
+          <View style={[styles.card, { backgroundColor: theme.surfaceElevated }]}>
             <View style={styles.sectionHeader}>
               <IconSymbol name="bell.fill" size={17} color={theme.tint} />
               <ThemedText type="defaultSemiBold">Prayer reminders</ThemedText>
@@ -139,7 +139,7 @@ export default function SettingsScreen() {
           </View>
 
           {__DEV__ && (
-            <View style={[styles.card, { backgroundColor: theme.surface }]}>
+            <View style={[styles.card, { backgroundColor: theme.surfaceElevated }]}>
               <View style={styles.sectionHeader}>
                 <IconSymbol name="bell.fill" size={17} color={theme.textSecondary} />
                 <ThemedText type="defaultSemiBold">Debug tools</ThemedText>
@@ -168,7 +168,7 @@ export default function SettingsScreen() {
             </View>
           )}
 
-          <View style={[styles.card, { backgroundColor: theme.surface }]}>
+          <View style={[styles.card, { backgroundColor: theme.surfaceElevated }]}>
             <View style={styles.sectionHeader}>
               <IconSymbol name="info.circle.fill" size={17} color={theme.tint} />
               <ThemedText type="defaultSemiBold">About</ThemedText>

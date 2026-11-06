@@ -16,7 +16,9 @@ export const Colors = {
     text: '#14171A',
     textSecondary: '#666E78',
     textMuted: '#9BA2AC',
-    background: '#FBFCFB',
+    // Soft sage page tint: white cards (surfaceElevated) lift off it and it
+    // echoes the green headers, instead of white-on-white.
+    background: '#ECF2EE',
     surface: '#F1F5F2',
     surfaceElevated: '#FFFFFF',
     accentSoft: '#E1F0E8',
