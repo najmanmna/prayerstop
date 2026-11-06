@@ -13,9 +13,9 @@ import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-plac
 import type { PlanningContext, PrayerPlace, PrayerWindow } from '@/types/home';
 
 /**
- * The best-match card: title row, the place (same layout as the list rows,
- * larger), then one tinted panel with the plain-words verdict over three
- * evenly spaced figures, then the actions. The verdict and figures come
+ * The best-match card, on one 16px rhythm: title row, the place, a hairline,
+ * the plain-words verdict over three figures, then the actions — every
+ * section 16px apart and starting on the same 16px edge. The verdict and figures come
  * from lib/home-display.ts, which only uses facts we have (see there for
  * the NOW/NEXT and unknown-deadline rules).
  */
@@ -34,10 +34,7 @@ export function RecommendationHero({
   const theme = Colors[useColorScheme() ?? 'light'];
   const summary = summarizeReachability(context, window, place);
   const figures = planFigures(context, window, place);
-  const panel =
-    summary.tone === 'neutral'
-      ? { background: theme.surface, foreground: theme.textSecondary }
-      : FeasibilityColors[summary.tone];
+  const verdictColor = summary.tone === 'neutral' ? theme.textSecondary : FeasibilityColors[summary.tone].foreground;
   const area = place.area ? ` · ${displayPlaceText(place.area)}` : '';
 
   return (
@@ -70,26 +67,28 @@ export function RecommendationHero({
         </View>
       </View>
 
-      <View accessibilityRole="summary" style={[styles.panel, { backgroundColor: panel.background }]}>
+      <View style={[styles.divider, { backgroundColor: theme.border }]} />
+
+      {/* Verdict over three figures. Everything here starts on the card's
+          16px edge, like the title, thumbnail and button. */}
+      <View accessibilityRole="summary" style={styles.plan}>
         <View style={styles.verdictRow}>
-          <StatusGlyph tone={summary.tone} color={panel.foreground} size={20} />
-          <ThemedText style={[styles.verdict, { color: summary.tone === 'neutral' ? theme.text : panel.foreground }]}>
+          <StatusGlyph tone={summary.tone} color={verdictColor} size={20} />
+          <ThemedText style={[styles.verdict, { color: summary.tone === 'neutral' ? theme.text : verdictColor }]}>
             {summary.title}
           </ThemedText>
         </View>
-        <View style={[styles.panelDivider, { backgroundColor: `${panel.foreground}26` }]} />
         <View style={styles.figures}>
           {figures.map((figure, index) => (
-            <View key={figure.label} style={styles.figureWrap}>
-              {index > 0 && <View style={[styles.figureDivider, { backgroundColor: `${panel.foreground}26` }]} />}
-              <View style={styles.figure}>
-                <ThemedText style={styles.figureValue} numberOfLines={1}>
-                  {figure.value}
-                </ThemedText>
-                <ThemedText style={[styles.figureLabel, { color: theme.textSecondary }]} numberOfLines={1}>
-                  {figure.label}
-                </ThemedText>
-              </View>
+            <View
+              key={figure.label}
+              style={[styles.figure, index > 0 && [styles.figureAfterFirst, { borderLeftColor: theme.border }]]}>
+              <ThemedText style={styles.figureValue} numberOfLines={1}>
+                {figure.value}
+              </ThemedText>
+              <ThemedText style={[styles.figureLabel, { color: theme.textSecondary }]} numberOfLines={1}>
+                {figure.label}
+              </ThemedText>
             </View>
           ))}
         </View>
@@ -132,11 +131,14 @@ function cardShadow(color: string) {
   });
 }
 
+/** The card's single spacing unit: padding, section gaps and the left edge. */
+const SPACE = 16;
+
 const styles = StyleSheet.create({
   card: {
     borderRadius: 22,
-    padding: 14,
-    gap: 12,
+    padding: SPACE,
+    gap: SPACE,
   },
   titleRow: {
     flexDirection: 'row',
@@ -145,6 +147,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 15.5,
+    lineHeight: 20,
     fontWeight: '700',
   },
   badge: {
@@ -157,6 +160,7 @@ const styles = StyleSheet.create({
   },
   badgeLabel: {
     fontSize: 11.5,
+    lineHeight: 15,
     fontWeight: '700',
   },
   placeRow: {
@@ -181,43 +185,33 @@ const styles = StyleSheet.create({
     fontSize: 12.5,
     lineHeight: 16,
   },
-  panel: {
-    borderRadius: 16,
-    paddingTop: 11,
-    paddingBottom: 12,
+  divider: {
+    height: StyleSheet.hairlineWidth,
+  },
+  plan: {
+    gap: 12,
   },
   verdictRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    paddingHorizontal: 14,
   },
   verdict: {
-    fontSize: 15.5,
-    lineHeight: 20,
+    fontSize: 16,
+    lineHeight: 21,
     fontWeight: '800',
     flexShrink: 1,
-  },
-  panelDivider: {
-    height: StyleSheet.hairlineWidth,
-    marginVertical: 10,
-    marginHorizontal: 14,
   },
   figures: {
     flexDirection: 'row',
   },
-  figureWrap: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  figureDivider: {
-    width: StyleSheet.hairlineWidth,
-  },
   figure: {
     flex: 1,
-    alignItems: 'center',
-    gap: 1,
-    paddingHorizontal: 4,
+    gap: 2,
+  },
+  figureAfterFirst: {
+    borderLeftWidth: StyleSheet.hairlineWidth,
+    paddingLeft: 12,
   },
   figureValue: {
     fontSize: 16,

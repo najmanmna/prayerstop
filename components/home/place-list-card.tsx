@@ -58,11 +58,11 @@ export function cardShadow() {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 22,
-    padding: 14,
+    padding: 16,
   },
   header: {
     gap: 2,
-    marginBottom: 12,
+    marginBottom: 14,
   },
   titleRow: {
     flexDirection: 'row',
