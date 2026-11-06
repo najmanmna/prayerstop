@@ -237,19 +237,19 @@ describe('Home — explicit prayer-data-unavailable state (Phase 8C)', () => {
   });
 });
 
-describe('Home — Google Maps action on alternates does not trigger another API call (Phase 8C)', () => {
+describe('Home — Google Maps action does not trigger another API call (Phase 8C)', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockedUsePrayerTimes.mockReturnValue(READY_PRAYER_TIMES);
     mockedBuildPlaceScenario.mockReturnValue(PLACE_SCENARIO);
   });
 
-  it('pressing an alternate\'s Google Maps action never calls refresh/refreshWithLocation (no extra Places/Routes fetch)', () => {
+  it('pressing the recommendation\'s Google Maps action never calls refresh/refreshWithLocation (no extra Places/Routes fetch)', () => {
     const { refresh, refreshWithLocation } = mockSession({ state: { status: 'ready', candidates: [], fetchedAt: Date.now() } });
 
     const renderer = renderHome();
     const mapsButton = renderer.root.findByProps({
-      accessibilityLabel: `View ${PLACE_SCENARIO.alternates[0].name} on Google Maps`,
+      accessibilityLabel: `View ${PLACE_SCENARIO.recommendation.name} on Google Maps`,
     });
 
     act(() => {

@@ -1,13 +1,10 @@
 // Component-level test (a narrow exception — see
 // hooks/__tests__/nearby-places-session.test.tsx for the established
-// precedent): the guarantee under test is specifically that the row wires
-// its Google Maps action to the existing openPlaceInGoogleMaps/Place ID
-// implementation without disturbing the row's own onPress (Details
-// navigation), which needs a real render to verify.
-import { Linking } from 'react-native';
+// precedent): what the row actually renders (drive time + an honest status)
+// and that pressing it opens Details, which needs a real render to verify.
+// Google Maps lives on Place Details now, not on each row.
 import TestRenderer, { act } from 'react-test-renderer';
 
-import { buildViewPlaceUrl } from '@/lib/prayer-places/navigation';
 import type { PrayerPlace, PrayerWindow } from '@/types/home';
 
 import { AlternatePlaceRow } from '../alternate-place-row';
@@ -28,75 +25,56 @@ const place: PrayerPlace = {
   feasibility: 'comfortable',
 };
 
-function renderRow(onPress: () => void) {
+function renderRow(onPress: () => void, overrides: Partial<PrayerPlace> = {}, rowWindow: PrayerWindow = window) {
   let renderer!: TestRenderer.ReactTestRenderer;
   act(() => {
-    renderer = TestRenderer.create(<AlternatePlaceRow place={place} window={window} context="now" onPress={onPress} />);
+    renderer = TestRenderer.create(
+      <AlternatePlaceRow place={{ ...place, ...overrides }} window={rowWindow} context="now" onPress={onPress} />
+    );
   });
   return renderer;
 }
 
-describe('AlternatePlaceRow — Google Maps action', () => {
-  const openURL = Linking.openURL as jest.Mock;
+/** Flattens the rendered tree to a single searchable string of all text content. */
+function allText(renderer: TestRenderer.ReactTestRenderer): string {
+  function collect(node: unknown): string[] {
+    if (node === null || node === undefined || typeof node === 'boolean') return [];
+    if (typeof node === 'string' || typeof node === 'number') return [String(node)];
+    if (Array.isArray(node)) return node.flatMap(collect);
+    if (typeof node === 'object' && 'children' in (node as any)) return collect((node as any).children);
+    return [];
+  }
+  return collect(renderer.toJSON()).join('');
+}
 
-  beforeEach(() => {
-    openURL.mockReset();
-    openURL.mockResolvedValue(undefined);
+describe('AlternatePlaceRow', () => {
+  it('shows the drive time and a short status', () => {
+    const text = allText(renderRow(jest.fn()));
+    expect(text).toContain('Colombo Grand Mosque');
+    expect(text).toContain('1.2 km · Colombo 12');
+    expect(text).toContain('8 min');
+    expect(text).toContain('In time');
   });
 
-  it('exposes a Google Maps action that opens the place\'s existing Place ID listing', () => {
-    const renderer = renderRow(jest.fn());
-
-    const mapsButton = renderer.root.findByProps({ accessibilityLabel: `View ${place.name} on Google Maps` });
-    act(() => {
-      mapsButton.props.onPress();
-    });
-
-    expect(openURL).toHaveBeenCalledTimes(1);
-    expect(openURL).toHaveBeenCalledWith(buildViewPlaceUrl(place));
+  it('keeps the factual "Too late to reach" wording', () => {
+    const text = allText(renderRow(jest.fn(), { arrivalTime: '15:40', feasibility: 'tooLate' }));
+    expect(text).toContain('Too late to reach');
   });
 
-  it('does not trigger any Places/Routes API call — it only opens a URL built from data already on the place', () => {
-    const renderer = renderRow(jest.fn());
-    const mapsButton = renderer.root.findByProps({ accessibilityLabel: `View ${place.name} on Google Maps` });
-
-    act(() => {
-      mapsButton.props.onPress();
-    });
-
-    // The only side effect is a URL open — nothing that could be a network
-    // request to Places/Routes (openPlaceInGoogleMaps itself is proven
-    // elsewhere, in navigation.test.ts, to be a pure URL + Linking.openURL
-    // call with no repository/fetch dependency at all).
-    expect(openURL).toHaveBeenCalledTimes(1);
+  it('makes no in-time claim when the end time is unknown (Isha)', () => {
+    const isha: PrayerWindow = { name: 'Isha', startTime: '19:05', endTime: null, hasStarted: true };
+    const text = allText(renderRow(jest.fn(), { arrivalTime: '19:30' }, isha));
+    expect(text).not.toContain('In time');
+    expect(text).not.toContain('Too late');
   });
 
-  it('does not also fire the row\'s own onPress (Details navigation) when the Google Maps action is pressed', () => {
+  it('opens Details when pressed', () => {
     const onPress = jest.fn();
     const renderer = renderRow(onPress);
-    const mapsButton = renderer.root.findByProps({ accessibilityLabel: `View ${place.name} on Google Maps` });
-
+    const row = renderer.root.findAllByProps({ accessibilityRole: 'button' })[0];
     act(() => {
-      mapsButton.props.onPress();
+      row.props.onPress();
     });
-
-    expect(onPress).not.toHaveBeenCalled();
-    expect(openURL).toHaveBeenCalledTimes(1);
-  });
-
-  it('still navigates to Details when the row itself (not the Google Maps button) is pressed', () => {
-    const onPress = jest.fn();
-    const renderer = renderRow(onPress);
-
-    // Both the row and the Google Maps button are accessibilityRole="button"
-    // — the row itself is the one with no accessibilityLabel (only the
-    // Google Maps button sets one).
-    const buttons = renderer.root.findAllByProps({ accessibilityRole: 'button' });
-    const row = buttons.find((b) => b.props.accessibilityLabel === undefined);
-    act(() => {
-      row!.props.onPress();
-    });
-
     expect(onPress).toHaveBeenCalledTimes(1);
   });
 });

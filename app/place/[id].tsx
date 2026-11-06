@@ -13,6 +13,7 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
 import { buildPlaceScenario } from '@/lib/prayer-places/build-place-scenario';
 import { findCandidateById } from '@/lib/prayer-places/find-candidate';
+import { displayPlaceText } from '@/lib/display-text';
 import { openExternalNavigation, openPlaceInGoogleMaps } from '@/lib/prayer-places/navigation';
 import type { DistanceRankedCandidate } from '@/lib/prayer-places/select-candidates';
 import { formatClock12, formatDuration, getArrivalOutcome } from '@/lib/time';
@@ -92,9 +93,9 @@ export default function PlaceDetailsScreen() {
             <PlaceThumbnail size={72} />
             <View style={styles.headerInfo}>
               <ThemedText type="defaultSemiBold" style={styles.name}>
-                {place.name}
+                {displayPlaceText(place.name)}
               </ThemedText>
-              <ThemedText style={[styles.address, { color: theme.textSecondary }]}>{place.area}</ThemedText>
+              <ThemedText style={[styles.address, { color: theme.textSecondary }]}>{displayPlaceText(place.area)}</ThemedText>
             </View>
           </View>
 
@@ -138,6 +139,18 @@ export default function PlaceDetailsScreen() {
               Navigate
             </ThemedText>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={`View ${place.name} on Google Maps`}
+            activeOpacity={0.7}
+            onPress={() => openPlaceInGoogleMaps(place)}
+            style={styles.secondaryCta}>
+            <IconSymbol name="mappin.circle.fill" size={16} color={theme.tint} />
+            <ThemedText type="defaultSemiBold" style={{ color: theme.tint }}>
+              View on Google Maps
+            </ThemedText>
+          </TouchableOpacity>
         </ScrollView>
       </SafeAreaView>
     </ThemedView>
@@ -154,10 +167,10 @@ function DistanceOnlyDetails({ place }: { place: DistanceRankedCandidate }) {
             <PlaceThumbnail size={72} />
             <View style={styles.headerInfo}>
               <ThemedText type="defaultSemiBold" style={styles.name}>
-                {place.name}
+                {displayPlaceText(place.name)}
               </ThemedText>
               {place.area ? (
-                <ThemedText style={[styles.address, { color: theme.textSecondary }]}>{place.area}</ThemedText>
+                <ThemedText style={[styles.address, { color: theme.textSecondary }]}>{displayPlaceText(place.area)}</ThemedText>
               ) : null}
             </View>
           </View>

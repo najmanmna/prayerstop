@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: StyleSheet.hairlineWidth,
-    marginVertical: 12,
+    marginVertical: 11,
     marginLeft: PLACE_ICON_SIZE + ICON_GAP,
   },
 });
