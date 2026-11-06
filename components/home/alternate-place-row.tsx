@@ -101,9 +101,11 @@ export function AlternatePlaceRow({
 }
 
 const styles = StyleSheet.create({
+  // Top-aligned: the thumbnail sits beside the name rather than floating
+  // halfway down a 3-line text block. The map button stays centred.
   row: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     gap: 12,
   },
   info: {
@@ -153,6 +155,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   mapsButton: {
+    alignSelf: 'center',
     width: 36,
     height: 36,
     borderRadius: 18,
