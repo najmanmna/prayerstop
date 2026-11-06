@@ -135,8 +135,8 @@ function cardShadow(color: string) {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 22,
-    padding: 14,
-    gap: 12,
+    padding: 16,
+    gap: 14,
   },
   titleRow: {
     flexDirection: 'row',
@@ -183,14 +183,13 @@ const styles = StyleSheet.create({
   },
   panel: {
     borderRadius: 16,
-    paddingTop: 11,
-    paddingBottom: 12,
+    paddingVertical: 14,
   },
   verdictRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    paddingHorizontal: 14,
+    paddingHorizontal: 16,
   },
   verdict: {
     fontSize: 15.5,
@@ -200,8 +199,8 @@ const styles = StyleSheet.create({
   },
   panelDivider: {
     height: StyleSheet.hairlineWidth,
-    marginVertical: 10,
-    marginHorizontal: 14,
+    marginVertical: 12,
+    marginHorizontal: 16,
   },
   figures: {
     flexDirection: 'row',
