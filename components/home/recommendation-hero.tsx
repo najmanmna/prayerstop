@@ -64,15 +64,18 @@ export function RecommendationHero({
       accessibilityRole={onPress ? 'button' : undefined}
       style={[styles.card, { backgroundColor: theme.surfaceElevated }, cardShadow(theme.text)]}>
       <View style={styles.body}>
+        {/* Same title row as the other place cards (PlaceListCard). */}
+        <View style={styles.titleRow}>
+          <ThemedText style={styles.title}>Best for {window.name}</ThemedText>
+          <View style={[styles.badge, { backgroundColor: theme.accentSoft }]}>
+            <IconSymbol name="star.fill" size={11} color={theme.tint} />
+            <ThemedText style={[styles.badgeLabel, { color: theme.tint }]}>Recommended</ThemedText>
+          </View>
+        </View>
+
         <View style={styles.placeRow}>
           <PlaceThumbnail size={PLACE_ICON_SIZE} />
           <View style={styles.placeInfo}>
-            <View style={styles.bestMatch}>
-              <IconSymbol name="star.fill" size={11} color={theme.tint} />
-              <ThemedText style={[styles.bestMatchLabel, { color: theme.tint }]}>
-                BEST MATCH FOR {window.name.toUpperCase()}
-              </ThemedText>
-            </View>
             <ThemedText type="defaultSemiBold" style={styles.placeName} numberOfLines={2}>
               {displayPlaceText(place.name)}
             </ThemedText>
@@ -154,15 +157,26 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 2,
   },
-  bestMatch: {
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    fontSize: 15.5,
+    fontWeight: '700',
+  },
+  badge: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
+    borderRadius: 999,
+    paddingHorizontal: 9,
+    paddingVertical: 3,
   },
-  bestMatchLabel: {
-    fontSize: 10,
-    fontWeight: '800',
-    letterSpacing: 0.7,
+  badgeLabel: {
+    fontSize: 11.5,
+    fontWeight: '700',
   },
   placeName: {
     fontSize: 16.5,
