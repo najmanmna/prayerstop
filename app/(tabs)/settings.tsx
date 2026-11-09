@@ -3,6 +3,7 @@ import Constants from 'expo-constants';
 import { Alert, Linking, Platform, ScrollView, StyleSheet, Switch, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { PermissionAction } from '@/components/settings/permission-action';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -89,33 +90,30 @@ export default function SettingsScreen() {
               <ThemedText type="defaultSemiBold">Enable reminders</ThemedText>
               <Switch
                 value={remindersOn}
-                onValueChange={notifications.setEnabled}
+                onValueChange={(value) => {
+                  void notifications.setEnabled(value);
+                }}
                 trackColor={{ false: theme.border, true: theme.tint }}
                 disabled={!notifications.isLoaded}
               />
             </View>
 
             {notifications.permissionStatus === 'denied' && (
-              <TouchableOpacity
-                accessibilityRole="button"
+              <PermissionAction
+                title="Notifications are off"
+                detail="Reminders can’t appear until you allow them."
+                actionLabel="Open settings"
                 onPress={() => Linking.openSettings()}
-                style={[styles.permissionNotice, { backgroundColor: theme.accentSoft }]}>
-                <ThemedText style={[styles.permissionNoticeText, { color: theme.tint }]}>
-                  Notifications are turned off in system settings. Tap to open Settings and allow them.
-                </ThemedText>
-              </TouchableOpacity>
+              />
             )}
 
             {Platform.OS === 'android' && remindersOn && notifications.exactAlarmAvailable === false && (
-              <TouchableOpacity
-                accessibilityRole="button"
+              <PermissionAction
+                title="Reminders may arrive late"
+                detail="Allow on-time reminders in Android settings."
+                actionLabel="Allow"
                 onPress={() => notifications.openExactAlarmSettings()}
-                style={[styles.permissionNotice, { backgroundColor: theme.accentSoft }]}>
-                <ThemedText style={[styles.permissionNoticeText, { color: theme.tint }]}>
-                  Exact alarm access isn&apos;t granted, so reminders may arrive several minutes late or out of
-                  order. Tap to open Alarms &amp; reminders settings and allow it.
-                </ThemedText>
-              </TouchableOpacity>
+              />
             )}
 
             <View style={[styles.divider, { backgroundColor: theme.border }]} />
@@ -254,15 +252,6 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: StyleSheet.hairlineWidth,
-  },
-  permissionNotice: {
-    borderRadius: 12,
-    padding: 10,
-  },
-  permissionNoticeText: {
-    fontSize: 12.5,
-    lineHeight: 17,
-    fontWeight: '600',
   },
   linkValue: {
     flexDirection: 'row',

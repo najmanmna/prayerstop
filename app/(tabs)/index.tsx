@@ -7,12 +7,14 @@ import { PlaceListCard } from '@/components/home/place-list-card';
 import { PrayerDayCard } from '@/components/home/prayer-day-card';
 import { PrayerPanel } from '@/components/home/prayer-panel';
 import { RecommendationHero } from '@/components/home/recommendation-hero';
+import { ReminderPrompt } from '@/components/home/reminder-prompt';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Colors } from '@/constants/theme';
 import { useNearbyPlacesSession } from '@/hooks/nearby-places-session';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useHeaderStatusBar } from '@/hooks/use-header-status-bar';
+import { useReminderPrompt } from '@/hooks/use-reminder-prompt';
 import { usePlanningContext } from '@/hooks/use-planning-context';
 import { selectPrayerTimesForContext, usePrayerTimes } from '@/hooks/use-prayer-times';
 import { formatCoordinates } from '@/lib/location';
@@ -70,6 +72,13 @@ export default function HomeScreen() {
 
   // Light status-bar icons while the green header is in view.
   const handleScroll = useHeaderStatusBar(HEADER_SCROLL_THRESHOLD);
+
+  // One-time "turn on reminders" card, once prayer times are showing and
+  // the location prompt is out of the way.
+  const reminderPrompt = useReminderPrompt({
+    prayerTimesShown: timing !== null,
+    locationSettled: device.status === 'granted' || device.status === 'denied' || device.status === 'error',
+  });
 
   // What to show in place of the recommendation/alternates when we don't
   // have a ready place scenario yet — covers every step of device GPS →
@@ -211,6 +220,7 @@ export default function HomeScreen() {
           )}
         </View>
       </ScrollView>
+      <ReminderPrompt visible={reminderPrompt.visible} onDone={reminderPrompt.dismiss} />
     </ThemedView>
   );
 }

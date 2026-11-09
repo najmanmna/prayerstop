@@ -43,8 +43,11 @@ export interface PrayerNotificationsValue {
    */
   exactAlarmAvailable: boolean | 'unknown';
   isLoaded: boolean;
-  /** Requests OS permission when turning on; leaves `settings.enabled` false if permission is denied (see "Handle notification permission denied gracefully" in CLAUDE.md/docs). */
-  setEnabled: (enabled: boolean) => Promise<void>;
+  /**
+   * Requests OS permission when turning on; leaves `settings.enabled` false if permission is denied (see "Handle notification permission denied gracefully" in CLAUDE.md/docs).
+   * Resolves to whether reminders ended up in the requested state (false only when turning on was blocked by a denied permission).
+   */
+  setEnabled: (enabled: boolean) => Promise<boolean>;
   setTenMinutesBefore: (value: boolean) => void;
   setAtPrayerTime: (value: boolean) => void;
   /** Dev-only: fires a one-off local notification a few seconds out, bypassing real prayer times entirely — see the `__DEV__`-guarded button in Settings. Requests permission first if not already granted. */
@@ -150,7 +153,7 @@ export function PrayerNotificationsProvider({ children }: { children: ReactNode 
     return () => clearInterval(interval);
   }, [isLoaded, runSync]);
 
-  const setEnabled = useCallback(async (enabled: boolean) => {
+  const setEnabled = useCallback(async (enabled: boolean): Promise<boolean> => {
     if (enabled) {
       const status = await requestNotificationPermission();
       setPermissionStatus(status);
@@ -158,7 +161,7 @@ export function PrayerNotificationsProvider({ children }: { children: ReactNode 
         // Denied (or otherwise not granted): leave the setting off rather
         // than storing an "on" preference that can't actually fire anything.
         // The Settings screen shows this state via `permissionStatus`.
-        return;
+        return false;
       }
     }
     setSettings((prev) => {
@@ -166,6 +169,7 @@ export function PrayerNotificationsProvider({ children }: { children: ReactNode 
       saveReminderSettings(next);
       return next;
     });
+    return true;
   }, []);
 
   const setTenMinutesBefore = useCallback((value: boolean) => {

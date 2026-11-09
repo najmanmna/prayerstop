@@ -26,6 +26,11 @@ jest.mock('@/hooks/use-prayer-times', () => {
   return { ...actual, usePrayerTimes: jest.fn() };
 });
 
+// The reminders card reads the notifications Provider, which these Home
+// layout tests don't mount; it has its own tests (reminder-prompt.test.ts).
+jest.mock('@/hooks/use-reminder-prompt', () => ({ useReminderPrompt: () => ({ visible: false, dismiss: jest.fn() }) }));
+jest.mock('@/components/home/reminder-prompt', () => ({ ReminderPrompt: () => null }));
+
 jest.mock('@/lib/prayer-places/build-place-scenario', () => ({
   buildPlaceScenario: jest.fn(),
 }));

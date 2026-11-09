@@ -28,6 +28,8 @@ const MAPPING = {
   'info.circle.fill': 'info',
   'car.fill': 'directions-car',
   'star.fill': 'star',
+  'checkmark.circle.fill': 'check-circle',
+  'exclamationmark.circle.fill': 'error',
 } as IconMapping;
 
 /**
