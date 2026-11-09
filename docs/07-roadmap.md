@@ -57,6 +57,16 @@ Key decisions resolved: default-NOW, single-Home-route navigation, factual "too 
 - [x] Verified the complete flow live: real GPS-standin coordinates → real ACJU prayer state → real Google Places → real Route Matrix → correct recommendation → correct Google Maps navigation URL with the real Place ID — see "Verification status" in [05-technical-architecture.md](./05-technical-architecture.md).
 - Existing UI/visual design unchanged — only the underlying recommendation data and the Navigate button's behavior changed.
 
+## Google Play launch (Android first) — in progress
+
+- [x] EAS Hosting production deploy at `https://prayerstop.expo.app` (API routes + web build), with Supabase/Google keys as Sensitive EAS env vars. Redeploy with `rm -rf dist && npx expo export --platform web && eas deploy --prod`; the production alias sometimes lags, so verify and `eas deploy:promote --prod --id <id>` if needed.
+- [x] Privacy policy at `https://prayerstop.expo.app/privacy.html` (`public/privacy.html`), linked from Settings → About.
+- [x] Play Console app created (package `com.ahamedwebstudio.prayerstop`, personal account). Internal testing release (version code 5) installed and working (2026-11-09).
+- [x] Maps SDK for Android key restricted to the app with two SHA-1s: EAS upload/keystore `6E:CD:4E:11:38:8A:6E:BF:F3:6E:32:6E:48:66:3B:9F:3E:00:FD:51` (EAS-built APKs) and Play app signing `95:87:7C:83:4F:BA:4E:F0:2A:5E:16:13:E9:B6:77:91:FD:9B:6C:90` (Play installs). API restriction: Maps SDK for Android only.
+- [ ] Store listing, App content forms, content rating.
+- [ ] Closed test (version code 6, has the in-app privacy link) with ≥12 testers opted in for 14 consecutive days, then apply for production.
+- [ ] Azan sound at prayer time — deferred to an update until a properly licensed recording is available.
+
 ## Deployment prep — real-world TestFlight testing — in progress
 
 Not a product-feature phase; tracked separately since it's infrastructure, not app logic. Goal: distribute to the project owner's iPhone and a few friends via TestFlight, with `GOOGLE_PLACES_API_KEY`/`GOOGLE_ROUTES_API_KEY` staying server-side.
