@@ -27,8 +27,8 @@ export function useReminderPrompt({ prayerTimesShown, locationSettled }: { praye
     locationSettled,
   });
 
-  // Latched open: turning reminders on makes `shouldShow` false, but the card
-  // must stay up for its second (on-time reminders) step until answered.
+  // Latched open: once shown, it stays until answered, even if reminders get
+  // turned on meanwhile (e.g. while the OS popup is up).
   const [open, setOpen] = useState(false);
   useEffect(() => {
     if (shouldShow) setOpen(true);
