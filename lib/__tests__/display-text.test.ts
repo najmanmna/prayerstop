@@ -12,6 +12,12 @@ describe('displayPlaceText', () => {
     expect(displayPlaceText('WVG6+RFQ, Colombo')).toBe('WVG6+RFQ, Colombo');
   });
 
+  it('drops a stray trailing comma or dash', () => {
+    expect(displayPlaceText('55, Lake Road,')).toBe('55, Lake Road');
+    expect(displayPlaceText('251, MOHIDEEN MASJID ROAD, ')).toBe('251, Mohideen Masjid Road');
+    expect(displayPlaceText('Maradana -')).toBe('Maradana');
+  });
+
   it('leaves text with no letters alone', () => {
     expect(displayPlaceText('133 & 133/1')).toBe('133 & 133/1');
   });

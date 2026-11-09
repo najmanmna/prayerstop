@@ -93,7 +93,8 @@ export default function SettingsScreen() {
                 onValueChange={(value) => {
                   void notifications.setEnabled(value);
                 }}
-                trackColor={{ false: theme.border, true: theme.tint }}
+                trackColor={{ false: theme.border, true: theme.accentSoft }}
+                thumbColor={remindersOn ? theme.tint : '#FFFFFF'}
                 disabled={!notifications.isLoaded}
               />
             </View>
@@ -123,7 +124,8 @@ export default function SettingsScreen() {
               <Switch
                 value={notifications.settings.tenMinutesBefore}
                 onValueChange={notifications.setTenMinutesBefore}
-                trackColor={{ false: theme.border, true: theme.tint }}
+                trackColor={{ false: theme.border, true: theme.accentSoft }}
+                thumbColor={notifications.settings.tenMinutesBefore ? theme.tint : '#FFFFFF'}
                 disabled={!remindersOn}
               />
             </View>
@@ -132,7 +134,8 @@ export default function SettingsScreen() {
               <Switch
                 value={notifications.settings.atPrayerTime}
                 onValueChange={notifications.setAtPrayerTime}
-                trackColor={{ false: theme.border, true: theme.tint }}
+                trackColor={{ false: theme.border, true: theme.accentSoft }}
+                thumbColor={notifications.settings.atPrayerTime ? theme.tint : '#FFFFFF'}
                 disabled={!remindersOn}
               />
             </View>

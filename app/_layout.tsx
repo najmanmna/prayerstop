@@ -1,6 +1,5 @@
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { NearbyPlacesSessionProvider } from '@/hooks/nearby-places-session';
@@ -29,7 +28,10 @@ export default function RootLayout() {
           </PrayerNotificationsProvider>
         </PrayerZoneProvider>
       </NearbyPlacesSessionProvider>
-      <StatusBar style="dark" />
+      {/* No root <StatusBar>: its effect runs after Home's on first mount and
+          turned the icons dark over Home's green header. The app is
+          light-only, so the default is already dark icons; Home and Nearby
+          switch to light while their header shows (useHeaderStatusBar). */}
     </ThemeProvider>
   );
 }

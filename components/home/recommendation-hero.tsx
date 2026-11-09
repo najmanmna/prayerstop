@@ -87,8 +87,11 @@ export function RecommendationHero({
             {detail.prayer && (
               <ThemedText style={[styles.detail, { color: theme.textSecondary }]}>{detail.prayer} ·</ThemedText>
             )}
-            <IconSymbol name="car.fill" size={13} color={theme.textSecondary} />
-            <ThemedText style={[styles.detail, { color: theme.textSecondary }]}>{detail.drive}</ThemedText>
+            {/* Icon and drive time wrap together, never split across lines. */}
+            <View style={styles.driveGroup}>
+              <IconSymbol name="car.fill" size={13} color={theme.textSecondary} />
+              <ThemedText style={[styles.detail, { color: theme.textSecondary }]}>{detail.drive}</ThemedText>
+            </View>
           </View>
         </View>
       </View>
@@ -195,6 +198,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 21,
     fontWeight: '800',
+  },
+  driveGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
   },
   detailRow: {
     flexDirection: 'row',

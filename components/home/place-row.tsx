@@ -61,10 +61,12 @@ export function PlaceRow({
       <View style={styles.trailing}>
         <View style={styles.valueRow}>
           {isDriveTime && <IconSymbol name="car.fill" size={14} color={valueColor ?? theme.text} />}
-          <ThemedText style={[styles.value, { color: valueColor ?? theme.text }]}>{value}</ThemedText>
+          <ThemedText style={[styles.value, { color: valueColor ?? theme.text }]} numberOfLines={1}>
+            {value}
+          </ThemedText>
         </View>
         {caption ? (
-          <ThemedText style={[styles.caption, { color: captionColor ?? theme.textMuted }]} numberOfLines={1}>
+          <ThemedText style={[styles.caption, { color: captionColor ?? theme.textMuted }]} numberOfLines={2}>
             {caption}
           </ThemedText>
         ) : null}
@@ -98,10 +100,12 @@ const styles = StyleSheet.create({
     fontSize: 12.5,
     lineHeight: 16,
   },
+  // Fixed width so every row's value and caption end on the same edge
+  // ("4 min" and "14 min" line up); wide enough for "Too late to reach".
   trailing: {
+    width: 92,
     alignItems: 'flex-end',
     gap: 3,
-    maxWidth: 110,
   },
   valueRow: {
     flexDirection: 'row',
@@ -114,7 +118,9 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     fontVariant: ['tabular-nums'],
   },
+  // Up to two lines so "Too late to reach" is never cut short.
   caption: {
+    textAlign: 'right',
     fontSize: 11.5,
     lineHeight: 15,
     fontWeight: '700',
