@@ -34,7 +34,12 @@
         "googleMaps": {
           "apiKey": "AIzaSyC3rgUa7JjDuL--8Sx89gj7SA6PfEyXtFw"
         }
-      }
+      },
+      "blockedPermissions": [
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "output": "server",
