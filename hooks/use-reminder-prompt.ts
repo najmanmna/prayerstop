@@ -21,7 +21,8 @@ export function useReminderPrompt({ prayerTimesShown, locationSettled }: { praye
   const shouldShow = shouldShowReminderPrompt({
     seen,
     remindersLoaded: notifications.isLoaded,
-    remindersEnabled: notifications.settings.enabled,
+    // A stored "on" without OS permission isn't really on (nothing fires).
+    remindersEnabled: notifications.settings.enabled && notifications.permissionStatus === 'granted',
     permissionStatus: notifications.permissionStatus,
     prayerTimesShown,
     locationSettled,

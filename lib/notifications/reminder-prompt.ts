@@ -32,6 +32,7 @@ export async function markReminderPromptSeen(): Promise<void> {
 export function shouldShowReminderPrompt(state: {
   seen: boolean | 'unknown';
   remindersLoaded: boolean;
+  /** Reminders effectively on: the setting is on AND the OS permission is granted. */
   remindersEnabled: boolean;
   permissionStatus: NotificationPermissionStatus | 'unknown';
   prayerTimesShown: boolean;

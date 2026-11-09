@@ -45,7 +45,10 @@ export default function SettingsScreen() {
   const theme = Colors[useColorScheme() ?? 'light'];
   const version = Constants.expoConfig?.version ?? '—';
   const notifications = usePrayerNotifications();
-  const remindersOn = notifications.settings.enabled;
+  // On only when the OS permission is actually granted too: a stored "on"
+  // without permission (e.g. after a reinstall) schedules nothing, so it
+  // must not look on.
+  const remindersOn = notifications.settings.enabled && notifications.permissionStatus === 'granted';
   const zone = usePrayerZone();
 
   return (
