@@ -37,6 +37,8 @@ const DEVELOPER_NAME = 'Ahamed Web Studio';
  * '94771234567'). The WhatsApp row stays hidden until this is set.
  */
 const DEVELOPER_WHATSAPP: string | null = '94717411188';
+/** Required by Google Play to be reachable from inside the app as well as the store listing. */
+const PRIVACY_POLICY_URL = 'https://prayerstop.expo.app/privacy.html';
 
 export default function SettingsScreen() {
   const theme = Colors[useColorScheme() ?? 'light'];
@@ -193,6 +195,19 @@ export default function SettingsScreen() {
                 </View>
               </TouchableOpacity>
             )}
+            <TouchableOpacity
+              accessibilityRole="link"
+              activeOpacity={0.7}
+              onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}
+              style={styles.row}>
+              <ThemedText style={{ color: theme.textSecondary }}>Privacy policy</ThemedText>
+              <View style={styles.linkValue}>
+                <ThemedText type="defaultSemiBold" style={{ color: theme.tint }}>
+                  View
+                </ThemedText>
+                <IconSymbol name="chevron.right" size={16} color={theme.tint} />
+              </View>
+            </TouchableOpacity>
           </View>
 
           <ThemedText style={[styles.footnote, { color: theme.textMuted }]}>

@@ -33,14 +33,21 @@
 <p>We do not collect your name, email, contacts, photos or any account information. PrayerStop has no sign-up, no ads and no analytics or tracking tools. The app does not record whether you have prayed.</p>
 
 <h2>How nearby mosques and drive times are found</h2>
-<p>When you look for nearby places, the app sends your current coordinates to the PrayerStop server. The server looks up mosques in our own mosque database and, when needed, asks Google Maps Platform (Places and Routes) for nearby mosques and traffic-aware drive times. Google processes those requests under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. The Nearby map is also provided by Google Maps (Android) or Apple Maps (iOS).</p>
+<p>When you look for nearby places, the app sends your current coordinates to the PrayerStop server. The server looks up mosques in our own mosque database (hosted by Supabase) and, when needed, asks Google Maps Platform (Places and Routes) for nearby mosques and traffic-aware drive times. Google processes those requests under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. The Nearby map is also provided by Google Maps (Android) or Apple Maps (iOS).</p>
 <p>We do not store your location on our server or link it to you. Like most online services, our hosting provider may keep standard request logs (which can include the requested location and your IP address) for a short time for security and troubleshooting. Your IP address is also held briefly in memory to limit excessive requests.</p>
 
 <h2>Notifications</h2>
 <p>If you turn on prayer reminders, they are scheduled on your phone from the bundled ACJU timetable. No reminder data is sent to us.</p>
 
-<h2>Sharing</h2>
-<p>We don't sell your data or share it with advertisers. Your location is only passed to the services described above, solely to provide the app's features.</p>
+<h2>Who receives your location</h2>
+<p>We don't sell your data or share it with advertisers. To provide the app's features, your coordinates are passed only to these service providers, who process them on our behalf:</p>
+<ul>
+  <li><strong>Expo Application Services (EAS Hosting)</strong>, which runs the PrayerStop server.</li>
+  <li><strong>Supabase</strong>, which hosts our mosque database and answers nearby-mosque lookups.</li>
+  <li><strong>Google Maps Platform</strong> (Places, Routes and Maps), for nearby mosques, drive times and the map.</li>
+  <li><strong>Apple Maps</strong> on iPhone, for the map.</li>
+</ul>
+<p>Your phone's own location services (Google on Android, Apple on iPhone) are also used to read your location and turn it into a place name.</p>
 
 <h2>Security</h2>
 <p>All communication between the app and our server uses encrypted connections (HTTPS).</p>
