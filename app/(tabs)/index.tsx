@@ -10,6 +10,7 @@ import { RecommendationHero } from '@/components/home/recommendation-hero';
 import { ReminderPrompt } from '@/components/home/reminder-prompt';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { DistancePlaceRow } from '@/components/nearby/distance-place-row';
 import { Colors } from '@/constants/theme';
 import { useNearbyPlacesSession } from '@/hooks/nearby-places-session';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -32,6 +33,13 @@ export default function HomeScreen() {
     timing && nearby.status === 'ready'
       ? buildPlaceScenario(nearby.candidates, context, timing.window, timing.countdownSeconds)
       : null;
+  // Drive times failed (outage, or the daily Routes cap was reached): show
+  // the nearest places by straight-line distance only — no recommendation,
+  // ETA or "in time" verdict, since nothing supports one.
+  const distanceOnlyPlaces =
+    !placeScenario && nearby.status === 'ready' && nearby.travelTimesUnavailable
+      ? nearby.morePlaces.slice(0, HOME_DISTANCE_ONLY_COUNT)
+      : [];
 
   const locationInteractive = device.status === 'denied' || device.status === 'error';
   const locationText =
@@ -187,6 +195,15 @@ export default function HomeScreen() {
                     </PlaceListCard>
                   )}
                 </>
+              ) : distanceOnlyPlaces.length > 0 ? (
+                <PlaceListCard
+                  title="Nearest mosques"
+                  caption="By distance"
+                  note="Live drive times are unavailable right now, so these are sorted by straight-line distance. Tap refresh to try again later.">
+                  {distanceOnlyPlaces.map((place) => (
+                    <DistancePlaceRow key={place.id} place={place} onPress={() => goToPlaceDetails(place.id)} />
+                  ))}
+                </PlaceListCard>
               ) : placesNotice ? (
                 // Compact, secondary — a location/place failure never hides
                 // the prayer card above, it only replaces this section.
@@ -224,6 +241,9 @@ export default function HomeScreen() {
     </ThemedView>
   );
 }
+
+/** How many distance-only places Home lists when drive times are unavailable. */
+const HOME_DISTANCE_ONLY_COUNT = 3;
 
 /** Scroll distance after which the green header is mostly out of view. */
 const HEADER_SCROLL_THRESHOLD = 120;

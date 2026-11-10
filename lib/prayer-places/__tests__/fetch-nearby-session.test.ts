@@ -53,6 +53,7 @@ describe('fetchNearbySession', () => {
         expect.objectContaining({ id: 'a', etaMinutes: 5, routeCondition: 'ROUTE_EXISTS' }),
       ],
       morePlaces: [],
+      travelTimesUnavailable: false,
     });
   });
 
@@ -156,15 +157,20 @@ describe('fetchNearbySession', () => {
     expect(travelTimeRepository.getTravelTimes).not.toHaveBeenCalled();
   });
 
-  it('returns error when the Route Matrix call fails', async () => {
-    const { placeRepository, travelTimeRepository } = fakeRepos({
-      places: [place('a', 0.01)],
-      travelError: 'routes down',
-    });
+  it('keeps the places, distance only, when the Route Matrix call fails (outage or daily cap)', async () => {
+    const places = ['c', 'a', 'b'].map((id) => place(id, 0.01 * (id.charCodeAt(0) - 96)));
+    const { placeRepository, travelTimeRepository } = fakeRepos({ places, travelError: 'routes down' });
 
     const result = await fetchNearbySession(origin, placeRepository, travelTimeRepository);
 
-    expect(result).toEqual({ status: 'error', message: 'routes down' });
+    // No ETA-bearing candidates (nothing to recommend from), every place
+    // nearest-first by straight-line distance, and the flag set.
+    expect(result.status).toBe('ready');
+    if (result.status !== 'ready') return;
+    expect(result.travelTimesUnavailable).toBe(true);
+    expect(result.candidates).toEqual([]);
+    expect(result.morePlaces.map((p) => p.id)).toEqual(['a', 'b', 'c']);
+    expect(result.morePlaces.every((p) => !('etaMinutes' in p))).toBe(true);
   });
 
   it('returns unreachable when every candidate is unroutable', async () => {

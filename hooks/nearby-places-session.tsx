@@ -19,6 +19,8 @@ export type NearbyPlacesSessionState =
       candidates: RankedPrayerPlaceCandidate[];
       /** Places found but not sent to Routes — distance only, no ETA (see `fetchNearbySession`). */
       morePlaces: DistanceRankedCandidate[];
+      /** Routes failed (outage or daily cap): no ETAs, every place is in `morePlaces` by distance only. */
+      travelTimesUnavailable: boolean;
       fetchedAt: number;
     }
   // Places were found nearby, but Google Routes couldn't compute a route to
@@ -128,7 +130,13 @@ export function NearbyPlacesSessionProvider({
       } else if (result.status === 'unreachable') {
         setState({ status: 'unreachable', fetchedAt });
       } else {
-        setState({ status: 'ready', candidates: result.candidates, morePlaces: result.morePlaces, fetchedAt });
+        setState({
+          status: 'ready',
+          candidates: result.candidates,
+          morePlaces: result.morePlaces,
+          travelTimesUnavailable: result.travelTimesUnavailable,
+          fetchedAt,
+        });
       }
     });
 

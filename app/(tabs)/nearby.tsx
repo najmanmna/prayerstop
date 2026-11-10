@@ -48,7 +48,11 @@ export default function NearbyScreen() {
 
   // Everything else discovery found — distance only, no ETA (never sent to
   // Routes). Only shown alongside the routed places, never instead of them.
-  const morePlaces = places.length > 0 && nearby.status === 'ready' ? nearby.morePlaces : [];
+  // When drive times are unavailable (Routes outage or daily cap), every
+  // place is distance-only and listed here — still real places, just no ETA.
+  const travelTimesUnavailable = nearby.status === 'ready' && nearby.travelTimesUnavailable;
+  const morePlaces =
+    (places.length > 0 || travelTimesUnavailable) && nearby.status === 'ready' ? nearby.morePlaces : [];
   const totalCount = places.length + morePlaces.length;
   const radiusKm = DEFAULT_NEARBY_OPTIONS.radiusMeters / 1000;
   const prayerSummary = timing
@@ -57,7 +61,7 @@ export default function NearbyScreen() {
       : `${timing.window.name} · end time not listed`
     : null;
   const headerSummary =
-    places.length > 0
+    totalCount > 0
       ? `${totalCount} ${totalCount === 1 ? 'mosque' : 'mosques'} within ${radiusKm} km of you`
       : 'Prayer places around you';
 
@@ -82,12 +86,12 @@ export default function NearbyScreen() {
   ];
   const selectedPin = pins.find((pin) => pin.id === selectedPinId) ?? null;
   const allPlaces = [...places, ...morePlaces];
-  const showMap = NEARBY_MAP_AVAILABLE && places.length > 0;
+  const showMap = NEARBY_MAP_AVAILABLE && totalCount > 0;
 
   // Mirrors Home's placesNotice pattern — every step of the pipeline gets an
   // honest state to render rather than a blank screen.
   const notice: { title: string; body: string; onPress?: () => void } | null = (() => {
-    if (places.length > 0) return null;
+    if (totalCount > 0) return null;
     if (device.status === 'idle' || device.status === 'requesting') {
       return { title: 'Finding your location', body: 'Getting your current position…' };
     }
@@ -146,13 +150,13 @@ export default function NearbyScreen() {
         }>
         <NearbyHeader
           summary={headerSummary}
-          detail={places.length > 0 ? prayerSummary : null}
+          detail={totalCount > 0 ? prayerSummary : null}
           isRefreshing={isRefreshingEverything}
           onRefresh={() => refreshWithLocation()}
         />
 
         <View style={styles.content}>
-          {places.length === 0 ? (
+          {totalCount === 0 ? (
             <TouchableOpacity
               style={[styles.unavailableCard, { backgroundColor: theme.surfaceElevated }, cardShadow()]}
               disabled={!notice?.onPress}
@@ -194,23 +198,29 @@ export default function NearbyScreen() {
                 </TouchableOpacity>
               )}
 
-              <PlaceListCard title="Fastest to reach" caption="Live drive times">
-                {places.map((place) => (
-                  <AlternatePlaceRow
-                    key={place.id}
-                    place={place}
-                    window={timing!.window}
-                    context="now"
-                    onPress={() => goToDetails(place.id)}
-                  />
-                ))}
-              </PlaceListCard>
+              {places.length > 0 && (
+                <PlaceListCard title="Fastest to reach" caption="Live drive times">
+                  {places.map((place) => (
+                    <AlternatePlaceRow
+                      key={place.id}
+                      place={place}
+                      window={timing!.window}
+                      context="now"
+                      onPress={() => goToDetails(place.id)}
+                    />
+                  ))}
+                </PlaceListCard>
+              )}
 
               {morePlaces.length > 0 && (
                 <PlaceListCard
-                  title="More nearby"
-                  caption={`${morePlaces.length} more`}
-                  note={`Straight-line distance. Live travel times are checked for the nearest ${places.length} only.`}>
+                  title={travelTimesUnavailable ? 'Nearest by distance' : 'More nearby'}
+                  caption={travelTimesUnavailable ? `${morePlaces.length} places` : `${morePlaces.length} more`}
+                  note={
+                    travelTimesUnavailable
+                      ? 'Live drive times are unavailable right now, so these are sorted by straight-line distance. Pull down to try again later.'
+                      : `Straight-line distance. Live travel times are checked for the nearest ${places.length} only.`
+                  }>
                   {morePlaces.map((place) => (
                     <DistancePlaceRow key={place.id} place={place} onPress={() => goToDetails(place.id)} />
                   ))}

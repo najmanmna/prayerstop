@@ -218,6 +218,39 @@ describe('Home — prayer card renders independently of location/places state (P
     expect(text).toContain('Colombo Grand Mosque');
     expect(text).toContain('Jami Ul-Alfar Mosque');
   });
+
+  it('lists the nearest places by distance, with no recommendation, when drive times are unavailable (Routes outage or daily cap)', () => {
+    mockedBuildPlaceScenario.mockReturnValue(null);
+    mockSession({
+      state: {
+        status: 'ready',
+        candidates: [],
+        travelTimesUnavailable: true,
+        morePlaces: [
+          {
+            id: 'db:1',
+            source: 'database',
+            localRecordId: '1',
+            googlePlaceId: null,
+            name: 'Dewatagaha Mosque',
+            area: 'Colombo 07',
+            coordinates: { latitude: 6.91, longitude: 79.86 },
+            distanceKm: 0.6,
+          },
+        ],
+        fetchedAt: Date.now(),
+      },
+    });
+
+    const text = allText(renderHome());
+
+    expect(text).toContain('CURRENT PRAYER');
+    expect(text).toContain('Nearest mosques');
+    expect(text).toContain('Dewatagaha Mosque');
+    expect(text).toContain('Live drive times are unavailable right now');
+    expect(text).not.toContain('Best for');
+    expect(text).not.toContain('Nearby places unavailable');
+  });
 });
 
 describe('Home — explicit prayer-data-unavailable state (Phase 8C)', () => {

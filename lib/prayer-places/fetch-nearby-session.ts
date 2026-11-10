@@ -17,6 +17,14 @@ export type FetchNearbySessionResult =
        * browse list.
        */
       morePlaces: DistanceRankedCandidate[];
+      /**
+       * True when the Routes call itself failed (outage, or the daily quota
+       * cap was reached): `candidates` is then empty and EVERY place is in
+       * `morePlaces`, distance only. The places are still real, so they're
+       * shown by distance rather than hidden behind an error — but with no
+       * ETA, no feasibility and no recommendation, since nothing supports one.
+       */
+      travelTimesUnavailable: boolean;
     }
   | { status: 'empty' }
   // Places were found nearby, but Google Routes couldn't compute a route to
@@ -57,7 +65,12 @@ export async function fetchNearbySession(
     destinations: nearest.map((candidate) => ({ id: candidate.id, coordinates: candidate.coordinates })),
   });
   if (travelTimeResult.status === 'error') {
-    return { status: 'error', message: travelTimeResult.message };
+    return {
+      status: 'ready',
+      candidates: [],
+      morePlaces: selectNearestCandidates(placesResult.places, coords, placesResult.places.length),
+      travelTimesUnavailable: true,
+    };
   }
 
   const candidates = applyTravelTimes(nearest, travelTimeResult.results);
@@ -70,5 +83,5 @@ export async function fetchNearbySession(
     (candidate) => !routedIds.has(candidate.id)
   );
 
-  return { status: 'ready', candidates, morePlaces };
+  return { status: 'ready', candidates, morePlaces, travelTimesUnavailable: false };
 }

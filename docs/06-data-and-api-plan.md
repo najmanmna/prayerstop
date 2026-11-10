@@ -52,6 +52,7 @@
   | Enterprise (two-wheel, etc.) | 1,000 | $15.00 | $1.14 |
 
   At 3 elements/Home-load, 5,000 free elements/month ≈ **~1,600 Home loads/month** free — same "fine for dev, revisit before public launch without caching" caveat as Places pricing above.
+- **Daily caps (set 2026-11-10)**: Route Matrix per-element quota per day = **150**, Places API (New) SearchNearbyRequest per day = **160** (Cloud console → IAM & Admin → Quotas), so a month can't exceed the 5,000 free units of either SKU. Quotas reset at midnight US Pacific. When the Routes cap is hit, the app degrades to a distance-only list (`travelTimesUnavailable`), never a fabricated ETA. Caching Places/Routes content across launches to save calls is **not** permitted by Google's terms (only place IDs, and lat/lng for ≤30 days).
 - **Coverage confirmed live 2026-08-21**: a real Route Matrix call against 3 real Colombo mosque coordinates (from the Places verification above) returned real `ROUTE_EXISTS` durations and distances for all 3 (e.g. 419s/2.9km, 586s/3.9km, 423s/3.2km) — confirming the endpoint, auth, field mask, and request shape all work correctly end to end with a real key that has both Places and Routes enabled.
 - **Limits**: standard `TRAFFIC_AWARE` allows up to 625 elements/request — far more than this app's 1×3 usage ever needs.
 - **Not cached / ephemeral**: real traffic-aware ETA is time- and traffic-sensitive and is not persisted as reusable data — it's recomputed on every Home load / manual refresh.
