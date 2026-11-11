@@ -8,11 +8,18 @@
 
 import { normalizeRouteMatrixResponse, type RawRouteMatrixElement } from '@/lib/prayer-places/normalize-route-matrix';
 import { MAX_ROUTE_MATRIX_DESTINATIONS, type TravelTimeDestination } from '@/lib/prayer-places/travel-time-repository';
+import { createQuotaBreaker, GOOGLE_QUOTA_COOLDOWN_MS, isQuotaExceededResponse } from '@/lib/quota-breaker';
 import { createRateLimiter, rateLimitResponse } from '@/lib/rate-limit';
 
 const GOOGLE_ROUTE_MATRIX_ENDPOINT = 'https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix';
 const FIELD_MASK = 'originIndex,destinationIndex,duration,distanceMeters,condition,status';
 const REQUEST_TIMEOUT_MS = 8000;
+
+// One breaker for the whole process — once a quota-exceeded response is
+// seen, further requests return the same "unavailable" shape the client
+// already degrades gracefully from (see fetch-nearby-session.ts's
+// travelTimesUnavailable fallback) without paying for another doomed call.
+const routesQuotaBreaker = createQuotaBreaker({ cooldownMs: GOOGLE_QUOTA_COOLDOWN_MS });
 
 interface RequestBody {
   origin?: { latitude?: number; longitude?: number };
@@ -63,6 +70,16 @@ export async function POST(request: Request) {
     );
   }
 
+  // A previous request already learned the daily quota is exhausted — skip
+  // straight to the same response the client treats as "drive times are
+  // unavailable right now", instead of another doomed round trip to Google.
+  if (routesQuotaBreaker.isInCooldown()) {
+    return Response.json(
+      { error: `The travel-time service has reached its quota for now (retry in ~${Math.ceil(routesQuotaBreaker.remainingMs() / 60_000)} min).` },
+      { status: 503 }
+    );
+  }
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
@@ -97,6 +114,17 @@ export async function POST(request: Request) {
 
   if (!googleResponse.ok) {
     const errorBody = await googleResponse.text();
+    if (isQuotaExceededResponse(googleResponse.status, errorBody)) {
+      routesQuotaBreaker.recordExceeded();
+      console.error(
+        '[route-matrix] Google Routes quota exceeded — cooling down for',
+        GOOGLE_QUOTA_COOLDOWN_MS / 60_000,
+        'min:',
+        googleResponse.status,
+        errorBody
+      );
+      return Response.json({ error: 'The travel-time service has reached its quota for now.' }, { status: 503 });
+    }
     console.error('[route-matrix] Google Routes request failed:', googleResponse.status, errorBody);
     return Response.json({ error: 'The travel-time service is temporarily unavailable.' }, { status: 502 });
   }

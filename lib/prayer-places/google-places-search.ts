@@ -8,7 +8,13 @@
 import { buildNearbyPlacesRequestBody } from './build-nearby-places-request';
 import type { GooglePlacesSource, PlaceSourceResult } from './find-nearby-places';
 import { normalizeNearbyPlacesResponse, type RawNearbyPlace } from './normalize-nearby-places';
+import { createQuotaBreaker, GOOGLE_QUOTA_COOLDOWN_MS, isQuotaExceededResponse } from '../quota-breaker';
 import type { GeoCoordinates } from './types';
+
+// One breaker for the whole process, shared by every request this server
+// handles — see lib/quota-breaker.ts for why a module-level instance (not
+// one per searchNearby call) is what makes the cooldown actually work.
+const placesQuotaBreaker = createQuotaBreaker({ cooldownMs: GOOGLE_QUOTA_COOLDOWN_MS });
 
 const GOOGLE_PLACES_ENDPOINT = 'https://places.googleapis.com/v1/places:searchNearby';
 // Only the fields the app actually uses. Unchanged from Phase 3–5: no
@@ -23,10 +29,21 @@ interface GoogleSearchNearbyResponse {
 export function createGooglePlacesSource(
   apiKey: string,
   timeoutMs: number,
-  fetchImpl: typeof fetch = fetch
+  fetchImpl: typeof fetch = fetch,
+  breaker: ReturnType<typeof createQuotaBreaker> = placesQuotaBreaker
 ): GooglePlacesSource {
   return {
     async searchNearby(origin: GeoCoordinates, radiusMeters: number, maxResults: number): Promise<PlaceSourceResult> {
+      // A previous call already learned the daily quota is exhausted —
+      // don't pay the latency of another doomed request, go straight to
+      // the caller's local/degraded fallback (see find-nearby-places.ts).
+      if (breaker.isInCooldown()) {
+        return {
+          status: 'error',
+          message: `Google Places is cooling down after a quota error (retry in ~${Math.ceil(breaker.remainingMs() / 60_000)} min).`,
+        };
+      }
+
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -50,7 +67,19 @@ export function createGooglePlacesSource(
       }
 
       if (!response.ok) {
-        console.error('[nearby-places] Google Places request failed:', response.status, await response.text());
+        const body = await response.text();
+        if (isQuotaExceededResponse(response.status, body)) {
+          breaker.recordExceeded();
+          console.error(
+            '[nearby-places] Google Places quota exceeded — cooling down for',
+            GOOGLE_QUOTA_COOLDOWN_MS / 60_000,
+            'min:',
+            response.status,
+            body
+          );
+          return { status: 'error', message: 'The places service has reached its quota for now.' };
+        }
+        console.error('[nearby-places] Google Places request failed:', response.status, body);
         return { status: 'error', message: 'The places service is temporarily unavailable.' };
       }
 
